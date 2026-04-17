@@ -1,0 +1,39 @@
+[task]
+must_read = [
+  "AGENTS.md",
+  "docs/engineering/contracts/architecture.md",
+  "docs/engineering/contracts/testing.md",
+  "docs/engineering/contracts/release.md"
+]
+
+must_run = [
+  "npm run lint",
+  "npm run test",
+  "npm run test:playwright",
+  "npm run build"
+]
+
+must_not = [
+  "modify deployment secrets handling",
+  "change CI infrastructure without explicit task scope",
+  "change auth contract without explicit task scope",
+  "replace native controls with custom widgets without necessity",
+  "claim compliance without evidence"
+]
+
+[review]
+require_diff_summary = true
+require_risk_summary = true
+require_accessibility_review = true
+require_docs_truthfulness_review = true
+require_release_verification = true
+
+[a11y]
+must_map_wcag_when_relevant = true
+must_separate_deterministic_and_manual = true
+never_claim_full_compliance = true
+
+[release]
+docs_must_match_behavior = true
+screenshots_must_match_current_ui = true
+known_limitations_must_be_disclosed = true

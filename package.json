@@ -1,0 +1,13 @@
+{
+  "name": "agent-workflow-blueprint-2026",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "echo lint placeholder",
+    "test": "echo unit test placeholder",
+    "test:playwright": "echo playwright placeholder",
+    "build": "echo build placeholder",
+    "verify:release": "bash scripts/verify-release.sh",
+    "check:prompts": "node scripts/check-prompts.js"
+  }
+}
