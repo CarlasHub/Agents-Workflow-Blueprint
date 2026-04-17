@@ -1,6 +1,6 @@
 # Reference Sources Used for This Starter
 
-These sources informed the workflow, file structure, and teaching material in this repository.
+These sources informed the workflow, file structure, and reference material in this repository.
 
 ## OpenAI and Codex
 - Codex overview: https://developers.openai.com/codex
@@ -14,6 +14,7 @@ These sources informed the workflow, file structure, and teaching material in th
 - Prompt engineering guide: https://developers.openai.com/api/docs/guides/prompt-engineering
 - Prompt guidance for GPT-5.4: https://developers.openai.com/api/docs/guides/prompt-guidance
 - Codex prompting guide: https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide
+- Evals design guide: https://platform.openai.com/docs/guides/evals
 
 ## GitHub
 - Copilot code review guidance: https://docs.github.com/copilot/using-github-copilot/code-review/using-copilot-code-review
@@ -23,7 +24,7 @@ These sources informed the workflow, file structure, and teaching material in th
 - Locators: https://playwright.dev/docs/locators
 - ARIA snapshots: https://playwright.dev/docs/aria-snapshots
 
-## WordPress context referenced in the blog post
+## WordPress context referenced in earlier narrative material
 - WordPress release archive: https://wordpress.org/download/releases/
 - What's new for developers, April 2026: https://developer.wordpress.org/news/2026/04/whats-new-for-developers-april-2026/
 - Accessibility improvements in WordPress 6.9: https://make.wordpress.org/core/2025/11/19/accessibility-improvements-in-wordpress-6-9/

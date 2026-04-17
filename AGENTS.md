@@ -27,10 +27,13 @@ Every non-trivial task must follow this order:
 1. Scoping
 2. Implementation
 3. Review
-4. Verification
-5. Documentation and release notes
+4. Specialist review when relevant
+5. Verification
+6. Documentation and release notes
 
 Do not skip directly from implementation to release language.
+
+Use the workflow and packet templates defined in `docs/engineering/workflow.md`.
 
 ## Required output for every task
 
@@ -45,6 +48,7 @@ Every agent delivering work must return:
 - results of verification
 - known limitations
 - follow-up work if applicable
+- packet or artifact templates used if the workflow required them
 
 ## Hard prohibitions
 

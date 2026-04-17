@@ -12,10 +12,12 @@ Implement the requested change without corrupting architecture, accessibility, r
 
 - AGENTS.md
 - requirements.toml
-- approved scoping packet
+- docs/engineering/workflow.md
+- approved scoping packet based on `docs/engineering/templates/scoping-packet-template.md`
 - docs/engineering/contracts/architecture.md
 - docs/engineering/contracts/testing.md
 - docs/engineering/contracts/accessibility.md
+- docs/engineering/contracts/security.md when the task touches auth, roles, exports, secrets, or user data
 - docs/engineering/contracts/release.md
 - any repository skill relevant to the task
 
@@ -55,11 +57,13 @@ Return:
    - Commands run
    - Result per command
    - Any command not run and why
+   - Built artifact path if one was produced
 
 5. **Risk and limitation notes**
    - Remaining risks
    - Known edge cases
    - What still needs manual validation
+   - Whether a specialist review is still required
 
 ## Engineering standards to enforce
 
@@ -70,6 +74,7 @@ Return:
 - Prefer explicit naming over clever naming.
 - Preserve module boundaries.
 - Avoid duplicate business logic.
+- Keep packet and workflow artifacts aligned with the change when they are part of the task.
 
 ### Front-end
 - Prefer native controls and semantics.
@@ -85,6 +90,7 @@ Return:
 - Avoid leaking internal implementation detail in public errors.
 - Preserve auth and authorization boundaries.
 - Keep background-job state and persistence concerns explicit.
+- Never weaken secret handling or auditability for convenience.
 
 ### Reporting and dashboards
 - Avoid charts that are visually impressive but unreadable.

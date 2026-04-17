@@ -3,11 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "lint": "echo lint placeholder",
-    "test": "echo unit test placeholder",
-    "test:playwright": "echo playwright placeholder",
-    "build": "echo build placeholder",
+    "lint": "python3 scripts/check_prompts.py",
+    "test": "python3 scripts/check_workflow.py",
+    "test:playwright": "python3 scripts/check_examples.py",
+    "build": "python3 scripts/build_starter.py",
     "verify:release": "bash scripts/verify-release.sh",
-    "check:prompts": "node scripts/check-prompts.js"
+    "check:prompts": "python3 scripts/check_prompts.py",
+    "check:workflow": "python3 scripts/check_workflow.py",
+    "check:examples": "python3 scripts/check_examples.py",
+    "check:claims": "python3 scripts/check_claims.py"
   }
 }

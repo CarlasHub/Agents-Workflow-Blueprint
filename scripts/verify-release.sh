@@ -2,9 +2,9 @@
 set -euo pipefail
 
 echo "Running release verification..."
-npm run lint
-npm run test
-npm run test:playwright
-npm run build
-node scripts/check-prompts.js
+python3 scripts/check_prompts.py
+python3 scripts/check_workflow.py
+python3 scripts/check_examples.py
+python3 scripts/check_claims.py
+python3 scripts/build_starter.py
 echo "Release verification complete."

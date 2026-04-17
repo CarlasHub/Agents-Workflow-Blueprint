@@ -13,10 +13,12 @@ Review the current diff and supporting files for correctness, scope discipline, 
 
 - AGENTS.md
 - requirements.toml
-- approved scoping packet
+- docs/engineering/workflow.md
+- approved scoping packet based on `docs/engineering/templates/scoping-packet-template.md`
 - docs/engineering/contracts/architecture.md
 - docs/engineering/contracts/testing.md
 - docs/engineering/contracts/accessibility.md
+- docs/engineering/contracts/security.md when the task touches auth, secrets, exports, or permissions
 - docs/engineering/contracts/release.md
 - changed files
 - changed tests
@@ -92,17 +94,20 @@ Check:
 
 ## Output contract
 
-Return these sections:
+Return the headings from `docs/engineering/templates/review-packet-template.md`.
+
+Within that structure, include:
 
 1. Executive verdict
 2. Release blockers
 3. Major issues
 4. Technical missteps
 5. Accessibility findings
-6. Testing verdict
-7. Documentation drift
-8. Non-negotiable fixes before merge
-9. Optional follow-up improvements
+6. Security findings
+7. Testing verdict
+8. Documentation drift
+9. Non-negotiable fixes before merge
+10. Optional follow-up improvements
 
 ## Severity model
 

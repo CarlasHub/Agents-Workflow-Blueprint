@@ -12,11 +12,13 @@ Focus on whether the shipped artefact, documentation, screenshots, examples, and
 
 - AGENTS.md
 - requirements.toml
+- docs/engineering/workflow.md
 - docs/engineering/contracts/release.md
-- build output expectations
+- docs/engineering/templates/release-evidence-template.md
+- build output expectations or built artifact path
 - README changes
 - docs changes
-- screenshots list
+- example packet changes
 - release notes
 - package and CI script changes
 - any verification logs
@@ -33,24 +35,18 @@ Focus on whether the shipped artefact, documentation, screenshots, examples, and
 
 ## Required checks
 
-- lint/build/test commands present and plausible
+- required commands from `requirements.toml` present and plausible
 - release verification command exists
-- screenshots or visual evidence process documented
+- screenshots or visual evidence process documented if the repository actually ships screenshots
 - docs do not promise planned functionality as current functionality
 - examples do not rely on localhost, mocks, or hidden setup unless clearly labelled
 - known limitations list exists and is honest
 - accessibility-related claims are bounded correctly
+- starter repositories do not describe workflow checks as product verification
 
 ## Output contract
 
-Return:
-1. Executive verdict
-2. Release blockers
-3. Documentation mismatches
-4. Example or screenshot drift
-5. Operational caveats missing from release notes
-6. Commands or artefacts missing from verification
-7. Final go/no-go recommendation
+Return the headings from `docs/engineering/templates/release-evidence-template.md`, filled with release-verification findings rather than implementation notes.
 
 ## Rule
 

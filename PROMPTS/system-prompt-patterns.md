@@ -55,3 +55,26 @@ Use language like:
 
 Implementation prompt should optimise for correctness and scope.
 Review prompt should optimise for scepticism and evidence.
+
+## Pattern 6: Real artifacts, not placeholders
+
+Bad:
+"Use the approved scoping packet"
+
+Better:
+"Read the approved scoping packet produced from `docs/engineering/templates/scoping-packet-template.md` and preserve those headings in the handoff."
+
+Why it works:
+- points to a real repository artifact
+- reduces fake handoff language
+- makes workflow checks automatable
+
+## Pattern 7: Prompt + workflow + checks
+
+Prompts alone do not enforce behaviour.
+Stable repository workflows need:
+
+- role-specific prompts
+- real template files
+- config and reusable skills
+- validation scripts that fail when artifacts drift

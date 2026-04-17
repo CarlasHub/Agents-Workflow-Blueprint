@@ -49,3 +49,9 @@ Release verification is required when:
 - export behaviour changed
 - public claims changed
 - build pipeline changed
+
+## Starter repository note
+
+If the repository is still a workflow starter rather than a runnable product, tests must say that plainly.
+Starter checks may validate prompts, packet templates, examples, and build artifacts for the workflow bundle.
+They must not be described as proof of product behaviour.

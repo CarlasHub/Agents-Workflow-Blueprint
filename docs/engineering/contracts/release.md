@@ -38,3 +38,9 @@ Fail the release if:
 - release claims are unsupported
 - example files are misleading
 - screenshots are stale in a way that could mislead teams
+
+## Starter repository note
+
+If the repository is publishing workflow scaffolding rather than a runnable application, the release material must say so.
+Built artifacts for a starter may describe the workflow bundle or starter manifest.
+They must not be presented as product bundles, deployable applications, or proof of user-facing behaviour.

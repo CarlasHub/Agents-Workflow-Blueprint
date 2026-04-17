@@ -12,17 +12,22 @@ Given a task, produce a technically grounded scoping packet that can be handed t
 
 - AGENTS.md
 - requirements.toml
+- docs/engineering/workflow.md
 - docs/engineering/contracts/architecture.md
 - docs/engineering/contracts/testing.md
 - docs/engineering/contracts/release.md
 - docs/engineering/contracts/accessibility.md
+- docs/engineering/contracts/security.md
+- docs/engineering/templates/scoping-packet-template.md
 - the task brief
 - any mentioned files
 - any relevant neighbouring files needed to understand impact
 
 ## Output contract
 
-Return a structured scoping packet with these sections:
+Return a scoping packet that preserves the headings from `docs/engineering/templates/scoping-packet-template.md`.
+
+Populate the template with repository-grounded content for:
 
 1. **Task restatement**
    - Rewrite the request in precise engineering terms.
@@ -97,7 +102,7 @@ Return a structured scoping packet with these sections:
 10. **Recommended execution plan**
    - Step-by-step implementation sequence
    - Suggested checkpoints
-   - Whether to use subagents
+   - Whether to use subagents, but only if the environment or user permits delegation
    - Suggested review emphasis
 
 11. **Go / pause recommendation**

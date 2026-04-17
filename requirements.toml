@@ -1,16 +1,21 @@
 [task]
 must_read = [
   "AGENTS.md",
+  "docs/engineering/workflow.md",
   "docs/engineering/contracts/architecture.md",
   "docs/engineering/contracts/testing.md",
+  "docs/engineering/contracts/accessibility.md",
+  "docs/engineering/contracts/security.md",
   "docs/engineering/contracts/release.md"
 ]
 
 must_run = [
-  "npm run lint",
-  "npm run test",
-  "npm run test:playwright",
-  "npm run build"
+  "python3 scripts/check_prompts.py",
+  "python3 scripts/check_workflow.py",
+  "python3 scripts/check_examples.py",
+  "python3 scripts/check_claims.py",
+  "python3 scripts/build_starter.py",
+  "bash scripts/verify-release.sh"
 ]
 
 must_not = [
@@ -25,6 +30,7 @@ must_not = [
 require_diff_summary = true
 require_risk_summary = true
 require_accessibility_review = true
+require_security_review_when_relevant = true
 require_docs_truthfulness_review = true
 require_release_verification = true
 
@@ -37,3 +43,8 @@ never_claim_full_compliance = true
 docs_must_match_behavior = true
 screenshots_must_match_current_ui = true
 known_limitations_must_be_disclosed = true
+
+[starter]
+verification_scope = "workflow assets and starter bundle only"
+built_artifact = "dist/starter-manifest.json"
+teaching_exercise = "examples/exercises/exercise-001-comparison-view"

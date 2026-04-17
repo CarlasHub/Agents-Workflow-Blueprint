@@ -15,8 +15,11 @@ Do not pretend automated evidence is complete proof.
 ## Read first
 
 - AGENTS.md
+- requirements.toml
+- docs/engineering/workflow.md
 - docs/engineering/contracts/accessibility.md
-- approved scoping packet
+- docs/engineering/templates/accessibility-review-template.md
+- approved scoping packet based on `docs/engineering/templates/scoping-packet-template.md`
 - changed files
 - changed tests
 - relevant rendered UI if available
@@ -86,6 +89,8 @@ State when a finding is better described as a product risk rather than a clear c
 
 ## Output contract
 
+Return the headings from `docs/engineering/templates/accessibility-review-template.md`.
+
 For each finding provide:
 - title
 - severity
@@ -95,11 +100,6 @@ For each finding provide:
 - likely WCAG mapping if applicable
 - what still needs confirmation
 - what the correct implementation should do
-
-Then provide:
-- overall accessibility verdict
-- manual test checklist
-- unresolved risks before release
 
 ## Prohibitions
 
