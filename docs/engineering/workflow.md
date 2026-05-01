@@ -72,6 +72,17 @@ For teaching and grading, also use:
 - Disclose starter-level limits honestly.
 - Do not imply that example files are production features.
 
+## Optional gate pack
+
+For teams that want stricter release gating language, use:
+
+- `PROMPTS/master-prompt.md`
+- `PROMPTS/anti-fake-completion-agent.md`
+- `PROMPTS/ui-a11y-audit-agent.md`
+- `PROMPTS/feature-health-check-agent.md`
+- `PROMPTS/pre-mortem-agent.md`
+- `PROMPTS/release-proof-agent.md`
+
 ## Subagent policy
 
 - Do not delegate by default.

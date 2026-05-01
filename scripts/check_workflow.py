@@ -22,6 +22,12 @@ REQUIRED_FILES = [
     "docs/teaching/student-submission-checklist.md",
     "docs/teaching/instructor-notes.md",
     "examples/exercises/exercise-001-comparison-view/README.md",
+    "PROMPTS/master-prompt.md",
+    "PROMPTS/anti-fake-completion-agent.md",
+    "PROMPTS/ui-a11y-audit-agent.md",
+    "PROMPTS/feature-health-check-agent.md",
+    "PROMPTS/pre-mortem-agent.md",
+    "PROMPTS/release-proof-agent.md",
     "PROMPTS/security-review-agent.md",
 ]
 

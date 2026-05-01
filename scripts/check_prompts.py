@@ -7,6 +7,12 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 PROMPT_REQUIREMENTS = {
+    "PROMPTS/master-prompt.md": [
+        "Mission",
+        "Read first",
+        "Output contract",
+        "PROMPTS/anti-fake-completion-agent.md",
+    ],
     "PROMPTS/scoping-agent.md": [
         "Mission",
         "Read first",
@@ -43,6 +49,36 @@ PROMPT_REQUIREMENTS = {
         "Read first",
         "Output contract",
         "docs/engineering/templates/security-review-template.md",
+    ],
+    "PROMPTS/anti-fake-completion-agent.md": [
+        "Mission",
+        "Read first",
+        "Output contract",
+        "Mandatory workflow",
+    ],
+    "PROMPTS/ui-a11y-audit-agent.md": [
+        "Mission",
+        "Read first",
+        "Output contract",
+        "Accessibility",
+    ],
+    "PROMPTS/feature-health-check-agent.md": [
+        "Mission",
+        "Read first",
+        "Output contract",
+        "Required checks",
+    ],
+    "PROMPTS/pre-mortem-agent.md": [
+        "Mission",
+        "Read first",
+        "Output contract",
+        "Failure scenario",
+    ],
+    "PROMPTS/release-proof-agent.md": [
+        "Mission",
+        "Read first",
+        "Output contract",
+        "Release verdict",
     ],
 }
 

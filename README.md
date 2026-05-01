@@ -15,6 +15,7 @@ It includes:
 - repository operating rules in `AGENTS.md`
 - machine-readable workflow constraints in `requirements.toml`
 - role-specific prompts for scoping, implementation, review, accessibility review, security review, and release verification
+- a seven-gate prompt pack under `PROMPTS/master-prompt.md` covering implementation, anti-fake completion, UI/A11Y audit, feature health, pre-mortem, and release proof
 - packet templates for handoffs and evidence
 - workflow validation scripts
 - a worked example domain and a canonical exercise
