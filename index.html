@@ -215,19 +215,22 @@ python3 -S scripts/check_template_library.py</code></pre>
         return value.charAt(0).toUpperCase() + value.slice(1);
       }
 
-      function buildCategoryStyles(items) {
-        const categories = [...new Set(items.map((asset) => getCategoryLabel(asset.category)))]
-          .sort((left, right) => left.localeCompare(right));
+      function buildStyleMap(labels) {
+        const sortedLabels = [...new Set(labels)].sort((left, right) => left.localeCompare(right));
         const map = new Map();
-        categories.forEach((category, index) => {
+        sortedLabels.forEach((label, index) => {
           const hue = (index * 137.508) % 360;
-          map.set(category, {
+          map.set(label, {
             bg: `hsl(${hue.toFixed(2)} 80% 52% / 0.17)`,
             border: `hsl(${hue.toFixed(2)} 86% 66% / 0.62)`,
             fg: `hsl(${hue.toFixed(2)} 100% 83%)`,
           });
         });
         return map;
+      }
+
+      function buildCategoryStyles(items) {
+        return buildStyleMap(items.map((asset) => getCategoryLabel(asset.category)));
       }
 
       function categoryStyle(category) {
@@ -240,27 +243,16 @@ python3 -S scripts/check_template_library.py</code></pre>
       }
 
       function buildTypeStyles(items) {
-        const types = [...new Set(items.map((asset) => getTypeLabel(asset.type)))]
-          .sort((left, right) => left.localeCompare(right));
-        const map = new Map();
-        types.forEach((type, index) => {
-          const hue = ((index * 137.508) + 38) % 360;
-          map.set(type, {
-            bg: `hsl(${hue.toFixed(2)} 80% 52% / 0.17)`,
-            border: `hsl(${hue.toFixed(2)} 86% 66% / 0.62)`,
-            fg: `hsl(${hue.toFixed(2)} 100% 83%)`,
-          });
-        });
-        return map;
+        return buildStyleMap(items.map((asset) => getTypeLabel(asset.type)));
       }
 
       function typeStyle(type) {
         const label = getTypeLabel(type);
         const style = typeStyles.get(label);
         if (!style) {
-          return '--type-bg:var(--bgColor-neutral-muted);--type-border:var(--borderColor-default);--type-fg:var(--fgColor-default);';
+          return '--category-bg:var(--bgColor-neutral-muted);--category-border:var(--borderColor-default);--category-fg:var(--fgColor-default);';
         }
-        return `--type-bg:${style.bg};--type-border:${style.border};--type-fg:${style.fg};`;
+        return `--category-bg:${style.bg};--category-border:${style.border};--category-fg:${style.fg};`;
       }
 
       function typeIcon(type) {

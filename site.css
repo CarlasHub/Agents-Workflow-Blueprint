@@ -744,9 +744,9 @@ h1 {
 
 .asset-type {
   gap: 0.35rem;
-  color: var(--type-fg, var(--fgColor-default));
-  border: 1px solid var(--type-border, var(--borderColor-default));
-  background: var(--type-bg, var(--bgColor-neutral-muted));
+  color: var(--category-fg, var(--fgColor-default));
+  border: 1px solid var(--category-border, var(--borderColor-default));
+  background: var(--category-bg, var(--bgColor-neutral-muted));
   font-weight: 600;
 }
 
