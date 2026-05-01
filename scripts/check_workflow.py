@@ -84,6 +84,15 @@ def main() -> int:
             fail(f"docs/engineering/workflow.md missing phrase: {phrase}")
             failed = True
 
+    index_content = (ROOT / "index.html").read_text(encoding="utf-8")
+    for phrase in [
+        "Carla Goncalves",
+        "https://carlashub.com",
+    ]:
+        if phrase not in index_content:
+            fail(f"index.html missing required attribution phrase: {phrase}")
+            failed = True
+
     if failed:
         return 1
 
