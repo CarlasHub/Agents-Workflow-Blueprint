@@ -213,6 +213,21 @@ python3 -S scripts/check_template_library.py</code></pre>
         return value.charAt(0).toUpperCase() + value.slice(1);
       }
 
+      function categoryHash(label) {
+        let hash = 0;
+        for (let index = 0; index < label.length; index += 1) {
+          hash = ((hash << 5) - hash) + label.charCodeAt(index);
+          hash |= 0;
+        }
+        return Math.abs(hash);
+      }
+
+      function categoryStyle(category) {
+        const label = getCategoryLabel(category);
+        const hue = categoryHash(label) % 360;
+        return `--category-bg:hsl(${hue} 80% 52% / 0.17);--category-border:hsl(${hue} 86% 66% / 0.62);--category-fg:hsl(${hue} 100% 83%);`;
+      }
+
       function typeIcon(type) {
         const iconMap = {
           prompt: '●',
@@ -235,7 +250,7 @@ python3 -S scripts/check_template_library.py</code></pre>
           <article class="asset-card" data-type="${asset.type}">
             <div class="asset-card-head">
               <span class="asset-type"><span class="asset-type-icon" aria-hidden="true">${typeIcon(asset.type)}</span>${getTypeLabel(asset.type)}</span>
-              <span class="asset-category">${getCategoryLabel(asset.category)}</span>
+              <span class="asset-category" style="${categoryStyle(asset.category)}">${getCategoryLabel(asset.category)}</span>
             </div>
             <h3>${asset.title}</h3>
             <p>${asset.summary}</p>
