@@ -48,6 +48,7 @@ FILES = [
     "examples/exercises/exercise-001-comparison-view/expected-bad-scoping-packet.md",
     "examples/exercises/exercise-001-comparison-view/expected-good-review.md",
     "examples/exercises/exercise-001-comparison-view/expected-bad-review.md",
+    "examples/template-libraries/agent-templates-production/README.md",
 ]
 
 

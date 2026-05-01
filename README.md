@@ -19,6 +19,7 @@ It includes:
 - packet templates for handoffs and evidence
 - workflow validation scripts
 - a worked example domain and a canonical exercise
+- an integrated template library at `examples/template-libraries/agent-templates-production/` with 100 extracted prompt/skill/contract files
 
 It does not include a runnable application.
 The current verification commands prove the workflow bundle and starter artifact only.

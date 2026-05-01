@@ -46,7 +46,25 @@ REQUIRED_FILES = {
         "Expected Bad Review",
         "Why this is bad",
     ],
+    "examples/template-libraries/agent-templates-production/README.md": [
+        "Agent Templates Production Library",
+        "100 total Markdown files",
+    ],
 }
+
+TEMPLATE_LIBRARY_ROOT = "examples/template-libraries/agent-templates-production"
+EXPECTED_TEMPLATE_COUNTS = {
+    "prompts": 40,
+    "skills": 30,
+    "contracts": 30,
+}
+EXPECTED_TEMPLATE_DOMAINS = [
+    "General_Core",
+    "Software_Engineering",
+    "Legal_Compliance",
+    "Data_Finance",
+    "Strategic_Ops",
+]
 
 
 def fail(message: str) -> None:
@@ -66,6 +84,34 @@ def main() -> int:
         for phrase in phrases:
             if phrase not in content:
                 fail(f"{rel_path} missing phrase: {phrase}")
+                failed = True
+
+    library_root = ROOT / TEMPLATE_LIBRARY_ROOT
+    if not library_root.exists():
+        fail(f"missing template library root: {TEMPLATE_LIBRARY_ROOT}")
+        failed = True
+    else:
+        prompt_count = len(list(library_root.glob("*/prompts/*.md")))
+        skill_count = len(list(library_root.glob("*/skills/*.md")))
+        contract_count = len(list(library_root.glob("*/contracts/*.md")))
+        actual_counts = {
+            "prompts": prompt_count,
+            "skills": skill_count,
+            "contracts": contract_count,
+        }
+
+        for kind, expected in EXPECTED_TEMPLATE_COUNTS.items():
+            actual = actual_counts[kind]
+            if actual != expected:
+                fail(
+                    f"template library count mismatch for {kind}: expected {expected}, got {actual}"
+                )
+                failed = True
+
+        for domain in EXPECTED_TEMPLATE_DOMAINS:
+            domain_path = library_root / domain
+            if not domain_path.exists():
+                fail(f"missing template domain folder: {domain}")
                 failed = True
 
     if failed:

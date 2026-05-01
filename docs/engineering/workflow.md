@@ -97,6 +97,7 @@ The current repository validates:
 - workflow docs and required artifacts
 - example packet presence and example honesty
 - teaching materials and canonical exercise presence
+- integrated template-library presence and expected file distribution
 - unsupported-claim checks for key docs and examples
 - starter build artifact generation for the workflow bundle
 
