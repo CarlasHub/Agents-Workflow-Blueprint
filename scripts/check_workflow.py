@@ -26,6 +26,7 @@ REQUIRED_REQUIREMENTS_COMMANDS = [
     "python3 scripts/check_examples.py",
     "python3 scripts/check_claims.py",
     "python3 scripts/check_template_library.py",
+    "python3 scripts/check_research_basis.py",
     "python3 scripts/build_starter.py",
 ]
 

@@ -38,3 +38,24 @@ Open [`assets.json`](assets.json) for site integration and automation.
 ## Usage rule
 
 Do not paste these assets blindly. Select the smallest asset that matches the failure mode, then combine it with `AGENTS.md`, `docs/engineering/workflow.md`, and the relevant engineering contract.
+
+## Research-backed upgrade layer
+
+This library now includes a stronger scientific-control layer:
+
+- [`RESEARCH-DNA.md`](RESEARCH-DNA.md) — maps CoT, Tree-of-Thoughts, ReAct, Least-to-Most, Self-Consistency, Reflexion, System 2 forcing, and traceability into product behaviour.
+- [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) — shows which research pattern to use for each task type.
+- [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md) — a pre-merge checklist for evidence-backed agent work.
+
+The product does not rely on prompt length alone. It relies on observable controls: decomposition, branch comparison, environment observation, independent verification, correction loops, traceable acceptance, and failure disclosure.
+
+## Research-backed architecture layer
+
+This library now includes a dedicated scientific-DNA layer:
+
+- `SCIENTIFIC-DNA.md` — maps CoT-safe public reasoning, Tree-of-Thoughts-style branching, ReAct loops, least-to-most decomposition, self-consistency, self-refinement, process supervision, constitutional/contract critique, and traceability to repository behaviour.
+- `PROMPT-ARCHITECTURE.md` — defines the nine-layer structure used by high-risk prompts.
+- `TRACEABILITY-MATRIX.md` — provides the requirement-to-evidence matrix used by contracts and release gates.
+- `SYSTEM-2-PROMPTING-GUIDE.md` — explains how to use “System 2” as a deliberate-work metaphor without overclaiming human-like cognition.
+
+The key rule is: ask agents for a public decision record and evidence trail, not hidden chain-of-thought.

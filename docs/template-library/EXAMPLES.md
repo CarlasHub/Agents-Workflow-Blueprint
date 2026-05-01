@@ -47,3 +47,26 @@
 ### Stronger output
 
 > Updated README to describe the 100-asset template library, verification scripts, and starter-level limits. The repository does not prove a deployed product. Final status: verified for documentation alignment.
+
+
+## Example: scientific-DNA rewrite
+
+### Weak prompt
+
+```text
+Fix the UI and tell me when it is done.
+```
+
+### Strong prompt
+
+```text
+Use the UI truth pack. Observe the rendered UI or available screenshots first. Decompose the problem into spacing, hierarchy, interaction states, responsive behaviour, and accessibility. Compare at least two possible fixes if the layout defect could be structural. Apply the smallest safe change. Verify with available commands or disclose missing runtime checks. Map every claim to evidence. End with verified, partially verified, not verified, or blocked.
+```
+
+### Why the strong version works better
+
+- It uses ReAct by requiring observation before action.
+- It uses least-to-most by splitting UI quality into smaller checks.
+- It uses Tree-of-Thoughts-style branching when the fix path is ambiguous.
+- It uses process supervision by requiring the path to be inspectable.
+- It uses traceability by mapping claims to evidence and status.

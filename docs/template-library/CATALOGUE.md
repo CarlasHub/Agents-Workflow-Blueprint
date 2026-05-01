@@ -1,5 +1,21 @@
 # Template Library Catalogue
 
+## Research and architecture documents
+
+- [Scientific DNA](SCIENTIFIC-DNA.md)
+- [Prompt Architecture Guide](PROMPT-ARCHITECTURE.md)
+- [Traceability Matrix Pattern](TRACEABILITY-MATRIX.md)
+- [System 2 Prompting Guide](SYSTEM-2-PROMPTING-GUIDE.md)
+- [Research and Standards Basis](RESEARCH-BASIS.md)
+
+
+## Research control docs
+
+- [`RESEARCH-DNA.md`](RESEARCH-DNA.md)
+- [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md)
+- [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md)
+
+
 This catalogue contains 100 named assets: 40 prompts, 30 skills, and 30 contracts.
 
 Every asset is scenario-specific, copy-ready, and written for evidence-first agent work, failure disclosure, verification, and reduced completion theatre.

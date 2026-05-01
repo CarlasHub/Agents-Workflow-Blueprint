@@ -57,3 +57,49 @@ Use when permissions, user data, integrations, exports, credentials, or logging 
 - Contract: [`19-release-evidence-contract-plus.md`](contracts/19-release-evidence-contract-plus.md)
 
 Use before merge, handoff, or public publication.
+
+## Research-control pack
+
+Use this pack when you want the strictest possible agent behaviour before implementation:
+
+1. Read [`RESEARCH-DNA.md`](RESEARCH-DNA.md).
+2. Select a pattern from [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md).
+3. Apply [`prompts/01-master-agent-enforcement-prompt.md`](prompts/01-master-agent-enforcement-prompt.md).
+4. Use [`skills/04-evidence-collection-skill.md`](skills/04-evidence-collection-skill.md).
+5. Enforce [`contracts/01-completion-honesty-contract.md`](contracts/01-completion-honesty-contract.md).
+6. Finish with [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md).
+
+Acceptance rule: no success claim is valid unless observation, decomposition, verification, reflection, and traceability are all visible.
+
+
+## Research pattern starter packs
+
+### CoT-safe evidence pack
+- Prompt: `prompts/01-master-agent-enforcement-prompt.md`
+- Skill: `skills/04-evidence-collection-skill.md`
+- Contract: `contracts/02-evidence-contract.md`
+- Use when: the agent tends to give polished conclusions without proof.
+
+### ReAct repository-action pack
+- Prompt: `prompts/10-repository-reconnaissance-prompt.md`
+- Skill: `skills/03-repository-mapping-skill.md`
+- Contract: `contracts/05-verification-contract.md`
+- Use when: the agent must inspect files and act based on actual repository state.
+
+### Tree-of-Thoughts risk pack
+- Prompt: `prompts/07-premortem-failure-analysis-prompt.md`
+- Skill: `skills/29-risk-register-skill.md`
+- Contract: `contracts/03-scope-control-contract.md`
+- Use when: there are multiple plausible routes and a bad choice could cause regressions.
+
+### Least-to-most implementation pack
+- Prompt: `prompts/09-minimal-correct-change-prompt.md`
+- Skill: `skills/02-implementation-planning-skill.md`
+- Contract: `contracts/15-refactor-safety-contract.md`
+- Use when: the task is complex and should be reduced to safe, small changes.
+
+### Formal traceability release pack
+- Prompt: `prompts/40-final-merge-gate-prompt.md`
+- Skill: `skills/30-final-delivery-packaging-skill.md`
+- Contract: `contracts/19-release-evidence-contract-plus.md`
+- Use when: acceptance requires requirement-to-evidence mapping.

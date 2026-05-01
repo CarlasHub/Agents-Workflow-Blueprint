@@ -7,9 +7,30 @@
     "path": "docs/template-library/prompts/01-master-agent-enforcement-prompt.md",
     "summary": "Use at the start of a serious coding-agent session when the agent must obey repository rules, evidence discipline, and release-honesty constraints.",
     "tags": [
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -19,9 +40,28 @@
     "path": "docs/template-library/prompts/02-evidence-first-implementation-prompt.md",
     "summary": "Use when a feature, bug fix, refactor, or documentation change must be implemented with proof before any success claim.",
     "tags": [
-      "implementation"
+      "implementation",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -32,9 +72,30 @@
     "summary": "Use after an agent claims success and you need to test whether the claim is real, exaggerated, or unsupported.",
     "tags": [
       "audit",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -44,9 +105,30 @@
     "path": "docs/template-library/prompts/04-assumption-exposure-prompt.md",
     "summary": "Use before implementation or review when hidden assumptions could change architecture, UX, security, or release judgement.",
     "tags": [
-      "reasoning control"
+      "reasoning control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -56,9 +138,30 @@
     "path": "docs/template-library/prompts/05-uncertainty-calibration-prompt.md",
     "summary": "Use when an answer sounds confident but evidence quality varies across code, UI, tests, or documentation.",
     "tags": [
-      "reasoning control"
+      "reasoning control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -68,9 +171,30 @@
     "path": "docs/template-library/prompts/06-contradiction-detection-prompt.md",
     "summary": "Use when docs, tests, UI, code, README, or release language may disagree.",
     "tags": [
-      "reasoning control"
+      "reasoning control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -81,9 +205,26 @@
     "summary": "Use before merge, release, or large refactor to imagine failure and prevent avoidable blind spots.",
     "tags": [
       "risk",
-      "review quality"
+      "review quality",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -94,9 +235,28 @@
     "summary": "Use when the task is at risk of scope creep, hidden dependencies, or accidental redesign.",
     "tags": [
       "scoping",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -106,9 +266,26 @@
     "path": "docs/template-library/prompts/09-minimal-correct-change-prompt.md",
     "summary": "Use when a requested fix must avoid broad rewrites, unrelated styling, or unnecessary dependency changes.",
     "tags": [
-      "implementation"
+      "implementation",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -119,9 +296,28 @@
     "summary": "Use at the beginning of work on an unfamiliar repository, template pack, or docs/product system.",
     "tags": [
       "repository analysis",
-      "repository"
+      "repository",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -131,9 +327,26 @@
     "path": "docs/template-library/prompts/11-feature-implementation-prompt.md",
     "summary": "Use for new feature work that needs design, code, tests, docs, and release evidence kept aligned.",
     "tags": [
-      "implementation"
+      "implementation",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -144,9 +357,29 @@
     "summary": "Use when a symptom is known but the actual cause, blast radius, and regression risk must be proven.",
     "tags": [
       "bug remediation",
-      "implementation"
+      "implementation",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -157,9 +390,29 @@
     "summary": "Use after any implementation that might break adjacent behaviour, shared contracts, or existing user paths.",
     "tags": [
       "review",
-      "review quality"
+      "review quality",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -170,9 +423,28 @@
     "summary": "Use for maintainability, structure, dead-code, duplication, and readability review.",
     "tags": [
       "code quality",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -183,9 +455,28 @@
     "summary": "Use when a change may violate boundaries, patterns, ownership, or long-term design constraints.",
     "tags": [
       "architecture",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -196,9 +487,26 @@
     "summary": "Use when removing unused files, branches, exports, styles, docs, tests, or generated artefacts.",
     "tags": [
       "clean-up",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -209,9 +517,26 @@
     "summary": "Use when improving structure without intentionally changing behaviour.",
     "tags": [
       "refactor",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -222,9 +547,28 @@
     "summary": "Use when request/response shapes, public functions, schemas, integrations, or API docs may change.",
     "tags": [
       "api",
-      "api data state"
+      "api data state",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -235,9 +579,26 @@
     "summary": "Use when data origin, transformation, persistence, display, export, or logging must be understood.",
     "tags": [
       "data flow",
-      "api data state"
+      "api data state",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -248,9 +609,26 @@
     "summary": "Use for frontend or application state that may become stale, inconsistent, duplicated, or race-prone.",
     "tags": [
       "state",
-      "api data state"
+      "api data state",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -261,9 +639,27 @@
     "summary": "Use when a UI must be inspected for hierarchy, grouping, spacing, layout, and real rendered structure.",
     "tags": [
       "ui/ux",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -274,9 +670,28 @@
     "summary": "Use before accepting a UI that must look polished, readable, aligned, and professionally finished.",
     "tags": [
       "ui/ux",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -287,9 +702,27 @@
     "summary": "Use when components, tokens, typography, icons, spacing, and interaction states must remain consistent.",
     "tags": [
       "design system",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -300,9 +733,27 @@
     "summary": "Use when layouts must survive mobile, tablet, desktop, long content, and constrained viewport states.",
     "tags": [
       "responsive ui",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -313,9 +764,27 @@
     "summary": "Use for buttons, forms, menus, tables, cards, dialogs, navigation, and other interactive UI states.",
     "tags": [
       "interaction",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -325,9 +794,27 @@
     "path": "docs/template-library/prompts/26-keyboard-journey-audit-prompt.md",
     "summary": "Use when interactive surfaces must be navigable without a mouse and must avoid keyboard traps.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -337,9 +824,27 @@
     "path": "docs/template-library/prompts/27-accessibility-remediation-prompt.md",
     "summary": "Use when a specific accessibility issue must be fixed without fake pass language or harmful ARIA patches.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -349,9 +854,27 @@
     "path": "docs/template-library/prompts/28-screen-reader-risk-review-prompt.md",
     "summary": "Use when dynamic UI, forms, icon controls, modals, route changes, or live regions may confuse assistive technology users.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -361,9 +884,29 @@
     "path": "docs/template-library/prompts/29-wcag-mapping-review-prompt.md",
     "summary": "Use when findings need a careful mapping to WCAG 2.2 success criteria and severity without overstating certainty.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -373,9 +916,27 @@
     "path": "docs/template-library/prompts/30-icon-only-control-review-prompt.md",
     "summary": "Use when icon buttons, compact actions, menus, or toolbar controls may lack clear names or affordances.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -385,9 +946,29 @@
     "path": "docs/template-library/prompts/31-playwright-test-design-prompt.md",
     "summary": "Use when designing browser tests for real user behaviour, accessibility checks, and stable selectors.",
     "tags": [
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -397,9 +978,30 @@
     "path": "docs/template-library/prompts/32-test-quality-audit-prompt.md",
     "summary": "Use when tests pass but may be shallow, flaky, over-mocked, or unrelated to real risk.",
     "tags": [
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -410,9 +1012,28 @@
     "summary": "Use before final handoff, merge approval, release note creation, or claim publication.",
     "tags": [
       "release",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "prompt",
@@ -423,9 +1044,26 @@
     "summary": "Use when docs, guides, examples, or site copy may promise more than the implementation proves.",
     "tags": [
       "documentation",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability"
+    ]
   },
   {
     "type": "prompt",
@@ -436,9 +1074,28 @@
     "summary": "Use when a README needs to become a useful product entry point, not just a file list.",
     "tags": [
       "documentation",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -449,9 +1106,28 @@
     "summary": "Use when turning repository files into a public template hub with copy actions, categories, examples, and low-friction navigation.",
     "tags": [
       "site/product",
-      "site product"
+      "site product",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "prompt",
@@ -461,9 +1137,28 @@
     "path": "docs/template-library/prompts/37-security-trust-boundary-prompt.md",
     "summary": "Use when a change touches actors, permissions, data, integration, exports, admin features, or sensitive operations.",
     "tags": [
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Premortem failure analysis",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -473,9 +1168,28 @@
     "path": "docs/template-library/prompts/38-secrets-handling-review-prompt.md",
     "summary": "Use when environment variables, tokens, credentials, logs, CI, config, or integrations may expose secrets.",
     "tags": [
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Premortem failure analysis",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -486,9 +1200,28 @@
     "summary": "Use when work needs useful logs, metrics, traces, alerts, or operational evidence without privacy leakage.",
     "tags": [
       "observability",
-      "observability performance"
+      "observability performance",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Premortem failure analysis",
+      "Self-Consistency"
+    ]
   },
   {
     "type": "prompt",
@@ -499,9 +1232,30 @@
     "summary": "Use as the final review prompt before merge or publication when all evidence must be consolidated.",
     "tags": [
       "release",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Prompts"
+    "pack": "Prompts",
+    "research_patterns": [
+      "CoT-safe public reasoning",
+      "ReAct loop",
+      "least-to-most",
+      "branch evaluation",
+      "traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "skill",
@@ -512,9 +1266,29 @@
     "summary": "Use when converting a task request into a bounded, reviewable scoping packet.",
     "tags": [
       "scoping",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -525,9 +1299,29 @@
     "summary": "Use when the agent needs a safe implementation plan before editing.",
     "tags": [
       "planning",
-      "implementation"
+      "implementation",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -538,9 +1332,29 @@
     "summary": "Use when the repository structure, authority files, and scripts must be understood before change.",
     "tags": [
       "repository analysis",
-      "repository"
+      "repository",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -551,9 +1365,29 @@
     "summary": "Use when gathering proof for implementation, review, documentation, or release claims.",
     "tags": [
       "evidence",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -564,9 +1398,29 @@
     "summary": "Use when command results, manual checks, and skipped checks must be reported cleanly.",
     "tags": [
       "verification",
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -577,9 +1431,30 @@
     "summary": "Use when the answer must disclose incomplete, unverified, risky, or weaker-than-requested work.",
     "tags": [
       "honesty",
-      "reasoning control"
+      "reasoning control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "skill",
@@ -590,9 +1465,28 @@
     "summary": "Use when screenshots or rendered UI must be audited for defects and state mismatches.",
     "tags": [
       "ui/ux",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -602,9 +1496,28 @@
     "path": "docs/template-library/skills/08-accessibility-inspection-skill.md",
     "summary": "Use when inspecting semantic structure, names, keyboard behaviour, and user impact.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -614,9 +1527,30 @@
     "path": "docs/template-library/skills/09-wcag-mapping-skill.md",
     "summary": "Use when translating accessibility findings into WCAG 2.2 references and remediation evidence.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Self-Consistency",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -626,9 +1560,29 @@
     "path": "docs/template-library/skills/10-keyboard-testing-skill.md",
     "summary": "Use when interactive flows must be tested by keyboard.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "skill",
@@ -638,9 +1592,29 @@
     "path": "docs/template-library/skills/11-playwright-debugging-skill.md",
     "summary": "Use when browser tests fail, flake, or need meaningful behaviour assertions.",
     "tags": [
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "skill",
@@ -650,9 +1624,29 @@
     "path": "docs/template-library/skills/12-regression-test-design-skill.md",
     "summary": "Use when a bug fix or feature needs tests that would catch future breakage.",
     "tags": [
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting"
+    ]
   },
   {
     "type": "skill",
@@ -663,9 +1657,27 @@
     "summary": "Use when reviewing a diff for correctness, maintainability, and evidence.",
     "tags": [
       "review",
-      "review quality"
+      "review quality",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -676,9 +1688,29 @@
     "summary": "Use when structural improvement is needed but behaviour must stay stable.",
     "tags": [
       "refactor",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -689,9 +1721,27 @@
     "summary": "Use when deciding whether files, exports, branches, styles, or docs are unused.",
     "tags": [
       "clean-up",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -702,9 +1752,29 @@
     "summary": "Use when reviewing boundaries, ownership, coupling, and long-term maintainability.",
     "tags": [
       "architecture",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -715,9 +1785,29 @@
     "summary": "Use when API shapes, schemas, callers, and docs must be reconciled.",
     "tags": [
       "api",
-      "api data state"
+      "api data state",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -727,9 +1817,29 @@
     "path": "docs/template-library/skills/18-security-review-skill.md",
     "summary": "Use when reviewing trust boundaries, permissions, secrets, data handling, and abuse paths.",
     "tags": [
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Premortem failure analysis",
+      "Self-Consistency",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -739,9 +1849,29 @@
     "path": "docs/template-library/skills/19-secrets-review-skill.md",
     "summary": "Use when tokens, env vars, logs, config, or CI may expose secrets.",
     "tags": [
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Premortem failure analysis",
+      "Self-Consistency",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -752,9 +1882,29 @@
     "summary": "Use when personal, tenant, customer, analytics, export, or audit data may be collected or exposed.",
     "tags": [
       "privacy",
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Premortem failure analysis",
+      "Self-Consistency",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -765,9 +1915,27 @@
     "summary": "Use when docs must be checked against implementation and repository reality.",
     "tags": [
       "documentation",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -778,9 +1946,29 @@
     "summary": "Use when release notes must represent verified behaviour and known limitations.",
     "tags": [
       "release",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -791,9 +1979,29 @@
     "summary": "Use when README needs a clearer user journey, catalogue, and verification instructions.",
     "tags": [
       "documentation",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -804,9 +2012,29 @@
     "summary": "Use when organising many templates into categories, starter packs, and discoverable metadata.",
     "tags": [
       "template product",
-      "site product"
+      "site product",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -817,9 +2045,29 @@
     "summary": "Use when the public site must serve templates clearly on GitHub Pages.",
     "tags": [
       "site/product",
-      "site product"
+      "site product",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -830,9 +2078,27 @@
     "summary": "Use when prompts must be immediately usable by agents without vague placeholders.",
     "tags": [
       "prompt writing",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -843,9 +2109,30 @@
     "summary": "Use when prompts or workflows need stronger controls against shortcuts and overclaiming.",
     "tags": [
       "agent control",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "skill",
@@ -856,9 +2143,27 @@
     "summary": "Use when assessing whether prompts produce reliable, honest, and useful agent output.",
     "tags": [
       "evaluation",
-      "reasoning control"
+      "reasoning control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -869,9 +2174,27 @@
     "summary": "Use when work requires a live list of risks, owners, mitigations, and verification gaps.",
     "tags": [
       "risk",
-      "review quality"
+      "review quality",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "skill",
@@ -882,9 +2205,27 @@
     "summary": "Use when packaging an upgraded repository, template system, or release bundle.",
     "tags": [
       "delivery",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Skills"
+    "pack": "Skills",
+    "research_patterns": [
+      "least-to-most",
+      "ReAct loop",
+      "self-refinement",
+      "process supervision",
+      "handoff traceability"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion"
+    ]
   },
   {
     "type": "contract",
@@ -895,9 +2236,30 @@
     "summary": "Use as the top-level acceptance rule against fake completion.",
     "tags": [
       "honesty",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -908,9 +2270,28 @@
     "summary": "Use when every claim must be traceable to inspected files, behaviour, commands, or manual evidence.",
     "tags": [
       "evidence",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -921,9 +2302,30 @@
     "summary": "Use to reject hidden scope expansion, accidental redesign, or unrelated changes.",
     "tags": [
       "scope",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -933,9 +2335,30 @@
     "path": "docs/template-library/contracts/04-assumption-contract.md",
     "summary": "Use when assumptions must be named before they influence implementation or review.",
     "tags": [
-      "reasoning control"
+      "reasoning control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -946,9 +2369,28 @@
     "summary": "Use when commands, manual checks, and evidence gaps define acceptance.",
     "tags": [
       "verification",
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -958,9 +2400,30 @@
     "path": "docs/template-library/contracts/06-test-behaviour-contract.md",
     "summary": "Use when tests must prove user or system behaviour rather than shallow implementation details.",
     "tags": [
-      "testing"
+      "testing",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Reflexion",
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -970,9 +2433,28 @@
     "path": "docs/template-library/contracts/07-accessibility-contract-plus.md",
     "summary": "Use for UI work that must preserve semantic structure, keyboard access, and WCAG-aligned reasoning.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -982,9 +2464,28 @@
     "path": "docs/template-library/contracts/08-keyboard-interaction-contract.md",
     "summary": "Use for menus, dialogs, forms, tables, navigation, and custom controls.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -994,9 +2495,28 @@
     "path": "docs/template-library/contracts/09-accessible-name-contract.md",
     "summary": "Use for icon controls, form controls, composite widgets, and dynamic UI.",
     "tags": [
-      "accessibility"
+      "accessibility",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1007,9 +2527,28 @@
     "summary": "Use before accepting visual UI changes.",
     "tags": [
       "ui/ux",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1020,9 +2559,28 @@
     "summary": "Use when UI must follow reusable components, tokens, and interaction patterns.",
     "tags": [
       "design system",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1033,9 +2591,28 @@
     "summary": "Use when layout must remain usable across viewports and content lengths.",
     "tags": [
       "responsive ui",
-      "ui ux"
+      "ui ux",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1046,9 +2623,28 @@
     "summary": "Use for maintainability and structural acceptance.",
     "tags": [
       "code quality",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1059,9 +2655,30 @@
     "summary": "Use when module, layer, dependency, or ownership boundaries matter.",
     "tags": [
       "architecture",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1072,9 +2689,28 @@
     "summary": "Use for behaviour-preserving structural change.",
     "tags": [
       "refactor",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1085,9 +2721,28 @@
     "summary": "Use when removing apparently unused files, exports, branches, or docs.",
     "tags": [
       "clean-up",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1098,9 +2753,28 @@
     "summary": "Use when docs, examples, and guides must match real implementation.",
     "tags": [
       "documentation",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1111,9 +2785,30 @@
     "summary": "Use for README updates, public pages, and repository positioning.",
     "tags": [
       "documentation",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1124,9 +2819,28 @@
     "summary": "Use before merge, publication, release note approval, or public handoff.",
     "tags": [
       "release",
-      "docs release"
+      "docs release",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1136,9 +2850,28 @@
     "path": "docs/template-library/contracts/20-security-boundary-contract.md",
     "summary": "Use when permissions, identities, integrations, data, or sensitive operations change.",
     "tags": [
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1148,9 +2881,28 @@
     "path": "docs/template-library/contracts/21-secrets-handling-contract.md",
     "summary": "Use for environment variables, credentials, CI, logs, tokens, and configuration.",
     "tags": [
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1161,9 +2913,28 @@
     "summary": "Use for personal, tenant, analytics, export, retention, or audit data.",
     "tags": [
       "privacy",
-      "security"
+      "security",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1174,9 +2945,28 @@
     "summary": "Use when adding or changing logs, metrics, traces, or alerts.",
     "tags": [
       "observability",
-      "observability performance"
+      "observability performance",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1187,9 +2977,28 @@
     "summary": "Use when adding, changing, or reviewing failures, retries, fallbacks, and messages.",
     "tags": [
       "reliability",
-      "api data state"
+      "api data state",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1200,9 +3009,28 @@
     "summary": "Use when claims or changes affect performance, rendering cost, API use, or bundle weight.",
     "tags": [
       "performance",
-      "observability performance"
+      "observability performance",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1213,9 +3041,28 @@
     "summary": "Use before adding packages, frameworks, tools, or external services.",
     "tags": [
       "dependency",
-      "architecture code"
+      "architecture code",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1226,9 +3073,28 @@
     "summary": "Use when public API, schema, route, exported function, or integration behaviour may change.",
     "tags": [
       "api",
-      "api data state"
+      "api data state",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1239,9 +3105,28 @@
     "summary": "Use when packaging branch changes, commits, generated files, or merge handoffs.",
     "tags": [
       "delivery",
-      "review quality"
+      "review quality",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1252,9 +3137,30 @@
     "summary": "Use for this repository\u2019s prompt, skill, and contract assets.",
     "tags": [
       "template product",
-      "site product"
+      "site product",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Tree-of-Thoughts",
+      "Chain-of-Thought Prompting",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   },
   {
     "type": "contract",
@@ -1265,8 +3171,29 @@
     "summary": "Use when agent handoffs must be structured, inspectable, and easy to review.",
     "tags": [
       "output",
-      "core control"
+      "core control",
+      "research-backed",
+      "CoT-safe",
+      "ReAct",
+      "traceability"
     ],
-    "pack": "Contracts"
+    "pack": "Contracts",
+    "research_patterns": [
+      "formal traceability",
+      "contract-based critique",
+      "process supervision",
+      "evidence ladder",
+      "rejection clauses"
+    ],
+    "research_pattern_labels": [
+      "Reason + Act",
+      "Least-to-Most Prompting",
+      "System 2 / cognitive forcing",
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts",
+      "Self-Consistency",
+      "Premortem failure analysis"
+    ]
   }
 ]

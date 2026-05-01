@@ -41,3 +41,18 @@ The answer invents facts, hides failures, removes safeguards, or changes scope w
 - `Blocked` when continued work is unsafe or impossible without missing inputs.
 
 Use only one final status: verified, partially verified, not verified, blocked.
+
+## Scientific control score
+
+Use this score when judging whether an agent output deserves acceptance.
+
+1. **Observation** — Did the agent inspect the real artefacts before acting?
+2. **Decomposition** — Did it break complex work into ordered subproblems?
+3. **Branching** — Did it compare alternatives when the decision was material?
+4. **Action containment** — Did it avoid unnecessary broad rewrites?
+5. **Independent verification** — Did it cross-check source, command, behaviour, docs, and limitations?
+6. **Correction loop** — Did failed checks become explicit correction requirements?
+7. **Traceability** — Can every claim be mapped to requirement, artefact, evidence, and status?
+8. **Failure disclosure** — Are missing proof and residual risk visible?
+
+Reject outputs that are fluent but fail observation, verification, or traceability.

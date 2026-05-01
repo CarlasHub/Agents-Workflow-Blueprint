@@ -11,6 +11,9 @@ EXPECTED_COUNTS = {"prompts": 40, "skills": 30, "contracts": 30}
 MIN_NUMBERED_POINTS = 20
 REQUIRED_COMMON = [
     "Research and psychology basis",
+    "Scientific DNA",
+    "Research pattern stack",
+    "Reasoning trace policy",
     "evidence",
     "verified, partially verified, not verified, blocked",
 ]
@@ -36,6 +39,13 @@ REQUIRED_LIBRARY_DOCS = [
     "QUALITY-RUBRIC.md",
     "CODEX-USAGE-GUIDE.md",
     "EXAMPLES.md",
+    "SYSTEM-2-PROMPTING-GUIDE.md",
+    "TRACEABILITY-MATRIX.md",
+    "PROMPT-ARCHITECTURE.md",
+    "SCIENTIFIC-DNA.md",
+    "RESEARCH-DNA.md",
+    "PROMPT-PATTERN-MATRIX.md",
+    "SCIENTIFIC-CONTROL-CHECKLIST.md",
 ]
 
 
@@ -74,7 +84,7 @@ def main() -> int:
         for asset in assets:
             title = asset.get("title")
             rel_path = asset.get("path")
-            for key in ["type", "title", "category", "path", "summary", "tags"]:
+            for key in ["type", "title", "category", "path", "summary", "tags", "research_patterns"]:
                 if key not in asset:
                     fail(f"assets.json entry missing {key}: {asset}")
                     failed = True
@@ -88,6 +98,9 @@ def main() -> int:
             paths.add(rel_path)
             if rel_path and not (ROOT / rel_path).exists():
                 fail(f"assets.json entry points to missing file: {rel_path}")
+                failed = True
+            if not isinstance(asset.get("research_patterns"), list) or len(asset.get("research_patterns", [])) < 3:
+                fail(f"assets.json entry missing sufficient research_patterns: {rel_path}")
                 failed = True
 
     for folder, expected_count in EXPECTED_COUNTS.items():
