@@ -199,6 +199,7 @@ python3 -S scripts/check_template_library.py</code></pre>
       let assets = [];
       let activeFilter = 'all';
       let categoryStyles = new Map();
+      let typeStyles = new Map();
 
       function normalise(value) {
         return String(value || '').toLowerCase();
@@ -206,6 +207,12 @@ python3 -S scripts/check_template_library.py</code></pre>
 
       function getCategoryLabel(category) {
         return String(category || '').trim() || 'Uncategorised';
+      }
+
+      function getTypeLabel(type) {
+        const value = String(type || '').trim();
+        if (!value) return 'Unknown';
+        return value.charAt(0).toUpperCase() + value.slice(1);
       }
 
       function buildCategoryStyles(items) {
@@ -232,6 +239,39 @@ python3 -S scripts/check_template_library.py</code></pre>
         return `--category-bg:${style.bg};--category-border:${style.border};--category-fg:${style.fg};`;
       }
 
+      function buildTypeStyles(items) {
+        const types = [...new Set(items.map((asset) => getTypeLabel(asset.type)))]
+          .sort((left, right) => left.localeCompare(right));
+        const map = new Map();
+        types.forEach((type, index) => {
+          const hue = ((index * 137.508) + 38) % 360;
+          map.set(type, {
+            bg: `hsl(${hue.toFixed(2)} 80% 52% / 0.17)`,
+            border: `hsl(${hue.toFixed(2)} 86% 66% / 0.62)`,
+            fg: `hsl(${hue.toFixed(2)} 100% 83%)`,
+          });
+        });
+        return map;
+      }
+
+      function typeStyle(type) {
+        const label = getTypeLabel(type);
+        const style = typeStyles.get(label);
+        if (!style) {
+          return '--type-bg:var(--bgColor-neutral-muted);--type-border:var(--borderColor-default);--type-fg:var(--fgColor-default);';
+        }
+        return `--type-bg:${style.bg};--type-border:${style.border};--type-fg:${style.fg};`;
+      }
+
+      function typeIcon(type) {
+        const iconMap = {
+          prompt: '●',
+          skill: '◆',
+          contract: '■',
+        };
+        return iconMap[String(type || '').toLowerCase()] || '•';
+      }
+
       function render() {
         const term = normalise(searchEl.value);
         const filtered = assets.filter((asset) => {
@@ -244,7 +284,7 @@ python3 -S scripts/check_template_library.py</code></pre>
         grid.innerHTML = filtered.map((asset) => `
           <article class="asset-card" data-type="${asset.type}">
             <div class="asset-card-head">
-              <span class="asset-type">${asset.type}</span>
+              <span class="asset-type" style="${typeStyle(asset.type)}"><span class="asset-type-icon" aria-hidden="true">${typeIcon(asset.type)}</span>${getTypeLabel(asset.type)}</span>
               <span class="asset-category" style="${categoryStyle(asset.category)}">${getCategoryLabel(asset.category)}</span>
             </div>
             <h3>${asset.title}</h3>
@@ -294,6 +334,7 @@ python3 -S scripts/check_template_library.py</code></pre>
         .then((data) => {
           assets = data;
           categoryStyles = buildCategoryStyles(assets);
+          typeStyles = buildTypeStyles(assets);
           render();
         })
         .catch(() => {

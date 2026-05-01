@@ -743,8 +743,17 @@ h1 {
 }
 
 .asset-type {
-  color: var(--fgColor-onEmphasis);
-  background: var(--bgColor-success-emphasis);
+  gap: 0.35rem;
+  color: var(--type-fg, var(--fgColor-default));
+  border: 1px solid var(--type-border, var(--borderColor-default));
+  background: var(--type-bg, var(--bgColor-neutral-muted));
+  font-weight: 600;
+}
+
+.asset-type-icon {
+  font-size: 0.64rem;
+  line-height: 1;
+  opacity: 0.95;
 }
 
 .asset-category {
