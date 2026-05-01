@@ -14,6 +14,7 @@ must_run = [
   "python3 scripts/check_workflow.py",
   "python3 scripts/check_examples.py",
   "python3 scripts/check_claims.py",
+  "python3 scripts/check_template_library.py",
   "python3 scripts/build_starter.py",
   "bash scripts/verify-release.sh"
 ]

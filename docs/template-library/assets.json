@@ -1,0 +1,1272 @@
+[
+  {
+    "type": "prompt",
+    "title": "Master Agent Enforcement Prompt",
+    "category": "Core Control",
+    "profile": "core-control",
+    "path": "docs/template-library/prompts/01-master-agent-enforcement-prompt.md",
+    "summary": "Use at the start of a serious coding-agent session when the agent must obey repository rules, evidence discipline, and release-honesty constraints.",
+    "tags": [
+      "core control"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Evidence-First Implementation Prompt",
+    "category": "Implementation",
+    "profile": "implementation",
+    "path": "docs/template-library/prompts/02-evidence-first-implementation-prompt.md",
+    "summary": "Use when a feature, bug fix, refactor, or documentation change must be implemented with proof before any success claim.",
+    "tags": [
+      "implementation"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Anti-Fake Completion Audit Prompt",
+    "category": "Audit",
+    "profile": "core-control",
+    "path": "docs/template-library/prompts/03-anti-fake-completion-audit-prompt.md",
+    "summary": "Use after an agent claims success and you need to test whether the claim is real, exaggerated, or unsupported.",
+    "tags": [
+      "audit",
+      "core control"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Assumption Exposure Prompt",
+    "category": "Reasoning Control",
+    "profile": "reasoning-control",
+    "path": "docs/template-library/prompts/04-assumption-exposure-prompt.md",
+    "summary": "Use before implementation or review when hidden assumptions could change architecture, UX, security, or release judgement.",
+    "tags": [
+      "reasoning control"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Uncertainty Calibration Prompt",
+    "category": "Reasoning Control",
+    "profile": "reasoning-control",
+    "path": "docs/template-library/prompts/05-uncertainty-calibration-prompt.md",
+    "summary": "Use when an answer sounds confident but evidence quality varies across code, UI, tests, or documentation.",
+    "tags": [
+      "reasoning control"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Contradiction Detection Prompt",
+    "category": "Reasoning Control",
+    "profile": "reasoning-control",
+    "path": "docs/template-library/prompts/06-contradiction-detection-prompt.md",
+    "summary": "Use when docs, tests, UI, code, README, or release language may disagree.",
+    "tags": [
+      "reasoning control"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Premortem Failure Analysis Prompt",
+    "category": "Risk",
+    "profile": "review-quality",
+    "path": "docs/template-library/prompts/07-premortem-failure-analysis-prompt.md",
+    "summary": "Use before merge, release, or large refactor to imagine failure and prevent avoidable blind spots.",
+    "tags": [
+      "risk",
+      "review quality"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Scope Boundary Lock Prompt",
+    "category": "Scoping",
+    "profile": "core-control",
+    "path": "docs/template-library/prompts/08-scope-boundary-lock-prompt.md",
+    "summary": "Use when the task is at risk of scope creep, hidden dependencies, or accidental redesign.",
+    "tags": [
+      "scoping",
+      "core control"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Minimal Correct Change Prompt",
+    "category": "Implementation",
+    "profile": "implementation",
+    "path": "docs/template-library/prompts/09-minimal-correct-change-prompt.md",
+    "summary": "Use when a requested fix must avoid broad rewrites, unrelated styling, or unnecessary dependency changes.",
+    "tags": [
+      "implementation"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Repository Reconnaissance Prompt",
+    "category": "Repository Analysis",
+    "profile": "repository",
+    "path": "docs/template-library/prompts/10-repository-reconnaissance-prompt.md",
+    "summary": "Use at the beginning of work on an unfamiliar repository, template pack, or docs/product system.",
+    "tags": [
+      "repository analysis",
+      "repository"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Feature Implementation Prompt",
+    "category": "Implementation",
+    "profile": "implementation",
+    "path": "docs/template-library/prompts/11-feature-implementation-prompt.md",
+    "summary": "Use for new feature work that needs design, code, tests, docs, and release evidence kept aligned.",
+    "tags": [
+      "implementation"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Bug Root Cause Remediation Prompt",
+    "category": "Bug Remediation",
+    "profile": "implementation",
+    "path": "docs/template-library/prompts/12-bug-root-cause-remediation-prompt.md",
+    "summary": "Use when a symptom is known but the actual cause, blast radius, and regression risk must be proven.",
+    "tags": [
+      "bug remediation",
+      "implementation"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Regression Risk Review Prompt",
+    "category": "Review",
+    "profile": "review-quality",
+    "path": "docs/template-library/prompts/13-regression-risk-review-prompt.md",
+    "summary": "Use after any implementation that might break adjacent behaviour, shared contracts, or existing user paths.",
+    "tags": [
+      "review",
+      "review quality"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Code Quality Deep Audit Prompt",
+    "category": "Code Quality",
+    "profile": "architecture-code",
+    "path": "docs/template-library/prompts/14-code-quality-deep-audit-prompt.md",
+    "summary": "Use for maintainability, structure, dead-code, duplication, and readability review.",
+    "tags": [
+      "code quality",
+      "architecture code"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Architecture Drift Audit Prompt",
+    "category": "Architecture",
+    "profile": "architecture-code",
+    "path": "docs/template-library/prompts/15-architecture-drift-audit-prompt.md",
+    "summary": "Use when a change may violate boundaries, patterns, ownership, or long-term design constraints.",
+    "tags": [
+      "architecture",
+      "architecture code"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Dead Code Removal Prompt",
+    "category": "Clean-up",
+    "profile": "architecture-code",
+    "path": "docs/template-library/prompts/16-dead-code-removal-prompt.md",
+    "summary": "Use when removing unused files, branches, exports, styles, docs, tests, or generated artefacts.",
+    "tags": [
+      "clean-up",
+      "architecture code"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Refactor Safety Prompt",
+    "category": "Refactor",
+    "profile": "architecture-code",
+    "path": "docs/template-library/prompts/17-refactor-safety-prompt.md",
+    "summary": "Use when improving structure without intentionally changing behaviour.",
+    "tags": [
+      "refactor",
+      "architecture code"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "API Contract Review Prompt",
+    "category": "API",
+    "profile": "api-data-state",
+    "path": "docs/template-library/prompts/18-api-contract-review-prompt.md",
+    "summary": "Use when request/response shapes, public functions, schemas, integrations, or API docs may change.",
+    "tags": [
+      "api",
+      "api data state"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Data Flow Trace Prompt",
+    "category": "Data Flow",
+    "profile": "api-data-state",
+    "path": "docs/template-library/prompts/19-data-flow-trace-prompt.md",
+    "summary": "Use when data origin, transformation, persistence, display, export, or logging must be understood.",
+    "tags": [
+      "data flow",
+      "api data state"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "State Management Audit Prompt",
+    "category": "State",
+    "profile": "api-data-state",
+    "path": "docs/template-library/prompts/20-state-management-audit-prompt.md",
+    "summary": "Use for frontend or application state that may become stale, inconsistent, duplicated, or race-prone.",
+    "tags": [
+      "state",
+      "api data state"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "UI Structure Audit Prompt",
+    "category": "UI/UX",
+    "profile": "ui-ux",
+    "path": "docs/template-library/prompts/21-ui-structure-audit-prompt.md",
+    "summary": "Use when a UI must be inspected for hierarchy, grouping, spacing, layout, and real rendered structure.",
+    "tags": [
+      "ui/ux",
+      "ui ux"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Visual Design Quality Gate Prompt",
+    "category": "UI/UX",
+    "profile": "ui-ux",
+    "path": "docs/template-library/prompts/22-visual-design-quality-gate-prompt.md",
+    "summary": "Use before accepting a UI that must look polished, readable, aligned, and professionally finished.",
+    "tags": [
+      "ui/ux",
+      "ui ux"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Design System Consistency Prompt",
+    "category": "Design System",
+    "profile": "ui-ux",
+    "path": "docs/template-library/prompts/23-design-system-consistency-prompt.md",
+    "summary": "Use when components, tokens, typography, icons, spacing, and interaction states must remain consistent.",
+    "tags": [
+      "design system",
+      "ui ux"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Responsive Layout Audit Prompt",
+    "category": "Responsive UI",
+    "profile": "ui-ux",
+    "path": "docs/template-library/prompts/24-responsive-layout-audit-prompt.md",
+    "summary": "Use when layouts must survive mobile, tablet, desktop, long content, and constrained viewport states.",
+    "tags": [
+      "responsive ui",
+      "ui ux"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Interaction State Audit Prompt",
+    "category": "Interaction",
+    "profile": "ui-ux",
+    "path": "docs/template-library/prompts/25-interaction-state-audit-prompt.md",
+    "summary": "Use for buttons, forms, menus, tables, cards, dialogs, navigation, and other interactive UI states.",
+    "tags": [
+      "interaction",
+      "ui ux"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Keyboard Journey Audit Prompt",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/prompts/26-keyboard-journey-audit-prompt.md",
+    "summary": "Use when interactive surfaces must be navigable without a mouse and must avoid keyboard traps.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Accessibility Remediation Prompt",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/prompts/27-accessibility-remediation-prompt.md",
+    "summary": "Use when a specific accessibility issue must be fixed without fake pass language or harmful ARIA patches.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Screen Reader Risk Review Prompt",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/prompts/28-screen-reader-risk-review-prompt.md",
+    "summary": "Use when dynamic UI, forms, icon controls, modals, route changes, or live regions may confuse assistive technology users.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "WCAG Mapping Review Prompt",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/prompts/29-wcag-mapping-review-prompt.md",
+    "summary": "Use when findings need a careful mapping to WCAG 2.2 success criteria and severity without overstating certainty.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Icon-Only Control Review Prompt",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/prompts/30-icon-only-control-review-prompt.md",
+    "summary": "Use when icon buttons, compact actions, menus, or toolbar controls may lack clear names or affordances.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Playwright Test Design Prompt",
+    "category": "Testing",
+    "profile": "testing",
+    "path": "docs/template-library/prompts/31-playwright-test-design-prompt.md",
+    "summary": "Use when designing browser tests for real user behaviour, accessibility checks, and stable selectors.",
+    "tags": [
+      "testing"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Test Quality Audit Prompt",
+    "category": "Testing",
+    "profile": "testing",
+    "path": "docs/template-library/prompts/32-test-quality-audit-prompt.md",
+    "summary": "Use when tests pass but may be shallow, flaky, over-mocked, or unrelated to real risk.",
+    "tags": [
+      "testing"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Release Evidence Prompt",
+    "category": "Release",
+    "profile": "docs-release",
+    "path": "docs/template-library/prompts/33-release-evidence-prompt.md",
+    "summary": "Use before final handoff, merge approval, release note creation, or claim publication.",
+    "tags": [
+      "release",
+      "docs release"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Documentation Truthfulness Prompt",
+    "category": "Documentation",
+    "profile": "docs-release",
+    "path": "docs/template-library/prompts/34-documentation-truthfulness-prompt.md",
+    "summary": "Use when docs, guides, examples, or site copy may promise more than the implementation proves.",
+    "tags": [
+      "documentation",
+      "docs release"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "README Upgrade Prompt",
+    "category": "Documentation",
+    "profile": "docs-release",
+    "path": "docs/template-library/prompts/35-readme-upgrade-prompt.md",
+    "summary": "Use when a README needs to become a useful product entry point, not just a file list.",
+    "tags": [
+      "documentation",
+      "docs release"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "GitHub Pages Template Hub Prompt",
+    "category": "Site/Product",
+    "profile": "site-product",
+    "path": "docs/template-library/prompts/36-github-pages-template-hub-prompt.md",
+    "summary": "Use when turning repository files into a public template hub with copy actions, categories, examples, and low-friction navigation.",
+    "tags": [
+      "site/product",
+      "site product"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Security Trust Boundary Prompt",
+    "category": "Security",
+    "profile": "security",
+    "path": "docs/template-library/prompts/37-security-trust-boundary-prompt.md",
+    "summary": "Use when a change touches actors, permissions, data, integration, exports, admin features, or sensitive operations.",
+    "tags": [
+      "security"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Secrets Handling Review Prompt",
+    "category": "Security",
+    "profile": "security",
+    "path": "docs/template-library/prompts/38-secrets-handling-review-prompt.md",
+    "summary": "Use when environment variables, tokens, credentials, logs, CI, config, or integrations may expose secrets.",
+    "tags": [
+      "security"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Observability and Logging Prompt",
+    "category": "Observability",
+    "profile": "observability-performance",
+    "path": "docs/template-library/prompts/39-observability-and-logging-prompt.md",
+    "summary": "Use when work needs useful logs, metrics, traces, alerts, or operational evidence without privacy leakage.",
+    "tags": [
+      "observability",
+      "observability performance"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "prompt",
+    "title": "Final Merge Gate Prompt",
+    "category": "Release",
+    "profile": "docs-release",
+    "path": "docs/template-library/prompts/40-final-merge-gate-prompt.md",
+    "summary": "Use as the final review prompt before merge or publication when all evidence must be consolidated.",
+    "tags": [
+      "release",
+      "docs release"
+    ],
+    "pack": "Prompts"
+  },
+  {
+    "type": "skill",
+    "title": "Scoping Packet Skill",
+    "category": "Scoping",
+    "profile": "core-control",
+    "path": "docs/template-library/skills/01-scoping-packet-skill.md",
+    "summary": "Use when converting a task request into a bounded, reviewable scoping packet.",
+    "tags": [
+      "scoping",
+      "core control"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Implementation Planning Skill",
+    "category": "Planning",
+    "profile": "implementation",
+    "path": "docs/template-library/skills/02-implementation-planning-skill.md",
+    "summary": "Use when the agent needs a safe implementation plan before editing.",
+    "tags": [
+      "planning",
+      "implementation"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Repository Mapping Skill",
+    "category": "Repository Analysis",
+    "profile": "repository",
+    "path": "docs/template-library/skills/03-repository-mapping-skill.md",
+    "summary": "Use when the repository structure, authority files, and scripts must be understood before change.",
+    "tags": [
+      "repository analysis",
+      "repository"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Evidence Collection Skill",
+    "category": "Evidence",
+    "profile": "core-control",
+    "path": "docs/template-library/skills/04-evidence-collection-skill.md",
+    "summary": "Use when gathering proof for implementation, review, documentation, or release claims.",
+    "tags": [
+      "evidence",
+      "core control"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Verification Reporting Skill",
+    "category": "Verification",
+    "profile": "testing",
+    "path": "docs/template-library/skills/05-verification-reporting-skill.md",
+    "summary": "Use when command results, manual checks, and skipped checks must be reported cleanly.",
+    "tags": [
+      "verification",
+      "testing"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Failure Disclosure Skill",
+    "category": "Honesty",
+    "profile": "reasoning-control",
+    "path": "docs/template-library/skills/06-failure-disclosure-skill.md",
+    "summary": "Use when the answer must disclose incomplete, unverified, risky, or weaker-than-requested work.",
+    "tags": [
+      "honesty",
+      "reasoning control"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "UI Screenshot Review Skill",
+    "category": "UI/UX",
+    "profile": "ui-ux",
+    "path": "docs/template-library/skills/07-ui-screenshot-review-skill.md",
+    "summary": "Use when screenshots or rendered UI must be audited for defects and state mismatches.",
+    "tags": [
+      "ui/ux",
+      "ui ux"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Accessibility Inspection Skill",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/skills/08-accessibility-inspection-skill.md",
+    "summary": "Use when inspecting semantic structure, names, keyboard behaviour, and user impact.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "WCAG Mapping Skill",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/skills/09-wcag-mapping-skill.md",
+    "summary": "Use when translating accessibility findings into WCAG 2.2 references and remediation evidence.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Keyboard Testing Skill",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/skills/10-keyboard-testing-skill.md",
+    "summary": "Use when interactive flows must be tested by keyboard.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Playwright Debugging Skill",
+    "category": "Testing",
+    "profile": "testing",
+    "path": "docs/template-library/skills/11-playwright-debugging-skill.md",
+    "summary": "Use when browser tests fail, flake, or need meaningful behaviour assertions.",
+    "tags": [
+      "testing"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Regression Test Design Skill",
+    "category": "Testing",
+    "profile": "testing",
+    "path": "docs/template-library/skills/12-regression-test-design-skill.md",
+    "summary": "Use when a bug fix or feature needs tests that would catch future breakage.",
+    "tags": [
+      "testing"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Code Review Skill",
+    "category": "Review",
+    "profile": "review-quality",
+    "path": "docs/template-library/skills/13-code-review-skill.md",
+    "summary": "Use when reviewing a diff for correctness, maintainability, and evidence.",
+    "tags": [
+      "review",
+      "review quality"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Refactor Planning Skill",
+    "category": "Refactor",
+    "profile": "architecture-code",
+    "path": "docs/template-library/skills/14-refactor-planning-skill.md",
+    "summary": "Use when structural improvement is needed but behaviour must stay stable.",
+    "tags": [
+      "refactor",
+      "architecture code"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Dead Code Detection Skill",
+    "category": "Clean-up",
+    "profile": "architecture-code",
+    "path": "docs/template-library/skills/15-dead-code-detection-skill.md",
+    "summary": "Use when deciding whether files, exports, branches, styles, or docs are unused.",
+    "tags": [
+      "clean-up",
+      "architecture code"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Architecture Review Skill",
+    "category": "Architecture",
+    "profile": "architecture-code",
+    "path": "docs/template-library/skills/16-architecture-review-skill.md",
+    "summary": "Use when reviewing boundaries, ownership, coupling, and long-term maintainability.",
+    "tags": [
+      "architecture",
+      "architecture code"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "API Contract Inspection Skill",
+    "category": "API",
+    "profile": "api-data-state",
+    "path": "docs/template-library/skills/17-api-contract-inspection-skill.md",
+    "summary": "Use when API shapes, schemas, callers, and docs must be reconciled.",
+    "tags": [
+      "api",
+      "api data state"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Security Review Skill",
+    "category": "Security",
+    "profile": "security",
+    "path": "docs/template-library/skills/18-security-review-skill.md",
+    "summary": "Use when reviewing trust boundaries, permissions, secrets, data handling, and abuse paths.",
+    "tags": [
+      "security"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Secrets Review Skill",
+    "category": "Security",
+    "profile": "security",
+    "path": "docs/template-library/skills/19-secrets-review-skill.md",
+    "summary": "Use when tokens, env vars, logs, config, or CI may expose secrets.",
+    "tags": [
+      "security"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Data Privacy Review Skill",
+    "category": "Privacy",
+    "profile": "security",
+    "path": "docs/template-library/skills/20-data-privacy-review-skill.md",
+    "summary": "Use when personal, tenant, customer, analytics, export, or audit data may be collected or exposed.",
+    "tags": [
+      "privacy",
+      "security"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Documentation Audit Skill",
+    "category": "Documentation",
+    "profile": "docs-release",
+    "path": "docs/template-library/skills/21-documentation-audit-skill.md",
+    "summary": "Use when docs must be checked against implementation and repository reality.",
+    "tags": [
+      "documentation",
+      "docs release"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Release Notes Review Skill",
+    "category": "Release",
+    "profile": "docs-release",
+    "path": "docs/template-library/skills/22-release-notes-review-skill.md",
+    "summary": "Use when release notes must represent verified behaviour and known limitations.",
+    "tags": [
+      "release",
+      "docs release"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "README Structuring Skill",
+    "category": "Documentation",
+    "profile": "docs-release",
+    "path": "docs/template-library/skills/23-readme-structuring-skill.md",
+    "summary": "Use when README needs a clearer user journey, catalogue, and verification instructions.",
+    "tags": [
+      "documentation",
+      "docs release"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Template Catalogue Design Skill",
+    "category": "Template Product",
+    "profile": "site-product",
+    "path": "docs/template-library/skills/24-template-catalogue-design-skill.md",
+    "summary": "Use when organising many templates into categories, starter packs, and discoverable metadata.",
+    "tags": [
+      "template product",
+      "site product"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "GitHub Pages UX Skill",
+    "category": "Site/Product",
+    "profile": "site-product",
+    "path": "docs/template-library/skills/25-github-pages-ux-skill.md",
+    "summary": "Use when the public site must serve templates clearly on GitHub Pages.",
+    "tags": [
+      "site/product",
+      "site product"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Copy-Ready Prompt Writing Skill",
+    "category": "Prompt Writing",
+    "profile": "core-control",
+    "path": "docs/template-library/skills/26-copy-ready-prompt-writing-skill.md",
+    "summary": "Use when prompts must be immediately usable by agents without vague placeholders.",
+    "tags": [
+      "prompt writing",
+      "core control"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Agent Behaviour Hardening Skill",
+    "category": "Agent Control",
+    "profile": "core-control",
+    "path": "docs/template-library/skills/27-agent-behaviour-hardening-skill.md",
+    "summary": "Use when prompts or workflows need stronger controls against shortcuts and overclaiming.",
+    "tags": [
+      "agent control",
+      "core control"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Prompt Evaluation Skill",
+    "category": "Evaluation",
+    "profile": "reasoning-control",
+    "path": "docs/template-library/skills/28-prompt-evaluation-skill.md",
+    "summary": "Use when assessing whether prompts produce reliable, honest, and useful agent output.",
+    "tags": [
+      "evaluation",
+      "reasoning control"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Risk Register Skill",
+    "category": "Risk",
+    "profile": "review-quality",
+    "path": "docs/template-library/skills/29-risk-register-skill.md",
+    "summary": "Use when work requires a live list of risks, owners, mitigations, and verification gaps.",
+    "tags": [
+      "risk",
+      "review quality"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "skill",
+    "title": "Final Delivery Packaging Skill",
+    "category": "Delivery",
+    "profile": "docs-release",
+    "path": "docs/template-library/skills/30-final-delivery-packaging-skill.md",
+    "summary": "Use when packaging an upgraded repository, template system, or release bundle.",
+    "tags": [
+      "delivery",
+      "docs release"
+    ],
+    "pack": "Skills"
+  },
+  {
+    "type": "contract",
+    "title": "Completion Honesty Contract",
+    "category": "Honesty",
+    "profile": "core-control",
+    "path": "docs/template-library/contracts/01-completion-honesty-contract.md",
+    "summary": "Use as the top-level acceptance rule against fake completion.",
+    "tags": [
+      "honesty",
+      "core control"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Evidence Contract",
+    "category": "Evidence",
+    "profile": "core-control",
+    "path": "docs/template-library/contracts/02-evidence-contract.md",
+    "summary": "Use when every claim must be traceable to inspected files, behaviour, commands, or manual evidence.",
+    "tags": [
+      "evidence",
+      "core control"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Scope Control Contract",
+    "category": "Scope",
+    "profile": "core-control",
+    "path": "docs/template-library/contracts/03-scope-control-contract.md",
+    "summary": "Use to reject hidden scope expansion, accidental redesign, or unrelated changes.",
+    "tags": [
+      "scope",
+      "core control"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Assumption Contract",
+    "category": "Reasoning Control",
+    "profile": "reasoning-control",
+    "path": "docs/template-library/contracts/04-assumption-contract.md",
+    "summary": "Use when assumptions must be named before they influence implementation or review.",
+    "tags": [
+      "reasoning control"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Verification Contract",
+    "category": "Verification",
+    "profile": "testing",
+    "path": "docs/template-library/contracts/05-verification-contract.md",
+    "summary": "Use when commands, manual checks, and evidence gaps define acceptance.",
+    "tags": [
+      "verification",
+      "testing"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Test Behaviour Contract",
+    "category": "Testing",
+    "profile": "testing",
+    "path": "docs/template-library/contracts/06-test-behaviour-contract.md",
+    "summary": "Use when tests must prove user or system behaviour rather than shallow implementation details.",
+    "tags": [
+      "testing"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Accessibility Contract Plus",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/contracts/07-accessibility-contract-plus.md",
+    "summary": "Use for UI work that must preserve semantic structure, keyboard access, and WCAG-aligned reasoning.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Keyboard Interaction Contract",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/contracts/08-keyboard-interaction-contract.md",
+    "summary": "Use for menus, dialogs, forms, tables, navigation, and custom controls.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Accessible Name Contract",
+    "category": "Accessibility",
+    "profile": "accessibility",
+    "path": "docs/template-library/contracts/09-accessible-name-contract.md",
+    "summary": "Use for icon controls, form controls, composite widgets, and dynamic UI.",
+    "tags": [
+      "accessibility"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "UI Visual Quality Contract",
+    "category": "UI/UX",
+    "profile": "ui-ux",
+    "path": "docs/template-library/contracts/10-ui-visual-quality-contract.md",
+    "summary": "Use before accepting visual UI changes.",
+    "tags": [
+      "ui/ux",
+      "ui ux"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Design System Contract",
+    "category": "Design System",
+    "profile": "ui-ux",
+    "path": "docs/template-library/contracts/11-design-system-contract.md",
+    "summary": "Use when UI must follow reusable components, tokens, and interaction patterns.",
+    "tags": [
+      "design system",
+      "ui ux"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Responsive Behaviour Contract",
+    "category": "Responsive UI",
+    "profile": "ui-ux",
+    "path": "docs/template-library/contracts/12-responsive-behaviour-contract.md",
+    "summary": "Use when layout must remain usable across viewports and content lengths.",
+    "tags": [
+      "responsive ui",
+      "ui ux"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Code Quality Contract",
+    "category": "Code Quality",
+    "profile": "architecture-code",
+    "path": "docs/template-library/contracts/13-code-quality-contract.md",
+    "summary": "Use for maintainability and structural acceptance.",
+    "tags": [
+      "code quality",
+      "architecture code"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Architecture Boundary Contract",
+    "category": "Architecture",
+    "profile": "architecture-code",
+    "path": "docs/template-library/contracts/14-architecture-boundary-contract.md",
+    "summary": "Use when module, layer, dependency, or ownership boundaries matter.",
+    "tags": [
+      "architecture",
+      "architecture code"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Refactor Safety Contract",
+    "category": "Refactor",
+    "profile": "architecture-code",
+    "path": "docs/template-library/contracts/15-refactor-safety-contract.md",
+    "summary": "Use for behaviour-preserving structural change.",
+    "tags": [
+      "refactor",
+      "architecture code"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Dead Code Removal Contract",
+    "category": "Clean-up",
+    "profile": "architecture-code",
+    "path": "docs/template-library/contracts/16-dead-code-removal-contract.md",
+    "summary": "Use when removing apparently unused files, exports, branches, or docs.",
+    "tags": [
+      "clean-up",
+      "architecture code"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Documentation Truth Contract",
+    "category": "Documentation",
+    "profile": "docs-release",
+    "path": "docs/template-library/contracts/17-documentation-truth-contract.md",
+    "summary": "Use when docs, examples, and guides must match real implementation.",
+    "tags": [
+      "documentation",
+      "docs release"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "README Claim Contract",
+    "category": "Documentation",
+    "profile": "docs-release",
+    "path": "docs/template-library/contracts/18-readme-claim-contract.md",
+    "summary": "Use for README updates, public pages, and repository positioning.",
+    "tags": [
+      "documentation",
+      "docs release"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Release Evidence Contract Plus",
+    "category": "Release",
+    "profile": "docs-release",
+    "path": "docs/template-library/contracts/19-release-evidence-contract-plus.md",
+    "summary": "Use before merge, publication, release note approval, or public handoff.",
+    "tags": [
+      "release",
+      "docs release"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Security Boundary Contract",
+    "category": "Security",
+    "profile": "security",
+    "path": "docs/template-library/contracts/20-security-boundary-contract.md",
+    "summary": "Use when permissions, identities, integrations, data, or sensitive operations change.",
+    "tags": [
+      "security"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Secrets Handling Contract",
+    "category": "Security",
+    "profile": "security",
+    "path": "docs/template-library/contracts/21-secrets-handling-contract.md",
+    "summary": "Use for environment variables, credentials, CI, logs, tokens, and configuration.",
+    "tags": [
+      "security"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Privacy and Data Contract",
+    "category": "Privacy",
+    "profile": "security",
+    "path": "docs/template-library/contracts/22-privacy-and-data-contract.md",
+    "summary": "Use for personal, tenant, analytics, export, retention, or audit data.",
+    "tags": [
+      "privacy",
+      "security"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Logging Safety Contract",
+    "category": "Observability",
+    "profile": "observability-performance",
+    "path": "docs/template-library/contracts/23-logging-safety-contract.md",
+    "summary": "Use when adding or changing logs, metrics, traces, or alerts.",
+    "tags": [
+      "observability",
+      "observability performance"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Error Handling Contract",
+    "category": "Reliability",
+    "profile": "api-data-state",
+    "path": "docs/template-library/contracts/24-error-handling-contract.md",
+    "summary": "Use when adding, changing, or reviewing failures, retries, fallbacks, and messages.",
+    "tags": [
+      "reliability",
+      "api data state"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Performance Budget Contract",
+    "category": "Performance",
+    "profile": "observability-performance",
+    "path": "docs/template-library/contracts/25-performance-budget-contract.md",
+    "summary": "Use when claims or changes affect performance, rendering cost, API use, or bundle weight.",
+    "tags": [
+      "performance",
+      "observability performance"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Dependency Addition Contract",
+    "category": "Dependency",
+    "profile": "architecture-code",
+    "path": "docs/template-library/contracts/26-dependency-addition-contract.md",
+    "summary": "Use before adding packages, frameworks, tools, or external services.",
+    "tags": [
+      "dependency",
+      "architecture code"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "API Stability Contract",
+    "category": "API",
+    "profile": "api-data-state",
+    "path": "docs/template-library/contracts/27-api-stability-contract.md",
+    "summary": "Use when public API, schema, route, exported function, or integration behaviour may change.",
+    "tags": [
+      "api",
+      "api data state"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Git Hygiene Contract",
+    "category": "Delivery",
+    "profile": "review-quality",
+    "path": "docs/template-library/contracts/28-git-hygiene-contract.md",
+    "summary": "Use when packaging branch changes, commits, generated files, or merge handoffs.",
+    "tags": [
+      "delivery",
+      "review quality"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Template Library Quality Contract",
+    "category": "Template Product",
+    "profile": "site-product",
+    "path": "docs/template-library/contracts/29-template-library-quality-contract.md",
+    "summary": "Use for this repository\u2019s prompt, skill, and contract assets.",
+    "tags": [
+      "template product",
+      "site product"
+    ],
+    "pack": "Contracts"
+  },
+  {
+    "type": "contract",
+    "title": "Agent Output Format Contract",
+    "category": "Output",
+    "profile": "core-control",
+    "path": "docs/template-library/contracts/30-agent-output-format-contract.md",
+    "summary": "Use when agent handoffs must be structured, inspectable, and easy to review.",
+    "tags": [
+      "output",
+      "core control"
+    ],
+    "pack": "Contracts"
+  }
+]

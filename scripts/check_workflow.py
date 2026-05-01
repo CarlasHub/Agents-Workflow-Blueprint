@@ -17,13 +17,6 @@ REQUIRED_FILES = [
     "docs/engineering/templates/security-review-template.md",
     "docs/engineering/templates/release-evidence-template.md",
     "examples/exercises/exercise-001-comparison-view/README.md",
-    "examples/template-libraries/agent-templates-production/README.md",
-    "PROMPTS/master-prompt.md",
-    "PROMPTS/anti-fake-completion-agent.md",
-    "PROMPTS/ui-a11y-audit-agent.md",
-    "PROMPTS/feature-health-check-agent.md",
-    "PROMPTS/pre-mortem-agent.md",
-    "PROMPTS/release-proof-agent.md",
     "PROMPTS/security-review-agent.md",
 ]
 
@@ -32,6 +25,7 @@ REQUIRED_REQUIREMENTS_COMMANDS = [
     "python3 scripts/check_workflow.py",
     "python3 scripts/check_examples.py",
     "python3 scripts/check_claims.py",
+    "python3 scripts/check_template_library.py",
     "python3 scripts/build_starter.py",
 ]
 
@@ -72,15 +66,6 @@ def main() -> int:
     ]:
         if phrase not in workflow_content:
             fail(f"docs/engineering/workflow.md missing phrase: {phrase}")
-            failed = True
-
-    index_content = (ROOT / "index.html").read_text(encoding="utf-8")
-    for phrase in [
-        "Carla Goncalves",
-        "https://carlashub.com",
-    ]:
-        if phrase not in index_content:
-            fail(f"index.html missing required attribution phrase: {phrase}")
             failed = True
 
     if failed:

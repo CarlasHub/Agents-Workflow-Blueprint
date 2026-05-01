@@ -65,17 +65,6 @@ Use these templates rather than inventing ad hoc output:
 - Disclose starter-level limits honestly.
 - Do not imply that example files are production features.
 
-## Optional gate pack
-
-For teams that want stricter release gating language, use:
-
-- `PROMPTS/master-prompt.md`
-- `PROMPTS/anti-fake-completion-agent.md`
-- `PROMPTS/ui-a11y-audit-agent.md`
-- `PROMPTS/feature-health-check-agent.md`
-- `PROMPTS/pre-mortem-agent.md`
-- `PROMPTS/release-proof-agent.md`
-
 ## Subagent policy
 
 - Do not delegate by default.
@@ -89,7 +78,7 @@ The current repository validates:
 - prompt structure and prompt-to-template linkage
 - workflow docs and required artifacts
 - example packet presence and example honesty
-- integrated template-library presence and expected file distribution
+- template-library presence, manifest integrity, and expected counts
 - unsupported-claim checks for key docs and examples
 - starter build artifact generation for the workflow bundle
 

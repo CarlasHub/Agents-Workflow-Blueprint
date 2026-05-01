@@ -1,0 +1,72 @@
+# API Stability Contract
+
+## Type
+Contract
+
+## Category
+API
+
+## When to use
+Use when public API, schema, route, exported function, or integration behaviour may change.
+
+## Research and psychology basis
+This asset uses cognitive forcing, checklist discipline, premortem analysis, adversarial review, uncertainty calibration, and evidence-first reporting. The design is intentionally procedural: it slows the agent down at the points where agents and humans tend to overgeneralise from plausible work, anchor on a first answer, or close a task before proof exists. API/data/state assets force end-to-end traceability because many defects live between boundaries rather than inside one function. Contracts are phrased as rejection rules because ambiguous acceptance language allows agents to pass with incomplete work. See `../RESEARCH-BASIS.md` for the standard and source map.
+
+## Contract owner role
+You are an API stability contract owner.
+
+## Acceptance objective
+Preserve consumers or document and verify the migration path.
+
+## Enforcement principle
+Confidence is not acceptance evidence. The reviewer accepts only traceable facts, observable behaviour, command results, and clearly disclosed limits.
+
+## Acceptance clauses
+1. The work is rejected unless the requested outcome and approved scope are stated before editing or accepting work.
+2. The work is rejected unless all material assumptions are labelled as confirmed, inferred, or unknown.
+3. The work is rejected unless the evidence needed before any success claim is named before the final answer.
+4. The work is rejected unless relevant repository instructions and existing contracts are inspected.
+5. The work is rejected unless affected files, UI surfaces, scripts, docs, data paths, or review gates are named.
+6. The work is rejected unless implementation evidence, review evidence, and release evidence are kept separate.
+7. The work is rejected unless the final answer uses only this status vocabulary: verified, partially verified, not verified, blocked.
+8. The work is rejected unless unknowns remain visible and are not converted into confident claims.
+9. The work is rejected unless exact command results are reported or the reason commands could not run is disclosed.
+10. The work is rejected unless incomplete, unverified, risky, and out-of-scope items are stated plainly.
+11. The work is rejected unless the reviewer can verify this requirement: Trace inputs from boundary to transformation to storage, rendering, export, or response.
+12. The work is rejected unless the reviewer can verify this requirement: Identify where validation, normalisation, authorisation, and error handling occur.
+13. The work is rejected unless the reviewer can verify this requirement: Check whether API shapes, schemas, and docs agree on names, optionality, types, and failure cases.
+14. The work is rejected unless the reviewer can verify this requirement: Look for stale state, race conditions, duplicate fetches, out-of-order updates, and missed cancellation paths.
+15. The work is rejected unless the reviewer can verify this requirement: Inspect cache invalidation, retry, pagination, filtering, sorting, and partial-data behaviours when relevant.
+16. The work is rejected unless the reviewer can verify this requirement: Check whether state transitions are explicit enough for tests and debugging.
+17. The work is rejected unless the reviewer can verify this requirement: Confirm that data displayed to users can be traced back to an inspected source.
+18. The work is rejected unless the reviewer can verify this requirement: Detect privacy or security issues caused by logging, caching, exporting, or sharing data.
+19. The work is rejected unless the reviewer can verify this requirement: Verify that error messages are useful without exposing sensitive information.
+20. The work is rejected unless the reviewer can verify this requirement: Look for mismatches between backend constraints and frontend assumptions.
+21. The work is rejected unless the reviewer can verify this requirement: Document invariants that must remain true across future changes.
+22. The work is rejected unless the reviewer can verify this requirement: Reject fixes that only patch the display while leaving the data path inconsistent.
+23. The work is rejected unless the reviewer can verify this requirement: Convert api stability into acceptance clauses that can reject work unambiguously.
+24. The work is rejected unless the reviewer can verify this requirement: Require reviewer-visible evidence for every acceptance clause that materially affects risk.
+25. The work is rejected unless the reviewer can verify this requirement: Provide both rejection wording and limited-acceptance wording for partial evidence.
+26. The work is rejected unless the reviewer can verify this requirement: Separate hard gates from advisory improvements so the contract is enforceable.
+
+## Required rejection wording
+Use this exact pattern when any clause fails:
+
+`Rejected: this work is not accepted because <specific clause> is not satisfied. Evidence missing: <specific missing evidence>.`
+
+## Required limited-acceptance wording
+Use this exact pattern when the work is useful but not fully proven:
+
+`Limited acceptance: useful progress was made, but final status is partially verified because <specific limitation>.`
+
+## Required acceptance wording
+Use this exact pattern only when all relevant clauses pass:
+
+`Accepted with evidence: <files inspected>; <commands run>; <behaviour verified>; <remaining limitations>. Final status: verified.`
+
+## Reviewer checklist
+- Check each clause against actual evidence, not the implementer’s summary.
+- Reject unsupported claims even when the work seems likely to be correct.
+- Mark unrelated or uninspected behaviour as not verified.
+- Require specialist review when accessibility, security, release, data, UI, or performance risk is material.
+- Preserve the status vocabulary: verified, partially verified, not verified, blocked.
