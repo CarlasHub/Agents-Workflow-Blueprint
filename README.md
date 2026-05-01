@@ -23,6 +23,14 @@ It does not include a runnable application.
 The current verification commands prove the workflow bundle and starter artifact only.
 They do not prove a deployed product.
 
+## GitHub Pages Site
+
+A static GitHub Pages landing page lives in `index.html` and `site.css`.
+It links directly to the real prompts, contracts, templates, examples, and verification scripts in this repository instead of duplicating them into marketing-only copies.
+Publish it with `.nojekyll` so GitHub Pages serves dot-prefixed repository assets such as `.codex/skills/strict-agent-workflow/SKILL.md`.
+The site is a documentation surface for the workflow bundle.
+It is not a verified product build.
+
 ## Workflow
 
 The core operating sequence is intentionally strict:

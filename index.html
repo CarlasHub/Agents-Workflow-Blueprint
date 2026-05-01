@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Agent Workflow Blueprint</title>
+    <meta
+      name="description"
+      content="A GitHub Pages site for the Agent Workflow Blueprint: real prompts, contracts, packet templates, verification scripts, and worked examples for strict engineering workflows."
+    />
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell">
+        <div class="topbar">
+          <a class="brand" href="#hero">
+            <span class="brand-mark" aria-hidden="true">AW</span>
+            <span class="brand-copy">
+              <span class="brand-kicker">Agent Workflow Blueprint</span>
+              <span class="brand-title">Engineering Truth Before Hype</span>
+            </span>
+          </a>
+
+          <nav class="site-nav" aria-label="Primary">
+            <a href="#why">Why</a>
+            <a href="#system">System</a>
+            <a href="#workflow">Workflow</a>
+            <a href="#templates">Templates</a>
+            <a href="#prompts">Prompts</a>
+            <a href="#evidence">Evidence</a>
+            <a href="#examples">Examples</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="hero">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">GitHub Pages for strict agent teams</p>
+            <h1>One prompt is not a workflow.</h1>
+            <p class="hero-lead">
+              This repository turns agent work into an auditable engineering system:
+              repository rules, machine-readable constraints, specialist review gates,
+              packet templates, release-honesty checks, and worked examples.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#templates">Browse Template Pack</a>
+              <a class="button button-secondary" href="docs/engineering/workflow.md">Read Workflow</a>
+            </div>
+
+            <ul class="stat-strip" aria-label="Repository highlights">
+              <li>
+                <strong>6</strong>
+                <span>role prompts</span>
+              </li>
+              <li>
+                <strong>5</strong>
+                <span>review and release templates</span>
+              </li>
+              <li>
+                <strong>5</strong>
+                <span>governance contracts</span>
+              </li>
+              <li>
+                <strong>6</strong>
+                <span>required verification commands</span>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="truth-panel" aria-labelledby="truth-panel-title">
+            <p class="panel-label">Release honesty</p>
+            <h2 id="truth-panel-title">What this repo proves right now</h2>
+            <ul class="truth-list">
+              <li>Prompt-to-template linkage</li>
+              <li>Workflow artifact presence</li>
+              <li>Starter-level claim checks</li>
+              <li>Worked example and review packet scaffolding</li>
+            </ul>
+            <p class="truth-note">
+              This repository is a workflow bundle, not a verified product build.
+            </p>
+            <pre class="hero-code"><code>AGENTS.md
+requirements.toml
+PROMPTS/
+docs/engineering/contracts/
+docs/engineering/templates/
+scripts/verify-release.sh</code></pre>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="why" aria-labelledby="why-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Why this page exists</p>
+            <h2 id="why-title">Generic agent guidance does not survive production pressure.</h2>
+            <p>
+              The reference site explains why governance files matter. This project takes
+              the same public-documentation idea and pushes it into implementation reality:
+              scope packets, review packets, accessibility review, security review, release
+              evidence, and verification scripts that fail when the repository drifts.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Bound the work before code starts</h3>
+              <p>
+                Scoping is a first-class artifact here, not a vague preamble. The repo
+                forces teams to state risks, impacted files, evidence gaps, and out-of-scope
+                areas before implementation.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Separate implementation from review authority</h3>
+              <p>
+                Review is intentionally stricter than implementation. Accessibility,
+                security, and release truthfulness each get their own specialist lane when
+                relevant.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Say what the repository can actually prove</h3>
+              <p>
+                The docs and scripts are explicit about starter-level limits. The workflow
+                never pretends that prompts alone prove a production dashboard, auth stack,
+                or deployment.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="system" aria-labelledby="system-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">System surface</p>
+            <h2 id="system-title">The repo is structured as an operating system for agent work.</h2>
+            <p>
+              Every layer has a clear job. The public site links to the real files instead
+              of paraphrasing them into stale marketing copy.
+            </p>
+          </div>
+
+          <div class="system-grid">
+            <article class="system-card">
+              <p class="card-tag">Rules</p>
+              <h3><a href="AGENTS.md">AGENTS.md</a></h3>
+              <p>Repository-wide non-negotiables, output expectations, and engineering bar.</p>
+            </article>
+            <article class="system-card">
+              <p class="card-tag">Constraints</p>
+              <h3><a href="requirements.toml">requirements.toml</a></h3>
+              <p>Machine-readable must-read, must-run, review, accessibility, and release rules.</p>
+            </article>
+            <article class="system-card">
+              <p class="card-tag">Prompts</p>
+              <h3><a href="PROMPTS/scoping-agent.md">PROMPTS/</a></h3>
+              <p>Role-specific prompts for scoping, implementation, review, accessibility, security, and release.</p>
+            </article>
+            <article class="system-card">
+              <p class="card-tag">Contracts</p>
+              <h3><a href="docs/engineering/contracts/architecture.md">docs/engineering/contracts/</a></h3>
+              <p>Architecture, testing, accessibility, security, and release contracts.</p>
+            </article>
+            <article class="system-card">
+              <p class="card-tag">Templates</p>
+              <h3><a href="docs/engineering/templates/scoping-packet-template.md">docs/engineering/templates/</a></h3>
+              <p>Packets for scoping, review, accessibility review, security review, and release evidence.</p>
+            </article>
+            <article class="system-card">
+              <p class="card-tag">Verification</p>
+              <h3><a href="scripts/verify-release.sh">scripts/verify-release.sh</a></h3>
+              <p>Repository checks for prompt structure, workflow integrity, claim control, and starter manifest output.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="workflow" aria-labelledby="workflow-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Execution order</p>
+            <h2 id="workflow-title">The workflow is intentionally strict.</h2>
+            <p>
+              This is not a “best practices” suggestion list. The repository defines a
+              required order and the supporting files for each stage.
+            </p>
+          </div>
+
+          <ol class="workflow-list">
+            <li>
+              <span class="workflow-step">1</span>
+              <div>
+                <h3>Scoping</h3>
+                <p>Bound intent, risks, file impact, evidence gaps, and manual checks.</p>
+                <a href="docs/engineering/templates/scoping-packet-template.md">Open scoping packet template</a>
+              </div>
+            </li>
+            <li>
+              <span class="workflow-step">2</span>
+              <div>
+                <h3>Implementation</h3>
+                <p>Make the smallest correct change without broadening scope or weakening contracts.</p>
+                <a href="PROMPTS/implementation-agent.md">Open implementation prompt</a>
+              </div>
+            </li>
+            <li>
+              <span class="workflow-step">3</span>
+              <div>
+                <h3>Review</h3>
+                <p>Call out scope drift, correctness risk, test gaps, and documentation drift.</p>
+                <a href="docs/engineering/templates/review-packet-template.md">Open review packet template</a>
+              </div>
+            </li>
+            <li>
+              <span class="workflow-step">4</span>
+              <div>
+                <h3>Specialist review</h3>
+                <p>Accessibility, security, and release honesty are separate review surfaces when relevant.</p>
+                <a href="PROMPTS/a11y-review-agent.md">Open specialist prompts</a>
+              </div>
+            </li>
+            <li>
+              <span class="workflow-step">5</span>
+              <div>
+                <h3>Verification</h3>
+                <p>Run the required commands from <code>requirements.toml</code> and report real results.</p>
+                <a href="scripts/verify-release.sh">Open release verification script</a>
+              </div>
+            </li>
+            <li>
+              <span class="workflow-step">6</span>
+              <div>
+                <h3>Documentation and release notes</h3>
+                <p>Describe only verified behaviour and disclose starter-level limits plainly.</p>
+                <a href="PROMPTS/release-agent.md">Open release prompt</a>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="templates" aria-labelledby="templates-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Template pack</p>
+            <h2 id="templates-title">Download the real workflow artifacts.</h2>
+            <p>
+              These are the repository’s actual packet templates, not simplified website-only
+              samples. Use them as the handoff contract between agent roles.
+            </p>
+          </div>
+
+          <div class="template-grid">
+            <article class="template-card">
+              <p class="card-tag">Implementation gate</p>
+              <h3>Scoping Packet</h3>
+              <p>Task restatement, intent boundaries, risk map, accessibility analysis, and verification plan.</p>
+              <a class="inline-link" href="docs/engineering/templates/scoping-packet-template.md" download>Download Markdown</a>
+            </article>
+            <article class="template-card">
+              <p class="card-tag">Review gate</p>
+              <h3>Review Packet</h3>
+              <p>Executive verdict, blockers, technical missteps, testing verdict, and documentation drift.</p>
+              <a class="inline-link" href="docs/engineering/templates/review-packet-template.md" download>Download Markdown</a>
+            </article>
+            <article class="template-card">
+              <p class="card-tag">Accessibility</p>
+              <h3>Accessibility Review</h3>
+              <p>Structured findings, likely WCAG mappings, manual checklist, and unresolved release risks.</p>
+              <a class="inline-link" href="docs/engineering/templates/accessibility-review-template.md" download>Download Markdown</a>
+            </article>
+            <article class="template-card">
+              <p class="card-tag">Security</p>
+              <h3>Security Review</h3>
+              <p>Trust boundaries, data-handling analysis, abuse paths, and operational control review.</p>
+              <a class="inline-link" href="docs/engineering/templates/security-review-template.md" download>Download Markdown</a>
+            </article>
+            <article class="template-card">
+              <p class="card-tag">Release</p>
+              <h3>Release Evidence</h3>
+              <p>Commands run, real results, docs touched, screenshot honesty, and final go or no-go.</p>
+              <a class="inline-link" href="docs/engineering/templates/release-evidence-template.md" download>Download Markdown</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="prompts" aria-labelledby="prompts-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Operational roles</p>
+            <h2 id="prompts-title">Prompts are specialized because failure modes are specialized.</h2>
+            <p>
+              The repository does not collapse everything into one mega-prompt. Each role gets
+              a separate prompt with a narrower contract and a clearer bar.
+            </p>
+          </div>
+
+          <div class="prompt-grid">
+            <a class="prompt-card" href="PROMPTS/scoping-agent.md">
+              <h3>Scoping agent</h3>
+              <p>Force explicit scope, risks, affected files, and verification expectations.</p>
+            </a>
+            <a class="prompt-card" href="PROMPTS/implementation-agent.md">
+              <h3>Implementation agent</h3>
+              <p>Constrain changes to the approved scope and keep behaviour and docs aligned.</p>
+            </a>
+            <a class="prompt-card" href="PROMPTS/review-agent.md">
+              <h3>Review agent</h3>
+              <p>Inspect the real diff and reject correctness drift, test gaps, and sloppy claims.</p>
+            </a>
+            <a class="prompt-card" href="PROMPTS/a11y-review-agent.md">
+              <h3>Accessibility review agent</h3>
+              <p>Separate deterministic failures from manual judgement and avoid fake compliance language.</p>
+            </a>
+            <a class="prompt-card" href="PROMPTS/security-review-agent.md">
+              <h3>Security review agent</h3>
+              <p>Inspect permissions, data paths, secrets, exports, and operational control boundaries.</p>
+            </a>
+            <a class="prompt-card" href="PROMPTS/release-agent.md">
+              <h3>Release agent</h3>
+              <p>Block release language that says more than the repository can verify.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="evidence" aria-labelledby="evidence-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Proof rails</p>
+            <h2 id="evidence-title">The repository is explicit about what is verified and what is not.</h2>
+            <p>
+              That honesty is a feature. Teams lose trust when workflow tooling quietly
+              implies more maturity than the codebase actually proves.
+            </p>
+          </div>
+
+          <div class="evidence-grid">
+            <article class="evidence-card evidence-card-positive">
+              <h3>Verified in this starter</h3>
+              <ul>
+                <li>Prompt structure and required file linkage</li>
+                <li>Workflow and packet presence checks</li>
+                <li>Unsupported-claim scanning in key docs</li>
+                <li>Starter manifest generation</li>
+                <li>Worked example and teaching asset presence</li>
+              </ul>
+            </article>
+            <article class="evidence-card evidence-card-caution">
+              <h3>Not verified by this starter</h3>
+              <ul>
+                <li>Live dashboard UI behaviour</li>
+                <li>Production auth or authorization flows</li>
+                <li>Export correctness for CSV, PDF, or screenshots</li>
+                <li>Operational durability of background jobs</li>
+                <li>Deployment readiness of an application stack</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="examples" aria-labelledby="examples-title">
+        <div class="shell">
+          <div class="section-heading">
+            <p class="eyebrow">Worked example</p>
+            <h2 id="examples-title">Examples show the standard, not just the slogan.</h2>
+            <p>
+              The exercise and packet samples are there to make the quality bar inspectable
+              and teachable.
+            </p>
+          </div>
+
+          <div class="example-grid">
+            <article class="example-card">
+              <h3>Canonical exercise</h3>
+              <p>An internal-quality-dashboard scenario with realistic comparison-view review expectations.</p>
+              <a href="examples/exercises/exercise-001-comparison-view/README.md">Open exercise</a>
+            </article>
+            <article class="example-card">
+              <h3>Good scoping packet</h3>
+              <p>A bounded example that names risk, affected files, and verification expectations clearly.</p>
+              <a href="examples/review-packets/sample-scoping-packet.md">Open sample</a>
+            </article>
+            <article class="example-card">
+              <h3>Good review output</h3>
+              <p>Review phrased as evidence, blockers, and real technical judgement instead of praise.</p>
+              <a href="examples/review-packets/sample-review-output.md">Open sample</a>
+            </article>
+            <article class="example-card">
+              <h3>Release evidence sample</h3>
+              <p>Starter-level no-go language that avoids pretending a workflow scaffold is an application release.</p>
+              <a href="examples/review-packets/sample-release-evidence.md">Open sample</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-compact" aria-labelledby="start-title">
+        <div class="shell shell-narrow">
+          <div class="section-heading">
+            <p class="eyebrow">Start here</p>
+            <h2 id="start-title">The shortest correct reading order</h2>
+          </div>
+
+          <ol class="start-list">
+            <li><a href="AGENTS.md">AGENTS.md</a></li>
+            <li><a href="requirements.toml">requirements.toml</a></li>
+            <li><a href="docs/engineering/workflow.md">docs/engineering/workflow.md</a></li>
+            <li><a href="docs/engineering/contracts/architecture.md">docs/engineering/contracts/architecture.md</a></li>
+            <li><a href="PROMPTS/scoping-agent.md">PROMPTS/scoping-agent.md</a></li>
+            <li><a href="docs/engineering/templates/scoping-packet-template.md">docs/engineering/templates/scoping-packet-template.md</a></li>
+            <li><a href="examples/exercises/exercise-001-comparison-view/README.md">examples/exercises/exercise-001-comparison-view/README.md</a></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <p class="footer-title">Agent Workflow Blueprint</p>
+          <p>
+            Public Pages surface for the repository’s real prompts, contracts, templates,
+            scripts, and examples.
+          </p>
+        </div>
+        <div>
+          <p class="footer-title">Primary entry points</p>
+          <ul class="footer-links">
+            <li><a href="README.md">README</a></li>
+            <li><a href="docs/engineering/workflow.md">Workflow</a></li>
+            <li><a href="scripts/verify-release.sh">Release verification</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
