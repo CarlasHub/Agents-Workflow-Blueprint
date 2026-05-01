@@ -748,8 +748,10 @@ h1 {
 }
 
 .asset-category {
-  color: var(--fgColor-muted);
-  border: 1px solid var(--borderColor-default);
+  color: var(--category-fg, var(--fgColor-default));
+  border: 1px solid var(--category-border, var(--borderColor-default));
+  background: var(--category-bg, var(--bgColor-neutral-muted));
+  font-weight: 600;
 }
 
 .asset-card p {

@@ -198,9 +198,38 @@ python3 -S scripts/check_template_library.py</code></pre>
       const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
       let assets = [];
       let activeFilter = 'all';
+      let categoryStyles = new Map();
 
       function normalise(value) {
         return String(value || '').toLowerCase();
+      }
+
+      function getCategoryLabel(category) {
+        return String(category || '').trim() || 'Uncategorised';
+      }
+
+      function buildCategoryStyles(items) {
+        const categories = [...new Set(items.map((asset) => getCategoryLabel(asset.category)))]
+          .sort((left, right) => left.localeCompare(right));
+        const map = new Map();
+        categories.forEach((category, index) => {
+          const hue = (index * 137.508) % 360;
+          map.set(category, {
+            bg: `hsl(${hue.toFixed(2)} 80% 52% / 0.17)`,
+            border: `hsl(${hue.toFixed(2)} 86% 66% / 0.62)`,
+            fg: `hsl(${hue.toFixed(2)} 100% 83%)`,
+          });
+        });
+        return map;
+      }
+
+      function categoryStyle(category) {
+        const label = getCategoryLabel(category);
+        const style = categoryStyles.get(label);
+        if (!style) {
+          return '--category-bg:var(--bgColor-neutral-muted);--category-border:var(--borderColor-default);--category-fg:var(--fgColor-default);';
+        }
+        return `--category-bg:${style.bg};--category-border:${style.border};--category-fg:${style.fg};`;
       }
 
       function render() {
@@ -216,7 +245,7 @@ python3 -S scripts/check_template_library.py</code></pre>
           <article class="asset-card" data-type="${asset.type}">
             <div class="asset-card-head">
               <span class="asset-type">${asset.type}</span>
-              <span class="asset-category">${asset.category}</span>
+              <span class="asset-category" style="${categoryStyle(asset.category)}">${getCategoryLabel(asset.category)}</span>
             </div>
             <h3>${asset.title}</h3>
             <p>${asset.summary}</p>
@@ -264,6 +293,7 @@ python3 -S scripts/check_template_library.py</code></pre>
         .then((response) => response.json())
         .then((data) => {
           assets = data;
+          categoryStyles = buildCategoryStyles(assets);
           render();
         })
         .catch(() => {
