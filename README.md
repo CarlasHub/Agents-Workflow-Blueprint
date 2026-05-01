@@ -123,6 +123,19 @@ The GitHub Pages site in `index.html` exposes the repository as a template hub w
 
 Keep `.nojekyll` in the repository so GitHub Pages serves repository files without Jekyll processing.
 
+## Licence
+
+This repository currently has no `LICENSE` or `LICENCE` file. The model below describes intended usage and reuse until formal licence files are added.
+
+This project uses a split licensing model:
+
+- **Code, scripts, site files, and automation tooling** are intended to be licensed under the MIT Licence.
+- **Documentation, prompts, skills, contracts, templates, and written content** are intended to be licensed under Creative Commons Attribution 4.0 International (CC-BY-4.0).
+
+You may copy, adapt, and use the templates, prompts, skills, and contracts, provided appropriate attribution is given.
+
+If third-party material is added to this repository, it must be documented in `THIRD-PARTY-NOTICES.md` with its source, author, licence, changes made, and repository location.
+
 ## References
 
 The repository is informed by current primary documentation and standards listed in [`docs/template-library/RESEARCH-BASIS.md`](docs/template-library/RESEARCH-BASIS.md).
