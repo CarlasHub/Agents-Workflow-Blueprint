@@ -198,8 +198,6 @@ python3 -S scripts/check_template_library.py</code></pre>
       const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
       let assets = [];
       let activeFilter = 'all';
-      let categoryStyles = new Map();
-      let typeStyles = new Map();
 
       function normalise(value) {
         return String(value || '').toLowerCase();
@@ -213,46 +211,6 @@ python3 -S scripts/check_template_library.py</code></pre>
         const value = String(type || '').trim();
         if (!value) return 'Unknown';
         return value.charAt(0).toUpperCase() + value.slice(1);
-      }
-
-      function buildStyleMap(labels) {
-        const sortedLabels = [...new Set(labels)].sort((left, right) => left.localeCompare(right));
-        const map = new Map();
-        sortedLabels.forEach((label, index) => {
-          const hue = (index * 137.508) % 360;
-          map.set(label, {
-            bg: `hsl(${hue.toFixed(2)} 80% 52% / 0.17)`,
-            border: `hsl(${hue.toFixed(2)} 86% 66% / 0.62)`,
-            fg: `hsl(${hue.toFixed(2)} 100% 83%)`,
-          });
-        });
-        return map;
-      }
-
-      function buildCategoryStyles(items) {
-        return buildStyleMap(items.map((asset) => getCategoryLabel(asset.category)));
-      }
-
-      function categoryStyle(category) {
-        const label = getCategoryLabel(category);
-        const style = categoryStyles.get(label);
-        if (!style) {
-          return '--category-bg:var(--bgColor-neutral-muted);--category-border:var(--borderColor-default);--category-fg:var(--fgColor-default);';
-        }
-        return `--category-bg:${style.bg};--category-border:${style.border};--category-fg:${style.fg};`;
-      }
-
-      function buildTypeStyles(items) {
-        return buildStyleMap(items.map((asset) => getTypeLabel(asset.type)));
-      }
-
-      function typeStyle(type) {
-        const label = getTypeLabel(type);
-        const style = typeStyles.get(label);
-        if (!style) {
-          return '--category-bg:var(--bgColor-neutral-muted);--category-border:var(--borderColor-default);--category-fg:var(--fgColor-default);';
-        }
-        return `--category-bg:${style.bg};--category-border:${style.border};--category-fg:${style.fg};`;
       }
 
       function typeIcon(type) {
@@ -276,8 +234,8 @@ python3 -S scripts/check_template_library.py</code></pre>
         grid.innerHTML = filtered.map((asset) => `
           <article class="asset-card" data-type="${asset.type}">
             <div class="asset-card-head">
-              <span class="asset-type" style="${typeStyle(asset.type)}"><span class="asset-type-icon" aria-hidden="true">${typeIcon(asset.type)}</span>${getTypeLabel(asset.type)}</span>
-              <span class="asset-category" style="${categoryStyle(asset.category)}">${getCategoryLabel(asset.category)}</span>
+              <span class="asset-type"><span class="asset-type-icon" aria-hidden="true">${typeIcon(asset.type)}</span>${getTypeLabel(asset.type)}</span>
+              <span class="asset-category">${getCategoryLabel(asset.category)}</span>
             </div>
             <h3>${asset.title}</h3>
             <p>${asset.summary}</p>
@@ -325,8 +283,6 @@ python3 -S scripts/check_template_library.py</code></pre>
         .then((response) => response.json())
         .then((data) => {
           assets = data;
-          categoryStyles = buildCategoryStyles(assets);
-          typeStyles = buildTypeStyles(assets);
           render();
         })
         .catch(() => {
