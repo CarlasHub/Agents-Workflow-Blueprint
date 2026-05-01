@@ -227,6 +227,7 @@ h1 {
 }
 
 .hero-lead,
+.author-line,
 .section-heading p,
 .template-card p,
 .prompt-card p,
@@ -245,6 +246,22 @@ h1 {
   max-width: 62ch;
   font-size: 1.05rem;
   margin: 1.4rem 0 0;
+}
+
+.author-line {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+}
+
+.author-line a,
+.footer-owner a {
+  color: var(--fgColor-default);
+  font-weight: 600;
+}
+
+.author-line a:hover,
+.footer-owner a:hover {
+  color: var(--fgColor-link);
 }
 
 .hero-actions {
@@ -561,6 +578,10 @@ h1 {
   margin: 0 0 0.7rem;
   font-weight: 700;
   color: var(--fgColor-default);
+}
+
+.footer-owner {
+  margin-top: 0.85rem;
 }
 
 @keyframes rise {
