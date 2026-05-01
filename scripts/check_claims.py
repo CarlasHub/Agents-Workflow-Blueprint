@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 FILES_TO_SCAN = [
     "README.md",
+    "index.html",
     "src/README.md",
     "examples/prompts-for-course.md",
     "examples/review-packets/sample-release-evidence.md",
@@ -40,6 +41,7 @@ ALLOWED_CONTEXTS = [
 ]
 
 REQUIRED_STARTER_DISCLAIMERS = {
+    "index.html": "This repository is a workflow bundle, not a verified product build.",
     "docs/engineering/workflow.md": "It does not prove a shipped product build.",
     "src/README.md": "They do not prove a product build.",
     "examples/review-packets/sample-release-evidence.md": "NO-GO for claiming application-level behaviour until a real app is added and tested.",

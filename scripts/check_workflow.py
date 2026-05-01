@@ -7,6 +7,9 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_FILES = [
+    "index.html",
+    "site.css",
+    ".nojekyll",
     ".codex/config.toml",
     ".codex/skills/strict-agent-workflow/SKILL.md",
     "docs/engineering/workflow.md",
