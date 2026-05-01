@@ -29,7 +29,7 @@ They do not prove a deployed product.
 
 A static GitHub Pages landing page lives in `index.html` and `site.css`.
 It links directly to the real prompts, contracts, templates, examples, and verification scripts in this repository instead of duplicating them into marketing-only copies.
-Publish it with `.nojekyll` so GitHub Pages serves dot-prefixed repository assets such as `.codex/skills/strict-agent-workflow/SKILL.md`.
+Keep `.nojekyll` in Pages output to prevent Jekyll processing of repository files.
 The site is a documentation surface for the workflow bundle.
 It is not a verified product build.
 

@@ -10,17 +10,12 @@ REQUIRED_FILES = [
     "index.html",
     "site.css",
     ".nojekyll",
-    ".codex/config.toml",
-    ".codex/skills/strict-agent-workflow/SKILL.md",
     "docs/engineering/workflow.md",
     "docs/engineering/templates/scoping-packet-template.md",
     "docs/engineering/templates/review-packet-template.md",
     "docs/engineering/templates/accessibility-review-template.md",
     "docs/engineering/templates/security-review-template.md",
     "docs/engineering/templates/release-evidence-template.md",
-    "docs/teaching/grading-rubric.md",
-    "docs/teaching/student-submission-checklist.md",
-    "docs/teaching/instructor-notes.md",
     "examples/exercises/exercise-001-comparison-view/README.md",
     "examples/template-libraries/agent-templates-production/README.md",
     "PROMPTS/master-prompt.md",
@@ -61,17 +56,6 @@ def main() -> int:
             fail(f"missing workflow file: {rel_path}")
             failed = True
 
-    config_path = ROOT / ".codex/config.toml"
-    if config_path.exists():
-        config_content = config_path.read_text(encoding="utf-8")
-        failed = not require_phrase(config_content, 'model = "gpt-5.4"', ".codex/config.toml") or failed
-        failed = not require_phrase(
-            config_content, 'sandbox_mode = "workspace-write"', ".codex/config.toml"
-        ) or failed
-        failed = not require_phrase(
-            config_content, 'approval_policy = "on-request"', ".codex/config.toml"
-        ) or failed
-
     requirements_path = ROOT / "requirements.toml"
     if requirements_path.exists():
         requirements_content = requirements_path.read_text(encoding="utf-8")
@@ -85,7 +69,6 @@ def main() -> int:
         "Required artifacts",
         "Specialist review when relevant",
         "Starter-repository verification scope",
-        "For teaching and grading",
     ]:
         if phrase not in workflow_content:
             fail(f"docs/engineering/workflow.md missing phrase: {phrase}")

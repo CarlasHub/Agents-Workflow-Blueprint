@@ -22,10 +22,6 @@ REQUIRED_FILES = {
         "Built artifact",
         "Final go / no-go recommendation",
     ],
-    "tests/playwright/sample-dashboard.spec.ts": [
-        "Example-only Playwright spec",
-        "This starter does not ship a runnable app",
-    ],
     "examples/exercises/exercise-001-comparison-view/README.md": [
         "Comparison View Workflow Drill",
         "Student deliverables",

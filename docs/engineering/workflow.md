@@ -27,13 +27,6 @@ Use these templates rather than inventing ad hoc output:
 - `docs/engineering/templates/security-review-template.md`
 - `docs/engineering/templates/release-evidence-template.md`
 
-For teaching and grading, also use:
-
-- `docs/teaching/grading-rubric.md`
-- `docs/teaching/student-submission-checklist.md`
-- `docs/teaching/instructor-notes.md`
-- `examples/exercises/exercise-001-comparison-view/`
-
 ## Phase details
 
 ### 1. Scoping
@@ -96,7 +89,6 @@ The current repository validates:
 - prompt structure and prompt-to-template linkage
 - workflow docs and required artifacts
 - example packet presence and example honesty
-- teaching materials and canonical exercise presence
 - integrated template-library presence and expected file distribution
 - unsupported-claim checks for key docs and examples
 - starter build artifact generation for the workflow bundle
