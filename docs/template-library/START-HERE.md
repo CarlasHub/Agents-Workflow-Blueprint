@@ -2,7 +2,7 @@
 
 ## Step 0 — Know the method stack
 
-Before using a prompt, read the short method map: [`RESEARCH-DNA.md`](RESEARCH-DNA.md). For task selection, use [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md). For pre-merge discipline, use [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md).
+Before using a prompt, read the short method map: [`RESEARCH-DNA.md`](RESEARCH-DNA.md). For task selection, use [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md). For pre-merge discipline, use [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md). For sociotechnical, human-AI, trust-calibration, and ML-evaluation quality, use [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md).
 
 
 Use this page when you need the shortest safe route through the library.

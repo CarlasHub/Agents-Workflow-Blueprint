@@ -23,6 +23,7 @@ Every asset contains at least 20 numbered enforcement points and uses the same f
 - Start with [`START-HERE.md`](START-HERE.md) for the shortest route through the library.
 - Use [`STARTER-PACKS.md`](STARTER-PACKS.md) for bundled prompt + skill + contract combinations.
 - Use [`QUALITY-RUBRIC.md`](QUALITY-RUBRIC.md) to evaluate agent output.
+- Use [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) to check sociotechnical, human-AI, trust-calibration, and ML-evaluation quality.
 - Use [`RESEARCH-BASIS.md`](RESEARCH-BASIS.md) to understand the standards and behavioural controls behind the library.
 - Use [`CODEX-USAGE-GUIDE.md`](CODEX-USAGE-GUIDE.md) to apply the assets in Codex.
 - Use [`EXAMPLES.md`](EXAMPLES.md) to see weak output rejected and stronger output accepted with limits.
@@ -46,6 +47,7 @@ This library now includes a stronger scientific-control layer:
 - [`RESEARCH-DNA.md`](RESEARCH-DNA.md) — maps CoT, Tree-of-Thoughts, ReAct, Least-to-Most, Self-Consistency, Reflexion, System 2 forcing, and traceability into product behaviour.
 - [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) — shows which research pattern to use for each task type.
 - [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md) — a pre-merge checklist for evidence-backed agent work.
+- [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) — a source-mapped quality bar for prompts, skills, contracts, rules, generated projects, and agent outputs.
 
 The product does not rely on prompt length alone. It relies on observable controls: decomposition, branch comparison, environment observation, independent verification, correction loops, traceable acceptance, and failure disclosure.
 

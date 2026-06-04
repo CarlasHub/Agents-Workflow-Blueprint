@@ -12,11 +12,13 @@ This repository is a professional agent-governance blueprint for teams that want
 - `docs/engineering/contracts/` — engineering contracts for architecture, testing, accessibility, security, and release truthfulness.
 - `docs/engineering/templates/` — packet templates for scoping, review, specialist review, and release evidence.
 - `docs/template-library/` — 100 copy-ready prompts, skills, and contracts.
+- `docs/template-library/HUMAN-AI-QUALITY-STANDARD.md` — the source-mapped human-AI quality bar for prompts, skills, contracts, rules, generated projects, and agent outputs.
 - `examples/` — a worked teaching scenario and review-packet examples.
 - `scripts/` — validation checks that protect the workflow bundle from claim drift.
 - `index.html` and `site.css` — a static GitHub Pages template hub.
+- `build-project/` — a browser-local build page that generates governed agent or project starter ZIP files without a backend.
 
-It does not include a runnable application. The current verification commands prove the workflow bundle and starter artefact only. They do not prove a deployed product.
+It does not include a deployed product, backend service, authentication system, or production runtime. The current verification commands prove the workflow bundle, static starter route, and starter artefact only. They do not prove a deployed product.
 
 ## Template library
 
@@ -34,6 +36,7 @@ Start here:
 - [`docs/template-library/STARTER-PACKS.md`](docs/template-library/STARTER-PACKS.md)
 - [`docs/template-library/CATALOGUE.md`](docs/template-library/CATALOGUE.md)
 - [`docs/template-library/QUALITY-RUBRIC.md`](docs/template-library/QUALITY-RUBRIC.md)
+- [`docs/template-library/HUMAN-AI-QUALITY-STANDARD.md`](docs/template-library/HUMAN-AI-QUALITY-STANDARD.md)
 - [`docs/template-library/CODEX-USAGE-GUIDE.md`](docs/template-library/CODEX-USAGE-GUIDE.md)
 - [`docs/template-library/RESEARCH-BASIS.md`](docs/template-library/RESEARCH-BASIS.md)
 - [`DELIVERY-NOTES.md`](DELIVERY-NOTES.md)
@@ -83,7 +86,7 @@ That flow is backed by:
 Run the full release verification bundle:
 
 ```bash
-npm run verify:release
+bash scripts/verify-release.sh
 ```
 
 Or run individual checks:
@@ -106,11 +109,12 @@ The checks prove:
 - workflow references stay connected
 - unsupported starter claims are blocked in key public files
 - the 100-asset template library has the required count, sections, metadata, and minimum enforcement depth
+- the human-AI quality standard is present and source-mapped
 - `dist/starter-manifest.json` can be generated
 
 The checks do not prove:
 
-- live UI behaviour
+- deployed product UI behaviour
 - product deployment
 - application authentication or authorization
 - runtime accessibility behaviour
@@ -120,6 +124,8 @@ The checks do not prove:
 ## Public site
 
 The GitHub Pages site in `index.html` exposes the repository as a template hub with categories, starter packs, direct markdown links, and copy actions powered by `docs/template-library/assets.json`.
+
+The build page is available at `build-project/`. It is a static browser-local route that captures governance inputs, previews the generated files, applies the human-AI quality standard, lets teams remove optional files, and downloads a starter ZIP. It does not use a backend or deployment service.
 
 Keep `.nojekyll` in the repository so GitHub Pages serves repository files without Jekyll processing.
 

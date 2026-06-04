@@ -10,7 +10,7 @@
       name="description"
       content="A professional agent-governance template hub with 100 prompts, skills, and contracts for evidence-first coding-agent workflows."
     />
-    <link rel="stylesheet" href="site.css?v=20260501-1" />
+    <link rel="stylesheet" href="site.css?v=20260605-1" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -19,7 +19,9 @@
       <div class="shell">
         <div class="topbar">
           <a class="brand" href="#hero">
-            <span class="brand-mark" aria-hidden="true">AW</span>
+            <span class="brand-mark" aria-hidden="true">
+              <img class="brand-logo" src="assets/blueprint-logo.svg?v=vitruvian-blueprint-20260605" alt="" width="48" height="48" />
+            </span>
             <span class="brand-copy">
               <span class="brand-kicker">Agent Workflow Blueprint</span>
               <span class="brand-title">Evidence before confidence</span>
@@ -28,6 +30,7 @@
 
           <nav class="site-nav" aria-label="Primary">
             <a href="#library">Library</a>
+            <a class="nav-build-link" href="build-project/">Build project</a>
             <a href="#packs">Starter packs</a>
             <a href="#workflow">Workflow</a>
             <a href="#proof">Verification</a>
@@ -71,7 +74,7 @@
               <li>Starter manifest generation</li>
             </ul>
             <p class="truth-note">This repository is a workflow bundle, not a verified product build.</p>
-            <pre class="hero-code"><code>npm run verify:release
+            <pre class="hero-code"><code>bash scripts/verify-release.sh
 python3 -S scripts/check_template_library.py</code></pre>
           </aside>
         </div>
@@ -106,6 +109,28 @@ python3 -S scripts/check_template_library.py</code></pre>
             <p class="truth-note">JavaScript is disabled. Open the full catalogue instead:</p>
             <p><a class="inline-link" href="docs/template-library/CATALOGUE.md">Open catalogue</a></p>
           </noscript>
+
+          <div class="build-callout" id="build-project-card" aria-labelledby="build-title">
+            <div>
+              <p class="eyebrow">Build an agent or project</p>
+              <h2 id="build-title">Build a governed agent or project from this library.</h2>
+              <p>
+                Launch a browser-local console that captures governance inputs, previews the files being assembled,
+                lets teams remove optional files, applies the human-AI quality standard, and downloads a ZIP starter without using a backend.
+              </p>
+              <div class="hero-actions">
+                <a class="button button-primary" href="build-project/">Open builder</a>
+                <a class="button button-secondary" href="#proof">Review proof rails</a>
+              </div>
+            </div>
+            <div class="build-terminal" aria-label="Build project route">
+              <p><span>$</span> open build-project/</p>
+              <p><span>></span> choose project type</p>
+              <p><span>></span> generate governance pack</p>
+              <p><span>></span> apply quality standard</p>
+              <p><span>></span> download governed starter ZIP</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -184,6 +209,7 @@ python3 -S scripts/check_template_library.py</code></pre>
           <p class="footer-title">Primary entry points</p>
           <ul class="footer-links">
             <li><a href="README.md">README</a></li>
+            <li><a href="build-project/">Build project</a></li>
             <li><a href="docs/template-library/START-HERE.md">Start here</a></li>
             <li><a href="scripts/verify-release.sh">Release verification</a></li>
           </ul>
@@ -196,11 +222,23 @@ python3 -S scripts/check_template_library.py</code></pre>
       const statusEl = document.getElementById('asset-status');
       const searchEl = document.getElementById('asset-search');
       const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
+      const initialSearch = new URLSearchParams(window.location.search).get('assetSearch');
       let assets = [];
       let activeFilter = 'all';
 
+      if (initialSearch) {
+        searchEl.value = initialSearch;
+      }
+
       function normalise(value) {
         return String(value || '').toLowerCase();
+      }
+
+      function clearAssetSearchParam() {
+        const url = new URL(window.location.href);
+        if (!url.searchParams.has('assetSearch')) return;
+        url.searchParams.delete('assetSearch');
+        window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
       }
 
       function getCategoryLabel(category) {
@@ -211,6 +249,19 @@ python3 -S scripts/check_template_library.py</code></pre>
         const value = String(type || '').trim();
         if (!value) return 'Unknown';
         return value.charAt(0).toUpperCase() + value.slice(1);
+      }
+
+      function escapeHtml(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function escapeAttribute(value) {
+        return escapeHtml(value).replace(/`/g, '&#96;');
       }
 
       function categoryHash(label) {
@@ -246,21 +297,60 @@ python3 -S scripts/check_template_library.py</code></pre>
         });
 
         statusEl.textContent = `${filtered.length} asset${filtered.length === 1 ? '' : 's'} shown`;
+        if (filtered.length === 0) {
+          grid.innerHTML = `
+            <div class="asset-empty-state" role="status">
+              <p class="eyebrow">No matching assets</p>
+              <h3>Try a broader search or switch the filter.</h3>
+              <p>The library is still here. Clear the query to return to the full prompt, skill and contract catalogue.</p>
+              <button type="button" data-clear-search>Clear search</button>
+            </div>
+          `;
+          return;
+        }
+
         grid.innerHTML = filtered.map((asset) => `
-          <article class="asset-card" data-type="${asset.type}">
+          <article class="asset-card" data-type="${escapeAttribute(asset.type)}">
             <div class="asset-card-head">
               <span class="asset-type"><span class="asset-type-icon" aria-hidden="true">${typeIcon(asset.type)}</span>${getTypeLabel(asset.type)}</span>
-              <span class="asset-category" style="${categoryStyle(asset.category)}">${getCategoryLabel(asset.category)}</span>
+              <span class="asset-category" style="${categoryStyle(asset.category)}">${escapeHtml(getCategoryLabel(asset.category))}</span>
             </div>
-            <h3>${asset.title}</h3>
-            <p>${asset.summary}</p>
+            <h3>${escapeHtml(asset.title)}</h3>
+            <p>${escapeHtml(asset.summary)}</p>
             <div class="asset-actions">
-              <a href="${asset.path}">Open</a>
-              <a href="${asset.path}" download>Download</a>
-              <button type="button" data-copy-path="${asset.path}">Copy Markdown</button>
+              <a href="${escapeAttribute(asset.path)}">Open</a>
+              <a href="${escapeAttribute(asset.path)}" download>Download</a>
+              <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy Markdown</button>
             </div>
           </article>
         `).join('');
+      }
+
+      async function writeClipboard(text) {
+        if (navigator.clipboard?.writeText) {
+          try {
+            await navigator.clipboard.writeText(text);
+            return true;
+          } catch (error) {
+            // Fall through to the legacy path for restricted clipboard contexts.
+          }
+        }
+
+        const scratch = document.createElement('textarea');
+        scratch.value = text;
+        scratch.setAttribute('readonly', '');
+        scratch.style.position = 'fixed';
+        scratch.style.left = '-9999px';
+        scratch.style.top = '0';
+        document.body.appendChild(scratch);
+        scratch.select();
+        try {
+          return document.execCommand('copy');
+        } catch (error) {
+          return false;
+        } finally {
+          scratch.remove();
+        }
       }
 
       async function copyAsset(path, button) {
@@ -269,16 +359,26 @@ python3 -S scripts/check_template_library.py</code></pre>
           const response = await fetch(path);
           if (!response.ok) throw new Error('Unable to fetch asset');
           const markdown = await response.text();
-          await navigator.clipboard.writeText(markdown);
+          const copied = await writeClipboard(markdown);
+          if (!copied) throw new Error('Clipboard unavailable');
           button.textContent = 'Copied';
         } catch (error) {
-          button.textContent = 'Copy failed';
+          button.textContent = 'Open file instead';
         } finally {
           window.setTimeout(() => { button.textContent = original; }, 1600);
         }
       }
 
       grid.addEventListener('click', (event) => {
+        const clearButton = event.target.closest('button[data-clear-search]');
+        if (clearButton) {
+          searchEl.value = '';
+          clearAssetSearchParam();
+          render();
+          searchEl.focus();
+          return;
+        }
+
         const button = event.target.closest('button[data-copy-path]');
         if (!button) return;
         copyAsset(button.dataset.copyPath, button);

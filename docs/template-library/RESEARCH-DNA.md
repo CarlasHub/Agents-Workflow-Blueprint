@@ -10,37 +10,45 @@ Do not describe this library as “tricking the AI into mathematical pathways.�
 
 ## The method stack
 
-1. **Chain-of-Thought prompting**  
-   Source: Wei et al. (2022), *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*.  
+1. **Chain-of-Thought prompting**
+   Source: Wei et al. (2022), *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*.
    Translation in this repo: require a concise reasoning summary, assumptions, selected path, rejected path, and evidence ledger before final status. Do not require a long hidden-thought transcript.
 
-2. **Tree-of-Thoughts**  
-   Source: Yao et al. (2023), *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*.  
+2. **Tree-of-Thoughts**
+   Source: Yao et al. (2023), *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*.
    Translation in this repo: ask the agent to compare multiple candidate branches when a task has meaningful alternatives, then reject weak branches before editing.
 
-3. **ReAct: Reason + Act**  
-   Source: Yao et al. (2022), *ReAct: Synergizing Reasoning and Acting in Language Models*.  
+3. **ReAct: Reason + Act**
+   Source: Yao et al. (2022), *ReAct: Synergizing Reasoning and Acting in Language Models*.
    Translation in this repo: force an observe → act → observe loop so the agent checks files, UI, commands, logs, and docs instead of inventing the state of the system.
 
-4. **Least-to-Most prompting**  
-   Source: Zhou et al. (2022), *Least-to-Most Prompting Enables Complex Reasoning in Large Language Models*.  
+4. **Least-to-Most prompting**
+   Source: Zhou et al. (2022), *Least-to-Most Prompting Enables Complex Reasoning in Large Language Models*.
    Translation in this repo: decompose work into small ordered subproblems and verify each step before using it as a foundation for the next step.
 
-5. **Self-Consistency**  
-   Source: Wang et al. (2022), *Self-Consistency Improves Chain of Thought Reasoning in Language Models*.  
+5. **Self-Consistency**
+   Source: Wang et al. (2022), *Self-Consistency Improves Chain of Thought Reasoning in Language Models*.
    Translation in this repo: compare independent evidence routes — source inspection, command output, behaviour, screenshots, docs — before accepting a claim.
 
-6. **Reflexion**  
-   Source: Shinn et al. (2023), *Reflexion: Language Agents with Verbal Reinforcement Learning*.  
+6. **Reflexion**
+   Source: Shinn et al. (2023), *Reflexion: Language Agents with Verbal Reinforcement Learning*.
    Translation in this repo: when checks fail, the agent must convert feedback into a correction note before trying again.
 
-7. **System 2 / cognitive forcing**  
-   Source: Kahneman (2011), *Thinking, Fast and Slow*.  
+7. **System 2 / cognitive forcing**
+   Source: Kahneman (2011), *Thinking, Fast and Slow*.
    Translation in this repo: use forced checklists, uncertainty labels, premortems, and adversarial review to slow down premature closure.
 
-8. **Formal verification and traceability**  
-   Source: ISO/IEC/IEEE 15288-style systems-engineering lifecycle concepts.  
+8. **Formal verification and traceability**
+   Source: ISO/IEC/IEEE 15288-style systems-engineering lifecycle concepts.
    Translation in this repo: every acceptance claim must map to requirement, artefact, evidence, verifier, and status.
+
+9. **Human-AI interaction and trust calibration**
+   Sources: Google People + AI Guidebook, Microsoft Guidelines for Human-AI Interaction, NIST AI RMF, NIST ARIA, and WCAG 2.2.
+   Translation in this repo: prompts, skills, contracts, and rules must expose limits, evidence, uncertainty, correction paths, human handoff, accessibility impact, and sociotechnical risk.
+
+10. **LLM application security and evaluation**
+   Sources: OWASP Top 10 for LLM Applications 2025, OpenAI prompt guidance, and prompt-engineering survey research.
+   Translation in this repo: serious agent work must handle prompt injection, sensitive-data leakage, excessive agency, insecure output handling, misinformation, eval coverage, and untrusted-content boundaries.
 
 ## Prompt design principles used here
 

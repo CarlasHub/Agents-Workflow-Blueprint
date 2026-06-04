@@ -7,6 +7,7 @@
 - [Traceability Matrix Pattern](TRACEABILITY-MATRIX.md)
 - [System 2 Prompting Guide](SYSTEM-2-PROMPTING-GUIDE.md)
 - [Research and Standards Basis](RESEARCH-BASIS.md)
+- [Human-AI Quality Standard](HUMAN-AI-QUALITY-STANDARD.md)
 
 
 ## Research control docs

@@ -13,6 +13,7 @@ BASE_FILES = [
     "requirements.toml",
     "index.html",
     "site.css",
+    "assets/blueprint-logo.svg",
     ".nojekyll",
     "docs/engineering/workflow.md",
     "docs/engineering/contracts/architecture.md",

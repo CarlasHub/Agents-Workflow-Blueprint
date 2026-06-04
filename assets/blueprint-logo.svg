@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Workflow Blueprint human mark</title>
+  <desc id="desc">A calm blue architectural blueprint logo with a Vitruvian-style human figure, grid lines, measurement guides and a square technical drawing frame.</desc>
+  <defs>
+    <linearGradient id="blueprint-surface" x1="16" y1="4" x2="112" y2="124" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b6b9b"/>
+      <stop offset="0.48" stop-color="#0969da"/>
+      <stop offset="1" stop-color="#0a3069"/>
+    </linearGradient>
+    <radialGradient id="blueprint-glow" cx="50%" cy="48%" r="56%">
+      <stop offset="0" stop-color="#79c0ff" stop-opacity="0.26"/>
+      <stop offset="0.62" stop-color="#79c0ff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#0a3069" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="minor-grid" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M4 0H0v4" fill="none" stroke="#dff6ff" stroke-opacity="0.14" stroke-width="0.55"/>
+    </pattern>
+    <pattern id="major-grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0v16" fill="none" stroke="#dff6ff" stroke-opacity="0.24" stroke-width="0.7"/>
+    </pattern>
+  </defs>
+
+  <rect width="128" height="128" fill="#0a3069"/>
+  <rect x="7" y="7" width="114" height="114" fill="url(#blueprint-surface)"/>
+  <rect x="7" y="7" width="114" height="114" fill="url(#blueprint-glow)"/>
+  <rect x="15" y="15" width="98" height="98" fill="url(#minor-grid)"/>
+  <rect x="15" y="15" width="98" height="98" fill="url(#major-grid)"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="5" width="118" height="118" stroke="#f0f6fc" stroke-width="1.8"/>
+    <rect x="8.8" y="8.8" width="110.4" height="110.4" stroke="#b6e3ff" stroke-opacity="0.78" stroke-width="0.9"/>
+    <rect x="27" y="31" width="74" height="72" stroke="#dff6ff" stroke-opacity="0.68" stroke-width="1.4"/>
+    <circle cx="64" cy="64" r="45" stroke="#f0f6fc" stroke-opacity="0.82" stroke-width="1.2" stroke-dasharray="4 4"/>
+    <path d="M19 103h90M19 31h90M27 26v82M101 26v82" stroke="#dff6ff" stroke-opacity="0.58" stroke-width="0.9"/>
+    <path d="M17 115h42M100 115h18M17 118h82M103 110v9M108 110v9M113 110v9" stroke="#f0f6fc" stroke-opacity="0.78" stroke-width="0.9"/>
+  </g>
+
+  <g fill="none" stroke="#f0f6fc" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M58.5 31.5c1.4-2.3 4.2-3.1 7.1-2.8 3.4.3 5.7 1.9 6.5 4.5.7 2.2.2 5.6-.8 8.4-1.2 3.5-3.5 5.9-6.9 5.9-3.5 0-5.9-2.3-7-5.8-1-3.1-1.1-7.3 1.1-10.2Z" stroke-width="2.1"/>
+    <path d="M60.5 47.3l3.5 5.8 3.7-5.8" stroke-width="1.45"/>
+    <path d="M56.4 51.4c2.4 3.5 4.7 5.2 7.7 5.2s5.3-1.7 7.6-5.2" stroke-width="1.35" opacity="0.82"/>
+    <path d="M64 56.8v23.5" stroke-width="2"/>
+    <path d="M54.6 56.7c-5.4 5.7-6.8 14-7 23.4M73.5 56.7c5.5 5.8 6.9 14.1 7 23.4" stroke-width="1.7"/>
+    <path d="M46.9 80.3c3.9 4.8 9.4 7.2 17.1 7.2s13.4-2.5 17.1-7.2" stroke-width="1.55" opacity="0.78"/>
+    <path d="M64 80.5l-8.2 22.6M64 80.5l8.3 22.6" stroke-width="2.05"/>
+    <path d="M55.8 103.1l-12.7 4.3M72.3 103.1l12.8 4.3" stroke-width="1.8"/>
+    <path d="M53 59.2L28.4 43.8M75 59.2l24.6-15.4M53 62.6L29.5 63.8M75 62.6l23.5 1.2" stroke-width="2.05"/>
+    <path d="M29 43.5l-6.2-2.9M29.6 63.8l-7.1 1.1M99 43.5l6.2-2.9M98.4 63.8l7.1 1.1" stroke-width="1.45"/>
+    <path d="M58.5 64.6h11M57.4 70.8h13.3M56 76.9h16" stroke="#79c0ff" stroke-opacity="0.72" stroke-width="1.05"/>
+    <path d="M61.2 36.2c1.7-.7 3.9-.8 6 0" stroke="#b6e3ff" stroke-opacity="0.95" stroke-width="1.1"/>
+  </g>
+
+  <g fill="none" stroke="#dff6ff" stroke-linecap="round">
+    <path d="M19 22h17M92 22h17M19 22v8M36 22v8M92 22v8M109 22v8" stroke-opacity="0.78" stroke-width="1.2"/>
+    <path d="M17 109h18M93 109h18M17 101v12M111 101v12" stroke-opacity="0.78" stroke-width="1.2"/>
+    <path d="M64 21v8M64 109v-8M19 64h8M109 64h-8" stroke-opacity="0.56" stroke-width="0.95"/>
+  </g>
+</svg>

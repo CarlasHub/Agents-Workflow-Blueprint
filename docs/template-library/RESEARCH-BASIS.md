@@ -64,6 +64,17 @@ That gives reviewers useful reasoning structure without requiring private reason
 - WCAG 2.2 accessibility success criteria and supporting guidance: https://www.w3.org/TR/WCAG22/
 - NIST SSDF secure software development practices: https://csrc.nist.gov/pubs/sp/800/218/final
 - OWASP Cheat Sheet Series practical security guidance: https://cheatsheetseries.owasp.org/
+- NIST AI RMF and Generative AI Profile: https://www.nist.gov/itl/ai-risk-management-framework
+- NIST ARIA pilot evaluation report: https://www.nist.gov/publications/assessing-risks-and-impacts-ai-aria-pilot-evaluation-report
+- OWASP Top 10 for LLM Applications 2025: https://genai.owasp.org/llm-top-10/
+- Google People + AI Guidebook: https://pair.withgoogle.com/guidebook-v2/
+- Microsoft Guidelines for Human-AI Interaction: https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/
+- OpenAI prompt engineering best practices: https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt
+- Schulhoff et al., “The Prompt Report: A Systematic Survey of Prompt Engineering Techniques”: https://arxiv.org/abs/2406.06608
+
+## Human-AI quality layer
+
+Use [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) for the current source-mapped quality bar covering sociotechnical framing, mental-model calibration, trust calibration, automation-bias resistance, human handoff, untrusted-content boundaries, output validation, accessibility, and failure visibility.
 
 ## Important limitation
 

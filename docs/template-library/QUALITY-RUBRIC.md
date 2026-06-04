@@ -56,3 +56,17 @@ Use this score when judging whether an agent output deserves acceptance.
 8. **Failure disclosure** — Are missing proof and residual risk visible?
 
 Reject outputs that are fluent but fail observation, verification, or traceability.
+
+## Human-AI quality overlay
+
+Use [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) when the output changes prompts, skills, contracts, rules, generated projects, user-facing AI behaviour, or governance language.
+
+Reject output that:
+
+1. Anthropomorphises the agent in a way that could mislead users.
+2. Hides uncertainty, capability limits, or human escalation points.
+3. Treats trust as a tone problem instead of an evidence problem.
+4. Ignores automation bias and overreliance risk.
+5. Ignores prompt injection, untrusted content, or excessive agency.
+6. Ignores accessibility, cognitive load, or user correction paths.
+7. Claims research, enterprise quality, safety, or compliance without a source map and verification evidence.

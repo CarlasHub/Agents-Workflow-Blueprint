@@ -11,6 +11,7 @@ REQUIRED_DOCS = [
     'TRACEABILITY-MATRIX.md',
     'SYSTEM-2-PROMPTING-GUIDE.md',
     'RESEARCH-BASIS.md',
+    'HUMAN-AI-QUALITY-STANDARD.md',
 ]
 REQUIRED_TERMS = [
     'CoT-safe',
@@ -29,6 +30,14 @@ ASSET_REQUIRED = [
     'CoT-safe reasoning record',
     'Formal traceability',
 ]
+HUMAN_AI_REQUIRED_TERMS = [
+    'sociotechnical',
+    'trust calibration',
+    'Mental-model calibration',
+    'Automation-bias resistance',
+    'Human handoff',
+    'untrusted-content',
+]
 
 def fail(msg):
     print(f'[FAIL] {msg}')
@@ -45,6 +54,13 @@ def main():
         for term in REQUIRED_TERMS[:4]:
             if term not in content:
                 fail(f'{doc} missing research term: {term}')
+                failed = True
+    quality_standard = LIB / 'HUMAN-AI-QUALITY-STANDARD.md'
+    if quality_standard.exists():
+        content = quality_standard.read_text(encoding='utf-8')
+        for term in HUMAN_AI_REQUIRED_TERMS:
+            if term not in content:
+                fail(f'HUMAN-AI-QUALITY-STANDARD.md missing human-AI term: {term}')
                 failed = True
     for folder in ['prompts', 'skills', 'contracts']:
         for path in (LIB / folder).glob('*.md'):
