@@ -10,7 +10,7 @@
       name="description"
       content="A professional agent-governance template hub with 100 prompts, skills, and contracts for evidence-first coding-agent workflows."
     />
-    <link rel="stylesheet" href="site.css?v=20260605-3" />
+    <link rel="stylesheet" href="site.css?v=20260605-4" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -85,8 +85,8 @@ python3 -S scripts/check_template_library.py</code></pre>
             <p class="eyebrow">Template product layer</p>
             <h2 id="library-title">Find the right prompt, skill, or contract.</h2>
             <p>
-              Search the manifest, filter by type, open the markdown, or copy a full asset.
-              Plain links still work without JavaScript.
+              Search the manifest, filter by type, preview markdown in place, or download the source file.
+              Plain download links still work without JavaScript.
             </p>
           </div>
 
@@ -216,14 +216,42 @@ python3 -S scripts/check_template_library.py</code></pre>
       </div>
     </footer>
 
+    <div class="markdown-modal" data-markdown-modal hidden>
+      <div class="markdown-modal-backdrop" data-close-preview></div>
+      <section class="markdown-dialog" role="dialog" aria-modal="true" aria-labelledby="markdown-preview-title" tabindex="-1">
+        <header class="markdown-dialog-header">
+          <div>
+            <p class="eyebrow">Markdown preview</p>
+            <h2 id="markdown-preview-title">Template preview</h2>
+            <p class="markdown-preview-meta" data-markdown-preview-meta></p>
+          </div>
+          <button class="markdown-close" type="button" data-close-preview aria-label="Close markdown preview">Close</button>
+        </header>
+        <div class="markdown-dialog-actions">
+          <a class="button button-secondary" href="#" data-markdown-download download>Download markdown</a>
+          <button class="button button-primary" type="button" data-copy-preview>Copy Markdown</button>
+        </div>
+        <article class="markdown-document" data-markdown-preview-content></article>
+      </section>
+    </div>
+
     <script>
       const grid = document.getElementById('asset-grid');
       const statusEl = document.getElementById('asset-status');
       const searchEl = document.getElementById('asset-search');
       const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
+      const previewModal = document.querySelector('[data-markdown-modal]');
+      const previewDialog = previewModal.querySelector('.markdown-dialog');
+      const previewTitle = document.getElementById('markdown-preview-title');
+      const previewMeta = document.querySelector('[data-markdown-preview-meta]');
+      const previewContent = document.querySelector('[data-markdown-preview-content]');
+      const previewDownload = document.querySelector('[data-markdown-download]');
+      const previewCopy = document.querySelector('[data-copy-preview]');
       const initialSearch = new URLSearchParams(window.location.search).get('assetSearch');
       let assets = [];
       let activeFilter = 'all';
+      let activePreviewMarkdown = '';
+      let lastPreviewTrigger = null;
 
       if (initialSearch) {
         searchEl.value = initialSearch;
@@ -261,6 +289,165 @@ python3 -S scripts/check_template_library.py</code></pre>
 
       function escapeAttribute(value) {
         return escapeHtml(value).replace(/`/g, '&#96;');
+      }
+
+      function safeHref(value) {
+        const href = String(value || '').trim();
+        if (/^(https?:|mailto:|#|\.{0,2}\/|[A-Za-z0-9_\-./]+$)/.test(href)) {
+          return escapeAttribute(href);
+        }
+        return '#';
+      }
+
+      function renderInlineMarkdown(value) {
+        let html = escapeHtml(value);
+        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, href) => (
+          `<a href="${safeHref(href)}" target="_blank" rel="noreferrer">${text}</a>`
+        ));
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        return html;
+      }
+
+      function splitTableRow(line) {
+        return line
+          .replace(/^\||\|$/g, '')
+          .split('|')
+          .map((cell) => cell.trim());
+      }
+
+      function renderTable(rows) {
+        if (rows.length < 2) return rows.map((row) => `<p>${renderInlineMarkdown(row)}</p>`).join('');
+
+        const header = splitTableRow(rows[0]);
+        const bodyRows = rows.slice(2).map(splitTableRow);
+        return `
+          <div class="markdown-table-wrap">
+            <table>
+              <thead><tr>${header.map((cell) => `<th>${renderInlineMarkdown(cell)}</th>`).join('')}</tr></thead>
+              <tbody>
+                ${bodyRows.map((row) => `<tr>${row.map((cell) => `<td>${renderInlineMarkdown(cell)}</td>`).join('')}</tr>`).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      function renderMarkdown(markdown) {
+        const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+        const html = [];
+        let paragraph = [];
+        let listType = null;
+        let listItems = [];
+        let tableRows = [];
+        let inCode = false;
+        let codeLines = [];
+        let codeLanguage = '';
+
+        function flushParagraph() {
+          if (!paragraph.length) return;
+          html.push(`<p>${renderInlineMarkdown(paragraph.join(' '))}</p>`);
+          paragraph = [];
+        }
+
+        function flushList() {
+          if (!listType) return;
+          html.push(`<${listType}>${listItems.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join('')}</${listType}>`);
+          listType = null;
+          listItems = [];
+        }
+
+        function flushTable() {
+          if (!tableRows.length) return;
+          html.push(renderTable(tableRows));
+          tableRows = [];
+        }
+
+        function flushOpenBlocks() {
+          flushParagraph();
+          flushList();
+          flushTable();
+        }
+
+        lines.forEach((line) => {
+          const trimmed = line.trim();
+
+          if (trimmed.startsWith('```')) {
+            if (inCode) {
+              html.push(`<pre><code class="${escapeAttribute(codeLanguage)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+              inCode = false;
+              codeLines = [];
+              codeLanguage = '';
+            } else {
+              flushOpenBlocks();
+              inCode = true;
+              codeLanguage = trimmed.slice(3).trim();
+            }
+            return;
+          }
+
+          if (inCode) {
+            codeLines.push(line);
+            return;
+          }
+
+          if (!trimmed) {
+            flushOpenBlocks();
+            return;
+          }
+
+          if (/^\|.+\|$/.test(trimmed)) {
+            flushParagraph();
+            flushList();
+            tableRows.push(trimmed);
+            return;
+          }
+
+          flushTable();
+
+          const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+          if (heading) {
+            flushParagraph();
+            flushList();
+            const level = heading[1].length;
+            html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+            return;
+          }
+
+          if (/^---+$/.test(trimmed)) {
+            flushOpenBlocks();
+            html.push('<hr>');
+            return;
+          }
+
+          const quote = trimmed.match(/^>\s?(.+)$/);
+          if (quote) {
+            flushOpenBlocks();
+            html.push(`<blockquote>${renderInlineMarkdown(quote[1])}</blockquote>`);
+            return;
+          }
+
+          const unordered = trimmed.match(/^[-*]\s+(.+)$/);
+          const ordered = trimmed.match(/^\d+\.\s+(.+)$/);
+          if (unordered || ordered) {
+            flushParagraph();
+            const nextType = unordered ? 'ul' : 'ol';
+            if (listType && listType !== nextType) flushList();
+            listType = nextType;
+            listItems.push((unordered || ordered)[1]);
+            return;
+          }
+
+          paragraph.push(trimmed);
+        });
+
+        if (inCode) {
+          html.push(`<pre><code class="${escapeAttribute(codeLanguage)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+        }
+
+        flushOpenBlocks();
+        return html.join('');
       }
 
       function categoryHash(label) {
@@ -317,12 +504,49 @@ python3 -S scripts/check_template_library.py</code></pre>
             <h3>${escapeHtml(asset.title)}</h3>
             <p>${escapeHtml(asset.summary)}</p>
             <div class="asset-actions">
-              <a href="${escapeAttribute(asset.path)}">Open</a>
+              <button type="button" data-preview-path="${escapeAttribute(asset.path)}">Open</button>
               <a href="${escapeAttribute(asset.path)}" download>Download</a>
               <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy Markdown</button>
             </div>
           </article>
         `).join('');
+      }
+
+      function closePreview() {
+        previewModal.hidden = true;
+        document.body.classList.remove('modal-open');
+        activePreviewMarkdown = '';
+        if (lastPreviewTrigger) lastPreviewTrigger.focus();
+        lastPreviewTrigger = null;
+      }
+
+      async function openPreview(path, trigger) {
+        const asset = assets.find((item) => item.path === path);
+        lastPreviewTrigger = trigger;
+        activePreviewMarkdown = '';
+        previewTitle.textContent = asset?.title || 'Template preview';
+        previewMeta.textContent = asset ? `${getTypeLabel(asset.type)} · ${getCategoryLabel(asset.category)} · ${asset.path}` : path;
+        previewDownload.href = path;
+        previewContent.innerHTML = '<p class="markdown-loading">Loading markdown preview…</p>';
+        previewModal.hidden = false;
+        document.body.classList.add('modal-open');
+        previewDialog.focus();
+
+        try {
+          const response = await fetch(path);
+          if (!response.ok) throw new Error('Unable to fetch markdown');
+          const markdown = await response.text();
+          activePreviewMarkdown = markdown;
+          previewContent.innerHTML = renderMarkdown(markdown);
+        } catch (error) {
+          previewContent.innerHTML = `
+            <div class="asset-empty-state" role="status">
+              <p class="eyebrow">Preview unavailable</p>
+              <h3>The markdown could not be loaded in the modal.</h3>
+              <p>Use Download to save the source file, or try again after refreshing the page.</p>
+            </div>
+          `;
+        }
       }
 
       async function writeClipboard(text) {
@@ -378,9 +602,34 @@ python3 -S scripts/check_template_library.py</code></pre>
           return;
         }
 
+        const previewButton = event.target.closest('button[data-preview-path]');
+        if (previewButton) {
+          openPreview(previewButton.dataset.previewPath, previewButton);
+          return;
+        }
+
         const button = event.target.closest('button[data-copy-path]');
         if (!button) return;
         copyAsset(button.dataset.copyPath, button);
+      });
+
+      previewModal.addEventListener('click', (event) => {
+        if (event.target.closest('[data-close-preview]')) {
+          closePreview();
+        }
+      });
+
+      previewCopy.addEventListener('click', async () => {
+        const original = previewCopy.textContent;
+        const copied = activePreviewMarkdown ? await writeClipboard(activePreviewMarkdown) : false;
+        previewCopy.textContent = copied ? 'Copied' : 'Copy unavailable';
+        window.setTimeout(() => { previewCopy.textContent = original; }, 1600);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !previewModal.hidden) {
+          closePreview();
+        }
       });
 
       searchEl.addEventListener('input', render);
