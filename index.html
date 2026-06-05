@@ -8,9 +8,9 @@
     <meta name="author" content="Carla Goncalves" />
     <meta
       name="description"
-      content="A professional agent-governance template hub with 100 prompts, skills, and contracts for evidence-first coding-agent workflows."
+      content="A research-informed agent-governance template hub with 100 prompts, skills, and contracts for evidence-first coding-agent workflows."
     />
-    <link rel="stylesheet" href="site.css?v=20260605-4" />
+    <link rel="stylesheet" href="site.css?v=20260605-7" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -46,9 +46,10 @@
             <p class="eyebrow">Prompt library + skills + acceptance contracts</p>
             <h1>Control agent work with evidence, not optimism.</h1>
             <p class="hero-lead">
-              A public template hub for strict coding-agent workflows: 40 prompts,
-              30 executable skills, 30 acceptance contracts, packet templates,
-              specialist review gates, and verification scripts.
+              A research-informed operating system for teams building with AI agents.
+              It turns human-AI interaction, AI-risk, accessibility, security, and
+              prompting research into 100 copy-ready prompts, skills, contracts,
+              governance artefacts, evidence gates, and verification scripts.
             </p>
             <p class="author-line">Created by <a href="https://carlashub.com">Carla Goncalves</a></p>
             <div class="hero-actions">
@@ -92,7 +93,14 @@ python3 -S scripts/check_template_library.py</code></pre>
 
           <div class="library-tools" role="search" aria-label="Template library search and filters">
             <label class="search-label" for="asset-search">Search assets</label>
-            <input id="asset-search" class="asset-search" type="search" placeholder="Search UI, accessibility, release, security, testing…" />
+            <div class="asset-search-wrap">
+              <span class="asset-search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M10.8 4.5a6.3 6.3 0 1 1 0 12.6 6.3 6.3 0 0 1 0-12.6Zm0 1.8a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Zm4.6 9.8 4.1 4.1-1.3 1.3-4.1-4.1 1.3-1.3Z" />
+                </svg>
+              </span>
+              <input id="asset-search" class="asset-search" type="search" placeholder="Search UI, accessibility, release, security, testing…" />
+            </div>
             <div class="filter-row" aria-label="Asset type filters">
               <button class="filter-button active" type="button" data-filter="all">All</button>
               <button class="filter-button" type="button" data-filter="prompt">Prompts</button>
