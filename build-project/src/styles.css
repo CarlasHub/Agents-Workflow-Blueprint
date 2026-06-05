@@ -679,6 +679,15 @@ textarea {
   resize: vertical;
 }
 
+.field.is-disabled {
+  opacity: 0.58;
+}
+
+.field.is-disabled input,
+.field.is-disabled textarea {
+  cursor: not-allowed;
+}
+
 .wide-field {
   grid-column: 1 / -1;
 }

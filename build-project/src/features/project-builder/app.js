@@ -182,10 +182,10 @@ function countLabel(count, singular, plural = `${singular}s`) {
 function qualityControlsMarkup() {
   return `
     <div class="quality-standard-card">
-      <p class="preview-label">Applied human-AI quality standard</p>
-      <h3>Evidence, calibration, handoff and control</h3>
+      <p class="preview-label">Applied research-backed package</p>
+      <h3>Source-mapped quality, prompts, skills and contracts</h3>
       <ul>
-        ${QUALITY_CONTROLS.slice(0, 6).map(([name, description]) => `
+        ${QUALITY_CONTROLS.map(([name, description]) => `
           <li>
             <strong>${escapeHtml(name)}</strong>
             <span>${escapeHtml(description)}</span>
@@ -336,14 +336,14 @@ function landingMarkup() {
           <p><span>$</span> init governed-project</p>
           <p><span>></span> choose project type</p>
           <p><span>></span> generate governance evidence</p>
-          <p><span>></span> apply quality standard</p>
+          <p><span>></span> add research-backed prompts, skills, contracts</p>
           <p><span>></span> download workspace.zip</p>
         </div>
       </div>
       <div class="launch-copy">
         <p class="eyebrow">Build an agent or project</p>
         <h1 id="hero-title">Build a governed agent or project with a real file preview.</h1>
-        <p>Start with governance, see the exact workspace you are generating, include human-AI quality controls, then download a complete ZIP your team can inspect and run.</p>
+        <p>Start with governance, see the exact workspace you are generating, include source-mapped human-AI quality controls and reusable agent assets, then download a complete ZIP your team can inspect and run.</p>
         <button class="primary-action" type="button" data-action="start">
           <span aria-hidden="true">+</span>
           Start build
@@ -437,7 +437,7 @@ function builderMarkup(excludedFiles = new Set()) {
         </div>
         <div class="topbar-actions">
           <span class="run-state">local only</span>
-          <button class="primary-action top-submit" type="submit" form="project-form" aria-label="Build project from top bar">
+          <button class="primary-action top-submit" type="button" data-action="submit-build" aria-label="Build project from top bar">
             <span aria-hidden="true">run</span>
             Build project
           </button>
@@ -590,7 +590,7 @@ function assemblyMarkup(build) {
         </div>
         <div class="terminal-feed">
           <p><span>$</span> governance-packager build ${escapeHtml(result.root)}</p>
-          <p><span>></span> resolving docs, agents, evals, scripts</p>
+          <p><span>></span> resolving docs, prompts, skills, contracts, rules, evals, scripts</p>
           <ul>
             ${terminalRows(visibleFiles, result.root, visibleFiles.length, 'written')}
           </ul>
@@ -610,7 +610,7 @@ function successMarkup(result) {
       </div>
       <p class="eyebrow">Project delivered</p>
       <h1 id="success-title">${escapeHtml(result.fileName)}</h1>
-      <p>The ZIP contains ${result.files.length} files: governance, human-AI quality docs, agents, evals, scripts, CI and the starter app scaffold.</p>
+      <p>The ZIP contains ${result.files.length} files: governance, research basis, human-AI quality docs, reusable prompts, skills, contracts, rules, agents, evals, scripts, CI and the starter app scaffold.</p>
       <div class="action-row">
         <button class="primary-action" type="button" data-action="download-again">
           <span aria-hidden="true">ZIP</span>
@@ -639,6 +639,31 @@ export function createProjectBuilderApp(root) {
     }
   }
 
+  function syncApprovalFields(form) {
+    const includeApproval = form.elements.includeApproval?.checked === true;
+
+    form.querySelectorAll('.approval-fields input, .approval-fields textarea').forEach((control) => {
+      control.disabled = !includeApproval;
+      control.closest('.field')?.classList.toggle('is-disabled', !includeApproval);
+    });
+  }
+
+  function buildFromForm(form) {
+    syncApprovalFields(form);
+    const missingRequired = Array.from(form.querySelectorAll('[required]')).find((control) => !String(control.value || '').trim());
+
+    if (missingRequired) {
+      missingRequired.focus();
+      return;
+    }
+
+    const config = getFormConfig(form);
+    const result = withIncludedFiles(generateProjectFiles(config), state.excludedFiles);
+    const blob = createZipBlob(result.files);
+
+    startAssembly(result, blob);
+  }
+
   function render() {
     if (state.build) {
       root.innerHTML = assemblyMarkup(state.build);
@@ -649,6 +674,9 @@ export function createProjectBuilderApp(root) {
     } else {
       root.innerHTML = landingMarkup();
     }
+
+    const form = root.querySelector('form');
+    if (form) syncApprovalFields(form);
   }
 
   function scrollToFeatureTop() {
@@ -699,6 +727,7 @@ export function createProjectBuilderApp(root) {
     const preview = root.querySelector('[data-preview]');
     if (!preview) return;
 
+    syncApprovalFields(form);
     const config = getFormConfig(form);
     preview.innerHTML = previewMarkup(config, state.excludedFiles);
 
@@ -787,6 +816,11 @@ export function createProjectBuilderApp(root) {
         downloadBlob(state.lastBlob, state.lastResult.fileName);
       }
 
+      if (action === 'submit-build') {
+        const form = root.querySelector('#project-form');
+        if (form) buildFromForm(form);
+      }
+
       if (action === 'get-project' && state.build && state.build.visibleCount >= state.build.result.files.length) {
         state.lastResult = state.build.result;
         state.lastBlob = state.build.blob;
@@ -820,17 +854,16 @@ export function createProjectBuilderApp(root) {
         }
       }
 
+      if (event.target.name === 'includeApproval') {
+        syncApprovalFields(form);
+      }
+
       updatePreview(form);
     });
 
     root.addEventListener('submit', (event) => {
       event.preventDefault();
-      const form = event.target;
-      const config = getFormConfig(form);
-      const result = withIncludedFiles(generateProjectFiles(config), state.excludedFiles);
-      const blob = createZipBlob(result.files);
-
-      startAssembly(result, blob);
+      buildFromForm(event.target);
     });
   }
 
