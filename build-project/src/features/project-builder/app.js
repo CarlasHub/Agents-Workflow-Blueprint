@@ -1,5 +1,5 @@
-import { PROJECT_TYPES, QUALITY_CONTROLS, generateProjectFiles } from './templates.js';
-import { createZipBlob } from './zip.js';
+import { PROJECT_TYPES, QUALITY_CONTROLS, generateProjectFiles } from './templates.js?v=20260605-6';
+import { createZipBlob } from './zip.js?v=20260605-6';
 
 const defaults = {
   projectType: PROJECT_TYPES[0].id,
