@@ -706,15 +706,10 @@ h1 {
 
   .site-nav {
     justify-content: flex-start;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
-    scrollbar-width: none;
-  }
-
-  .site-nav::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
+    gap: 0.55rem 0.7rem;
   }
 
   .site-nav a {

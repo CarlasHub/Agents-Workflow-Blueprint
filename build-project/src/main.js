@@ -1,4 +1,4 @@
-import { createProjectBuilderApp } from './features/project-builder/app.js?v=20260605-6';
+import { createProjectBuilderApp } from './features/project-builder/app.js?v=20260605-9';
 
 const root = document.querySelector('#app');
 

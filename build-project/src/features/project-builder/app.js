@@ -330,14 +330,14 @@ function landingMarkup() {
       <div class="terminal-card">
         <div class="terminal-titlebar">
           <span></span><span></span><span></span>
-          <strong>agent-sdlc</strong>
+          <strong>Project recipe</strong>
         </div>
         <div class="terminal-body">
-          <p><span>$</span> init governed-project</p>
-          <p><span>></span> choose project type</p>
-          <p><span>></span> generate governance evidence</p>
-          <p><span>></span> add research-backed prompts, skills, contracts</p>
-          <p><span>></span> download workspace.zip</p>
+          <p><span>01</span> Choose the project type</p>
+          <p><span>02</span> Capture governance inputs</p>
+          <p><span>03</span> Add research-backed prompts, skills and contracts</p>
+          <p><span>04</span> Review the generated files</p>
+          <p><span>05</span> Download the project ZIP</p>
         </div>
       </div>
       <div class="launch-copy">
@@ -373,7 +373,7 @@ function previewMarkup(config, excludedFiles = new Set()) {
   return `
     <div class="preview-header">
       <div>
-        <p class="eyebrow">WYSIWYG package</p>
+        <p class="eyebrow">Package preview</p>
         <h2>${escapeHtml(generated.fileName)}</h2>
       </div>
       <span class="status-chip">${escapeHtml(type.label)}</span>
@@ -403,12 +403,12 @@ function previewMarkup(config, excludedFiles = new Set()) {
     <div class="file-browser live-file-browser" aria-label="Live generated project preview" aria-live="polite">
       <div class="file-browser-bar">
         <span></span><span></span><span></span>
-        <strong>${escapeHtml(`${generated.root} -- watch`)}</strong>
+        <strong>Live file preview</strong>
       </div>
       <div class="terminal-feed">
-        <p><span>$</span> plan workspace ${escapeHtml(generated.root)}</p>
-        <p><span>></span> ${activeFiles.length} of ${generated.files.length} files included locally</p>
-        <p class="feed-note"><span>!</span> Files are optional. Removing governance or script files may make generated checks fail.</p>
+        <p><span>Plan</span> ${escapeHtml(generated.root)}</p>
+        <p><span>Files</span> ${activeFiles.length} of ${generated.files.length} included locally</p>
+        <p class="feed-note"><span>Note</span> Files are optional. Removing governance or script files may make generated checks fail.</p>
         <ul>
           ${terminalRows(activeFiles, generated.root, activeFiles.length, 'queued', true)}
         </ul>
@@ -433,7 +433,7 @@ function builderMarkup(excludedFiles = new Set()) {
       <header class="workbench-topbar">
         <div>
           <p class="eyebrow">Build an agent or project</p>
-          <h1>Build console</h1>
+          <h1>Build project package</h1>
         </div>
         <div class="topbar-actions">
           <span class="run-state">local only</span>
@@ -449,7 +449,7 @@ function builderMarkup(excludedFiles = new Set()) {
         <aside class="command-rail" aria-label="Generation workflow">
           <div class="terminal-titlebar">
             <span></span><span></span><span></span>
-            <strong>workflow</strong>
+            <strong>Project flow</strong>
           </div>
           <ol>
             <li><strong>01</strong><span>project type</span></li>
@@ -459,12 +459,9 @@ function builderMarkup(excludedFiles = new Set()) {
             <li><strong>05</strong><span>zip export</span></li>
           </ol>
           <div class="command-log">
-            <p><span>$</span> npm run governance:check</p>
-            <p><span>ok</span> blocks unsafe implementation</p>
-            <p><span>$</span> npm run evals:check</p>
-            <p><span>ok</span> verifies safety coverage</p>
-            <p><span>$</span> npm run quality:check</p>
-            <p><span>ok</span> checks human-AI quality files</p>
+            <p><span>Gate</span> Governance blocks unsafe implementation</p>
+            <p><span>Eval</span> Safety cases are included</p>
+            <p><span>Quality</span> Human-AI research files are checked</p>
           </div>
         </aside>
 
@@ -586,11 +583,11 @@ function assemblyMarkup(build) {
       <div class="file-browser assembly-browser" aria-label="Project files being added" aria-live="polite">
         <div class="file-browser-bar">
           <span></span><span></span><span></span>
-          <strong>${escapeHtml(`${result.root} -- build`)}</strong>
+          <strong>Files being added</strong>
         </div>
         <div class="terminal-feed">
-          <p><span>$</span> governance-packager build ${escapeHtml(result.root)}</p>
-          <p><span>></span> resolving docs, prompts, skills, contracts, rules, evals, scripts</p>
+          <p><span>Build</span> ${escapeHtml(result.root)}</p>
+          <p><span>Adding</span> docs, prompts, skills, contracts, rules, evals and scripts</p>
           <ul>
             ${terminalRows(visibleFiles, result.root, visibleFiles.length, 'written')}
           </ul>
