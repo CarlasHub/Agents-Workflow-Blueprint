@@ -41,9 +41,9 @@ The same asset-metric method was used before and after.
 | Near-duplicate control pairs at ≥0.92 similarity | not separately recorded | 0 | current gate added |
 | Shared specialist controls / references | not applicable | 168 / 1,200 | normalized with no orphans |
 | Normalized architecture words | not comparable | 30,756 | 24,920 modules + 4,824 registry + 1,012 kernel |
-| Automated test executions | 0 | 136 | +136 |
-| Distinct automated test definitions | 0 | 68 | +68 |
-| Browser behaviour executions | 0 | 78 (26 cases × 3 engines) | +78 |
+| Automated test executions | 0 | 145 | +145 |
+| Distinct automated test definitions | 0 | 71 | +71 |
+| Browser behaviour executions | 0 | 87 (29 cases × 3 engines) | +87 |
 | Automated accessibility executions | 0 | 24 (8 states × 3 engines) | +24 |
 | ZIP-specific unit cases | 0 | 4 | +4 |
 | Public unsupported certainty occurrences | 205 | 0 violations across 178 scanned public files | -205 known occurrences |

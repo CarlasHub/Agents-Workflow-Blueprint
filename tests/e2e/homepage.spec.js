@@ -110,33 +110,34 @@ test('preview shows prompt content first and exposes complete and source views',
   await expect(dialog.getByRole('heading', { name: 'Task-specific mission' })).toHaveCount(1);
 });
 
-test('every manifest asset opens with its specialist content available', async ({ page }) => {
-  test.setTimeout(60_000);
-  await page.goto('./');
-  const cards = page.locator('.asset-card');
-  await expect(cards).toHaveCount(100);
-  const dialog = page.getByRole('dialog');
-  const expectedSection = {
-    prompt: 'Task-specific instructions',
-    skill: 'Procedure',
-    contract: 'Hard gates'
-  };
+for (const [start, end] of [[0, 25], [25, 50], [50, 75], [75, 100]]) {
+  test(`manifest assets ${start + 1}-${end} open with specialist content available`, async ({ page }) => {
+    await page.goto('./');
+    const cards = page.locator('.asset-card');
+    await expect(cards).toHaveCount(100);
+    const dialog = page.getByRole('dialog');
+    const expectedSection = {
+      prompt: 'Task-specific instructions',
+      skill: 'Procedure',
+      contract: 'Hard gates'
+    };
 
-  for (let index = 0; index < 100; index += 1) {
-    const card = cards.nth(index);
-    const assetType = await card.getAttribute('data-type');
-    const assetTitle = (await card.locator('h3').textContent()).trim();
-    await card.locator('[data-preview-path]').click();
-    await expect(dialog.getByRole('heading', { level: 1 })).toHaveText(assetTitle);
-    const specialistHeading = dialog.getByRole('heading', { name: expectedSection[assetType] });
-    await expect(specialistHeading).toHaveCount(1);
-    expect(await specialistHeading.evaluate((heading) => (
-      heading.nextElementSibling?.matches('ol') && heading.nextElementSibling.children.length >= 3
-    ))).toBe(true);
-    await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveAttribute('aria-pressed', 'true');
-    await dialog.getByRole('button', { name: 'Close markdown preview' }).click();
-  }
-});
+    for (let index = start; index < end; index += 1) {
+      const card = cards.nth(index);
+      const assetType = await card.getAttribute('data-type');
+      const assetTitle = (await card.locator('h3').textContent()).trim();
+      await card.locator('[data-preview-path]').click();
+      await expect(dialog.getByRole('heading', { level: 1 })).toHaveText(assetTitle);
+      const specialistHeading = dialog.getByRole('heading', { name: expectedSection[assetType] });
+      await expect(specialistHeading).toHaveCount(1);
+      expect(await specialistHeading.evaluate((heading) => (
+        heading.nextElementSibling?.matches('ol') && heading.nextElementSibling.children.length >= 3
+      ))).toBe(true);
+      await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveAttribute('aria-pressed', 'true');
+      await dialog.getByRole('button', { name: 'Close markdown preview' }).click();
+    }
+  });
+}
 
 test('copy action reports an accessible result', async ({ page, context, browserName }) => {
   await prepareClipboard(page, context, browserName);

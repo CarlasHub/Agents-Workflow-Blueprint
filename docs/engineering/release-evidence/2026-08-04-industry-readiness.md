@@ -31,7 +31,7 @@
 | `node --check site.js` and changed-module syntax checks | passed | Homepage and builder modules parsed. |
 | `python3 -m py_compile scripts/*.py` | passed | Python scripts compiled in the local interpreter. |
 | `git diff --check` | passed | No whitespace-error output. |
-| `bash scripts/verify-release.sh` | passed | Final local run: 20 JavaScript units, 10 Python units, 4 ZIP units, 488 local links, 78 browser executions, 24 automated accessibility executions, and all 100 compositions passed. |
+| `bash scripts/verify-release.sh` | passed | Final local run: 20 JavaScript units, 10 Python units, 4 ZIP units, 488 local links, 87 browser executions, 24 automated accessibility executions, and all 100 compositions passed. |
 
 An earlier consolidated run failed one homepage axe state because opacity animation transiently lowered text contrast. That failure was retained, the animation was corrected, all eight states were repeated twice, and the final consolidated run passed.
 
