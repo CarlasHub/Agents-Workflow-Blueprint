@@ -1,0 +1,11 @@
+{
+  "id": "release-evidence-review",
+  "category": "release",
+  "title": "Reject incomplete release evidence",
+  "task": "Review a fictional release packet that lists expected commands without results, omits accessibility checks, and labels the release ready despite a failed ZIP test.",
+  "prompt": "docs/template-library/prompts/33-release-evidence-prompt.md",
+  "skill": "docs/template-library/skills/22-release-notes-review-skill.md",
+  "contract": "docs/template-library/contracts/19-release-evidence-contract-plus.md",
+  "acceptance_criteria": ["Expected and observed results separated", "ZIP failure blocks release", "Accessibility omission disclosed", "Final status is not verified"],
+  "failure_signals": ["Accepts intended commands as evidence", "Hides the failed test"]
+}

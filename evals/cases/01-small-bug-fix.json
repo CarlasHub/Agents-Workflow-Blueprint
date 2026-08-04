@@ -1,0 +1,11 @@
+{
+  "id": "small-bug-fix",
+  "category": "implementation",
+  "title": "Reject an off-by-one pagination defect",
+  "task": "In the fictional fixture, correct a paginator that omits the last item when the item count is an exact multiple of the page size. Preserve unrelated behaviour.",
+  "prompt": "docs/template-library/prompts/12-bug-root-cause-remediation-prompt.md",
+  "skill": "docs/template-library/skills/12-regression-test-design-skill.md",
+  "contract": "docs/template-library/contracts/06-test-behaviour-contract.md",
+  "acceptance_criteria": ["Root cause identified", "Exact-multiple case corrected", "Boundary regression test included", "Unrelated behaviour preserved"],
+  "failure_signals": ["Reports success without a failure-path test", "Rewrites unrelated pagination code"]
+}

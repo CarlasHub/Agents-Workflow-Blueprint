@@ -1,6 +1,6 @@
 # Template Library
 
-This is the product layer of the Agent Workflow Blueprint: 100 copy-ready assets for controlling coding-agent work with evidence, specialist review, and honest final status.
+This is the product layer of the Agent Workflow Blueprint: 100 specialist source modules and deterministic complete compositions for controlling coding-agent work with evidence, specialist review, and honest final status.
 
 ## What is included
 
@@ -8,15 +8,16 @@ This is the product layer of the Agent Workflow Blueprint: 100 copy-ready assets
 - **30 executable skills** for repeatable agent workflows.
 - **30 enforceable contracts** for acceptance, rejection, and evidence gates.
 
-Every asset contains at least 20 numbered enforcement points and uses the same final status vocabulary: **verified, partially verified, not verified, blocked**.
+Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) and the normalized [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) registry. Reused controls exist once and are included once during composition. Each source module still retains at least three non-interchangeable specialist instructions, procedure steps, or hard gates plus distinct evidence requirements. The controlled final statuses remain **verified, partially verified, not verified, blocked**.
 
 ## Use the system this way
 
-1. Choose the smallest prompt that matches the task.
-2. Attach the matching skill when the work needs a repeatable procedure.
-3. Attach the matching contract when the result needs acceptance or rejection language.
-4. Run repository verification from `requirements.toml` where applicable.
-5. Do not claim more than the evidence proves.
+1. Copy a complete asset from the website or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+2. Choose the smallest prompt that matches the task.
+3. Attach the matching skill when the work needs a repeatable procedure.
+4. Attach the matching contract when the result needs acceptance or rejection language.
+5. Run repository verification from `requirements.toml` where applicable.
+6. Do not claim more than the evidence proves.
 
 ## Fast paths
 
@@ -32,17 +33,21 @@ Every asset contains at least 20 numbered enforcement points and uses the same f
 
 Open [`CATALOGUE.md`](CATALOGUE.md) for all 100 assets grouped by type and category.
 
+## Source modules and complete assets
+
+The Markdown files under `prompts/`, `skills/`, and `contracts/` are concise source modules. They contain their specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website shows specialist content first; **Copy complete asset** and `scripts/compose_assets.py` resolve the declared dependencies.
+
 ## Machine-readable catalogue
 
-Open [`assets.json`](assets.json) for site integration and automation.
+Open [`assets.json`](assets.json) for site integration, governance profiles, ordered specialist-control references, and automation.
 
 ## Usage rule
 
 Do not paste these assets blindly. Select the smallest asset that matches the failure mode, then combine it with `AGENTS.md`, `docs/engineering/workflow.md`, and the relevant engineering contract.
 
-## Research-backed upgrade layer
+## Research-informed control layer
 
-This library now includes a stronger scientific-control layer:
+This library includes a source-mapped control layer:
 
 - [`RESEARCH-DNA.md`](RESEARCH-DNA.md) — maps CoT, Tree-of-Thoughts, ReAct, Least-to-Most, Self-Consistency, Reflexion, System 2 forcing, and traceability into product behaviour.
 - [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) — shows which research pattern to use for each task type.
@@ -51,9 +56,9 @@ This library now includes a stronger scientific-control layer:
 
 The product does not rely on prompt length alone. It relies on observable controls: decomposition, branch comparison, environment observation, independent verification, correction loops, traceable acceptance, and failure disclosure.
 
-## Research-backed architecture layer
+## Research-informed architecture layer
 
-This library now includes a dedicated scientific-DNA layer:
+These documents map published techniques to inspectable repository controls without claiming that the repository independently validates those techniques:
 
 - `SCIENTIFIC-DNA.md` — maps CoT-safe public reasoning, Tree-of-Thoughts-style branching, ReAct loops, least-to-most decomposition, self-consistency, self-refinement, process supervision, constitutional/contract critique, and traceability to repository behaviour.
 - `PROMPT-ARCHITECTURE.md` — defines the nine-layer structure used by high-risk prompts.

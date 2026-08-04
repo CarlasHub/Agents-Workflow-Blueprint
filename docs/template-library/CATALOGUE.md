@@ -2,6 +2,10 @@
 
 ## Research and architecture documents
 
+- [Shared Governance Kernel](GOVERNANCE-KERNEL.md)
+- [Shared Specialist Control Registry](SPECIALIST-CONTROLS.md)
+- [Asset Metadata Schema](asset.schema.json)
+- [Migration Notes](MIGRATION-NOTES.md)
 - [Scientific DNA](SCIENTIFIC-DNA.md)
 - [Prompt Architecture Guide](PROMPT-ARCHITECTURE.md)
 - [Traceability Matrix Pattern](TRACEABILITY-MATRIX.md)

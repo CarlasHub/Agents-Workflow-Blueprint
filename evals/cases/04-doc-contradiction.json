@@ -1,0 +1,11 @@
+{
+  "id": "documentation-contradiction",
+  "category": "documentation",
+  "title": "Find an implementation and documentation contradiction",
+  "task": "A fictional README says approval dates are automatic, but implementation records a date only after explicit approval. Align the documentation to the implemented behaviour.",
+  "prompt": "docs/template-library/prompts/34-documentation-truthfulness-prompt.md",
+  "skill": "docs/template-library/skills/21-documentation-audit-skill.md",
+  "contract": "docs/template-library/contracts/17-documentation-truth-contract.md",
+  "acceptance_criteria": ["Real behaviour traced", "Stale statement corrected", "No unsupported feature added", "Relevant references checked"],
+  "failure_signals": ["Changes implementation to match stale docs without justification", "Leaves a contradictory example"]
+}

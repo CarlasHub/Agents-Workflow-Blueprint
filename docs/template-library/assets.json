@@ -8,7 +8,7 @@
     "summary": "Use at the start of a serious coding-agent session when the agent must obey repository rules, evidence discipline, and release-honesty constraints.",
     "tags": [
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -30,6 +30,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-master-agent-enforcement-prompt",
+    "version": "2.1.0",
+    "purpose": "Use at the start of a serious coding-agent session when the agent must obey repository rules, evidence discipline, and release-honesty constraints.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -41,7 +71,7 @@
     "summary": "Use when a feature, bug fix, refactor, or documentation change must be implemented with proof before any success claim.",
     "tags": [
       "implementation",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -61,6 +91,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-evidence-first-implementation-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a feature, bug fix, refactor, or documentation change must be implemented with proof before any success claim.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8150A57ABC",
+      "SPC-3CEC179E36",
+      "SPC-13E2B47410",
+      "SPC-0A4D074BDB",
+      "SPC-C542D001C9",
+      "SPC-36FE9D5D93",
+      "SPC-D42A645787",
+      "SPC-6FCBF56315",
+      "SPC-2050AB0AB3",
+      "SPC-CD53A45407",
+      "SPC-5207222384",
+      "SPC-2BF68A2A8A"
     ]
   },
   {
@@ -73,7 +133,7 @@
     "tags": [
       "audit",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -95,6 +155,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-anti-fake-completion-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use after an agent claims success and you need to test whether the claim is real, exaggerated, or unsupported.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -106,7 +196,7 @@
     "summary": "Use before implementation or review when hidden assumptions could change architecture, UX, security, or release judgement.",
     "tags": [
       "reasoning control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -128,6 +218,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-assumption-exposure-prompt",
+    "version": "2.1.0",
+    "purpose": "Use before implementation or review when hidden assumptions could change architecture, UX, security, or release judgement.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-97E18BC9B1",
+      "SPC-F97A689D53",
+      "SPC-28F696EEB8",
+      "SPC-0011A63FB1",
+      "SPC-4FC3248A81",
+      "SPC-E471C258A2",
+      "SPC-FB2C57BE53",
+      "SPC-C24179F4D3",
+      "SPC-F5DE4108CA",
+      "SPC-B2399CA6E8",
+      "SPC-3C8402A601",
+      "SPC-C529DE3CCA"
     ]
   },
   {
@@ -139,7 +259,7 @@
     "summary": "Use when an answer sounds confident but evidence quality varies across code, UI, tests, or documentation.",
     "tags": [
       "reasoning control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -161,6 +281,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-uncertainty-calibration-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when an answer sounds confident but evidence quality varies across code, UI, tests, or documentation.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-97E18BC9B1",
+      "SPC-F97A689D53",
+      "SPC-28F696EEB8",
+      "SPC-0011A63FB1",
+      "SPC-4FC3248A81",
+      "SPC-E471C258A2",
+      "SPC-FB2C57BE53",
+      "SPC-C24179F4D3",
+      "SPC-F5DE4108CA",
+      "SPC-B2399CA6E8",
+      "SPC-3C8402A601",
+      "SPC-C529DE3CCA"
     ]
   },
   {
@@ -172,7 +322,7 @@
     "summary": "Use when docs, tests, UI, code, README, or release language may disagree.",
     "tags": [
       "reasoning control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -194,6 +344,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-contradiction-detection-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when docs, tests, UI, code, README, or release language may disagree.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-97E18BC9B1",
+      "SPC-F97A689D53",
+      "SPC-28F696EEB8",
+      "SPC-0011A63FB1",
+      "SPC-4FC3248A81",
+      "SPC-E471C258A2",
+      "SPC-FB2C57BE53",
+      "SPC-C24179F4D3",
+      "SPC-F5DE4108CA",
+      "SPC-B2399CA6E8",
+      "SPC-3C8402A601",
+      "SPC-C529DE3CCA"
     ]
   },
   {
@@ -206,7 +386,7 @@
     "tags": [
       "risk",
       "review quality",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -224,6 +404,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-premortem-failure-analysis-prompt",
+    "version": "2.1.0",
+    "purpose": "Use before merge, release, or large refactor to imagine failure and prevent avoidable blind spots.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-D9266B2129",
+      "SPC-305203AAA3",
+      "SPC-3D20B487AD",
+      "SPC-EA427713A8",
+      "SPC-26C4D5B46B",
+      "SPC-35DB6BB883",
+      "SPC-7C1C296D50",
+      "SPC-069C123D49",
+      "SPC-7531ECF3F7",
+      "SPC-B7DED1701F",
+      "SPC-51A2F90F74",
+      "SPC-48BCE38DB5"
     ]
   },
   {
@@ -236,7 +446,7 @@
     "tags": [
       "scoping",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -256,6 +466,36 @@
       "Formal verification and traceability",
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-scope-boundary-lock-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when the task is at risk of scope creep, hidden dependencies, or accidental redesign.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -267,7 +507,7 @@
     "summary": "Use when a requested fix must avoid broad rewrites, unrelated styling, or unnecessary dependency changes.",
     "tags": [
       "implementation",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -285,6 +525,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-minimal-correct-change-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a requested fix must avoid broad rewrites, unrelated styling, or unnecessary dependency changes.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8150A57ABC",
+      "SPC-3CEC179E36",
+      "SPC-13E2B47410",
+      "SPC-0A4D074BDB",
+      "SPC-C542D001C9",
+      "SPC-36FE9D5D93",
+      "SPC-D42A645787",
+      "SPC-6FCBF56315",
+      "SPC-2050AB0AB3",
+      "SPC-CD53A45407",
+      "SPC-5207222384",
+      "SPC-2BF68A2A8A"
     ]
   },
   {
@@ -297,7 +567,7 @@
     "tags": [
       "repository analysis",
       "repository",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -317,6 +587,36 @@
       "Formal verification and traceability",
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-repository-reconnaissance-prompt",
+    "version": "2.1.0",
+    "purpose": "Use at the beginning of work on an unfamiliar repository, template pack, or docs/product system.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-D6AF8F4F01",
+      "SPC-C6694B86EF",
+      "SPC-69CA4847DF",
+      "SPC-FC40062B6C",
+      "SPC-7464361C2D",
+      "SPC-F4B6552C89",
+      "SPC-D47AE1C625",
+      "SPC-99A67D91AE",
+      "SPC-86C2D9759A",
+      "SPC-F1F42D414B",
+      "SPC-D1ABD938E7",
+      "SPC-738D856382"
     ]
   },
   {
@@ -328,7 +628,7 @@
     "summary": "Use for new feature work that needs design, code, tests, docs, and release evidence kept aligned.",
     "tags": [
       "implementation",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -346,6 +646,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-feature-implementation-prompt",
+    "version": "2.1.0",
+    "purpose": "Use for new feature work that needs design, code, tests, docs, and release evidence kept aligned.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8150A57ABC",
+      "SPC-3CEC179E36",
+      "SPC-13E2B47410",
+      "SPC-0A4D074BDB",
+      "SPC-C542D001C9",
+      "SPC-36FE9D5D93",
+      "SPC-D42A645787",
+      "SPC-6FCBF56315",
+      "SPC-2050AB0AB3",
+      "SPC-CD53A45407",
+      "SPC-5207222384",
+      "SPC-2BF68A2A8A"
     ]
   },
   {
@@ -358,7 +688,7 @@
     "tags": [
       "bug remediation",
       "implementation",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -379,6 +709,36 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-bug-root-cause-remediation-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a symptom is known but the actual cause, blast radius, and regression risk must be proven.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8150A57ABC",
+      "SPC-3CEC179E36",
+      "SPC-13E2B47410",
+      "SPC-0A4D074BDB",
+      "SPC-C542D001C9",
+      "SPC-36FE9D5D93",
+      "SPC-D42A645787",
+      "SPC-6FCBF56315",
+      "SPC-2050AB0AB3",
+      "SPC-CD53A45407",
+      "SPC-5207222384",
+      "SPC-2BF68A2A8A"
     ]
   },
   {
@@ -391,7 +751,7 @@
     "tags": [
       "review",
       "review quality",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -412,6 +772,36 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-regression-risk-review-prompt",
+    "version": "2.1.0",
+    "purpose": "Use after any implementation that might break adjacent behaviour, shared contracts, or existing user paths.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-D9266B2129",
+      "SPC-305203AAA3",
+      "SPC-3D20B487AD",
+      "SPC-EA427713A8",
+      "SPC-26C4D5B46B",
+      "SPC-35DB6BB883",
+      "SPC-7C1C296D50",
+      "SPC-069C123D49",
+      "SPC-7531ECF3F7",
+      "SPC-B7DED1701F",
+      "SPC-51A2F90F74",
+      "SPC-48BCE38DB5"
     ]
   },
   {
@@ -424,7 +814,7 @@
     "tags": [
       "code quality",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -444,6 +834,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-code-quality-deep-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use for maintainability, structure, dead-code, duplication, and readability review.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -456,7 +876,7 @@
     "tags": [
       "architecture",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -476,6 +896,36 @@
       "Formal verification and traceability",
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-architecture-drift-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a change may violate boundaries, patterns, ownership, or long-term design constraints.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -488,7 +938,7 @@
     "tags": [
       "clean-up",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -506,6 +956,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-dead-code-removal-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when removing unused files, branches, exports, styles, docs, tests, or generated artefacts.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -518,7 +998,7 @@
     "tags": [
       "refactor",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -536,6 +1016,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-refactor-safety-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when improving structure without intentionally changing behaviour.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -548,7 +1058,7 @@
     "tags": [
       "api",
       "api data state",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -568,6 +1078,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-api-contract-review-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when request/response shapes, public functions, schemas, integrations, or API docs may change.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8FB2382903",
+      "SPC-7138233293",
+      "SPC-8EC07E421A",
+      "SPC-4E2920FBA1",
+      "SPC-8F58350FF8",
+      "SPC-500888D594",
+      "SPC-9253D12F94",
+      "SPC-164F0D6D2D",
+      "SPC-6034737B54",
+      "SPC-CE597C98CD",
+      "SPC-B96524207B",
+      "SPC-71CF36EE63"
     ]
   },
   {
@@ -580,7 +1120,7 @@
     "tags": [
       "data flow",
       "api data state",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -598,6 +1138,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-data-flow-trace-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when data origin, transformation, persistence, display, export, or logging must be understood.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8FB2382903",
+      "SPC-7138233293",
+      "SPC-8EC07E421A",
+      "SPC-4E2920FBA1",
+      "SPC-8F58350FF8",
+      "SPC-500888D594",
+      "SPC-9253D12F94",
+      "SPC-164F0D6D2D",
+      "SPC-6034737B54",
+      "SPC-CE597C98CD",
+      "SPC-B96524207B",
+      "SPC-71CF36EE63"
     ]
   },
   {
@@ -610,7 +1180,7 @@
     "tags": [
       "state",
       "api data state",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -628,6 +1198,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-state-management-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use for frontend or application state that may become stale, inconsistent, duplicated, or race-prone.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-8FB2382903",
+      "SPC-7138233293",
+      "SPC-8EC07E421A",
+      "SPC-4E2920FBA1",
+      "SPC-8F58350FF8",
+      "SPC-500888D594",
+      "SPC-9253D12F94",
+      "SPC-164F0D6D2D",
+      "SPC-6034737B54",
+      "SPC-CE597C98CD",
+      "SPC-B96524207B",
+      "SPC-71CF36EE63"
     ]
   },
   {
@@ -640,7 +1240,7 @@
     "tags": [
       "ui/ux",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -659,6 +1259,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-ui-structure-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a UI must be inspected for hierarchy, grouping, spacing, layout, and real rendered structure.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -671,7 +1301,7 @@
     "tags": [
       "ui/ux",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -691,6 +1321,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-visual-design-quality-gate-prompt",
+    "version": "2.1.0",
+    "purpose": "Use before accepting a UI that must look polished, readable, aligned, and professionally finished.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -703,7 +1363,7 @@
     "tags": [
       "design system",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -722,6 +1382,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-design-system-consistency-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when components, tokens, typography, icons, spacing, and interaction states must remain consistent.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -734,7 +1424,7 @@
     "tags": [
       "responsive ui",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -753,6 +1443,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-responsive-layout-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when layouts must survive mobile, tablet, desktop, long content, and constrained viewport states.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -765,7 +1485,7 @@
     "tags": [
       "interaction",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -784,6 +1504,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-interaction-state-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use for buttons, forms, menus, tables, cards, dialogs, navigation, and other interactive UI states.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -795,7 +1545,7 @@
     "summary": "Use when interactive surfaces must be navigable without a mouse and must avoid keyboard traps.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -814,6 +1564,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-keyboard-journey-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when interactive surfaces must be navigable without a mouse and must avoid keyboard traps.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -825,7 +1605,7 @@
     "summary": "Use when a specific accessibility issue must be fixed without fake pass language or harmful ARIA patches.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -844,6 +1624,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-accessibility-remediation-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a specific accessibility issue must be fixed without fake pass language or harmful ARIA patches.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -855,7 +1665,7 @@
     "summary": "Use when dynamic UI, forms, icon controls, modals, route changes, or live regions may confuse assistive technology users.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -874,6 +1684,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-screen-reader-risk-review-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when dynamic UI, forms, icon controls, modals, route changes, or live regions may confuse assistive technology users.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -885,7 +1725,7 @@
     "summary": "Use when findings need a careful mapping to WCAG 2.2 success criteria and severity without overstating certainty.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -906,6 +1746,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Self-Consistency"
+    ],
+    "id": "prompt-wcag-mapping-review-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when findings need a careful mapping to WCAG 2.2 success criteria and severity without overstating certainty.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -917,7 +1787,7 @@
     "summary": "Use when icon buttons, compact actions, menus, or toolbar controls may lack clear names or affordances.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -936,6 +1806,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency"
+    ],
+    "id": "prompt-icon-only-control-review-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when icon buttons, compact actions, menus, or toolbar controls may lack clear names or affordances.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -947,7 +1847,7 @@
     "summary": "Use when designing browser tests for real user behaviour, accessibility checks, and stable selectors.",
     "tags": [
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -968,6 +1868,36 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-playwright-test-design-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when designing browser tests for real user behaviour, accessibility checks, and stable selectors.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -979,7 +1909,7 @@
     "summary": "Use when tests pass but may be shallow, flaky, over-mocked, or unrelated to real risk.",
     "tags": [
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1001,6 +1931,36 @@
       "Self-Consistency",
       "Chain-of-Thought Prompting",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-test-quality-audit-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when tests pass but may be shallow, flaky, over-mocked, or unrelated to real risk.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -1013,7 +1973,7 @@
     "tags": [
       "release",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1033,6 +1993,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-release-evidence-prompt",
+    "version": "2.1.0",
+    "purpose": "Use before final handoff, merge approval, release note creation, or claim publication.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -1045,7 +2035,7 @@
     "tags": [
       "documentation",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1063,6 +2053,36 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability"
+    ],
+    "id": "prompt-documentation-truthfulness-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when docs, guides, examples, or site copy may promise more than the implementation proves.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -1075,7 +2095,7 @@
     "tags": [
       "documentation",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1095,6 +2115,36 @@
       "Formal verification and traceability",
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-readme-upgrade-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a README needs to become a useful product entry point, not just a file list.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -1107,7 +2157,7 @@
     "tags": [
       "site/product",
       "site product",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1127,6 +2177,36 @@
       "Formal verification and traceability",
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "prompt-github-pages-template-hub-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when turning repository files into a public template hub with copy actions, categories, examples, and low-friction navigation.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-99CF5E18D0",
+      "SPC-AFDE64D1AB",
+      "SPC-C5886BC199",
+      "SPC-1E5026FAE6",
+      "SPC-B4F82C647A",
+      "SPC-4A57A095AD",
+      "SPC-C2624E56E1",
+      "SPC-AEC861D97F",
+      "SPC-41A646D735",
+      "SPC-B0F9D04810",
+      "SPC-E210F8DD35",
+      "SPC-1F6BE8CB53"
     ]
   },
   {
@@ -1138,7 +2218,7 @@
     "summary": "Use when a change touches actors, permissions, data, integration, exports, admin features, or sensitive operations.",
     "tags": [
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1158,6 +2238,36 @@
       "Formal verification and traceability",
       "Premortem failure analysis",
       "Self-Consistency"
+    ],
+    "id": "prompt-security-trust-boundary-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when a change touches actors, permissions, data, integration, exports, admin features, or sensitive operations.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -1169,7 +2279,7 @@
     "summary": "Use when environment variables, tokens, credentials, logs, CI, config, or integrations may expose secrets.",
     "tags": [
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1189,6 +2299,36 @@
       "Formal verification and traceability",
       "Premortem failure analysis",
       "Self-Consistency"
+    ],
+    "id": "prompt-secrets-handling-review-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when environment variables, tokens, credentials, logs, CI, config, or integrations may expose secrets.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -1201,7 +2341,7 @@
     "tags": [
       "observability",
       "observability performance",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1221,6 +2361,36 @@
       "Formal verification and traceability",
       "Premortem failure analysis",
       "Self-Consistency"
+    ],
+    "id": "prompt-observability-and-logging-prompt",
+    "version": "2.1.0",
+    "purpose": "Use when work needs useful logs, metrics, traces, alerts, or operational evidence without privacy leakage.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-A42B28B42C",
+      "SPC-7EE53242C4",
+      "SPC-D1283E6C6A",
+      "SPC-EFF97EDB2E",
+      "SPC-FDB4A280CF",
+      "SPC-FE7AAAFCCC",
+      "SPC-70F680638D",
+      "SPC-FC008E8455",
+      "SPC-7DF0ADB083",
+      "SPC-EEA9B39F0F",
+      "SPC-C595067E22",
+      "SPC-FC8CF96A37"
     ]
   },
   {
@@ -1233,7 +2403,7 @@
     "tags": [
       "release",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1255,6 +2425,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "prompt-final-merge-gate-prompt",
+    "version": "2.1.0",
+    "purpose": "Use as the final review prompt before merge or publication when all evidence must be consolidated.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-PROMPT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -1267,7 +2467,7 @@
     "tags": [
       "scoping",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1288,6 +2488,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-scoping-packet-skill",
+    "version": "2.1.0",
+    "purpose": "Use when converting a task request into a bounded, reviewable scoping packet.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -1300,7 +2530,7 @@
     "tags": [
       "planning",
       "implementation",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1321,6 +2551,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-implementation-planning-skill",
+    "version": "2.1.0",
+    "purpose": "Use when the agent needs a safe implementation plan before editing.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-8150A57ABC",
+      "SPC-3CEC179E36",
+      "SPC-13E2B47410",
+      "SPC-0A4D074BDB",
+      "SPC-C542D001C9",
+      "SPC-36FE9D5D93",
+      "SPC-D42A645787",
+      "SPC-6FCBF56315",
+      "SPC-2050AB0AB3",
+      "SPC-CD53A45407",
+      "SPC-5207222384",
+      "SPC-2BF68A2A8A"
     ]
   },
   {
@@ -1333,7 +2593,7 @@
     "tags": [
       "repository analysis",
       "repository",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1354,6 +2614,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-repository-mapping-skill",
+    "version": "2.1.0",
+    "purpose": "Use when the repository structure, authority files, and scripts must be understood before change.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-D6AF8F4F01",
+      "SPC-C6694B86EF",
+      "SPC-69CA4847DF",
+      "SPC-FC40062B6C",
+      "SPC-7464361C2D",
+      "SPC-F4B6552C89",
+      "SPC-D47AE1C625",
+      "SPC-99A67D91AE",
+      "SPC-86C2D9759A",
+      "SPC-F1F42D414B",
+      "SPC-D1ABD938E7",
+      "SPC-738D856382"
     ]
   },
   {
@@ -1366,7 +2656,7 @@
     "tags": [
       "evidence",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1387,6 +2677,36 @@
       "Self-Consistency",
       "Premortem failure analysis",
       "Reflexion"
+    ],
+    "id": "skill-evidence-collection-skill",
+    "version": "2.1.0",
+    "purpose": "Use when gathering proof for implementation, review, documentation, or release claims.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -1399,7 +2719,7 @@
     "tags": [
       "verification",
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1420,6 +2740,36 @@
       "Self-Consistency",
       "Premortem failure analysis",
       "Reflexion"
+    ],
+    "id": "skill-verification-reporting-skill",
+    "version": "2.1.0",
+    "purpose": "Use when command results, manual checks, and skipped checks must be reported cleanly.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -1432,7 +2782,7 @@
     "tags": [
       "honesty",
       "reasoning control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1454,6 +2804,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "skill-failure-disclosure-skill",
+    "version": "2.1.0",
+    "purpose": "Use when the answer must disclose incomplete, unverified, risky, or weaker-than-requested work.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-97E18BC9B1",
+      "SPC-F97A689D53",
+      "SPC-28F696EEB8",
+      "SPC-0011A63FB1",
+      "SPC-4FC3248A81",
+      "SPC-E471C258A2",
+      "SPC-FB2C57BE53",
+      "SPC-C24179F4D3",
+      "SPC-F5DE4108CA",
+      "SPC-B2399CA6E8",
+      "SPC-3C8402A601",
+      "SPC-C529DE3CCA"
     ]
   },
   {
@@ -1466,7 +2846,7 @@
     "tags": [
       "ui/ux",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1486,6 +2866,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Reflexion"
+    ],
+    "id": "skill-ui-screenshot-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when screenshots or rendered UI must be audited for defects and state mismatches.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -1497,7 +2907,7 @@
     "summary": "Use when inspecting semantic structure, names, keyboard behaviour, and user impact.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1517,6 +2927,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Reflexion"
+    ],
+    "id": "skill-accessibility-inspection-skill",
+    "version": "2.1.0",
+    "purpose": "Use when inspecting semantic structure, names, keyboard behaviour, and user impact.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -1528,7 +2968,7 @@
     "summary": "Use when translating accessibility findings into WCAG 2.2 references and remediation evidence.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1550,6 +2990,36 @@
       "Chain-of-Thought Prompting",
       "Self-Consistency",
       "Reflexion"
+    ],
+    "id": "skill-wcag-mapping-skill",
+    "version": "2.1.0",
+    "purpose": "Use when translating accessibility findings into WCAG 2.2 references and remediation evidence.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -1561,7 +3031,7 @@
     "summary": "Use when interactive flows must be tested by keyboard.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1582,6 +3052,36 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "skill-keyboard-testing-skill",
+    "version": "2.1.0",
+    "purpose": "Use when interactive flows must be tested by keyboard.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -1593,7 +3093,7 @@
     "summary": "Use when browser tests fail, flake, or need meaningful behaviour assertions.",
     "tags": [
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1614,6 +3114,36 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "skill-playwright-debugging-skill",
+    "version": "2.1.0",
+    "purpose": "Use when browser tests fail, flake, or need meaningful behaviour assertions.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -1625,7 +3155,7 @@
     "summary": "Use when a bug fix or feature needs tests that would catch future breakage.",
     "tags": [
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1646,6 +3176,36 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting"
+    ],
+    "id": "skill-regression-test-design-skill",
+    "version": "2.1.0",
+    "purpose": "Use when a bug fix or feature needs tests that would catch future breakage.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -1658,7 +3218,7 @@
     "tags": [
       "review",
       "review quality",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1677,6 +3237,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-code-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when reviewing a diff for correctness, maintainability, and evidence.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-D9266B2129",
+      "SPC-305203AAA3",
+      "SPC-3D20B487AD",
+      "SPC-EA427713A8",
+      "SPC-26C4D5B46B",
+      "SPC-35DB6BB883",
+      "SPC-7C1C296D50",
+      "SPC-069C123D49",
+      "SPC-7531ECF3F7",
+      "SPC-B7DED1701F",
+      "SPC-51A2F90F74",
+      "SPC-48BCE38DB5"
     ]
   },
   {
@@ -1689,7 +3279,7 @@
     "tags": [
       "refactor",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1710,6 +3300,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-refactor-planning-skill",
+    "version": "2.1.0",
+    "purpose": "Use when structural improvement is needed but behaviour must stay stable.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -1722,7 +3342,7 @@
     "tags": [
       "clean-up",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1741,6 +3361,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-dead-code-detection-skill",
+    "version": "2.1.0",
+    "purpose": "Use when deciding whether files, exports, branches, styles, or docs are unused.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -1753,7 +3403,7 @@
     "tags": [
       "architecture",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1774,6 +3424,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-architecture-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when reviewing boundaries, ownership, coupling, and long-term maintainability.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -1786,7 +3466,7 @@
     "tags": [
       "api",
       "api data state",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1807,6 +3487,36 @@
       "Self-Consistency",
       "Premortem failure analysis",
       "Reflexion"
+    ],
+    "id": "skill-api-contract-inspection-skill",
+    "version": "2.1.0",
+    "purpose": "Use when API shapes, schemas, callers, and docs must be reconciled.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-8FB2382903",
+      "SPC-7138233293",
+      "SPC-8EC07E421A",
+      "SPC-4E2920FBA1",
+      "SPC-8F58350FF8",
+      "SPC-500888D594",
+      "SPC-9253D12F94",
+      "SPC-164F0D6D2D",
+      "SPC-6034737B54",
+      "SPC-CE597C98CD",
+      "SPC-B96524207B",
+      "SPC-71CF36EE63"
     ]
   },
   {
@@ -1818,7 +3528,7 @@
     "summary": "Use when reviewing trust boundaries, permissions, secrets, data handling, and abuse paths.",
     "tags": [
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1839,6 +3549,36 @@
       "Premortem failure analysis",
       "Self-Consistency",
       "Reflexion"
+    ],
+    "id": "skill-security-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when reviewing trust boundaries, permissions, secrets, data handling, and abuse paths.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -1850,7 +3590,7 @@
     "summary": "Use when tokens, env vars, logs, config, or CI may expose secrets.",
     "tags": [
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1871,6 +3611,36 @@
       "Premortem failure analysis",
       "Self-Consistency",
       "Reflexion"
+    ],
+    "id": "skill-secrets-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when tokens, env vars, logs, config, or CI may expose secrets.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -1883,7 +3653,7 @@
     "tags": [
       "privacy",
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1904,6 +3674,36 @@
       "Premortem failure analysis",
       "Self-Consistency",
       "Reflexion"
+    ],
+    "id": "skill-data-privacy-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when personal, tenant, customer, analytics, export, or audit data may be collected or exposed.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -1916,7 +3716,7 @@
     "tags": [
       "documentation",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1935,6 +3735,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-documentation-audit-skill",
+    "version": "2.1.0",
+    "purpose": "Use when docs must be checked against implementation and repository reality.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -1947,7 +3777,7 @@
     "tags": [
       "release",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -1968,6 +3798,36 @@
       "Self-Consistency",
       "Premortem failure analysis",
       "Reflexion"
+    ],
+    "id": "skill-release-notes-review-skill",
+    "version": "2.1.0",
+    "purpose": "Use when release notes must represent verified behaviour and known limitations.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -1980,7 +3840,7 @@
     "tags": [
       "documentation",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2001,6 +3861,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-readme-structuring-skill",
+    "version": "2.1.0",
+    "purpose": "Use when README needs a clearer user journey, catalogue, and verification instructions.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -2013,7 +3903,7 @@
     "tags": [
       "template product",
       "site product",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2034,6 +3924,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-template-catalogue-design-skill",
+    "version": "2.1.0",
+    "purpose": "Use when organising many templates into categories, starter packs, and discoverable metadata.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-99CF5E18D0",
+      "SPC-AFDE64D1AB",
+      "SPC-C5886BC199",
+      "SPC-1E5026FAE6",
+      "SPC-B4F82C647A",
+      "SPC-4A57A095AD",
+      "SPC-C2624E56E1",
+      "SPC-AEC861D97F",
+      "SPC-41A646D735",
+      "SPC-B0F9D04810",
+      "SPC-E210F8DD35",
+      "SPC-1F6BE8CB53"
     ]
   },
   {
@@ -2046,7 +3966,7 @@
     "tags": [
       "site/product",
       "site product",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2067,6 +3987,36 @@
       "Tree-of-Thoughts",
       "Chain-of-Thought Prompting",
       "Reflexion"
+    ],
+    "id": "skill-github-pages-ux-skill",
+    "version": "2.1.0",
+    "purpose": "Use when the public site must serve templates clearly on GitHub Pages.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-99CF5E18D0",
+      "SPC-AFDE64D1AB",
+      "SPC-C5886BC199",
+      "SPC-1E5026FAE6",
+      "SPC-B4F82C647A",
+      "SPC-4A57A095AD",
+      "SPC-C2624E56E1",
+      "SPC-AEC861D97F",
+      "SPC-41A646D735",
+      "SPC-B0F9D04810",
+      "SPC-E210F8DD35",
+      "SPC-1F6BE8CB53"
     ]
   },
   {
@@ -2079,7 +4029,7 @@
     "tags": [
       "prompt writing",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2098,6 +4048,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-copy-ready-prompt-writing-skill",
+    "version": "2.1.0",
+    "purpose": "Use when prompts must be immediately usable by agents without vague placeholders.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -2110,7 +4090,7 @@
     "tags": [
       "agent control",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2132,6 +4112,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "skill-agent-behaviour-hardening-skill",
+    "version": "2.1.0",
+    "purpose": "Use when prompts or workflows need stronger controls against shortcuts and overclaiming.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -2144,7 +4154,7 @@
     "tags": [
       "evaluation",
       "reasoning control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2163,6 +4173,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-prompt-evaluation-skill",
+    "version": "2.1.0",
+    "purpose": "Use when assessing whether prompts produce reliable, honest, and useful agent output.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-97E18BC9B1",
+      "SPC-F97A689D53",
+      "SPC-28F696EEB8",
+      "SPC-0011A63FB1",
+      "SPC-4FC3248A81",
+      "SPC-E471C258A2",
+      "SPC-FB2C57BE53",
+      "SPC-C24179F4D3",
+      "SPC-F5DE4108CA",
+      "SPC-B2399CA6E8",
+      "SPC-3C8402A601",
+      "SPC-C529DE3CCA"
     ]
   },
   {
@@ -2175,7 +4215,7 @@
     "tags": [
       "risk",
       "review quality",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2194,6 +4234,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-risk-register-skill",
+    "version": "2.1.0",
+    "purpose": "Use when work requires a live list of risks, owners, mitigations, and verification gaps.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-D9266B2129",
+      "SPC-305203AAA3",
+      "SPC-3D20B487AD",
+      "SPC-EA427713A8",
+      "SPC-26C4D5B46B",
+      "SPC-35DB6BB883",
+      "SPC-7C1C296D50",
+      "SPC-069C123D49",
+      "SPC-7531ECF3F7",
+      "SPC-B7DED1701F",
+      "SPC-51A2F90F74",
+      "SPC-48BCE38DB5"
     ]
   },
   {
@@ -2206,7 +4276,7 @@
     "tags": [
       "delivery",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2225,6 +4295,36 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Reflexion"
+    ],
+    "id": "skill-final-delivery-packaging-skill",
+    "version": "2.1.0",
+    "purpose": "Use when packaging an upgraded repository, template system, or release bundle.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-SKILL",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -2237,7 +4337,7 @@
     "tags": [
       "honesty",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2259,6 +4359,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-completion-honesty-contract",
+    "version": "2.1.0",
+    "purpose": "Use as the top-level acceptance rule against fake completion.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -2271,7 +4401,7 @@
     "tags": [
       "evidence",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2291,6 +4421,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-evidence-contract",
+    "version": "2.1.0",
+    "purpose": "Use when every claim must be traceable to inspected files, behaviour, commands, or manual evidence.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -2303,7 +4463,7 @@
     "tags": [
       "scope",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2325,6 +4485,36 @@
       "Chain-of-Thought Prompting",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-scope-control-contract",
+    "version": "2.1.0",
+    "purpose": "Use to reject hidden scope expansion, accidental redesign, or unrelated changes.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   },
   {
@@ -2336,7 +4526,7 @@
     "summary": "Use when assumptions must be named before they influence implementation or review.",
     "tags": [
       "reasoning control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2358,6 +4548,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-assumption-contract",
+    "version": "2.1.0",
+    "purpose": "Use when assumptions must be named before they influence implementation or review.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-97E18BC9B1",
+      "SPC-F97A689D53",
+      "SPC-28F696EEB8",
+      "SPC-0011A63FB1",
+      "SPC-4FC3248A81",
+      "SPC-E471C258A2",
+      "SPC-FB2C57BE53",
+      "SPC-C24179F4D3",
+      "SPC-F5DE4108CA",
+      "SPC-B2399CA6E8",
+      "SPC-3C8402A601",
+      "SPC-C529DE3CCA"
     ]
   },
   {
@@ -2370,7 +4590,7 @@
     "tags": [
       "verification",
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2390,6 +4610,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-verification-contract",
+    "version": "2.1.0",
+    "purpose": "Use when commands, manual checks, and evidence gaps define acceptance.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -2401,7 +4651,7 @@
     "summary": "Use when tests must prove user or system behaviour rather than shallow implementation details.",
     "tags": [
       "testing",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2423,6 +4673,36 @@
       "Self-Consistency",
       "Chain-of-Thought Prompting",
       "Premortem failure analysis"
+    ],
+    "id": "contract-test-behaviour-contract",
+    "version": "2.1.0",
+    "purpose": "Use when tests must prove user or system behaviour rather than shallow implementation details.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-19737EA9F7",
+      "SPC-37920A61AD",
+      "SPC-81E2966D0D",
+      "SPC-8450AEE278",
+      "SPC-6A71F4E793",
+      "SPC-9200311108",
+      "SPC-8BBDD8F9F9",
+      "SPC-8DD26F0FCB",
+      "SPC-9A10CA3699",
+      "SPC-ECDA180771",
+      "SPC-C0C6AD53CF",
+      "SPC-33AB51A64E"
     ]
   },
   {
@@ -2434,7 +4714,7 @@
     "summary": "Use for UI work that must preserve semantic structure, keyboard access, and WCAG-aligned reasoning.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2454,6 +4734,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-accessibility-contract-plus",
+    "version": "2.1.0",
+    "purpose": "Use for UI work that must preserve semantic structure, keyboard access, and WCAG-aligned reasoning.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -2465,7 +4775,7 @@
     "summary": "Use for menus, dialogs, forms, tables, navigation, and custom controls.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2485,6 +4795,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-keyboard-interaction-contract",
+    "version": "2.1.0",
+    "purpose": "Use for menus, dialogs, forms, tables, navigation, and custom controls.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -2496,7 +4836,7 @@
     "summary": "Use for icon controls, form controls, composite widgets, and dynamic UI.",
     "tags": [
       "accessibility",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2516,6 +4856,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-accessible-name-contract",
+    "version": "2.1.0",
+    "purpose": "Use for icon controls, form controls, composite widgets, and dynamic UI.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-ECB7DBF3BE",
+      "SPC-281E77FD8F",
+      "SPC-B25B6C49C9",
+      "SPC-B75C7DAC35",
+      "SPC-43CE9442C3",
+      "SPC-E488688DB6",
+      "SPC-1A84B8E4BD",
+      "SPC-584BE13706",
+      "SPC-FF3BE787A8",
+      "SPC-68342B1555",
+      "SPC-8897CA6C8F",
+      "SPC-F771CE14DC"
     ]
   },
   {
@@ -2528,7 +4898,7 @@
     "tags": [
       "ui/ux",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2548,6 +4918,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-ui-visual-quality-contract",
+    "version": "2.1.0",
+    "purpose": "Use before accepting visual UI changes.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -2560,7 +4960,7 @@
     "tags": [
       "design system",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2580,6 +4980,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-design-system-contract",
+    "version": "2.1.0",
+    "purpose": "Use when UI must follow reusable components, tokens, and interaction patterns.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -2592,7 +5022,7 @@
     "tags": [
       "responsive ui",
       "ui ux",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2612,6 +5042,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-responsive-behaviour-contract",
+    "version": "2.1.0",
+    "purpose": "Use when layout must remain usable across viewports and content lengths.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-305A6BD2E2",
+      "SPC-FF71E3BF7A",
+      "SPC-05C37EDF4D",
+      "SPC-F8FF4EA263",
+      "SPC-A8B18A88EC",
+      "SPC-31A58C54A8",
+      "SPC-37E10661DA",
+      "SPC-85A2A812F0",
+      "SPC-93477ED152",
+      "SPC-56F3C0F154",
+      "SPC-E2C0B279DE",
+      "SPC-5AC175CF4D"
     ]
   },
   {
@@ -2624,7 +5084,7 @@
     "tags": [
       "code quality",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2644,6 +5104,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-code-quality-contract",
+    "version": "2.1.0",
+    "purpose": "Use for maintainability and structural acceptance.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -2656,7 +5146,7 @@
     "tags": [
       "architecture",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2678,6 +5168,36 @@
       "Chain-of-Thought Prompting",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-architecture-boundary-contract",
+    "version": "2.1.0",
+    "purpose": "Use when module, layer, dependency, or ownership boundaries matter.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -2690,7 +5210,7 @@
     "tags": [
       "refactor",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2710,6 +5230,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-refactor-safety-contract",
+    "version": "2.1.0",
+    "purpose": "Use for behaviour-preserving structural change.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -2722,7 +5272,7 @@
     "tags": [
       "clean-up",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2742,6 +5292,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-dead-code-removal-contract",
+    "version": "2.1.0",
+    "purpose": "Use when removing apparently unused files, exports, branches, or docs.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -2754,7 +5334,7 @@
     "tags": [
       "documentation",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2774,6 +5354,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-documentation-truth-contract",
+    "version": "2.1.0",
+    "purpose": "Use when docs, examples, and guides must match real implementation.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -2786,7 +5396,7 @@
     "tags": [
       "documentation",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2808,6 +5418,36 @@
       "Chain-of-Thought Prompting",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-readme-claim-contract",
+    "version": "2.1.0",
+    "purpose": "Use for README updates, public pages, and repository positioning.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -2820,7 +5460,7 @@
     "tags": [
       "release",
       "docs release",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2840,6 +5480,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-release-evidence-contract-plus",
+    "version": "2.1.0",
+    "purpose": "Use before merge, publication, release note approval, or public handoff.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-7FFA717A20",
+      "SPC-C4C0637D2C",
+      "SPC-5704E6F6F7",
+      "SPC-CAE6C1B585",
+      "SPC-911DD1C1CE",
+      "SPC-EFFC0C67A8",
+      "SPC-9B148C086E",
+      "SPC-0DA3292C2B",
+      "SPC-46167C8D02",
+      "SPC-88F93E1499",
+      "SPC-E76E5608BB",
+      "SPC-281C2DA3D8"
     ]
   },
   {
@@ -2851,7 +5521,7 @@
     "summary": "Use when permissions, identities, integrations, data, or sensitive operations change.",
     "tags": [
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2871,6 +5541,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-security-boundary-contract",
+    "version": "2.1.0",
+    "purpose": "Use when permissions, identities, integrations, data, or sensitive operations change.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -2882,7 +5582,7 @@
     "summary": "Use for environment variables, credentials, CI, logs, tokens, and configuration.",
     "tags": [
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2902,6 +5602,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-secrets-handling-contract",
+    "version": "2.1.0",
+    "purpose": "Use for environment variables, credentials, CI, logs, tokens, and configuration.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -2914,7 +5644,7 @@
     "tags": [
       "privacy",
       "security",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2934,6 +5664,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-privacy-and-data-contract",
+    "version": "2.1.0",
+    "purpose": "Use for personal, tenant, analytics, export, retention, or audit data.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-E11FEFF55C",
+      "SPC-92FC5AFD97",
+      "SPC-33483AA6F2",
+      "SPC-826EA422DD",
+      "SPC-79F28504C6",
+      "SPC-4436404CB9",
+      "SPC-5B042223E4",
+      "SPC-85D9D0A23C",
+      "SPC-2020040A69",
+      "SPC-CC24B506CF",
+      "SPC-8410E57EDA",
+      "SPC-0B89F8D640"
     ]
   },
   {
@@ -2946,7 +5706,7 @@
     "tags": [
       "observability",
       "observability performance",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2966,6 +5726,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-logging-safety-contract",
+    "version": "2.1.0",
+    "purpose": "Use when adding or changing logs, metrics, traces, or alerts.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A42B28B42C",
+      "SPC-7EE53242C4",
+      "SPC-D1283E6C6A",
+      "SPC-EFF97EDB2E",
+      "SPC-FDB4A280CF",
+      "SPC-FE7AAAFCCC",
+      "SPC-70F680638D",
+      "SPC-FC008E8455",
+      "SPC-7DF0ADB083",
+      "SPC-EEA9B39F0F",
+      "SPC-C595067E22",
+      "SPC-FC8CF96A37"
     ]
   },
   {
@@ -2978,7 +5768,7 @@
     "tags": [
       "reliability",
       "api data state",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -2998,6 +5788,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-error-handling-contract",
+    "version": "2.1.0",
+    "purpose": "Use when adding, changing, or reviewing failures, retries, fallbacks, and messages.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-8FB2382903",
+      "SPC-7138233293",
+      "SPC-8EC07E421A",
+      "SPC-4E2920FBA1",
+      "SPC-8F58350FF8",
+      "SPC-500888D594",
+      "SPC-9253D12F94",
+      "SPC-164F0D6D2D",
+      "SPC-6034737B54",
+      "SPC-CE597C98CD",
+      "SPC-B96524207B",
+      "SPC-71CF36EE63"
     ]
   },
   {
@@ -3010,7 +5830,7 @@
     "tags": [
       "performance",
       "observability performance",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -3030,6 +5850,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-performance-budget-contract",
+    "version": "2.1.0",
+    "purpose": "Use when claims or changes affect performance, rendering cost, API use, or bundle weight.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A42B28B42C",
+      "SPC-7EE53242C4",
+      "SPC-D1283E6C6A",
+      "SPC-EFF97EDB2E",
+      "SPC-FDB4A280CF",
+      "SPC-FE7AAAFCCC",
+      "SPC-70F680638D",
+      "SPC-FC008E8455",
+      "SPC-7DF0ADB083",
+      "SPC-EEA9B39F0F",
+      "SPC-C595067E22",
+      "SPC-FC8CF96A37"
     ]
   },
   {
@@ -3042,7 +5892,7 @@
     "tags": [
       "dependency",
       "architecture code",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -3062,6 +5912,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-dependency-addition-contract",
+    "version": "2.1.0",
+    "purpose": "Use before adding packages, frameworks, tools, or external services.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-A613B10548",
+      "SPC-A73107D15B",
+      "SPC-8D72280D87",
+      "SPC-E3C1AD4005",
+      "SPC-C09D70A638",
+      "SPC-019E2A4C55",
+      "SPC-99EA88416B",
+      "SPC-B66E265E54",
+      "SPC-0A5BED7F7E",
+      "SPC-DC6C05703F",
+      "SPC-6D43E61D6A",
+      "SPC-C1851C2F70"
     ]
   },
   {
@@ -3074,7 +5954,7 @@
     "tags": [
       "api",
       "api data state",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -3094,6 +5974,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-api-stability-contract",
+    "version": "2.1.0",
+    "purpose": "Use when public API, schema, route, exported function, or integration behaviour may change.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-8FB2382903",
+      "SPC-7138233293",
+      "SPC-8EC07E421A",
+      "SPC-4E2920FBA1",
+      "SPC-8F58350FF8",
+      "SPC-500888D594",
+      "SPC-9253D12F94",
+      "SPC-164F0D6D2D",
+      "SPC-6034737B54",
+      "SPC-CE597C98CD",
+      "SPC-B96524207B",
+      "SPC-71CF36EE63"
     ]
   },
   {
@@ -3106,7 +6016,7 @@
     "tags": [
       "delivery",
       "review quality",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -3126,6 +6036,36 @@
       "Formal verification and traceability",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-git-hygiene-contract",
+    "version": "2.1.0",
+    "purpose": "Use when packaging branch changes, commits, generated files, or merge handoffs.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-D9266B2129",
+      "SPC-305203AAA3",
+      "SPC-3D20B487AD",
+      "SPC-EA427713A8",
+      "SPC-26C4D5B46B",
+      "SPC-35DB6BB883",
+      "SPC-7C1C296D50",
+      "SPC-069C123D49",
+      "SPC-7531ECF3F7",
+      "SPC-B7DED1701F",
+      "SPC-51A2F90F74",
+      "SPC-48BCE38DB5"
     ]
   },
   {
@@ -3134,11 +6074,11 @@
     "category": "Template Product",
     "profile": "site-product",
     "path": "docs/template-library/contracts/29-template-library-quality-contract.md",
-    "summary": "Use for this repository\u2019s prompt, skill, and contract assets.",
+    "summary": "Use for this repository’s prompt, skill, and contract assets.",
     "tags": [
       "template product",
       "site product",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -3160,6 +6100,36 @@
       "Chain-of-Thought Prompting",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-template-library-quality-contract",
+    "version": "2.1.0",
+    "purpose": "Use for this repository’s prompt, skill, and contract assets.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-99CF5E18D0",
+      "SPC-AFDE64D1AB",
+      "SPC-C5886BC199",
+      "SPC-1E5026FAE6",
+      "SPC-B4F82C647A",
+      "SPC-4A57A095AD",
+      "SPC-C2624E56E1",
+      "SPC-AEC861D97F",
+      "SPC-41A646D735",
+      "SPC-B0F9D04810",
+      "SPC-E210F8DD35",
+      "SPC-1F6BE8CB53"
     ]
   },
   {
@@ -3172,7 +6142,7 @@
     "tags": [
       "output",
       "core control",
-      "research-backed",
+      "research-informed",
       "CoT-safe",
       "ReAct",
       "traceability"
@@ -3194,6 +6164,36 @@
       "Tree-of-Thoughts",
       "Self-Consistency",
       "Premortem failure analysis"
+    ],
+    "id": "contract-agent-output-format-contract",
+    "version": "2.1.0",
+    "purpose": "Use when agent handoffs must be structured, inspectable, and easy to review.",
+    "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
+    "dependencies": [
+      "docs/template-library/GOVERNANCE-KERNEL.md",
+      "docs/template-library/SPECIALIST-CONTROLS.md",
+      "AGENTS.md",
+      "docs/engineering/workflow.md"
+    ],
+    "evidence_expectations": [
+      "source or artefact inspection",
+      "reproducible verification result",
+      "explicit limitations and final status"
+    ],
+    "governance_profile": "GOV-PROFILE-CONTRACT",
+    "shared_controls": [
+      "SPC-2034581C5D",
+      "SPC-B28169E5F4",
+      "SPC-76C2A0C673",
+      "SPC-F775C269AE",
+      "SPC-0570993820",
+      "SPC-30567C30DF",
+      "SPC-632EF08BBD",
+      "SPC-F2FAD1D23C",
+      "SPC-40A0729D73",
+      "SPC-E15B71EC2C",
+      "SPC-1D8AAB4CE5",
+      "SPC-F6533D8814"
     ]
   }
 ]

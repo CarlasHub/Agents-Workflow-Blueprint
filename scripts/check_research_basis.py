@@ -1,84 +1,80 @@
 #!/usr/bin/env python3
+
+"""Validate the source map and its single shared asset dependency."""
+
 from pathlib import Path
 import json
 import sys
 
+
 ROOT = Path(__file__).resolve().parents[1]
-LIB = ROOT / 'docs' / 'template-library'
-REQUIRED_DOCS = [
-    'SCIENTIFIC-DNA.md',
-    'PROMPT-ARCHITECTURE.md',
-    'TRACEABILITY-MATRIX.md',
-    'SYSTEM-2-PROMPTING-GUIDE.md',
-    'RESEARCH-BASIS.md',
-    'HUMAN-AI-QUALITY-STANDARD.md',
-]
-REQUIRED_TERMS = [
-    'CoT-safe',
-    'Tree-of-Thoughts',
-    'ReAct',
-    'Least-to-most',
-    'Self-consistency',
-    'Self-refinement',
-    'Process supervision',
-    'traceability',
-    'hidden chain-of-thought',
-]
-ASSET_REQUIRED = [
-    '## Scientific DNA',
-    'Research pattern map',
-    'CoT-safe reasoning record',
-    'Formal traceability',
-]
-HUMAN_AI_REQUIRED_TERMS = [
-    'sociotechnical',
-    'trust calibration',
-    'Mental-model calibration',
-    'Automation-bias resistance',
-    'Human handoff',
-    'untrusted-content',
-]
+LIBRARY = ROOT / "docs" / "template-library"
+REQUIRED_DOCS = (
+    "SCIENTIFIC-DNA.md",
+    "PROMPT-ARCHITECTURE.md",
+    "TRACEABILITY-MATRIX.md",
+    "SYSTEM-2-PROMPTING-GUIDE.md",
+    "RESEARCH-BASIS.md",
+    "HUMAN-AI-QUALITY-STANDARD.md",
+    "GOVERNANCE-KERNEL.md",
+)
+REQUIRED_TERMS = ("CoT-safe", "Tree-of-Thoughts", "ReAct", "Least-to-most")
+HUMAN_AI_TERMS = (
+    "sociotechnical",
+    "trust calibration",
+    "Mental-model calibration",
+    "Automation-bias resistance",
+    "Human handoff",
+    "untrusted-content",
+)
 
-def fail(msg):
-    print(f'[FAIL] {msg}')
 
-def main():
-    failed = False
-    for doc in REQUIRED_DOCS:
-        path = LIB / doc
+def fail(message: str) -> None:
+    print(f"[FAIL] {message}")
+
+
+def main() -> int:
+    failures: list[str] = []
+    for name in REQUIRED_DOCS:
+        path = LIBRARY / name
         if not path.exists():
-            fail(f'missing research doc: {doc}')
-            failed = True
-            continue
-        content = path.read_text(encoding='utf-8')
-        for term in REQUIRED_TERMS[:4]:
-            if term not in content:
-                fail(f'{doc} missing research term: {term}')
-                failed = True
-    quality_standard = LIB / 'HUMAN-AI-QUALITY-STANDARD.md'
-    if quality_standard.exists():
-        content = quality_standard.read_text(encoding='utf-8')
-        for term in HUMAN_AI_REQUIRED_TERMS:
-            if term not in content:
-                fail(f'HUMAN-AI-QUALITY-STANDARD.md missing human-AI term: {term}')
-                failed = True
-    for folder in ['prompts', 'skills', 'contracts']:
-        for path in (LIB / folder).glob('*.md'):
-            content = path.read_text(encoding='utf-8')
-            for term in ASSET_REQUIRED:
-                if term not in content:
-                    fail(f'{path.relative_to(ROOT)} missing scientific basis marker: {term}')
-                    failed = True
-    assets_path = LIB / 'assets.json'
-    assets = json.loads(assets_path.read_text(encoding='utf-8'))
+            failures.append(f"missing research or governance document: {name}")
+
+    research = (LIBRARY / "RESEARCH-BASIS.md").read_text(encoding="utf-8")
+    for term in REQUIRED_TERMS:
+        if term not in research:
+            failures.append(f"RESEARCH-BASIS.md missing source-map term: {term}")
+
+    standard = (LIBRARY / "HUMAN-AI-QUALITY-STANDARD.md").read_text(encoding="utf-8")
+    for term in HUMAN_AI_TERMS:
+        if term not in standard:
+            failures.append(f"HUMAN-AI-QUALITY-STANDARD.md missing human-AI term: {term}")
+
+    kernel = (LIBRARY / "GOVERNANCE-KERNEL.md").read_text(encoding="utf-8")
+    for term in ("scope", "evidence", "uncertainty", "failure", "traceability", "specialist", "verified"):
+        if term not in kernel.casefold():
+            failures.append(f"GOVERNANCE-KERNEL.md missing control area: {term}")
+
+    assets = json.loads((LIBRARY / "assets.json").read_text(encoding="utf-8"))
     for asset in assets:
-        if 'research_patterns' not in asset or len(asset['research_patterns']) < 3:
-            fail(f"assets.json entry lacks research_patterns: {asset.get('title')}")
-            failed = True
-    if failed:
+        if len(asset.get("research_patterns", [])) < 3:
+            failures.append(f"manifest entry lacks research patterns: {asset.get('id', asset.get('title'))}")
+        if "docs/template-library/GOVERNANCE-KERNEL.md" not in asset.get("dependencies", []):
+            failures.append(f"manifest entry lacks kernel dependency: {asset.get('id', asset.get('title'))}")
+
+    for folder in ("prompts", "skills", "contracts"):
+        for path in (LIBRARY / folder).glob("*.md"):
+            content = path.read_text(encoding="utf-8")
+            if "GOVERNANCE-KERNEL.md" not in content:
+                failures.append(f"{path.relative_to(ROOT)} does not reference the source-mapped kernel")
+
+    for message in failures:
+        fail(message)
+    if failures:
         return 1
-    print('Research basis checks passed.')
+    print("Research basis checks passed through the shared governance kernel.")
     return 0
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     sys.exit(main())

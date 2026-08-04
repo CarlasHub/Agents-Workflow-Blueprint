@@ -25,7 +25,7 @@ Use this pattern when an agent must prove that work satisfies requirements inste
 
 | Requirement | Source inspected | Action taken | Verification evidence | Status | Remaining gap |
 | --- | --- | --- | --- | --- | --- |
-| Copy button works | `index.html`, `site.css` | Added `navigator.clipboard.writeText` handler | Manual browser check unavailable in static repo verification | partially verified | Browser runtime still needs manual test |
+| Copy button works | `site.js`, `index.html` | Added clipboard API handling with a local fallback | Playwright grants clipboard permission, clicks the control, reads the clipboard, and verifies source and composed content | verified | Browser permission policy can still require the documented download fallback |
 | Template count is 100 | `docs/template-library/assets.json` | Manifest checked by script | `python3 -S scripts/check_template_library.py` passed | verified | None |
 
 

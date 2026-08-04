@@ -1,147 +1,124 @@
 # Agent Workflow Blueprint
 
-Agent work fails when teams treat one impressive prompt as the whole system. Reliable agent work needs repository rules, specialist prompts, evidence contracts, repeatable skills, review packets, and verification that catches drift.
+Agent Workflow Blueprint is a static, browser-local collection of governance assets for making AI-assisted engineering work easier to scope, review, and verify. It is intended for engineering teams, technical leaders, and AI-governance reviewers who need evidence-oriented workflows—not a guarantee that an agent's output is correct.
 
-This repository is a professional agent-governance blueprint for teams that want coding agents to produce auditable work instead of confident theatre.
+The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptance contracts, a shared governance kernel, a normalized specialist-control registry, a searchable website, and a browser-local starter-project builder. It has no backend, authentication, paid API, or cloud-service dependency.
 
-## What this repository contains
+## Who it is for
 
-- `AGENTS.md` — repository-wide operating rules for coding agents.
-- `requirements.toml` — machine-readable task, review, accessibility, release, and starter constraints.
-- `PROMPTS/` — core workflow prompts for scoping, implementation, review, accessibility, security, and release.
-- `docs/engineering/contracts/` — engineering contracts for architecture, testing, accessibility, security, and release truthfulness.
-- `docs/engineering/templates/` — packet templates for scoping, review, specialist review, and release evidence.
-- `docs/template-library/` — 100 copy-ready prompts, skills, and contracts.
-- `docs/template-library/HUMAN-AI-QUALITY-STANDARD.md` — the source-mapped human-AI quality bar for prompts, skills, contracts, rules, generated projects, and agent outputs.
-- `examples/` — a worked teaching scenario and review-packet examples.
-- `scripts/` — validation checks that protect the workflow bundle from claim drift.
-- `index.html` and `site.css` — a static GitHub Pages template hub.
-- `build-project/` — a browser-local build page that generates governed agent or project starter ZIP files without a backend.
+- Engineering teams defining reviewable agent workflows.
+- Reviewers who need explicit acceptance, rejection, and evidence criteria.
+- Governance teams adapting source-mapped controls to local policy.
+- Open-source adopters who want a static, inspectable starting point.
 
-It does not include a deployed product, backend service, authentication system, or production runtime. The current verification commands prove the workflow bundle, static starter route, and starter artefact only. They do not prove a deployed product.
+## Five-minute start
 
-## Template library
-
-The professional template library lives in [`docs/template-library`](docs/template-library).
-
-It contains:
-
-- **40 prompts** for agent control, implementation, review, UI, accessibility, testing, security, documentation, and release evidence.
-- **30 skills** for repeatable specialist procedures.
-- **30 contracts** for acceptance criteria, rejection wording, and evidence gates.
-
-Start here:
-
-- [`docs/template-library/START-HERE.md`](docs/template-library/START-HERE.md)
-- [`docs/template-library/STARTER-PACKS.md`](docs/template-library/STARTER-PACKS.md)
-- [`docs/template-library/CATALOGUE.md`](docs/template-library/CATALOGUE.md)
-- [`docs/template-library/QUALITY-RUBRIC.md`](docs/template-library/QUALITY-RUBRIC.md)
-- [`docs/template-library/HUMAN-AI-QUALITY-STANDARD.md`](docs/template-library/HUMAN-AI-QUALITY-STANDARD.md)
-- [`docs/template-library/CODEX-USAGE-GUIDE.md`](docs/template-library/CODEX-USAGE-GUIDE.md)
-- [`docs/template-library/RESEARCH-BASIS.md`](docs/template-library/RESEARCH-BASIS.md)
-- [`DELIVERY-NOTES.md`](DELIVERY-NOTES.md)
-
-## How to use it with Codex
-
-1. Give Codex the task.
-2. Require Codex to read `AGENTS.md`, `requirements.toml`, and `docs/engineering/workflow.md`.
-3. Select one prompt from `docs/template-library/prompts/`.
-4. Add one skill from `docs/template-library/skills/` when repeatable execution is needed.
-5. Add one contract from `docs/template-library/contracts/` when acceptance or rejection must be enforceable.
-6. Require exact command results and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
+1. Read [`docs/template-library/START-HERE.md`](docs/template-library/START-HERE.md).
+2. Choose one asset from each relevant family in the [`CATALOGUE.md`](docs/template-library/CATALOGUE.md).
+3. On the website, open an asset to read its specialist content first. Switch to **Complete composition** to inspect resolved governance, then use **Copy complete asset**; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+4. Give the complete composition to the agent with the concrete task and repository context.
+5. Require command output, file evidence, limitations, and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
 
 Example:
 
 ```text
-Use AGENTS.md and docs/engineering/workflow.md.
-Then use docs/template-library/prompts/12-bug-root-cause-remediation-prompt.md,
-docs/template-library/skills/12-regression-test-design-skill.md, and
-docs/template-library/contracts/06-test-behaviour-contract.md.
-Do not claim the bug is fixed unless the failure path is proven and verification results are reported.
+Compose these asset IDs:
+- prompt-bug-root-cause-remediation-prompt
+- skill-regression-test-design-skill
+- contract-test-behaviour-contract
+
+Fix the reproduced defect. Do not report success until the failure path and
+regression checks have run. Return evidence, limitations, and a final status.
 ```
 
-## Workflow
+The complete worked example in [`examples/worked-example.md`](examples/worked-example.md) shows input, asset selection, scoped work, evidence, verification, limitations, and final status.
 
-```mermaid
-flowchart LR
-    A[Scoping] --> B[Implementation]
-    B --> C[Review]
-    C --> D[Specialist Review]
-    D --> E[Verification]
-    E --> F[Documentation and Release Evidence]
-```
+## How the parts fit together
 
-That flow is backed by:
+| Part | Purpose |
+| --- | --- |
+| Governance kernel | Shared scope, evidence, uncertainty, escalation, and status rules. |
+| Specialist-control registry | Authoritative `SPC-*` controls reused across multiple assets. |
+| Prompt | A specialist mission and task-specific instructions. |
+| Skill | A repeatable procedure and handoff format. |
+| Contract | Hard gates, advisory checks, and acceptance or rejection language. |
+| Starter pack | A curated combination for a common scenario. |
 
-- [AGENTS.md](AGENTS.md)
-- [docs/engineering/workflow.md](docs/engineering/workflow.md)
-- [docs/engineering/templates/scoping-packet-template.md](docs/engineering/templates/scoping-packet-template.md)
-- [docs/engineering/templates/review-packet-template.md](docs/engineering/templates/review-packet-template.md)
-- [docs/engineering/templates/accessibility-review-template.md](docs/engineering/templates/accessibility-review-template.md)
-- [docs/engineering/templates/security-review-template.md](docs/engineering/templates/security-review-template.md)
-- [docs/engineering/templates/release-evidence-template.md](docs/engineering/templates/release-evidence-template.md)
+The asset manifest at [`docs/template-library/assets.json`](docs/template-library/assets.json) records each asset's stable ID, version, purpose, category, governance profile, intended model context, dependencies, specialist-control references, and evidence expectations. Migration details are in [`MIGRATION-NOTES.md`](docs/template-library/MIGRATION-NOTES.md).
+
+## Browser-local builder
+
+Open [`build-project/index.html`](build-project/index.html) from the static site, complete the intake form, review the proposed files, and create a ZIP. Generation occurs entirely in the browser. The result is a starter scaffold; it is not a deployed or validated system.
+
+The builder normalises project names, validates generated relative paths, prevents duplicate and traversal paths, distinguishes pending from explicitly approved work, and writes a generated manifest. The documented size limits are 1 MiB per generated file and 20 MiB for the uncompressed file set.
+
+## What has been verified
+
+- Repository structure, manifest metadata, asset dependencies, normalized controls, deterministic composition, licence files, local links, and generated-manifest reproducibility are checked by scripts.
+- JavaScript unit tests cover text handling, manifest validation, project generation, safe paths, and ZIP integrity.
+- Playwright tests cover homepage search, filters, modal keyboard behaviour, copy fallback, builder intake, file selection, assembly, success, and ZIP extraction.
+- Automated axe checks cover eight representative homepage and builder states in Chromium, Firefox, and WebKit.
+- The release commands and results for the current change are recorded in [`industry-readiness-report.md`](docs/engineering/industry-readiness-report.md).
+
+These are repository-level results for the tested fixtures and environment. They do not guarantee correctness for a model, task, browser, assistive technology, or downstream project.
+
+## What has not been verified
+
+- No model-based comparative evaluation was executed because no model runtime was supplied; the deterministic evaluation dry run validates fixtures only.
+- No claim of WCAG conformance is made. Automated checks cannot replace manual assistive-technology, reflow, contrast, and usability review.
+- The unpublished local changes have not been verified on the live GitHub Pages deployment.
+- The repository does not establish production security, legal compliance, universal effectiveness, or fitness for a specific organisation.
 
 ## Verification
 
-Run the full release verification bundle:
+Use Node.js `22.18.0` and Python 3. Install the pinned JavaScript dependencies and browser matrix once:
 
 ```bash
+npm ci
+npx playwright install chromium firefox webkit
+```
+
+Run the same release gates used by CI:
+
+```bash
+npm run lint
+npm run test
+npm run test:compose
+npm run test:zip
+npm run test:links
+npm run test:e2e
+npm run test:a11y
 bash scripts/verify-release.sh
 ```
 
-Or run individual checks:
+Individual Python checks and local CI equivalents are documented in [`testing-strategy.md`](docs/engineering/testing-strategy.md). The full gate does not imply runtime quality outside the cases it executes.
 
-```bash
-python3 -S scripts/check_prompts.py
-python3 -S scripts/check_workflow.py
-python3 -S scripts/check_examples.py
-python3 -S scripts/check_claims.py
-python3 -S scripts/check_template_library.py
-python3 -S scripts/build_starter.py
-```
+## Evaluation status
 
-## What the checks prove
+[`evals/`](evals) contains eight fictional cases and three conditions: minimal prompt, governance kernel only, and kernel plus specialist assets. `python3 -S scripts/run_evals.py --dry-run` validates the suite and reports prompt sizes without calling a model. Behavioural metrics remain blocked until raw outputs from a disclosed model and configuration are supplied. See [`evaluation-methodology.md`](docs/engineering/evaluation-methodology.md).
 
-The checks prove:
+## Documentation
 
-- required prompts, contracts, templates, and examples exist
-- core prompt files contain required sections
-- workflow references stay connected
-- unsupported starter claims are blocked in key public files
-- the 100-asset template library has the required count, sections, metadata, and minimum enforcement depth
-- the human-AI quality standard is present and source-mapped
-- `dist/starter-manifest.json` can be generated
+- [Rendered documentation index](docs/index.html)
+- [Engineering workflow](docs/engineering/workflow.md)
+- [Testing strategy](docs/engineering/testing-strategy.md)
+- [Accessibility testing](docs/engineering/accessibility-testing.md)
+- [Release process](docs/engineering/release-process.md)
+- [Research basis](docs/template-library/RESEARCH-BASIS.md)
 
-The checks do not prove:
+## Limitations
 
-- deployed product UI behaviour
-- product deployment
-- application authentication or authorization
-- runtime accessibility behaviour
-- security posture of a real app
-- performance of a real app
+The assets are prompts and review controls, not policy enforcement. Model behaviour varies. A small local evaluation cannot support broad effectiveness claims. Generated projects require independent engineering, security, accessibility, legal, privacy, and operational review appropriate to their context.
 
-## Public site
+## Licensing
 
-The GitHub Pages site in `index.html` exposes the repository as a template hub with categories, starter packs, direct markdown links, and copy actions powered by `docs/template-library/assets.json`.
+This repository uses split licensing:
 
-The build page is available at `build-project/`. It is a static browser-local route that captures governance inputs, previews the generated files, applies the human-AI quality standard, lets teams remove optional files, and downloads a starter ZIP. It does not use a backend or deployment service.
+- Code, scripts, HTML, CSS, JavaScript, schemas, tests, and automation are licensed under the [MIT License](LICENSE-CODE).
+- Documentation, prompts, skills, contracts, templates, and other written content are licensed under [CC BY 4.0](LICENSE-CONTENT).
 
-Keep `.nojekyll` in the repository so GitHub Pages serves repository files without Jekyll processing.
+[`LICENSE`](LICENSE) defines the path mapping. [`NOTICE`](NOTICE) gives attribution guidance, and [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md) records bundled dependencies. This description is not legal advice.
 
-## Licence
+## Contributing and security
 
-This repository currently has no `LICENSE` or `LICENCE` file. The model below describes intended usage and reuse until formal licence files are added.
-
-This project uses a split licensing model:
-
-- **Code, scripts, site files, and automation tooling** are intended to be licensed under the MIT Licence.
-- **Documentation, prompts, skills, contracts, templates, and written content** are intended to be licensed under Creative Commons Attribution 4.0 International (CC-BY-4.0).
-
-You may copy, adapt, and use the templates, prompts, skills, and contracts, provided appropriate attribution is given.
-
-If third-party material is added to this repository, it must be documented in `THIRD-PARTY-NOTICES.md` with its source, author, licence, changes made, and repository location.
-
-## References
-
-The repository is informed by current primary documentation and standards listed in [`docs/template-library/RESEARCH-BASIS.md`](docs/template-library/RESEARCH-BASIS.md).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for asset and test requirements, [`SECURITY.md`](SECURITY.md) for private vulnerability reporting guidance, [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), and [`CHANGELOG.md`](CHANGELOG.md).

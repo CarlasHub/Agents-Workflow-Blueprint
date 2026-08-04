@@ -2,7 +2,19 @@
 
 This guide defines the internal architecture used by the 100 assets. It is designed for coding agents, repository reviewers, and template-library maintainers.
 
-## The nine-layer prompt architecture
+## Normalized source architecture
+
+The authored source has three layers:
+
+1. [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) owns shared scope, evidence, status, handoff, and prompt/skill/contract profiles.
+2. [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) owns every specialist instruction reused by more than one asset.
+3. Each prompt, skill, or contract owns only its boundary, role, mission, unique controls, and references.
+
+`assets.json` records ordered references. `scripts/compose_assets.py` includes the kernel, each selected shared control, and each selected module exactly once. Rewording repeated instructions to evade a metric is prohibited; reusable controls must be normalized instead.
+
+Shared governance is not a substitute for specialist content. Each asset retains at least three task-specific instructions, procedure steps, or hard gates and a distinct evidence section. Validation rejects modules that merely tell the agent to follow the registry.
+
+## The nine-layer composed prompt architecture
 
 1. **Role lock** — assign a narrow specialist role with authority to reject weak work.
 2. **Mission boundary** — state the desired outcome and what must not be claimed.

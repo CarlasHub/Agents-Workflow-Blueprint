@@ -1,0 +1,11 @@
+{
+  "id": "accessibility-remediation",
+  "category": "accessibility",
+  "title": "Repair modal keyboard behaviour",
+  "task": "In the fictional fixture, contain keyboard focus in a modal, close it with Escape, restore focus to its trigger, and keep the background unavailable while open.",
+  "prompt": "docs/template-library/prompts/27-accessibility-remediation-prompt.md",
+  "skill": "docs/template-library/skills/10-keyboard-testing-skill.md",
+  "contract": "docs/template-library/contracts/08-keyboard-interaction-contract.md",
+  "acceptance_criteria": ["Initial focus defined", "Tab and Shift+Tab contained", "Escape closes", "Trigger focus restored", "Background unavailable"],
+  "failure_signals": ["Claims WCAG conformance from automation", "Adds ARIA without keyboard behaviour"]
+}

@@ -1,5 +1,16 @@
-import { PROJECT_TYPES, QUALITY_CONTROLS, generateProjectFiles } from './templates.js?v=20260605-6';
-import { createZipBlob } from './zip.js?v=20260605-6';
+import {
+  ESSENTIAL_FILE_PATHS,
+  PROJECT_NAME_MAX_LENGTH,
+  PROJECT_TYPES,
+  QUALITY_CONTROLS,
+  generateProjectFiles,
+  validateProjectName
+} from './templates.js';
+import { createZipBlob } from './zip.js';
+
+const FIELD_MAX_LENGTH = 4000;
+const ESSENTIAL_FILES = new Set(ESSENTIAL_FILE_PATHS);
+const APPROVAL_REQUIRED_FIELDS = ['approverName', 'approverRole', 'approvalDate', 'approvalScope', 'approvalConditions'];
 
 const defaults = {
   projectType: PROJECT_TYPES[0].id,
@@ -57,7 +68,7 @@ const typeHelp = {
   'documentation-system': 'Generates a documentation-first workspace for policies, decisions, review notes and governance evidence.'
 };
 
-function escapeHtml(value) {
+export function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
@@ -107,11 +118,11 @@ function downloadBlob(blob, fileName) {
   URL.revokeObjectURL(url);
 }
 
-function relativeFileName(file, root) {
+export function relativeFileName(file, root) {
   return file.path.replace(`${root}/`, '');
 }
 
-function includedFiles(result, excludedFiles) {
+export function includedFiles(result, excludedFiles) {
   return result.files.filter((file) => !excludedFiles.has(relativeFileName(file, result.root)));
 }
 
@@ -119,10 +130,12 @@ function removedFiles(result, excludedFiles) {
   return result.files.filter((file) => excludedFiles.has(relativeFileName(file, result.root)));
 }
 
-function withIncludedFiles(result, excludedFiles) {
+export function withIncludedFiles(result, excludedFiles) {
+  const included = includedFiles(result, excludedFiles);
+  if (included.length === 0) throw new TypeError('Restore at least one file before building the starter ZIP.');
   return {
     ...result,
-    files: includedFiles(result, excludedFiles)
+    files: included
   };
 }
 
@@ -130,13 +143,15 @@ function terminalRows(files, root, visibleCount = files.length, status = 'queued
   return files.slice(0, visibleCount).map((file) => {
     const relativePath = relativeFileName(file, root);
     const command = status === 'written' ? 'write' : 'queue';
+    const isEssential = ESSENTIAL_FILES.has(relativePath);
 
     return `
       <li class="live-file-row ${removable ? 'is-editable' : ''}">
         <span class="file-status ${status}">${status === 'written' ? 'ok' : '+'}</span>
         <code>${escapeHtml(`${command} ${relativePath}`)}</code>
+        ${isEssential ? '<span class="essential-file-label">governance essential</span>' : ''}
         ${removable ? `
-          <button class="file-action remove-file" type="button" data-remove-file="${escapeHtml(relativePath)}" aria-label="Remove ${escapeHtml(relativePath)} from project">
+          <button class="file-action remove-file" type="button" data-remove-file="${escapeHtml(relativePath)}" ${isEssential ? 'data-essential-file="true"' : ''} aria-label="Remove ${isEssential ? 'essential governance file ' : ''}${escapeHtml(relativePath)} from project">
             Remove
           </button>
         ` : ''}
@@ -182,7 +197,7 @@ function countLabel(count, singular, plural = `${singular}s`) {
 function qualityControlsMarkup() {
   return `
     <div class="quality-standard-card">
-      <p class="preview-label">Applied research-backed package</p>
+      <p class="preview-label">Included research-informed package</p>
       <h3>Source-mapped quality, prompts, skills and contracts</h3>
       <ul>
         ${QUALITY_CONTROLS.map(([name, description]) => `
@@ -196,38 +211,63 @@ function qualityControlsMarkup() {
   `;
 }
 
-function getFormConfig(form) {
+export function getFormConfig(form) {
   const data = new FormData(form);
   const includeApproval = data.get('includeApproval') === 'yes';
   const type = selectedType(String(data.get('projectType') || defaults.projectType));
+  const text = (name, fallback = '') => {
+    const value = data.get(name);
+    return String(value === null ? fallback : value).trim();
+  };
 
   return {
     projectType: type.id,
-    projectName: String(data.get('projectName') || defaults.projectName).trim(),
-    owner: String(data.get('owner') || defaults.owner).trim(),
-    purpose: String(data.get('purpose') || type.defaultPurpose).trim(),
-    users: String(data.get('users') || defaults.users).trim(),
-    riskLevel: String(data.get('riskLevel') || defaults.riskLevel),
-    dataClass: String(data.get('dataClass') || defaults.dataClass),
-    riskReviewFrequency: String(data.get('riskReviewFrequency') || defaults.riskReviewFrequency).trim(),
-    personalData: String(data.get('personalData') || defaults.personalData),
-    secrets: String(data.get('secrets') || defaults.secrets),
-    approvers: String(data.get('approvers') || defaults.approvers).trim(),
-    riskRationale: String(data.get('riskRationale') || defaults.riskRationale).trim(),
-    highRiskAreas: String(data.get('highRiskAreas') || defaults.highRiskAreas).trim(),
-    dataSources: String(data.get('dataSources') || defaults.dataSources).trim(),
-    blockedData: String(data.get('blockedData') || defaults.blockedData).trim(),
-    neverDo: String(data.get('neverDo') || defaults.neverDo).trim(),
-    blockedTools: String(data.get('blockedTools') || defaults.blockedTools).trim(),
-    dataOwner: String(data.get('dataOwner') || defaults.dataOwner).trim(),
-    releaseOwner: String(data.get('releaseOwner') || defaults.releaseOwner).trim(),
-    approverName: includeApproval ? String(data.get('approverName') || 'pending').trim() : 'pending',
-    approverRole: includeApproval ? String(data.get('approverRole') || 'pending').trim() : 'pending',
-    approvalDate: includeApproval ? String(data.get('approvalDate') || new Date().toISOString().slice(0, 10)) : 'pending',
-    approvalScope: includeApproval ? String(data.get('approvalScope') || 'Approved for local implementation inside the documented scope.').trim() : 'pending',
-    approvalConditions: includeApproval ? String(data.get('approvalConditions') || 'No real data, no secrets, no production systems and no deployment without release approval.').trim() : 'pending',
-    approvalNotes: includeApproval ? String(data.get('approvalNotes') || 'Implementation may proceed after governance validation passes.').trim() : 'pending'
+    includeApproval,
+    projectName: text('projectName', defaults.projectName),
+    owner: text('owner', defaults.owner),
+    purpose: text('purpose', type.defaultPurpose),
+    users: text('users', defaults.users),
+    riskLevel: text('riskLevel', defaults.riskLevel),
+    dataClass: text('dataClass', defaults.dataClass),
+    riskReviewFrequency: text('riskReviewFrequency', defaults.riskReviewFrequency),
+    personalData: text('personalData', defaults.personalData),
+    secrets: text('secrets', defaults.secrets),
+    approvers: text('approvers', defaults.approvers),
+    riskRationale: text('riskRationale', defaults.riskRationale),
+    highRiskAreas: text('highRiskAreas', defaults.highRiskAreas),
+    dataSources: text('dataSources', defaults.dataSources),
+    blockedData: text('blockedData', defaults.blockedData),
+    neverDo: text('neverDo', defaults.neverDo),
+    blockedTools: text('blockedTools', defaults.blockedTools),
+    dataOwner: text('dataOwner', defaults.dataOwner),
+    releaseOwner: text('releaseOwner', defaults.releaseOwner),
+    approverName: includeApproval ? text('approverName') : 'pending',
+    approverRole: includeApproval ? text('approverRole') : 'pending',
+    approvalDate: includeApproval ? text('approvalDate') : 'pending',
+    approvalScope: includeApproval ? text('approvalScope') : 'pending',
+    approvalConditions: includeApproval ? text('approvalConditions') : 'pending',
+    approvalNotes: includeApproval ? text('approvalNotes') : 'pending'
   };
+}
+
+export function validateProjectConfig(config) {
+  const errors = {};
+  const nameError = validateProjectName(config.projectName);
+  if (nameError) errors.projectName = nameError;
+  if (!config.owner) errors.owner = 'Enter an accountable owner or team.';
+
+  for (const [name, value] of Object.entries(config)) {
+    if (typeof value === 'string' && value.length > FIELD_MAX_LENGTH) {
+      errors[name] = `Use ${FIELD_MAX_LENGTH} characters or fewer.`;
+    }
+  }
+
+  if (config.includeApproval) {
+    for (const name of APPROVAL_REQUIRED_FIELDS) {
+      if (!config[name] || config[name] === 'pending') errors[name] = 'Complete this field to record implementation approval.';
+    }
+  }
+  return errors;
 }
 
 function typeOptions(activeType) {
@@ -256,6 +296,9 @@ function field(name, label, value, type = 'text', caption = '') {
   const id = fieldId(name);
   const hintId = `${id}-hint`;
   const tooltipId = `${id}-tooltip`;
+  const errorId = `${id}-error`;
+  const describedBy = [caption ? hintId : '', errorId].filter(Boolean).join(' ');
+  const maxLength = name === 'projectName' ? PROJECT_NAME_MAX_LENGTH : FIELD_MAX_LENGTH;
 
   return `
     <div class="field">
@@ -264,8 +307,9 @@ function field(name, label, value, type = 'text', caption = '') {
         ${infoButton(label, tooltipId)}
       </div>
       ${tooltipMarkup(tooltipId, fieldHelp[name] || 'Expected: provide the requested project information clearly and without sensitive data.')}
-      <input id="${escapeHtml(id)}" name="${name}" type="${type}" value="${escapeHtml(value)}" ${caption ? `aria-describedby="${escapeHtml(hintId)}"` : ''} ${name === 'projectName' || name === 'owner' ? 'required' : ''}>
+      <input id="${escapeHtml(id)}" name="${name}" type="${type}" value="${escapeHtml(value)}" aria-describedby="${escapeHtml(describedBy)}" maxlength="${maxLength}" ${name === 'projectName' || name === 'owner' ? 'required' : ''}>
       ${caption ? `<small id="${escapeHtml(hintId)}">${escapeHtml(caption)}</small>` : ''}
+      <p class="field-error" id="${escapeHtml(errorId)}" hidden></p>
     </div>
   `;
 }
@@ -274,6 +318,8 @@ function textArea(name, label, value, rows = 2, caption = '') {
   const id = fieldId(name);
   const hintId = `${id}-hint`;
   const tooltipId = `${id}-tooltip`;
+  const errorId = `${id}-error`;
+  const describedBy = [caption ? hintId : '', errorId].filter(Boolean).join(' ');
 
   return `
     <div class="field wide-field">
@@ -282,8 +328,9 @@ function textArea(name, label, value, rows = 2, caption = '') {
         ${infoButton(label, tooltipId)}
       </div>
       ${tooltipMarkup(tooltipId, fieldHelp[name] || 'Expected: write a concise answer that future reviewers can understand.')}
-      <textarea id="${escapeHtml(id)}" name="${name}" rows="${rows}" ${caption ? `aria-describedby="${escapeHtml(hintId)}"` : ''}>${escapeHtml(value)}</textarea>
+      <textarea id="${escapeHtml(id)}" name="${name}" rows="${rows}" aria-describedby="${escapeHtml(describedBy)}" maxlength="${FIELD_MAX_LENGTH}">${escapeHtml(value)}</textarea>
       ${caption ? `<small id="${escapeHtml(hintId)}">${escapeHtml(caption)}</small>` : ''}
+      <p class="field-error" id="${escapeHtml(errorId)}" hidden></p>
     </div>
   `;
 }
@@ -335,7 +382,7 @@ function landingMarkup() {
         <div class="terminal-body">
           <p><span>01</span> Choose the project type</p>
           <p><span>02</span> Capture governance inputs</p>
-          <p><span>03</span> Add research-backed prompts, skills and contracts</p>
+          <p><span>03</span> Add research-informed prompts, skills and contracts</p>
           <p><span>04</span> Review the generated files</p>
           <p><span>05</span> Download the project ZIP</p>
         </div>
@@ -360,11 +407,9 @@ function previewMarkup(config, excludedFiles = new Set()) {
   const inactiveFiles = removedFiles(generated, excludedFiles);
   const governanceCount = activeFiles.filter((file) => relativeFileName(file, generated.root).startsWith('docs/governance/')).length;
   const qualityCount = activeFiles.filter((file) => relativeFileName(file, generated.root).startsWith('docs/quality/')).length;
-  const hasImplementationApproval =
-    Boolean(config.approverName) &&
-    Boolean(config.approverRole) &&
-    config.approverName !== 'pending' &&
-    config.approverRole !== 'pending';
+  const hasImplementationApproval = config.includeApproval && APPROVAL_REQUIRED_FIELDS.every(
+    (name) => Boolean(config[name]) && config[name] !== 'pending'
+  );
   const includedLabel = `${activeFiles.length} ${countLabel(activeFiles.length, 'included file')}`;
   const governanceLabel = `${governanceCount} ${countLabel(governanceCount, 'governance doc')}`;
   const qualityLabel = `${qualityCount} ${countLabel(qualityCount, 'quality doc')}`;
@@ -400,7 +445,7 @@ function previewMarkup(config, excludedFiles = new Set()) {
 
     ${qualityControlsMarkup()}
 
-    <div class="file-browser live-file-browser" aria-label="Live generated project preview" aria-live="polite">
+    <div class="file-browser live-file-browser" aria-label="Generated project preview">
       <div class="file-browser-bar">
         <span></span><span></span><span></span>
         <strong>Live file preview</strong>
@@ -408,7 +453,7 @@ function previewMarkup(config, excludedFiles = new Set()) {
       <div class="terminal-feed">
         <p><span>Plan</span> ${escapeHtml(generated.root)}</p>
         <p><span>Files</span> ${activeFiles.length} of ${generated.files.length} included locally</p>
-        <p class="feed-note"><span>Note</span> Files are optional. Removing governance or script files may make generated checks fail.</p>
+        <p class="feed-note"><span>Note</span> Optional files can be removed. Essential governance files are identified and require confirmation before exclusion.</p>
         <ul>
           ${terminalRows(activeFiles, generated.root, activeFiles.length, 'queued', true)}
         </ul>
@@ -445,7 +490,11 @@ function builderMarkup(excludedFiles = new Set()) {
         </div>
       </header>
 
-      <form class="workbench-grid" id="project-form">
+      <form class="workbench-grid" id="project-form" novalidate>
+        <div class="form-error-summary" id="builder-error-summary" role="alert" tabindex="-1" hidden>
+          <h2>Fix the highlighted fields</h2>
+          <ul></ul>
+        </div>
         <aside class="command-rail" aria-label="Generation workflow">
           <div class="terminal-titlebar">
             <span></span><span></span><span></span>
@@ -542,8 +591,8 @@ function builderMarkup(excludedFiles = new Set()) {
 
         <div class="export-bar">
           <div>
-            <strong>Ready to package</strong>
-            <span>The ZIP is generated locally in this browser.</span>
+            <strong>Ready to assemble a starter scaffold</strong>
+            <span>The ZIP is generated locally in this browser and still requires human review.</span>
           </div>
           <button class="primary-action" type="submit" aria-label="Build project and assemble ZIP">
             <span aria-hidden="true">run</span>
@@ -565,9 +614,9 @@ function assemblyMarkup(build) {
   return `
     <section class="assembly-shell" aria-labelledby="assembly-title">
       <div class="assembly-copy">
-        <p class="eyebrow">${complete ? 'Project assembled' : 'Building workspace'}</p>
+        <p class="eyebrow">${complete ? 'Starter scaffold assembled' : 'Building starter scaffold'}</p>
         <h1 id="assembly-title">${escapeHtml(result.fileName)}</h1>
-        <p>${complete ? 'All files are written into the local package. The project ZIP is ready when you are.' : 'Watch the governed project come together file by file before the download is unlocked.'}</p>
+        <p>${complete ? 'All selected files are in the local starter package. Review the contents and generated checks before using it.' : 'The browser is assembling the selected starter files before download is enabled.'}</p>
         <div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}" aria-label="Project build progress">
           <span style="width: ${progress}%"></span>
         </div>
@@ -580,18 +629,18 @@ function assemblyMarkup(build) {
           <button class="ghost-action" type="button" data-action="new-project">Start another project</button>
         </div>
       </div>
-      <div class="file-browser assembly-browser" aria-label="Project files being added" aria-live="polite">
+      <div class="file-browser assembly-browser" aria-label="Project files being added">
         <div class="file-browser-bar">
           <span></span><span></span><span></span>
           <strong>Files being added</strong>
         </div>
-        <div class="terminal-feed">
+        <div class="terminal-feed" tabindex="0" aria-label="Scrollable list of project files being assembled">
           <p><span>Build</span> ${escapeHtml(result.root)}</p>
           <p><span>Adding</span> docs, prompts, skills, contracts, rules, evals and scripts</p>
           <ul>
             ${terminalRows(visibleFiles, result.root, visibleFiles.length, 'written')}
           </ul>
-          ${complete ? '<p class="feed-more is-ready">package ready: click Get project ZIP</p>' : '<p class="feed-more cursor-line">writing files...</p>'}
+          ${complete ? '<p class="feed-more is-ready">starter ZIP available: select Get project ZIP</p>' : '<p class="feed-more cursor-line">writing files...</p>'}
         </div>
       </div>
     </section>
@@ -603,11 +652,11 @@ function successMarkup(result) {
     <section class="success-panel" aria-labelledby="success-title">
       <div class="terminal-titlebar">
         <span></span><span></span><span></span>
-        <strong>package complete</strong>
+        <strong>starter download complete</strong>
       </div>
-      <p class="eyebrow">Project delivered</p>
+      <p class="eyebrow">Starter scaffold downloaded</p>
       <h1 id="success-title">${escapeHtml(result.fileName)}</h1>
-      <p>The ZIP contains ${result.files.length} files: governance, research basis, human-AI quality docs, reusable prompts, skills, contracts, rules, agents, evals, scripts, CI and the starter app scaffold.</p>
+      <p>The ZIP contains ${result.files.length} selected files, including its manifest. It is a starter scaffold, not a validated deployed system. Run its checks and complete human review before implementation or release.</p>
       <div class="action-row">
         <button class="primary-action" type="button" data-action="download-again">
           <span aria-hidden="true">ZIP</span>
@@ -629,6 +678,13 @@ export function createProjectBuilderApp(root) {
   };
   let buildTimer = null;
 
+  function announce(message) {
+    const status = document.getElementById('builder-status');
+    if (!status) return;
+    status.textContent = '';
+    window.setTimeout(() => { status.textContent = message; }, 10);
+  }
+
   function clearBuildTimer() {
     if (buildTimer) {
       window.clearInterval(buildTimer);
@@ -641,24 +697,77 @@ export function createProjectBuilderApp(root) {
 
     form.querySelectorAll('.approval-fields input, .approval-fields textarea').forEach((control) => {
       control.disabled = !includeApproval;
+      control.required = includeApproval && APPROVAL_REQUIRED_FIELDS.includes(control.name);
       control.closest('.field')?.classList.toggle('is-disabled', !includeApproval);
+      if (!includeApproval) clearFieldError(control);
     });
+  }
+
+  function clearFieldError(control) {
+    control.removeAttribute('aria-invalid');
+    const error = root.querySelector(`#${CSS.escape(`${control.id}-error`)}`);
+    if (error) {
+      error.textContent = '';
+      error.hidden = true;
+    }
+  }
+
+  function showFormErrors(form, errors) {
+    form.querySelectorAll('[aria-invalid="true"]').forEach(clearFieldError);
+    const summary = form.querySelector('#builder-error-summary');
+    const list = summary?.querySelector('ul');
+    if (list) list.innerHTML = '';
+
+    const invalidControls = [];
+    for (const [name, message] of Object.entries(errors)) {
+      const control = form.elements[name];
+      if (!(control instanceof HTMLElement)) continue;
+      control.setAttribute('aria-invalid', 'true');
+      const error = root.querySelector(`#${CSS.escape(`${control.id}-error`)}`);
+      if (error) {
+        error.textContent = message;
+        error.hidden = false;
+      }
+      if (list) {
+        const item = document.createElement('li');
+        item.textContent = `${control.labels?.[0]?.textContent?.trim() || name}: ${message}`;
+        list.append(item);
+      }
+      invalidControls.push(control);
+    }
+
+    if (summary) summary.hidden = invalidControls.length === 0;
+    if (invalidControls.length) {
+      invalidControls[0].focus();
+      announce(`Build blocked. ${invalidControls.length} field${invalidControls.length === 1 ? '' : 's'} need attention.`);
+    }
+    return invalidControls.length === 0;
+  }
+
+  function showBuildError(form, message) {
+    const summary = form.querySelector('#builder-error-summary');
+    const list = summary?.querySelector('ul');
+    if (list) list.innerHTML = `<li>${escapeHtml(message)}</li>`;
+    if (summary) {
+      summary.hidden = false;
+      summary.focus();
+    }
+    announce(message);
   }
 
   function buildFromForm(form) {
     syncApprovalFields(form);
-    const missingRequired = Array.from(form.querySelectorAll('[required]')).find((control) => !String(control.value || '').trim());
-
-    if (missingRequired) {
-      missingRequired.focus();
-      return;
-    }
-
     const config = getFormConfig(form);
-    const result = withIncludedFiles(generateProjectFiles(config), state.excludedFiles);
-    const blob = createZipBlob(result.files);
+    const errors = validateProjectConfig(config);
+    if (!showFormErrors(form, errors)) return;
 
-    startAssembly(result, blob);
+    try {
+      const result = withIncludedFiles(generateProjectFiles(config), state.excludedFiles);
+      const blob = createZipBlob(result.files);
+      startAssembly(result, blob);
+    } catch (error) {
+      showBuildError(form, `The starter ZIP could not be created: ${error.message}`);
+    }
   }
 
   function render() {
@@ -700,6 +809,7 @@ export function createProjectBuilderApp(root) {
     if (prefersReducedMotion) {
       state.build.visibleCount = result.files.length;
       render();
+      announce(`Starter scaffold assembled with ${result.files.length} files. Download is available.`);
       return;
     }
 
@@ -716,6 +826,7 @@ export function createProjectBuilderApp(root) {
 
       if (state.build.visibleCount >= result.files.length) {
         clearBuildTimer();
+        announce(`Starter scaffold assembled with ${result.files.length} files. Download is available.`);
       }
     }, 95);
   }
@@ -726,7 +837,9 @@ export function createProjectBuilderApp(root) {
 
     syncApprovalFields(form);
     const config = getFormConfig(form);
-    preview.innerHTML = previewMarkup(config, state.excludedFiles);
+    if (Object.keys(validateProjectConfig(config)).length === 0) {
+      preview.innerHTML = previewMarkup(config, state.excludedFiles);
+    }
 
     root.querySelectorAll('.type-option').forEach((option) => {
       const input = option.querySelector('input');
@@ -770,9 +883,19 @@ export function createProjectBuilderApp(root) {
 
       const removeButton = event.target.closest('[data-remove-file]');
       if (removeButton) {
+        if (removeButton.dataset.essentialFile === 'true') {
+          const confirmed = window.confirm(
+            `${removeButton.dataset.removeFile} is an essential governance file. Excluding it can invalidate generated checks. Exclude it anyway?`
+          );
+          if (!confirmed) {
+            announce('Essential governance file kept in the starter scaffold.');
+            return;
+          }
+        }
         state.excludedFiles.add(removeButton.dataset.removeFile);
         const form = root.querySelector('form');
         if (form) updatePreview(form);
+        announce(`${removeButton.dataset.removeFile} removed from the starter scaffold.`);
         return;
       }
 
@@ -781,6 +904,7 @@ export function createProjectBuilderApp(root) {
         state.excludedFiles.delete(restoreButton.dataset.restoreFile);
         const form = root.querySelector('form');
         if (form) updatePreview(form);
+        announce(`${restoreButton.dataset.restoreFile} restored to the starter scaffold.`);
         return;
       }
 
@@ -796,6 +920,7 @@ export function createProjectBuilderApp(root) {
         state.excludedFiles = new Set();
         render();
         scrollToFeatureTop();
+        announce('Builder form opened. Generated data remains in this browser.');
       }
 
       if (action === 'reset' || action === 'new-project') {
@@ -825,6 +950,7 @@ export function createProjectBuilderApp(root) {
         state.build = null;
         render();
         scrollToFeatureTop();
+        announce('Starter scaffold ZIP downloaded. It still requires verification and human review.');
       }
     });
 
@@ -836,7 +962,10 @@ export function createProjectBuilderApp(root) {
 
     root.addEventListener('input', (event) => {
       const form = event.target.closest('form');
-      if (form) updatePreview(form);
+      if (form) {
+        clearFieldError(event.target);
+        updatePreview(form);
+      }
     });
 
     root.addEventListener('change', (event) => {

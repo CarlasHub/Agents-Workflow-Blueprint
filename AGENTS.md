@@ -105,6 +105,6 @@ The review agent is expected to be severe, evidence-driven, and unimpressed by s
 
 When a task involves agent prompts, reusable skills, acceptance contracts, the GitHub Pages site, or repository workflow governance, inspect `docs/template-library/START-HERE.md`, `docs/template-library/CATALOGUE.md`, and the relevant prompt, skill, or contract before editing.
 
-Do not add filler assets. A template-library asset is incomplete unless it is scenario-specific, copy-ready, evidence-led, and contains at least 20 meaningful enforcement points.
+Do not add filler assets. A template-library asset is incomplete unless it is scenario-specific, copy-ready, evidence-led, references the shared governance kernel, and passes the quality-based asset validator. Do not repeat generic numbered rules merely to satisfy a size threshold.
 
 When maintaining this repository, run `python3 scripts/check_template_library.py` and `bash scripts/verify-release.sh` before claiming the workflow bundle is verified.

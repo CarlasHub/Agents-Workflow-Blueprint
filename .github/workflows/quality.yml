@@ -1,0 +1,82 @@
+name: Quality gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-and-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version-file: .python-version
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install pinned dependencies
+        run: npm ci
+      - name: Audit production and development dependencies
+        run: npm audit --audit-level=high
+      - name: Run source checks
+        run: |
+          python3 -S scripts/check_prompts.py
+          python3 -S scripts/check_workflow.py
+          python3 -S scripts/check_examples.py
+          python3 -S scripts/check_claims.py
+          python3 -S scripts/check_template_library.py
+          python3 -S scripts/compose_assets.py --check
+          python3 -S scripts/check_research_basis.py
+          python3 -S scripts/check_licenses.py
+          python3 -S scripts/check_links.py
+          python3 -S scripts/build_starter.py --check
+          python3 -S scripts/run_evals.py --dry-run
+      - name: Run lint and unit gates
+        run: |
+          npm run lint
+          npm run test
+          npm run test:zip
+          npm run test:links
+
+  browser-and-accessibility:
+    needs: source-and-unit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Install pinned dependencies
+        run: npm ci
+      - name: Install browser matrix
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run browser tests
+        run: npm run test:e2e
+      - name: Run automated accessibility tests
+        run: npm run test:a11y
+      - name: Upload failure artefacts
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: playwright-failure-artefacts
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,19 +1,50 @@
-# Release Evidence Template
+# Release evidence
+
+## Source state
+
+- Commit:
+- Branch:
+- Worktree state:
+- Release identifier:
+
+## Environment
+
+- Date and timezone:
+- Operating system:
+- Python:
+- Node.js:
+- npm:
+- Browser and version:
 
 ## Change summary
 
-## Commands run
+## Commands and observed results
 
-## Command results
+| Command | Result | Evidence or failure |
+| --- | --- | --- |
 
-## Built artifact
+## Built and generated artefacts
 
-## Docs changed
+## Browser coverage
 
-## Examples or screenshots changed
+## Accessibility evidence
 
-## Known limitations disclosed
+Separate automated, keyboard, manual, and unperformed checks. Do not infer conformance from automation.
 
-## Unsupported claims removed or avoided
+## Security and dependency evidence
 
-## Final go / no-go recommendation
+## Evaluation results
+
+Include failures and blocked metrics; do not fabricate unavailable comparisons.
+
+## Documentation and claims reviewed
+
+## Known limitations and unresolved risks
+
+## Publication decision
+
+State whether commit, tag, push, pull request, or deployment was authorised and performed.
+
+## Final status
+
+Use exactly one: `verified`, `partially verified`, `not verified`, or `blocked`.

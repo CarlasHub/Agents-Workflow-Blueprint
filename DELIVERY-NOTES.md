@@ -1,56 +1,24 @@
-# Delivery Notes
+# Delivery notes
 
-This package upgrades the repository into a professional agent-governance template product.
+## Unreleased industry-readiness implementation
 
-## Delivered asset set
+This worktree adds enforceable legal, source-quality, browser, accessibility, ZIP, CI, evaluation-fixture, and release-evidence controls while preserving static GitHub Pages deployment and browser-local generation.
 
-- 40 named, scenario-specific prompts
-- 30 reusable execution skills
-- 30 enforceable acceptance contracts
-- searchable manifest at `docs/template-library/assets.json`
-- catalogue and starter packs for practical use
-- research and standards basis
-- human-AI quality standard covering sociotechnical framing, trust calibration, mental-model calibration, human handoff, automation-bias resistance, untrusted-content boundaries, output validation, and accessibility/cognitive-load checks
-- quality rubric and weak-vs-strong examples
-- Codex usage guide
-- GitHub Pages template-hub interface with search, filters, open links, download links, and copy buttons
-- Build project static route for browser-local governed starter ZIP generation
-- generated project quality artefacts and `npm run quality:check`
-- validation script for the template library
-- pull-request evidence gate
+Delivered changes include:
 
-## Design principles
+- formal split MIT and CC BY 4.0 licensing, notice, and third-party records;
+- a concise shared governance kernel and versioned 100-asset manifest schema;
+- migrated specialist assets with stable identifiers and paths;
+- explicit verified and unverified public claims;
+- modal focus containment, focus restoration, Escape handling, background inertness, reduced motion, and scoped status messages;
+- connected builder validation, safe project names and paths, essential-file warnings, honest approval state, and deterministic ZIP encoding;
+- unit, failure-path, ZIP extraction, browser, keyboard, narrow-screen, reduced-motion, and automated axe tests;
+- pull-request and `main` CI with pinned actions, least-privilege permissions, dependency audit, and failure artefacts;
+- eight fictional comparative-evaluation cases with an offline dry-run; and
+- contributor, security, onboarding, testing, accessibility, evaluation, release, baseline, and completion documentation.
 
-1. Evidence before confidence.
-2. Claims must be traceable to files, command output, observed behaviour, or disclosed manual judgement.
-3. Agent work is accepted through contracts, not vibes.
-4. Implementation, review, specialist review, and release judgement are separate activities.
-5. UI, accessibility, security, testing, documentation, and release claims are not implied by passing one command.
-6. Final status is restricted to: verified, partially verified, not verified, blocked.
-7. Human-AI quality is treated as evidence discipline: calibrated trust, clear limits, correction paths, handoff, and sociotechnical risk review.
+## Evidence boundary
 
-## Verification performed in this environment
+The current automated results apply to the local worktree and tested Chromium, Firefox, and WebKit environments. No model-based comparative outputs, manual screen-reader session, independent legal review, or deployed-site verification is included. The builder creates a starter scaffold, not a deployed or validated system.
 
-The following verification path completed successfully:
-
-```bash
-bash scripts/verify-release.sh
-```
-
-Observed output:
-
-```text
-Running release verification...
-Prompt checks passed.
-Workflow checks passed.
-Example checks passed.
-Claim checks passed.
-Template library checks passed.
-Research basis checks passed.
-Wrote dist/starter-manifest.json with 146 files
-Release verification complete.
-```
-
-The checks prove repository structure, required workflow artefacts, claim controls, example coverage, template-library counts, template-library depth, research-basis controls, manifest integrity, and starter-manifest generation.
-
-The checks do not prove a live deployed product, runtime accessibility behaviour in every browser, production security posture, or backend behaviour because this repository is a workflow/template bundle with a static browser-local starter route rather than a deployed application platform.
+Exact commands, publication state, and results are recorded in [`docs/engineering/release-evidence/2026-08-04-industry-readiness.md`](docs/engineering/release-evidence/2026-08-04-industry-readiness.md). These notes do not imply a tag or pull request.

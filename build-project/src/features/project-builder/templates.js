@@ -129,11 +129,66 @@ const REUSABLE_ASSET_PATHS = [
   ...REUSABLE_RULES.map(([file]) => `rules/${file}`)
 ];
 
+export const PROJECT_NAME_MAX_LENGTH = 80;
+export const ESSENTIAL_FILE_PATHS = Object.freeze([
+  'AGENTS.md',
+  'README.md',
+  '.agent-sdlc/project.answers.json',
+  '.agent-sdlc/governance-status.json',
+  'docs/governance/00-start-here.md',
+  'docs/governance/01-agent-charter.md',
+  'docs/governance/02-risk-classification.md',
+  'docs/governance/03-data-classification.md',
+  'docs/governance/04-tool-access-map.md',
+  'docs/governance/09-human-approval-record.md',
+  'docs/governance/10-release-gate.md',
+  'docs/quality/human-ai-quality-standard.md',
+  'scripts/validate-governance.mjs'
+]);
+
+export function validateProjectName(name) {
+  const value = String(name ?? '').normalize('NFKC').trim().replace(/\s+/g, ' ');
+  if (!value) return 'Enter a project name.';
+  if (value.length > PROJECT_NAME_MAX_LENGTH) return `Use ${PROJECT_NAME_MAX_LENGTH} characters or fewer.`;
+  if (/[\u0000-\u001f\u007f]/.test(value)) return 'Remove control characters from the project name.';
+  if (/[\\/:*?"<>|]/.test(value)) return 'Remove path characters such as slashes, colons, asterisks, question marks, quotes, angle brackets, or pipes.';
+  return '';
+}
+
 export function createSlug(name) {
-  return name
+  const slug = String(name ?? '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '') || 'governed-agent-project';
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 64)
+    .replace(/-+$/g, '');
+  return slug || 'governed-agent-project';
+}
+
+export function validateRelativePath(path, root) {
+  if (typeof path !== 'string' || !path) throw new TypeError('Generated file path must be a non-empty string.');
+  if (path.includes('\0') || path.includes('\\')) throw new TypeError(`Generated file path is unsafe: ${path}`);
+  if (path.startsWith('/') || /^[A-Za-z]:\//.test(path)) throw new TypeError(`Generated file path must be relative: ${path}`);
+  const segments = path.split('/');
+  if (segments.some((segment) => !segment || segment === '.' || segment === '..')) {
+    throw new TypeError(`Generated file path contains an unsafe segment: ${path}`);
+  }
+  if (root && segments[0] !== root) throw new TypeError(`Generated file path escapes the project root: ${path}`);
+  return path;
+}
+
+export function validateGeneratedFiles(files, root) {
+  if (!Array.isArray(files) || files.length === 0) throw new TypeError('A generated project must contain at least one file.');
+  const seen = new Set();
+  for (const file of files) {
+    validateRelativePath(file?.path, root);
+    if (seen.has(file.path)) throw new TypeError(`Duplicate generated file path: ${file.path}`);
+    seen.add(file.path);
+    if (typeof file.content !== 'string') throw new TypeError(`Generated file content must be text: ${file.path}`);
+  }
+  return true;
 }
 
 function today() {
@@ -432,7 +487,13 @@ Preserve terminal output, audit logs, changed file list, generated artefacts, re
 }
 
 function configApproval(a) {
-  return a.APPROVER_NAME !== 'pending' && a.APPROVER_ROLE !== 'pending' && a.APPROVAL_DATE !== 'pending' ? 'yes' : 'no';
+  return [
+    a.APPROVER_NAME,
+    a.APPROVER_ROLE,
+    a.APPROVAL_DATE,
+    a.APPROVAL_SCOPE,
+    a.APPROVAL_CONDITIONS
+  ].every((value) => Boolean(value) && value !== 'pending') ? 'yes' : 'no';
 }
 
 function scripts() {
@@ -1151,7 +1212,7 @@ Stop the study if real personal data, secrets, production systems or unapproved 
   };
 }
 
-function reusableAssetFiles(a, type) {
+function reusableAssetFiles(a, _type) {
   const researchStack = 'NIST AI RMF, NIST AI 600-1, NIST AI 700-2 ARIA, OWASP Top 10 for LLM Applications 2025, Google People + AI Guidebook, Microsoft Guidelines for Human-AI Interaction, WCAG 2.2, OpenAI prompt engineering guidance, The Prompt Report and CoT-safe public reasoning research patterns.';
   const publicArtefacts = [
     'Task restatement',
@@ -1638,6 +1699,8 @@ pending manual execution`
 }
 
 export function generateProjectFiles(config) {
+  const projectNameError = validateProjectName(config.projectName);
+  if (projectNameError) throw new TypeError(projectNameError);
   const a = answers(config);
   const type = projectType(config);
   const root = createSlug(a.PROJECT_NAME);
@@ -1683,6 +1746,27 @@ export function generateProjectFiles(config) {
   for (const [file, content] of Object.entries(projectAppFiles(a, type))) {
     add(files, `${root}/${file}`, content);
   }
+
+  const manifestPath = `${root}/starter-manifest.json`;
+  const includedFiles = [...files.map((file) => file.path), manifestPath]
+    .map((path) => path.replace(`${root}/`, ''))
+    .sort();
+  add(files, manifestPath, json({
+    schema_version: 1,
+    artifact_type: 'browser-local-starter-scaffold',
+    project_name: a.PROJECT_NAME,
+    project_root: root,
+    approved_for_implementation: configApproval(a) === 'yes',
+    generated_at: a.GENERATED_AT,
+    included_files: includedFiles,
+    limitations: [
+      'This archive is a starter scaffold, not a validated deployed system.',
+      'Human review and the generated verification commands remain required.'
+    ]
+  }));
+
+  files.sort((left, right) => left.path.localeCompare(right.path));
+  validateGeneratedFiles(files, root);
 
   return {
     root,

@@ -1,0 +1,29 @@
+{
+  "name": "agent-workflow-blueprint",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Verification tooling for the browser-local Agent Workflow Blueprint starter.",
+  "type": "module",
+  "engines": {
+    "node": "22.18.0"
+  },
+  "scripts": {
+    "build": "python3 -S scripts/build_starter.py",
+    "lint": "eslint .",
+    "test": "node --test tests/unit/*.test.js && python3 -S -m unittest discover -s tests/python -p 'test_*.py'",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:e2e": "playwright test tests/e2e",
+    "test:a11y": "playwright test tests/accessibility",
+    "test:links": "python3 -S scripts/check_links.py",
+    "test:compose": "python3 -S scripts/compose_assets.py --check",
+    "test:zip": "node --test tests/zip/*.test.js",
+    "test:browser": "playwright test tests/e2e tests/accessibility",
+    "test:all": "npm run lint && npm run test && npm run test:compose && npm run test:zip && npm run test:browser && npm run test:links"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.1",
+    "eslint": "10.8.0",
+    "fflate": "0.8.3"
+  }
+}

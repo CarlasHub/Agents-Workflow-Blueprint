@@ -6,18 +6,27 @@ Use this repository as a layered instruction system.
 
 1. Give Codex the task.
 2. Tell Codex to read `AGENTS.md`, `requirements.toml`, and `docs/engineering/workflow.md` first.
-3. Select one prompt from `docs/template-library/prompts/`.
+3. Select one prompt ID from `docs/template-library/assets.json`.
 4. Add one skill from `docs/template-library/skills/` when the task needs a repeatable procedure.
 5. Add one contract from `docs/template-library/contracts/` when the result needs acceptance or rejection.
-6. Require exact command results and final status.
+6. Compose the selected IDs so the kernel and every shared control appear once.
+7. Require exact command results and final status.
+
+Example composition:
+
+```bash
+python3 -S scripts/compose_assets.py \
+  --asset prompt-bug-root-cause-remediation-prompt \
+  --asset skill-regression-test-design-skill \
+  --asset contract-test-behaviour-contract
+```
 
 ## Example instruction
 
 ```text
-Use AGENTS.md and docs/engineering/workflow.md.
-Then use docs/template-library/prompts/12-bug-root-cause-remediation-prompt.md,
-docs/template-library/skills/12-regression-test-design-skill.md, and
-docs/template-library/contracts/06-test-behaviour-contract.md.
+Use AGENTS.md and docs/engineering/workflow.md with the complete composed
+bug-remediation, regression-test-design, and test-behaviour asset produced by
+scripts/compose_assets.py.
 Do not claim the bug is fixed unless the failure path is proven and verification results are reported.
 ```
 
@@ -38,7 +47,7 @@ Codex should end with:
 - final status: verified, partially verified, not verified, or blocked
 
 
-## Research-backed Codex operating loop
+## research-informed Codex operating loop
 
 Use this message at the top of a complex Codex task:
 

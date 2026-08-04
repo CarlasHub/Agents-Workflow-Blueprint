@@ -4,11 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#070d12">
     <title>Build project | Agent Workflow Blueprint</title>
     <meta
       name="description"
       content="A browser-local builder for generating governed Agent Workflow Blueprint starter ZIP files."
     >
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/build-project/">
+    <link rel="icon" type="image/png" href="../assets/human-body-brand.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Build a starter scaffold | Agent Workflow Blueprint">
+    <meta property="og:description" content="Assemble a browser-local governed starter ZIP without sending form data to a backend.">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/build-project/">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/human-body-brand.png">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="../site.css?v=20260605-8">
     <link rel="stylesheet" href="./src/styles.css?v=20260605-10">
   </head>
@@ -39,7 +48,8 @@
       </div>
     </header>
 
-    <main id="app" class="app-shell" aria-live="polite"></main>
-    <script type="module" src="./src/main.js?v=20260605-9"></script>
+    <main id="app" class="app-shell"></main>
+    <div class="visually-hidden" id="builder-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="./src/main.js?v=20260804-1"></script>
   </body>
 </html>

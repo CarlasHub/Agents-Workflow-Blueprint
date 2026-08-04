@@ -4,12 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0d1117" />
     <title>Agent Workflow Blueprint</title>
     <meta name="author" content="Carla Goncalves" />
     <meta
       name="description"
       content="A research-informed agent-governance template hub with 100 prompts, skills, and contracts for evidence-first coding-agent workflows."
     />
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/" />
+    <link rel="icon" type="image/png" href="assets/human-body-brand.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Agent Workflow Blueprint" />
+    <meta property="og:title" content="Agent Workflow Blueprint" />
+    <meta property="og:description" content="A browser-local, evidence-oriented starter for governed coding-agent workflows." />
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/" />
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/human-body-brand.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Agent Workflow Blueprint" />
+    <meta name="twitter:description" content="A browser-local, evidence-oriented starter for governed coding-agent workflows." />
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/human-body-brand.png" />
     <link rel="me" href="https://www.linkedin.com/in/carla-goncalves-9a01a5164/" />
     <link rel="stylesheet" href="site.css?v=20260605-8" />
   </head>
@@ -47,7 +60,7 @@
             <p class="eyebrow">Prompt library + skills + acceptance contracts</p>
             <h1>Control agent work with evidence, not optimism.</h1>
             <p class="hero-lead">
-              A research-informed operating system for teams building with AI agents.
+              A research-informed workflow starter for teams building with AI agents.
               It turns human-AI interaction, AI-risk, accessibility, security, and
               prompting research into 100 copy-ready prompts, skills, contracts,
               governance artefacts, evidence gates, and verification scripts.
@@ -70,15 +83,15 @@
 
           <aside class="truth-panel" aria-labelledby="truth-title">
             <p class="panel-label">Release honesty</p>
-            <h2 id="truth-title">What this repo proves right now</h2>
+            <h2 id="truth-title">What has been verified</h2>
             <ul class="truth-list">
-              <li>Template-library count and structure</li>
-              <li>Workflow artefact linkage</li>
-              <li>Claim-control checks in public files</li>
-              <li>Starter manifest generation</li>
+              <li>Template metadata, dependencies and stable paths</li>
+              <li>Browser-local search, filter, preview and builder journeys</li>
+              <li>Automated accessibility checks and keyboard assertions</li>
+              <li>Generated ZIP paths, UTF-8 content and archive integrity</li>
             </ul>
             <p class="truth-note">This repository is a workflow bundle, not a verified product build.</p>
-            <pre class="hero-code"><code>bash scripts/verify-release.sh
+            <pre class="hero-code" aria-label="Verification commands"><code>bash scripts/verify-release.sh
 python3 -S scripts/check_template_library.py</code></pre>
           </aside>
         </div>
@@ -90,7 +103,7 @@ python3 -S scripts/check_template_library.py</code></pre>
             <p class="eyebrow">Template product layer</p>
             <h2 id="library-title">Find the right prompt, skill, or contract.</h2>
             <p>
-              Search the manifest, filter by type, preview markdown in place, or download the source file.
+              Search the manifest, filter by type, read each specialist prompt in place, inspect its complete composition, or download the source file.
               Plain download links still work without JavaScript.
             </p>
           </div>
@@ -106,10 +119,10 @@ python3 -S scripts/check_template_library.py</code></pre>
               <input id="asset-search" class="asset-search" type="search" placeholder="Search UI, accessibility, release, security, testing…" />
             </div>
             <div class="filter-row" aria-label="Asset type filters">
-              <button class="filter-button active" type="button" data-filter="all">All</button>
-              <button class="filter-button" type="button" data-filter="prompt">Prompts</button>
-              <button class="filter-button" type="button" data-filter="skill">Skills</button>
-              <button class="filter-button" type="button" data-filter="contract">Contracts</button>
+              <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-button" type="button" data-filter="prompt" aria-pressed="false">Prompts</button>
+              <button class="filter-button" type="button" data-filter="skill" aria-pressed="false">Skills</button>
+              <button class="filter-button" type="button" data-filter="contract" aria-pressed="false">Contracts</button>
             </div>
           </div>
 
@@ -187,8 +200,8 @@ python3 -S scripts/check_template_library.py</code></pre>
             <p>The scripts check structure, linkage, claim discipline, examples, and the 100-asset library.</p>
           </div>
           <div class="evidence-grid">
-            <article class="evidence-card evidence-card-positive"><h3>Checked by scripts</h3><ul><li>Required prompt sections</li><li>Workflow artefact presence</li><li>Unsupported public claims</li><li>Template-library count and depth</li><li>Starter manifest generation</li></ul></article>
-            <article class="evidence-card evidence-card-caution"><h3>Not proven by this starter</h3><ul><li>Live application UI</li><li>Deployment behaviour</li><li>Authentication flows</li><li>Runtime accessibility behaviour</li><li>Security posture of a real app</li></ul></article>
+            <article class="evidence-card evidence-card-positive"><h3>Checked automatically</h3><ul><li>Asset metadata and dependencies</li><li>Public claim restrictions</li><li>Homepage and builder browser flows</li><li>Automated accessibility rules</li><li>ZIP extraction and integrity</li></ul></article>
+            <article class="evidence-card evidence-card-caution"><h3>What has not been verified</h3><ul><li>Universal workflow effectiveness</li><li>WCAG conformance or assistive-technology coverage</li><li>Security posture of generated or deployed systems</li><li>Performance under production workloads</li><li>Legal suitability for a specific adopter</li></ul></article>
           </div>
         </div>
       </section>
@@ -223,8 +236,10 @@ python3 -S scripts/check_template_library.py</code></pre>
           <p class="footer-title">Primary entry points</p>
           <ul class="footer-links">
             <li><a href="README.md">README</a></li>
+            <li><a href="docs/">Rendered documentation</a></li>
             <li><a href="build-project/">Build project</a></li>
             <li><a href="docs/template-library/START-HERE.md">Start here</a></li>
+            <li><a href="LICENSE">Licensing</a></li>
             <li><a href="scripts/verify-release.sh">Release verification</a></li>
           </ul>
         </div>
@@ -233,439 +248,31 @@ python3 -S scripts/check_template_library.py</code></pre>
 
     <div class="markdown-modal" data-markdown-modal hidden>
       <div class="markdown-modal-backdrop" data-close-preview></div>
-      <section class="markdown-dialog" role="dialog" aria-modal="true" aria-labelledby="markdown-preview-title" tabindex="-1">
+      <section class="markdown-dialog" role="dialog" aria-modal="true" aria-labelledby="markdown-preview-title" aria-describedby="markdown-preview-description" tabindex="-1">
         <header class="markdown-dialog-header">
           <div>
-            <p class="eyebrow">Markdown preview</p>
+            <p class="eyebrow">Asset preview</p>
             <h2 id="markdown-preview-title">Template preview</h2>
-            <p class="markdown-preview-meta" data-markdown-preview-meta></p>
+            <p class="markdown-preview-meta" id="markdown-preview-description" data-markdown-preview-meta></p>
           </div>
           <button class="markdown-close" type="button" data-close-preview aria-label="Close markdown preview">Close</button>
         </header>
-        <div class="markdown-dialog-actions">
-          <a class="button button-secondary" href="#" data-markdown-download download>Download markdown</a>
-          <button class="button button-primary" type="button" data-copy-preview>Copy Markdown</button>
+        <div class="markdown-preview-modes" role="group" aria-label="Preview mode">
+          <button type="button" data-preview-mode="readable" aria-pressed="true">Asset content</button>
+          <button type="button" data-preview-mode="complete" aria-pressed="false">Complete composition</button>
+          <button type="button" data-preview-mode="source" aria-pressed="false">Source module</button>
         </div>
-        <article class="markdown-document" data-markdown-preview-content></article>
+        <div class="markdown-dialog-actions">
+          <a class="button button-secondary" href="#" data-markdown-download download>Download source</a>
+          <button class="button button-secondary" type="button" data-copy-source>Copy source module</button>
+          <button class="button button-primary" type="button" data-copy-preview>Copy complete asset</button>
+        </div>
+        <article class="markdown-document" data-markdown-preview-content tabindex="0" aria-label="Asset preview content"></article>
       </section>
     </div>
 
-    <script>
-      const grid = document.getElementById('asset-grid');
-      const statusEl = document.getElementById('asset-status');
-      const searchEl = document.getElementById('asset-search');
-      const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
-      const previewModal = document.querySelector('[data-markdown-modal]');
-      const previewDialog = previewModal.querySelector('.markdown-dialog');
-      const previewTitle = document.getElementById('markdown-preview-title');
-      const previewMeta = document.querySelector('[data-markdown-preview-meta]');
-      const previewContent = document.querySelector('[data-markdown-preview-content]');
-      const previewDownload = document.querySelector('[data-markdown-download]');
-      const previewCopy = document.querySelector('[data-copy-preview]');
-      const initialSearch = new URLSearchParams(window.location.search).get('assetSearch');
-      let assets = [];
-      let activeFilter = 'all';
-      let activePreviewMarkdown = '';
-      let lastPreviewTrigger = null;
+    <div class="visually-hidden" id="site-status" role="status" aria-live="polite" aria-atomic="true"></div>
 
-      if (initialSearch) {
-        searchEl.value = initialSearch;
-      }
-
-      function normalise(value) {
-        return String(value || '').toLowerCase();
-      }
-
-      function clearAssetSearchParam() {
-        const url = new URL(window.location.href);
-        if (!url.searchParams.has('assetSearch')) return;
-        url.searchParams.delete('assetSearch');
-        window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
-      }
-
-      function getCategoryLabel(category) {
-        return String(category || '').trim() || 'Uncategorised';
-      }
-
-      function getTypeLabel(type) {
-        const value = String(type || '').trim();
-        if (!value) return 'Unknown';
-        return value.charAt(0).toUpperCase() + value.slice(1);
-      }
-
-      function escapeHtml(value) {
-        return String(value || '')
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;');
-      }
-
-      function escapeAttribute(value) {
-        return escapeHtml(value).replace(/`/g, '&#96;');
-      }
-
-      function safeHref(value) {
-        const href = String(value || '').trim();
-        if (/^(https?:|mailto:|#|\.{0,2}\/|[A-Za-z0-9_\-./]+$)/.test(href)) {
-          return escapeAttribute(href);
-        }
-        return '#';
-      }
-
-      function renderInlineMarkdown(value) {
-        let html = escapeHtml(value);
-        html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, href) => (
-          `<a href="${safeHref(href)}" target="_blank" rel="noreferrer">${text}</a>`
-        ));
-        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-        html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-        return html;
-      }
-
-      function splitTableRow(line) {
-        return line
-          .replace(/^\||\|$/g, '')
-          .split('|')
-          .map((cell) => cell.trim());
-      }
-
-      function renderTable(rows) {
-        if (rows.length < 2) return rows.map((row) => `<p>${renderInlineMarkdown(row)}</p>`).join('');
-
-        const header = splitTableRow(rows[0]);
-        const bodyRows = rows.slice(2).map(splitTableRow);
-        return `
-          <div class="markdown-table-wrap">
-            <table>
-              <thead><tr>${header.map((cell) => `<th>${renderInlineMarkdown(cell)}</th>`).join('')}</tr></thead>
-              <tbody>
-                ${bodyRows.map((row) => `<tr>${row.map((cell) => `<td>${renderInlineMarkdown(cell)}</td>`).join('')}</tr>`).join('')}
-              </tbody>
-            </table>
-          </div>
-        `;
-      }
-
-      function renderMarkdown(markdown) {
-        const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
-        const html = [];
-        let paragraph = [];
-        let listType = null;
-        let listItems = [];
-        let tableRows = [];
-        let inCode = false;
-        let codeLines = [];
-        let codeLanguage = '';
-
-        function flushParagraph() {
-          if (!paragraph.length) return;
-          html.push(`<p>${renderInlineMarkdown(paragraph.join(' '))}</p>`);
-          paragraph = [];
-        }
-
-        function flushList() {
-          if (!listType) return;
-          html.push(`<${listType}>${listItems.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join('')}</${listType}>`);
-          listType = null;
-          listItems = [];
-        }
-
-        function flushTable() {
-          if (!tableRows.length) return;
-          html.push(renderTable(tableRows));
-          tableRows = [];
-        }
-
-        function flushOpenBlocks() {
-          flushParagraph();
-          flushList();
-          flushTable();
-        }
-
-        lines.forEach((line) => {
-          const trimmed = line.trim();
-
-          if (trimmed.startsWith('```')) {
-            if (inCode) {
-              html.push(`<pre><code class="${escapeAttribute(codeLanguage)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`);
-              inCode = false;
-              codeLines = [];
-              codeLanguage = '';
-            } else {
-              flushOpenBlocks();
-              inCode = true;
-              codeLanguage = trimmed.slice(3).trim();
-            }
-            return;
-          }
-
-          if (inCode) {
-            codeLines.push(line);
-            return;
-          }
-
-          if (!trimmed) {
-            flushOpenBlocks();
-            return;
-          }
-
-          if (/^\|.+\|$/.test(trimmed)) {
-            flushParagraph();
-            flushList();
-            tableRows.push(trimmed);
-            return;
-          }
-
-          flushTable();
-
-          const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
-          if (heading) {
-            flushParagraph();
-            flushList();
-            const level = heading[1].length;
-            html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
-            return;
-          }
-
-          if (/^---+$/.test(trimmed)) {
-            flushOpenBlocks();
-            html.push('<hr>');
-            return;
-          }
-
-          const quote = trimmed.match(/^>\s?(.+)$/);
-          if (quote) {
-            flushOpenBlocks();
-            html.push(`<blockquote>${renderInlineMarkdown(quote[1])}</blockquote>`);
-            return;
-          }
-
-          const unordered = trimmed.match(/^[-*]\s+(.+)$/);
-          const ordered = trimmed.match(/^\d+\.\s+(.+)$/);
-          if (unordered || ordered) {
-            flushParagraph();
-            const nextType = unordered ? 'ul' : 'ol';
-            if (listType && listType !== nextType) flushList();
-            listType = nextType;
-            listItems.push((unordered || ordered)[1]);
-            return;
-          }
-
-          paragraph.push(trimmed);
-        });
-
-        if (inCode) {
-          html.push(`<pre><code class="${escapeAttribute(codeLanguage)}">${escapeHtml(codeLines.join('\n'))}</code></pre>`);
-        }
-
-        flushOpenBlocks();
-        return html.join('');
-      }
-
-      function categoryHash(label) {
-        let hash = 0;
-        for (let index = 0; index < label.length; index += 1) {
-          hash = ((hash << 5) - hash) + label.charCodeAt(index);
-          hash |= 0;
-        }
-        return Math.abs(hash);
-      }
-
-      function categoryStyle(category) {
-        const label = getCategoryLabel(category);
-        const hue = categoryHash(label) % 360;
-        return `--category-bg:hsl(${hue} 80% 52% / 0.17);--category-border:hsl(${hue} 86% 66% / 0.62);--category-fg:hsl(${hue} 100% 83%);`;
-      }
-
-      function typeIcon(type) {
-        const iconMap = {
-          prompt: '●',
-          skill: '◆',
-          contract: '■',
-        };
-        return iconMap[String(type || '').toLowerCase()] || '•';
-      }
-
-      function render() {
-        const term = normalise(searchEl.value);
-        const filtered = assets.filter((asset) => {
-          const typeMatch = activeFilter === 'all' || asset.type === activeFilter;
-          const haystack = normalise([asset.title, asset.type, asset.category, asset.summary, asset.tags?.join(' ')].join(' '));
-          return typeMatch && haystack.includes(term);
-        });
-
-        statusEl.textContent = `${filtered.length} asset${filtered.length === 1 ? '' : 's'} shown`;
-        if (filtered.length === 0) {
-          grid.innerHTML = `
-            <div class="asset-empty-state" role="status">
-              <p class="eyebrow">No matching assets</p>
-              <h3>Try a broader search or switch the filter.</h3>
-              <p>The library is still here. Clear the query to return to the full prompt, skill and contract catalogue.</p>
-              <button type="button" data-clear-search>Clear search</button>
-            </div>
-          `;
-          return;
-        }
-
-        grid.innerHTML = filtered.map((asset) => `
-          <article class="asset-card" data-type="${escapeAttribute(asset.type)}">
-            <div class="asset-card-head">
-              <span class="asset-type"><span class="asset-type-icon" aria-hidden="true">${typeIcon(asset.type)}</span>${getTypeLabel(asset.type)}</span>
-              <span class="asset-category" style="${categoryStyle(asset.category)}">${escapeHtml(getCategoryLabel(asset.category))}</span>
-            </div>
-            <h3>${escapeHtml(asset.title)}</h3>
-            <p>${escapeHtml(asset.summary)}</p>
-            <div class="asset-actions">
-              <button type="button" data-preview-path="${escapeAttribute(asset.path)}">Open</button>
-              <a href="${escapeAttribute(asset.path)}" download>Download</a>
-              <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy Markdown</button>
-            </div>
-          </article>
-        `).join('');
-      }
-
-      function closePreview() {
-        previewModal.hidden = true;
-        document.body.classList.remove('modal-open');
-        activePreviewMarkdown = '';
-        if (lastPreviewTrigger) lastPreviewTrigger.focus();
-        lastPreviewTrigger = null;
-      }
-
-      async function openPreview(path, trigger) {
-        const asset = assets.find((item) => item.path === path);
-        lastPreviewTrigger = trigger;
-        activePreviewMarkdown = '';
-        previewTitle.textContent = asset?.title || 'Template preview';
-        previewMeta.textContent = asset ? `${getTypeLabel(asset.type)} · ${getCategoryLabel(asset.category)} · ${asset.path}` : path;
-        previewDownload.href = path;
-        previewContent.innerHTML = '<p class="markdown-loading">Loading markdown preview…</p>';
-        previewModal.hidden = false;
-        document.body.classList.add('modal-open');
-        previewDialog.focus();
-
-        try {
-          const response = await fetch(path);
-          if (!response.ok) throw new Error('Unable to fetch markdown');
-          const markdown = await response.text();
-          activePreviewMarkdown = markdown;
-          previewContent.innerHTML = renderMarkdown(markdown);
-        } catch (error) {
-          previewContent.innerHTML = `
-            <div class="asset-empty-state" role="status">
-              <p class="eyebrow">Preview unavailable</p>
-              <h3>The markdown could not be loaded in the modal.</h3>
-              <p>Use Download to save the source file, or try again after refreshing the page.</p>
-            </div>
-          `;
-        }
-      }
-
-      async function writeClipboard(text) {
-        if (navigator.clipboard?.writeText) {
-          try {
-            await navigator.clipboard.writeText(text);
-            return true;
-          } catch (error) {
-            // Fall through to the legacy path for restricted clipboard contexts.
-          }
-        }
-
-        const scratch = document.createElement('textarea');
-        scratch.value = text;
-        scratch.setAttribute('readonly', '');
-        scratch.style.position = 'fixed';
-        scratch.style.left = '-9999px';
-        scratch.style.top = '0';
-        document.body.appendChild(scratch);
-        scratch.select();
-        try {
-          return document.execCommand('copy');
-        } catch (error) {
-          return false;
-        } finally {
-          scratch.remove();
-        }
-      }
-
-      async function copyAsset(path, button) {
-        const original = button.textContent;
-        try {
-          const response = await fetch(path);
-          if (!response.ok) throw new Error('Unable to fetch asset');
-          const markdown = await response.text();
-          const copied = await writeClipboard(markdown);
-          if (!copied) throw new Error('Clipboard unavailable');
-          button.textContent = 'Copied';
-        } catch (error) {
-          button.textContent = 'Open file instead';
-        } finally {
-          window.setTimeout(() => { button.textContent = original; }, 1600);
-        }
-      }
-
-      grid.addEventListener('click', (event) => {
-        const clearButton = event.target.closest('button[data-clear-search]');
-        if (clearButton) {
-          searchEl.value = '';
-          clearAssetSearchParam();
-          render();
-          searchEl.focus();
-          return;
-        }
-
-        const previewButton = event.target.closest('button[data-preview-path]');
-        if (previewButton) {
-          openPreview(previewButton.dataset.previewPath, previewButton);
-          return;
-        }
-
-        const button = event.target.closest('button[data-copy-path]');
-        if (!button) return;
-        copyAsset(button.dataset.copyPath, button);
-      });
-
-      previewModal.addEventListener('click', (event) => {
-        if (event.target.closest('[data-close-preview]')) {
-          closePreview();
-        }
-      });
-
-      previewCopy.addEventListener('click', async () => {
-        const original = previewCopy.textContent;
-        const copied = activePreviewMarkdown ? await writeClipboard(activePreviewMarkdown) : false;
-        previewCopy.textContent = copied ? 'Copied' : 'Copy unavailable';
-        window.setTimeout(() => { previewCopy.textContent = original; }, 1600);
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !previewModal.hidden) {
-          closePreview();
-        }
-      });
-
-      searchEl.addEventListener('input', render);
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          filterButtons.forEach((item) => item.classList.remove('active'));
-          button.classList.add('active');
-          activeFilter = button.dataset.filter;
-          render();
-        });
-      });
-
-      fetch('docs/template-library/assets.json')
-        .then((response) => response.json())
-        .then((data) => {
-          assets = data;
-          render();
-        })
-        .catch(() => {
-          statusEl.textContent = 'Could not load the asset manifest. Open docs/template-library/CATALOGUE.md instead.';
-        });
-    </script>
+    <script type="module" src="site.js?v=20260804-2"></script>
   </body>
 </html>

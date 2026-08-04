@@ -1,0 +1,11 @@
+{
+  "id": "incomplete-test-coverage",
+  "category": "testing",
+  "title": "Identify missing negative-path tests",
+  "task": "Review a fictional filename validator whose tests cover only ordinary names. Identify and specify maintainable tests for empty, traversal, absolute, duplicate, Unicode, and long inputs.",
+  "prompt": "docs/template-library/prompts/32-test-quality-audit-prompt.md",
+  "skill": "docs/template-library/skills/12-regression-test-design-skill.md",
+  "contract": "docs/template-library/contracts/06-test-behaviour-contract.md",
+  "acceptance_criteria": ["Negative paths enumerated", "Assertions test behaviour", "Unicode expectation explicit", "Test limitations stated"],
+  "failure_signals": ["Treats line coverage as correctness", "Omits traversal or duplicate paths"]
+}

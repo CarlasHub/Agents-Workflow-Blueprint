@@ -2,6 +2,8 @@
 
 Use this rubric to score any agent response produced with this repository.
 
+When reviewing an asset itself, reject duplicated governance prose, repeated inline specialist controls, unresolved `SPC-*` references, a source module presented as complete without composition, or a hollow module that delegates all specialist work to shared controls. Each asset needs distinct executable specialist content and evidence requirements; genuinely shared wording belongs in the kernel or specialist registry.
+
 ## 5 — Strong accept
 
 1. Scope is restated precisely.
@@ -42,7 +44,7 @@ The answer invents facts, hides failures, removes safeguards, or changes scope w
 
 Use only one final status: verified, partially verified, not verified, blocked.
 
-## Scientific control score
+## Evidence-control score
 
 Use this score when judging whether an agent output deserves acceptance.
 

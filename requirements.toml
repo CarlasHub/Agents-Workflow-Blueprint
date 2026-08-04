@@ -2,6 +2,8 @@
 must_read = [
   "AGENTS.md",
   "docs/engineering/workflow.md",
+  "docs/template-library/GOVERNANCE-KERNEL.md",
+  "docs/template-library/SPECIALIST-CONTROLS.md",
   "docs/engineering/contracts/architecture.md",
   "docs/engineering/contracts/testing.md",
   "docs/engineering/contracts/accessibility.md",
@@ -10,22 +12,30 @@ must_read = [
 ]
 
 must_run = [
-  "python3 scripts/check_prompts.py",
-  "python3 scripts/check_workflow.py",
-  "python3 scripts/check_examples.py",
-  "python3 scripts/check_claims.py",
-  "python3 scripts/check_template_library.py",
-  "python3 scripts/check_research_basis.py",
-  "python3 scripts/build_starter.py",
+  "python3 -S scripts/check_prompts.py",
+  "python3 -S scripts/check_workflow.py",
+  "python3 -S scripts/check_examples.py",
+  "python3 -S scripts/check_claims.py",
+  "python3 -S scripts/check_template_library.py",
+  "python3 -S scripts/compose_assets.py --check",
+  "python3 -S scripts/check_research_basis.py",
+  "python3 -S scripts/check_licenses.py",
+  "python3 -S scripts/build_starter.py --check",
+  "python3 -S scripts/run_evals.py --dry-run",
+  "npm run lint",
+  "npm run test",
+  "npm run test:e2e",
+  "npm run test:a11y",
+  "npm run test:links",
+  "npm run test:zip",
   "bash scripts/verify-release.sh"
 ]
 
 must_not = [
-  "modify deployment secrets handling",
-  "change CI infrastructure without explicit task scope",
-  "change auth contract without explicit task scope",
+  "introduce a backend, authentication, paid API, or cloud service",
+  "use secrets, personal data, or production data",
   "replace native controls with custom widgets without necessity",
-  "claim compliance without evidence"
+  "claim compliance, security, accessibility, or effectiveness without evidence"
 ]
 
 [review]
@@ -47,6 +57,6 @@ screenshots_must_match_current_ui = true
 known_limitations_must_be_disclosed = true
 
 [starter]
-verification_scope = "workflow assets and starter bundle only"
+verification_scope = "workflow assets and browser-local starter scaffold only"
 built_artifact = "dist/starter-manifest.json"
 teaching_exercise = "examples/exercises/exercise-001-comparison-view"

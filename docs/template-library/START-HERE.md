@@ -1,20 +1,21 @@
 # Start Here
 
-## Step 0 — Know the method stack
+## Step 0 — Load shared governance
 
-Before using a prompt, read the short method map: [`RESEARCH-DNA.md`](RESEARCH-DNA.md). For task selection, use [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md). For pre-merge discipline, use [`SCIENTIFIC-CONTROL-CHECKLIST.md`](SCIENTIFIC-CONTROL-CHECKLIST.md). For sociotechnical, human-AI, trust-calibration, and ML-evaluation quality, use [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md).
+Use the website’s **Copy complete asset** action or `scripts/compose_assets.py` so [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md), referenced [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md), and selected modules are included once. Use [`RESEARCH-DNA.md`](RESEARCH-DNA.md) only when you need the source map, [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) for task selection, and [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) for sociotechnical and trust-calibration review.
 
 
 Use this page when you need the shortest safe route through the library.
 
 ## For a new Codex task
 
-1. Read `AGENTS.md` and `docs/engineering/workflow.md`.
-2. Use [`prompts/01-master-agent-enforcement-prompt.md`](prompts/01-master-agent-enforcement-prompt.md).
+1. Read `AGENTS.md` and `docs/engineering/workflow.md`, then use a complete composed asset.
+2. Choose the narrowest relevant prompt; use the master prompt only for broad cross-cutting work.
 3. Add [`skills/01-scoping-packet-skill.md`](skills/01-scoping-packet-skill.md) if the task is non-trivial.
 4. Attach [`contracts/01-completion-honesty-contract.md`](contracts/01-completion-honesty-contract.md) so final claims can be accepted or rejected.
-5. Run the relevant commands from `requirements.toml`.
-6. End with one status value: verified, partially verified, not verified, or blocked.
+5. Resolve the selection with `python3 -S scripts/compose_assets.py --asset <id>` or the website copy action.
+6. Run the relevant commands from `requirements.toml`.
+7. End with one status value: verified, partially verified, not verified, or blocked.
 
 ## For UI work
 
@@ -43,7 +44,7 @@ Use:
 - [`contracts/29-template-library-quality-contract.md`](contracts/29-template-library-quality-contract.md)
 
 
-## Scientific use order
+## Evidence-oriented use order
 
 Use the assets in this order when quality matters:
 

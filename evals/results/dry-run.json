@@ -1,0 +1,88 @@
+{
+  "suite_version": "1.0.0",
+  "mode": "dry-run",
+  "case_count": 8,
+  "conditions": [
+    "minimal",
+    "kernel",
+    "full"
+  ],
+  "model": null,
+  "configuration": null,
+  "observed_results": "unavailable",
+  "limitation": "Fixture and prompt-size validation only; no model output was generated or scored.",
+  "cases": [
+    {
+      "case_id": "small-bug-fix",
+      "prompt_words": {
+        "minimal": 42,
+        "kernel": 1065,
+        "full": 2133
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "accessibility-remediation",
+      "prompt_words": {
+        "minimal": 41,
+        "kernel": 1064,
+        "full": 1911
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "unsupported-success-claim",
+      "prompt_words": {
+        "minimal": 41,
+        "kernel": 1064,
+        "full": 2137
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "documentation-contradiction",
+      "prompt_words": {
+        "minimal": 39,
+        "kernel": 1062,
+        "full": 1872
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "security-configuration-review",
+      "prompt_words": {
+        "minimal": 41,
+        "kernel": 1064,
+        "full": 1883
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "incomplete-test-coverage",
+      "prompt_words": {
+        "minimal": 40,
+        "kernel": 1063,
+        "full": 1917
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "scope-creep-detection",
+      "prompt_words": {
+        "minimal": 42,
+        "kernel": 1065,
+        "full": 1942
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "release-evidence-review",
+      "prompt_words": {
+        "minimal": 39,
+        "kernel": 1062,
+        "full": 1889
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    }
+  ]
+}

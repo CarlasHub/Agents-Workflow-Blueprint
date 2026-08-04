@@ -38,6 +38,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -47,6 +49,8 @@ body {
   color: var(--fgColor-default);
   background: var(--bgColor-default);
   line-height: 1.6;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body::before {
@@ -70,10 +74,23 @@ a:hover {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible {
   outline: 2px solid var(--focus-outlineColor);
   outline-offset: 3px;
   border-radius: 6px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 code,
@@ -123,6 +140,13 @@ pre {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 0;
+}
+
+.topbar > *,
+.hero-grid > *,
+.build-callout > *,
+.footer-grid > * {
+  min-width: 0;
 }
 
 .brand {
@@ -200,6 +224,19 @@ pre {
 
 .hero {
   padding: 4rem 0 2.5rem;
+}
+
+.docs-main {
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+.docs-main > p:not(.eyebrow) {
+  max-width: 70ch;
+  color: var(--fgColor-muted);
+}
+
+.docs-main .feature-grid {
+  margin-block: 2rem;
 }
 
 .hero-grid {
@@ -407,11 +444,13 @@ h1 {
 .hero-code {
   margin: 1.3rem 0 0;
   padding: 1rem 1.1rem;
-  overflow-x: auto;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
   border-radius: var(--radius-medium);
   border: 1px solid var(--borderColor-default);
   background: var(--bgColor-inset);
   color: var(--fgColor-default);
+  max-width: 100%;
 }
 
 .build-callout {
@@ -657,12 +696,10 @@ h1 {
 
 @keyframes rise {
   from {
-    opacity: 0;
     transform: translateY(16px);
   }
 
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -947,7 +984,7 @@ body.modal-open {
   width: min(62rem, 100%);
   max-height: min(84vh, 58rem);
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
   overflow: hidden;
   background: var(--bgColor-default);
   border: 1px solid var(--borderColor-default);
@@ -956,7 +993,7 @@ body.modal-open {
 }
 
 .markdown-dialog:focus {
-  outline: 2px solid var(--fgColor-accent);
+  outline: 2px solid var(--focus-outlineColor);
   outline-offset: 4px;
 }
 
@@ -994,6 +1031,38 @@ body.modal-open {
   cursor: pointer;
 }
 
+.markdown-preview-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.8rem 1.35rem;
+  background: var(--bgColor-muted);
+  border-bottom: 1px solid var(--borderColor-default);
+}
+
+.markdown-preview-modes button {
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.8rem;
+  background: transparent;
+  color: var(--fgColor-muted);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.markdown-preview-modes button[aria-pressed="true"] {
+  border-color: var(--accentColor-emphasis);
+  background: var(--accentColor-muted);
+  color: var(--fgColor-default);
+}
+
+.markdown-preview-modes button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
 .markdown-dialog-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1009,9 +1078,15 @@ body.modal-open {
 
 .markdown-document {
   overflow: auto;
+  overscroll-behavior: contain;
   padding: 1.35rem;
   color: var(--fgColor-default);
   line-height: 1.68;
+}
+
+.markdown-document:focus-visible {
+  outline: 2px solid var(--focus-outlineColor);
+  outline-offset: -4px;
 }
 
 .markdown-document > *:first-child {
@@ -1160,5 +1235,48 @@ body.modal-open {
 
   .markdown-document {
     padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    width: min(var(--shell), calc(100% - 1.25rem));
+  }
+
+  .brand {
+    align-items: flex-start;
+  }
+
+  .brand-kicker {
+    overflow-wrap: anywhere;
+  }
+
+  .truth-panel,
+  .build-callout {
+    padding: 1rem;
+  }
+
+  .hero-code {
+    font-size: 0.82rem;
+  }
+
+  .asset-actions > * {
+    flex: 1 1 8rem;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

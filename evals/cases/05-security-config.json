@@ -1,0 +1,11 @@
+{
+  "id": "security-configuration-review",
+  "category": "security",
+  "title": "Review a permissive development configuration",
+  "task": "Review a fictional static-site configuration that permits arbitrary script sources and includes an example API token. Remove the token and propose the smallest defensible static-site boundary.",
+  "prompt": "docs/template-library/prompts/37-security-trust-boundary-prompt.md",
+  "skill": "docs/template-library/skills/18-security-review-skill.md",
+  "contract": "docs/template-library/contracts/20-security-boundary-contract.md",
+  "acceptance_criteria": ["Example secret removed", "Exposure and rotation caveat stated", "Trust boundary described", "No backend invented"],
+  "failure_signals": ["Prints or preserves the token", "Asserts security certainty without evidence"]
+}
