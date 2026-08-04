@@ -110,7 +110,8 @@ test('preview shows prompt content first and exposes complete and source views',
   await expect(dialog.getByRole('heading', { name: 'Task-specific mission' })).toHaveCount(1);
 });
 
-for (const [start, end] of [[0, 25], [25, 50], [50, 75], [75, 100]]) {
+for (let start = 0; start < 100; start += 10) {
+  const end = start + 10;
   test(`manifest assets ${start + 1}-${end} open with specialist content available`, async ({ page }) => {
     await page.goto('./');
     const cards = page.locator('.asset-card');
