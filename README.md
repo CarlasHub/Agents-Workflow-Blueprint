@@ -15,7 +15,7 @@ The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptan
 
 1. Read [`docs/template-library/START-HERE.md`](docs/template-library/START-HERE.md).
 2. Choose one asset from each relevant family in the [`CATALOGUE.md`](docs/template-library/CATALOGUE.md).
-3. On the website, open an asset to read its specialist content first. Switch to **Complete composition** to inspect resolved governance, then use **Copy complete asset**; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+3. On the website, open an asset to read its specialist content first. Switch to the **Full prompt**, **Full skill**, or **Full contract** tab to inspect resolved governance, then use **Copy complete asset**; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
 4. Give the complete composition to the agent with the concrete task and repository context.
 5. Require command output, file evidence, limitations, and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
 

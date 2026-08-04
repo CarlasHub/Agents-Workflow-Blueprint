@@ -257,17 +257,16 @@ python3 -S scripts/check_template_library.py</code></pre>
           </div>
           <button class="markdown-close" type="button" data-close-preview aria-label="Close markdown preview">Close</button>
         </header>
-        <div class="markdown-preview-modes" role="group" aria-label="Preview mode">
-          <button type="button" data-preview-mode="readable" aria-pressed="true">Asset content</button>
-          <button type="button" data-preview-mode="complete" aria-pressed="false">Complete composition</button>
-          <button type="button" data-preview-mode="source" aria-pressed="false">Source module</button>
+        <div class="markdown-preview-modes" role="tablist" aria-label="Asset view">
+          <button id="preview-tab-asset" type="button" role="tab" data-preview-mode="readable" aria-selected="true" aria-controls="markdown-preview-panel">Asset</button>
+          <button id="preview-tab-complete" type="button" role="tab" data-preview-mode="complete" aria-selected="false" aria-controls="markdown-preview-panel" tabindex="-1">Full asset</button>
         </div>
         <div class="markdown-dialog-actions">
           <a class="button button-secondary" href="#" data-markdown-download download>Download source</a>
           <button class="button button-secondary" type="button" data-copy-source>Copy source module</button>
           <button class="button button-primary" type="button" data-copy-preview>Copy complete asset</button>
         </div>
-        <article class="markdown-document" data-markdown-preview-content tabindex="0" aria-label="Asset preview content"></article>
+        <article id="markdown-preview-panel" class="markdown-document" role="tabpanel" data-markdown-preview-content tabindex="0" aria-labelledby="preview-tab-asset"></article>
       </section>
     </div>
 

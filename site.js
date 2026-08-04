@@ -6,7 +6,8 @@ import {
   filterAssets,
   getCategoryLabel,
   getTypeLabel,
-  renderMarkdown
+  renderMarkdown,
+  specialistControlHref
 } from './site-utils.js';
 
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -173,29 +174,59 @@ export function createSiteApp(documentRef = document) {
     const markdown = activePreviewViews[mode];
     if (!markdown || !activePreviewAsset) return;
     previewModeButtons.forEach((button) => {
-      button.setAttribute('aria-pressed', String(button.dataset.previewMode === mode));
+      const selected = button.dataset.previewMode === mode;
+      button.setAttribute('aria-selected', String(selected));
+      button.setAttribute('tabindex', selected ? '0' : '-1');
     });
     const typeLabel = getTypeLabel(activePreviewAsset.type);
     const labels = {
       readable: `${typeLabel} content · unique instructions first · ${activePreviewAsset.path}`,
-      complete: `Complete composition · governance and resolved controls included once · ${activePreviewAsset.path}`,
-      source: `Source module · dependency references are unresolved · ${activePreviewAsset.path}`
+      complete: `Full ${activePreviewAsset.type} · governance and resolved controls included once · ${activePreviewAsset.path}`
     };
     meta.textContent = labels[mode];
-    content.setAttribute('aria-label', `${typeLabel} ${mode === 'readable' ? 'content' : `${mode} preview`}`);
-    content.innerHTML = renderMarkdown(markdown);
+    const activeButton = previewModeButtons.find((button) => button.dataset.previewMode === mode);
+    content.setAttribute('aria-labelledby', activeButton.id);
+    renderPreviewMarkdown(markdown);
     content.scrollTop = 0;
+  }
+
+  function renderPreviewMarkdown(markdown) {
+    content.innerHTML = renderMarkdown(markdown);
+    content.querySelectorAll('strong').forEach((strong) => {
+      const match = strong.textContent.trim().match(/^(SPC-[A-F0-9]{10}):$/);
+      if (!match || strong.querySelector('a')) return;
+      const link = documentRef.createElement('a');
+      link.href = specialistControlHref(match[1]);
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+      link.textContent = match[1];
+      link.setAttribute('aria-label', `${match[1]} specialist control definition`);
+      strong.replaceChildren(link, ':');
+    });
   }
 
   function setPreviewModesAvailable(availableModes) {
     previewModeButtons.forEach((button) => {
       const available = availableModes.includes(button.dataset.previewMode);
       button.disabled = !available;
-      if (!available) button.setAttribute('aria-pressed', 'false');
-      if (button.dataset.previewMode === 'readable' && activePreviewAsset) {
-        button.textContent = `${getTypeLabel(activePreviewAsset.type)} content`;
+      if (!available) button.setAttribute('aria-selected', 'false');
+      if (activePreviewAsset) {
+        const typeLabel = getTypeLabel(activePreviewAsset.type);
+        button.textContent = button.dataset.previewMode === 'readable' ? typeLabel : `Full ${activePreviewAsset.type}`;
       }
     });
+  }
+
+  function showSourceFallback(source) {
+    const sourceButton = previewModeButtons.find((button) => button.dataset.previewMode === 'readable');
+    setPreviewModesAvailable(['readable']);
+    sourceButton.textContent = `${getTypeLabel(activePreviewAsset.type)} source`;
+    sourceButton.setAttribute('aria-selected', 'true');
+    sourceButton.setAttribute('tabindex', '0');
+    meta.textContent = `Source fallback · shared dependencies unavailable · ${activePreviewAsset.path}`;
+    content.setAttribute('aria-labelledby', sourceButton.id);
+    renderPreviewMarkdown(source);
+    content.scrollTop = 0;
   }
 
   async function openPreview(path, trigger) {
@@ -218,11 +249,10 @@ export function createSiteApp(documentRef = document) {
       activePreviewViews.source = source;
       try {
         activePreviewViews = await resolveAssetViews(asset, source);
-        setPreviewModesAvailable(['readable', 'complete', 'source']);
+        setPreviewModesAvailable(['readable', 'complete']);
         setPreviewMode('readable');
       } catch (error) {
-        setPreviewModesAvailable(['source']);
-        setPreviewMode('source');
+        showSourceFallback(source);
         announce('Shared prompt dependencies could not be resolved. The source module is shown instead.');
       }
     } catch (error) {
@@ -331,11 +361,25 @@ export function createSiteApp(documentRef = document) {
           ? 'Complete asset copied to the clipboard with shared governance and specialist controls included once.'
           : 'Copy is unavailable. Use Download instead.');
       } catch (error) {
-        announce('Complete composition is unavailable. Copy the source module or use Download instead.');
+        announce('The full asset is unavailable. Copy the source module or use Download instead.');
       }
     });
     previewModeButtons.forEach((button) => button.addEventListener('click', () => {
       setPreviewMode(button.dataset.previewMode);
+    }));
+    previewModeButtons.forEach((button) => button.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const enabled = previewModeButtons.filter((item) => !item.disabled);
+      if (!enabled.length) return;
+      const current = enabled.indexOf(button);
+      const next = event.key === 'Home'
+        ? enabled[0]
+        : event.key === 'End'
+          ? enabled.at(-1)
+          : enabled[(current + (event.key === 'ArrowRight' ? 1 : -1) + enabled.length) % enabled.length];
+      next.focus();
+      next.click();
     }));
     documentRef.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && !modal.hidden) {

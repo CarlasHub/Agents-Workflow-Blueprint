@@ -10,7 +10,8 @@ import {
   parseSpecialistControls,
   referencedSpecialistControls,
   renderMarkdown,
-  safeHref
+  safeHref,
+  specialistControlHref
 } from '../../site-utils.js';
 
 test('escapeHtml encodes markup-significant characters', () => {
@@ -28,6 +29,8 @@ test('safeHref accepts expected links and rejects executable schemes', () => {
   assert.equal(safeHref('javascript:alert(1)'), '#');
   assert.equal(safeHref('data:text/html,bad'), '#');
   assert.equal(safeHref('//unexpected.example/path'), '#');
+  assert.match(specialistControlHref('SPC-AAAAAAAAAA'), /SPECIALIST-CONTROLS\.md#spc-aaaaaaaaaa$/);
+  assert.equal(specialistControlHref('SPC-invalid'), '#');
 });
 
 test('filterAssets combines normalised text search and type filtering', () => {

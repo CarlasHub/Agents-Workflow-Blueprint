@@ -19,6 +19,6 @@ Delivered changes include:
 
 ## Evidence boundary
 
-The current automated results apply to the local worktree and tested Chromium, Firefox, and WebKit environments. No model-based comparative outputs, manual screen-reader session, independent legal review, or deployed-site verification is included. The builder creates a starter scaffold, not a deployed or validated system.
+The automated results apply to the tested local and GitHub-hosted Chromium, Firefox, and WebKit environments. A focused deployed-site smoke test is recorded separately. No model-based comparative outputs, manual screen-reader session, or independent legal review is included. The builder creates a starter scaffold, not a deployed or validated system.
 
 Exact commands, publication state, and results are recorded in [`docs/engineering/release-evidence/2026-08-04-industry-readiness.md`](docs/engineering/release-evidence/2026-08-04-industry-readiness.md). These notes do not imply a tag or pull request.

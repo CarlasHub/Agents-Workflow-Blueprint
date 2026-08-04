@@ -10,7 +10,7 @@ All 100 stable asset IDs, paths, and titles remain available. Source assets are 
 - Specialist instructions used by multiple assets have one authoritative `SPC-*` entry in [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md).
 - Each manifest entry declares its governance profile and ordered specialist-control references.
 - [`compose_assets.py`](../../scripts/compose_assets.py) deterministically includes the kernel, each referenced specialist control, and each selected module once.
-- The website opens with the prompt, skill, or contract's specialist content. Explicit **Complete composition** and **Source module** views preserve resolved and authoring-level traceability, and the copy actions distinguish source from complete output.
+- The website uses two views: the prompt, skill, or contract's specialist content and its full composition. Source download and copy actions preserve authoring-level traceability without adding a third tab.
 - Every source module retains at least three asset-specific instructions, procedure steps, or hard gates plus a distinct evidence section.
 - Validation rejects hollow registry delegation, duplicate specialist bodies or evidence sections, repeated inline specialist controls, near-duplicate controls at the configured threshold, orphaned controls, source/manifest drift, unresolved composition, and any unclassified repeated prose block.
 

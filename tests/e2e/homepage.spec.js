@@ -83,31 +83,30 @@ test('preview closes with its close control', async ({ page }) => {
   await expect(page.getByRole('dialog')).toBeHidden();
 });
 
-test('preview shows prompt content first and exposes complete and source views', async ({ page }) => {
+test('preview uses two tabs for prompt and full composition', async ({ page }) => {
   await page.goto('./');
   await page.locator('[data-preview-path]').first().click();
   const dialog = page.getByRole('dialog');
-  const promptContent = dialog.getByRole('button', { name: 'Prompt content' });
-  const complete = dialog.getByRole('button', { name: 'Complete composition' });
-  const source = dialog.getByRole('button', { name: 'Source module', exact: true });
+  const promptContent = dialog.getByRole('tab', { name: 'Prompt', exact: true });
+  const complete = dialog.getByRole('tab', { name: 'Full prompt' });
 
-  await expect(promptContent).toHaveAttribute('aria-pressed', 'true');
+  await expect(dialog.getByRole('tab')).toHaveCount(2);
+  await expect(promptContent).toHaveAttribute('aria-selected', 'true');
   await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('Prompt content · unique instructions first');
   await expect(dialog.getByRole('heading', { name: 'Task-specific mission' })).toHaveCount(1);
   await expect(dialog.getByRole('heading', { name: 'Metadata' })).toHaveCount(0);
 
   await complete.click();
-  await expect(complete).toHaveAttribute('aria-pressed', 'true');
+  await expect(complete).toHaveAttribute('aria-selected', 'true');
   await expect(dialog.getByRole('heading', { name: 'Shared governance' })).toHaveCount(1);
   await expect(dialog.getByText('Deterministic composition: shared governance and specialist controls are included once.')).toHaveCount(1);
 
-  await source.click();
-  await expect(source).toHaveAttribute('aria-pressed', 'true');
-  await expect(dialog.getByRole('heading', { name: 'Metadata' })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Dependencies' })).toHaveCount(1);
-
+  await page.keyboard.press('ArrowLeft');
+  await expect(promptContent).toBeFocused();
+  await expect(promptContent).toHaveAttribute('aria-selected', 'true');
   await promptContent.click();
   await expect(dialog.getByRole('heading', { name: 'Task-specific mission' })).toHaveCount(1);
+  await expect(dialog.getByRole('link', { name: /^SPC-/ }).first()).toHaveAttribute('href', /SPECIALIST-CONTROLS\.md#spc-/);
 });
 
 for (let start = 0; start < 100; start += 10) {
@@ -134,7 +133,7 @@ for (let start = 0; start < 100; start += 10) {
       expect(await specialistHeading.evaluate((heading) => (
         heading.nextElementSibling?.matches('ol') && heading.nextElementSibling.children.length >= 3
       ))).toBe(true);
-      await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveAttribute('aria-pressed', 'true');
+      await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveAttribute('aria-selected', 'true');
       await dialog.getByRole('button', { name: 'Close markdown preview' }).click();
     }
   });
@@ -189,7 +188,7 @@ test('preview source failure preserves a direct download fallback', async ({ pag
   await expect(dialog.getByRole('heading', { name: 'The Markdown could not be loaded.' })).toBeVisible();
   await expect(dialog.getByRole('link', { name: 'Download source' })).toHaveAttribute('href', path);
   const previewModes = dialog.locator('[data-preview-mode]');
-  await expect(previewModes).toHaveCount(3);
+  await expect(previewModes).toHaveCount(2);
   expect(await previewModes.evaluateAll((buttons) => buttons.every((button) => button.disabled))).toBe(true);
 });
 
@@ -199,8 +198,8 @@ test('shared dependency failure exposes the source module instead of hiding the 
   await expect(page.locator('#asset-status')).toHaveText('100 assets shown');
   await page.locator('[data-preview-path]').first().click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('[data-preview-mode="source"]')).toHaveAttribute('aria-pressed', 'true');
-  await expect(dialog.locator('[data-preview-mode="readable"]')).toBeDisabled();
+  await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveText('Prompt source');
   await expect(dialog.locator('[data-preview-mode="complete"]')).toBeDisabled();
   await expect(dialog.getByRole('heading', { name: 'Metadata' })).toHaveCount(1);
   await expect(page.locator('#site-status')).toHaveText(/dependencies could not be resolved/i);

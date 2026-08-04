@@ -56,6 +56,13 @@ export function filterAssets(assets, query, type = 'all') {
 }
 
 const SPECIALIST_CONTROL_ID = /^SPC-[A-F0-9]{10}$/;
+const SPECIALIST_CONTROL_REGISTRY_URL = 'https://github.com/CarlasHub/Agents-Workflow-Blueprint/blob/main/docs/template-library/SPECIALIST-CONTROLS.md';
+
+export function specialistControlHref(controlId) {
+  return SPECIALIST_CONTROL_ID.test(controlId)
+    ? `${SPECIALIST_CONTROL_REGISTRY_URL}#${controlId.toLowerCase()}`
+    : '#';
+}
 
 export function parseSpecialistControls(markdown) {
   const source = String(markdown ?? '').replace(/\r\n/g, '\n');
@@ -160,7 +167,7 @@ export function composeReadableAssetMarkdown(asset, assetMarkdown, kernelMarkdow
     '',
     '## Shared governance applied',
     '',
-    `Governance profile \`${asset.governance_profile}\` is applied. Use **Complete composition** or **Copy complete asset** to include the full governance kernel.`
+    `Governance profile \`${asset.governance_profile}\` is applied. Use the **Full ${asset.type}** view or **Copy complete asset** to include the full governance kernel.`
   );
   return `${parts.join('\n').trim()}\n`;
 }

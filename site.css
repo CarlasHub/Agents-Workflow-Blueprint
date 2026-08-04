@@ -1032,18 +1032,19 @@ body.modal-open {
 }
 
 .markdown-preview-modes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  padding: 0.8rem 1.35rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding: 0 1.35rem;
   background: var(--bgColor-muted);
   border-bottom: 1px solid var(--borderColor-default);
 }
 
 .markdown-preview-modes button {
-  border: 1px solid var(--borderColor-default);
-  border-radius: var(--radius-pill);
-  padding: 0.5rem 0.8rem;
+  min-height: 3.25rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  padding: 0.75rem 1rem;
   background: transparent;
   color: var(--fgColor-muted);
   font: inherit;
@@ -1052,10 +1053,15 @@ body.modal-open {
   cursor: pointer;
 }
 
-.markdown-preview-modes button[aria-pressed="true"] {
-  border-color: var(--accentColor-emphasis);
-  background: var(--accentColor-muted);
+.markdown-preview-modes button[aria-selected="true"] {
+  border-bottom-color: var(--accentColor-emphasis);
+  background: linear-gradient(180deg, transparent, var(--accentColor-muted));
   color: var(--fgColor-default);
+}
+
+.markdown-preview-modes button:focus-visible {
+  position: relative;
+  z-index: 1;
 }
 
 .markdown-preview-modes button:disabled {
