@@ -66,7 +66,7 @@ These are repository-level results for the tested fixtures and environment. They
 
 - No model-based comparative evaluation was executed because no model runtime was supplied; the deterministic evaluation dry run validates fixtures only.
 - No claim of WCAG conformance is made. Automated checks cannot replace manual assistive-technology, reflow, contrast, and usability review.
-- The unpublished local changes have not been verified on the live GitHub Pages deployment.
+- The GitHub Pages deployment was smoke-tested at release commit `22e0cdd`: all 100 assets loaded, prompt content opened by default, complete/source views worked, and no horizontal overflow was detected at 1440 px or 390 px. This is a deployment smoke test, not exhaustive browser or assistive-technology coverage.
 - The repository does not establish production security, legal compliance, universal effectiveness, or fitness for a specific organisation.
 
 ## Verification
