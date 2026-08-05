@@ -11,6 +11,7 @@
 - [Traceability Matrix Pattern](TRACEABILITY-MATRIX.md)
 - [System 2 Prompting Guide](SYSTEM-2-PROMPTING-GUIDE.md)
 - [Research and Standards Basis](RESEARCH-BASIS.md)
+- [Curated Research Source Registry](research-sources.json)
 - [Human-AI Quality Standard](HUMAN-AI-QUALITY-STANDARD.md)
 
 

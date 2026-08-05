@@ -6,6 +6,8 @@ from pathlib import Path
 import json
 import sys
 
+from asset_composer import CompositionError, load_research_sources
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LIBRARY = ROOT / "docs" / "template-library"
@@ -17,6 +19,7 @@ REQUIRED_DOCS = (
     "RESEARCH-BASIS.md",
     "HUMAN-AI-QUALITY-STANDARD.md",
     "GOVERNANCE-KERNEL.md",
+    "research-sources.json",
 )
 REQUIRED_TERMS = ("CoT-safe", "Tree-of-Thoughts", "ReAct", "Least-to-most")
 HUMAN_AI_TERMS = (
@@ -56,11 +59,25 @@ def main() -> int:
             failures.append(f"GOVERNANCE-KERNEL.md missing control area: {term}")
 
     assets = json.loads((LIBRARY / "assets.json").read_text(encoding="utf-8"))
+    try:
+        research_sources = load_research_sources()
+    except (CompositionError, OSError, json.JSONDecodeError) as error:
+        failures.append(f"research source registry is invalid: {error}")
+        research_sources = {}
     for asset in assets:
         if len(asset.get("research_patterns", [])) < 3:
             failures.append(f"manifest entry lacks research patterns: {asset.get('id', asset.get('title'))}")
         if "docs/template-library/GOVERNANCE-KERNEL.md" not in asset.get("dependencies", []):
             failures.append(f"manifest entry lacks kernel dependency: {asset.get('id', asset.get('title'))}")
+        labels = asset.get("research_pattern_labels", [])
+        if asset.get("type") == "prompt" and len(labels) < 3:
+            failures.append(f"prompt lacks a curated research stack: {asset.get('id', asset.get('title'))}")
+        for label in labels:
+            if label not in research_sources:
+                failures.append(
+                    f"manifest entry has unresolved research source {label}: "
+                    f"{asset.get('id', asset.get('title'))}"
+                )
 
     for folder in ("prompts", "skills", "contracts"):
         for path in (LIBRARY / folder).glob("*.md"):

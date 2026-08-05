@@ -2,6 +2,25 @@
 
 All notable changes are recorded here.
 
+## 3.0.1 — 2026-08-05
+
+### Added
+
+- A normalized nine-source research registry that resolves every curated asset research label to an exact scholarly paper or engineering standard and documents the repository-level translation. Every prompt must cite each research pattern it declares.
+- Validation and tests for unresolved citations, unsafe citation URLs, asset-type prefix drift, and prompt/skill/contract structural contamination.
+
+### Changed
+
+- The website now keeps goal, applicability, exclusions, and research provenance outside the code region.
+- Both website copy paths and the default CLI composition now return only the agent-executable body: specialist content, resolved shared specialist requirements, and shared operating rules.
+- Single-asset bodies no longer repeat the catalogue title. Multi-asset packs retain typed module boundaries so prompts, skills, and contracts cannot be confused.
+- `scripts/compose_assets.py --with-references` explicitly appends research, source-module, governance, and specialist-control references for review artefacts.
+
+### Limitations
+
+- The curated source links document design influences; they do not prove that an individual prompt will maximize task performance for every model or environment.
+- Deterministic structure and browser tests do not replace recorded model evaluations or expert review for a concrete deployment.
+
 ## 3.0.0 — 2026-08-05
 
 ### Added

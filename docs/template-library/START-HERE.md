@@ -2,14 +2,14 @@
 
 ## Step 0 — Load shared governance
 
-Use the website’s single asset dialog and compact copy control, or use `scripts/compose_assets.py`. The dialog shows an introduction, the complete composed prompt/skill/contract as literal Markdown code, and linked references. The copied output includes applicability boundaries, required inputs, the specialist procedure, domain evidence and failure handling, applicable shared requirements once, and source references at the end. Use [`RESEARCH-DNA.md`](RESEARCH-DNA.md) only when you need the source map, [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) for task selection, and [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) for sociotechnical and trust-calibration review.
+Use the website’s single asset dialog and compact copy control, or use `scripts/compose_assets.py`. The dialog keeps the goal, “Use this when”, “Do not use this when”, and linked research outside the literal Markdown body. The copied output contains only the required inputs, specialist instructions or procedure or hard gates, evidence and failure handling, applicable shared requirements once, and shared operating rules. Pass `--with-references` only when a review artefact needs citations appended. Use [`RESEARCH-DNA.md`](RESEARCH-DNA.md) when you need the source map, [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) for task selection, and [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) for sociotechnical and trust-calibration review.
 
 
 Use this page when you need the shortest safe route through the library.
 
 ## For a new Codex task
 
-1. Read `AGENTS.md` and `docs/engineering/workflow.md`, then use a complete composed asset.
+1. Read `AGENTS.md` and `docs/engineering/workflow.md`, then use the complete composed agent body.
 2. Choose the narrowest relevant prompt; use the master prompt only for broad cross-cutting work.
 3. Add [`skills/01-scoping-packet-skill.md`](skills/01-scoping-packet-skill.md) if the task is non-trivial.
 4. Attach [`contracts/01-completion-honesty-contract.md`](contracts/01-completion-honesty-contract.md) so final claims can be accepted or rejected.

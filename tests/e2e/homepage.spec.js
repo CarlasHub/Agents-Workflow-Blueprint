@@ -83,21 +83,22 @@ test('preview closes with its close control', async ({ page }) => {
   await expect(page.getByRole('dialog')).toBeHidden();
 });
 
-test('preview presents one dialog with an introduction, prompt code, references, and compact copy control', async ({ page }) => {
+test('preview keeps applicability and research outside the agent-ready prompt body', async ({ page }) => {
   await page.goto('./');
   await page.locator('[data-preview-path]').first().click();
   const dialog = page.getByRole('dialog');
   const promptCode = dialog.locator('[data-prompt-code]');
-  const copy = dialog.getByRole('button', { name: 'Copy full prompt' });
+  const copy = dialog.getByRole('button', { name: 'Copy prompt body' });
 
   await expect(dialog.getByRole('tab')).toHaveCount(0);
-  await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('introduction, prompt code, and references');
-  await expect(dialog.getByRole('heading', { name: 'Introduction' })).toHaveCount(1);
+  await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('applicability, agent-ready prompt body, and research references');
+  await expect(dialog.getByRole('heading', { name: 'Prompt overview' })).toHaveCount(1);
+  const applicabilityHeadings = dialog.locator('.asset-preview-introduction h4');
+  await expect(applicabilityHeadings.filter({ hasText: /^Use this when$/ })).toHaveCount(1);
+  await expect(applicabilityHeadings.filter({ hasText: /^Do not use this when$/ })).toHaveCount(1);
   await expect(dialog.locator('.asset-preview-introduction').getByText(/Use at the start of a serious coding-agent session/)).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Full prompt' })).toHaveCount(1);
-  await expect(promptCode).toContainText('# Master Agent Enforcement Prompt');
-  await expect(promptCode).toContainText('## Use this when');
-  await expect(promptCode).toContainText('## Do not use this when');
+  await expect(dialog.locator('.asset-preview-introduction').getByText(/Do not use this broad governor/)).toHaveCount(1);
+  await expect(dialog.getByRole('heading', { name: 'Prompt body' })).toHaveCount(1);
   await expect(promptCode).toContainText('## Inputs required');
   await expect(promptCode).toContainText('## Role');
   await expect(promptCode).toContainText('## Instructions');
@@ -105,8 +106,13 @@ test('preview presents one dialog with an introduction, prompt code, references,
   await expect(promptCode).toContainText('## Failure modes and recovery');
   await expect(promptCode).toContainText('## Worked example');
   await expect(promptCode).toContainText('## Shared operating rules');
+  await expect(promptCode).not.toContainText('# Master Agent Enforcement Prompt');
+  await expect(promptCode).not.toContainText('## Use this when');
+  await expect(promptCode).not.toContainText('## Do not use this when');
   await expect(promptCode).not.toContainText('## References');
   await expect(dialog.getByRole('heading', { name: 'References' })).toHaveCount(1);
+  await expect(dialog.getByRole('heading', { name: 'Research basis' })).toHaveCount(1);
+  await expect(dialog.getByRole('link', { name: /ReAct: Synergizing Reasoning and Acting/ })).toHaveAttribute('href', 'https://arxiv.org/abs/2210.03629');
   await expect(dialog.getByRole('link', { name: 'Source prompt module' })).toHaveAttribute('href', /prompts\/01-master-agent-enforcement-prompt\.md$/);
   await expect(dialog.getByRole('link', { name: /^SPC-/ }).first()).toHaveAttribute('href', /SPECIALIST-CONTROLS\.md#spc-/);
   await expect(copy.locator('svg')).toHaveCount(1);
@@ -115,7 +121,7 @@ test('preview presents one dialog with an introduction, prompt code, references,
 
 for (let start = 0; start < 100; start += 10) {
   const end = start + 10;
-  test(`manifest assets ${start + 1}-${end} open in one dialog with intro, code, and references`, async ({ page }) => {
+  test(`manifest assets ${start + 1}-${end} keep metadata outside their typed bodies`, async ({ page }) => {
     await page.goto('./');
     const cards = page.locator('.asset-card');
     await expect(cards).toHaveCount(100);
@@ -132,14 +138,20 @@ for (let start = 0; start < 100; start += 10) {
       const assetTitle = (await card.locator('h3').textContent()).trim();
       await card.locator('[data-preview-path]').click();
       await expect(dialog.locator('#markdown-preview-title')).toHaveText(assetTitle);
-      await expect(dialog.getByRole('heading', { name: 'Introduction' })).toHaveCount(1);
+      const typeLabel = assetType.charAt(0).toUpperCase() + assetType.slice(1);
+      await expect(dialog.getByRole('heading', { name: `${typeLabel} overview` })).toHaveCount(1);
+      await expect(dialog.getByRole('heading', { name: `${typeLabel} body` })).toHaveCount(1);
       const promptText = await dialog.locator('[data-prompt-code]').textContent();
       const sectionMarker = `## ${expectedSection[assetType]}\n\n`;
       expect(promptText).toContain(sectionMarker);
       const sectionBody = promptText.slice(promptText.indexOf(sectionMarker) + sectionMarker.length).split(/\n\n## /, 1)[0];
       expect(sectionBody.match(/^\d+\./gm)?.length ?? 0).toBeGreaterThanOrEqual(3);
+      expect(promptText).not.toContain('## Use this when');
+      expect(promptText).not.toContain('## Do not use this when');
+      expect(promptText).not.toContain('## References');
       await expect(dialog.getByRole('heading', { name: 'References' })).toHaveCount(1);
-      await expect(dialog.getByRole('button', { name: `Copy full ${assetType}` })).toHaveCount(1);
+      await expect(dialog.getByRole('heading', { name: 'Research basis' })).toHaveCount(1);
+      await expect(dialog.getByRole('button', { name: `Copy ${assetType} body` })).toHaveCount(1);
       await expect(dialog.getByRole('tab')).toHaveCount(0);
       await dialog.getByRole('button', { name: 'Close markdown preview' }).click();
     }
@@ -152,15 +164,18 @@ test('copy action reports an accessible result', async ({ page, context, browser
   await page.locator('[data-copy-path]').first().click();
   await expect(page.locator('#site-status')).toHaveText(/copied to the clipboard/i);
   const copied = await readClipboard(page, browserName);
-  expect(copied).toMatch(/^# Master Agent Enforcement Prompt/);
+  expect(copied).toMatch(/^## Inputs required/);
   expect(copied).toContain('## Instructions');
   expect(copied).toContain('## Shared operating rules');
-  expect(copied).toContain('## References');
+  expect(copied).not.toContain('## References');
+  expect(copied).not.toContain('## Use this when');
+  expect(copied).not.toContain('## Do not use this when');
+  expect(copied).not.toContain('# Master Agent Enforcement Prompt');
   expect(copied).not.toContain('# Composed Agent Workflow Asset');
   expect(copied).not.toContain('## Dependencies');
 });
 
-test('preview exposes one clear full-prompt copy action', async ({ page, context, browserName }) => {
+test('preview exposes one clear body-only copy action', async ({ page, context, browserName }) => {
   await prepareClipboard(page, context, browserName);
   await page.goto('./');
   await page.locator('[data-preview-path]').first().click();
@@ -168,15 +183,17 @@ test('preview exposes one clear full-prompt copy action', async ({ page, context
 
   await expect(dialog.getByRole('button', { name: 'Copy source module' })).toHaveCount(0);
   await expect(dialog.getByRole('link', { name: 'Download source' })).toHaveCount(0);
-  const copy = dialog.getByRole('button', { name: 'Copy full prompt' });
+  const copy = dialog.getByRole('button', { name: 'Copy prompt body' });
   await expect(copy.locator('svg')).toHaveCount(1);
   await copy.focus();
   await expect(copy).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('#site-status')).toHaveText(/ready to paste/i);
   const composed = await readClipboard(page, browserName);
-  expect(composed).toMatch(/^# Master Agent Enforcement Prompt/);
-  expect(composed).toContain('## References');
+  expect(composed).toMatch(/^## Inputs required/);
+  expect(composed).not.toContain('## References');
+  expect(composed).not.toContain('## Use this when');
+  expect(composed).not.toContain('## Do not use this when');
   expect(composed).not.toContain('## Dependencies');
 });
 

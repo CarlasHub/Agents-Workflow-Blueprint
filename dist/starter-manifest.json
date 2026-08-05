@@ -150,6 +150,7 @@
     "docs/template-library/prompts/38-secrets-handling-review-prompt.md",
     "docs/template-library/prompts/39-observability-and-logging-prompt.md",
     "docs/template-library/prompts/40-final-merge-gate-prompt.md",
+    "docs/template-library/research-sources.json",
     "docs/template-library/skills/01-scoping-packet-skill.md",
     "docs/template-library/skills/02-implementation-planning-skill.md",
     "docs/template-library/skills/03-repository-mapping-skill.md",

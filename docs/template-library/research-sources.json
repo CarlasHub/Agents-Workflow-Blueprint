@@ -1,0 +1,56 @@
+[
+  {
+    "label": "Chain-of-Thought Prompting",
+    "citation": "Wei et al. (2022), Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "url": "https://arxiv.org/abs/2201.11903",
+    "translation": "Supports decomposing complex reasoning; this library requests concise public decision records instead of private reasoning traces."
+  },
+  {
+    "label": "Formal verification and traceability",
+    "citation": "ISO/IEC/IEEE 15288:2023, Systems and software engineering — System life cycle processes",
+    "url": "https://www.iso.org/standard/81702.html",
+    "translation": "Supports lifecycle controls and traceable verification; this library maps claims to requirements, artefacts, evidence, and status."
+  },
+  {
+    "label": "Least-to-Most Prompting",
+    "citation": "Zhou et al. (2022), Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+    "url": "https://arxiv.org/abs/2205.10625",
+    "translation": "Supports ordered decomposition; this library requires agents to solve the smallest blocking subproblem before broad changes."
+  },
+  {
+    "label": "Premortem failure analysis",
+    "citation": "Mitchell, Russo, and Pennington (1989), Back to the future: Temporal perspective in the explanation of events",
+    "url": "https://doi.org/10.1002/bdm.3960020103",
+    "translation": "Supports prospective hindsight; this library uses premortems to surface plausible failure paths before acceptance or release."
+  },
+  {
+    "label": "Reason + Act",
+    "citation": "Yao et al. (2022), ReAct: Synergizing Reasoning and Acting in Language Models",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "translation": "Supports interleaving decisions with environmental action; this library requires observe, act, observe, and verify loops."
+  },
+  {
+    "label": "Reflexion",
+    "citation": "Shinn et al. (2023), Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2303.11366",
+    "translation": "Supports feedback-driven revision; this library treats failed checks as inputs to correction and rerun decisions."
+  },
+  {
+    "label": "Self-Consistency",
+    "citation": "Wang et al. (2022), Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+    "url": "https://arxiv.org/abs/2203.11171",
+    "translation": "Supports comparing reasoning paths; this library requires rival hypotheses or independent evidence before material conclusions."
+  },
+  {
+    "label": "System 2 / cognitive forcing",
+    "citation": "Evans and Stanovich (2013), Dual-Process Theories of Higher Cognition: Advancing the Debate",
+    "url": "https://doi.org/10.1177/1745691612460685",
+    "translation": "Provides the human-cognition source for the metaphor only; this library uses deliberate-work controls and does not claim an AI switches cognitive systems."
+  },
+  {
+    "label": "Tree-of-Thoughts",
+    "citation": "Yao et al. (2023), Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+    "url": "https://arxiv.org/abs/2305.10601",
+    "translation": "Supports evaluating multiple candidate paths; this library requires branch comparison when ambiguity, risk, or irreversibility is material."
+  }
+]

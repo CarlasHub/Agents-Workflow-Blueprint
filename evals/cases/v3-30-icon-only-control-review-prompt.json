@@ -2,7 +2,7 @@
   "id": "v3-icon-only-control-review",
   "category": "accessibility",
   "title": "Evaluate Icon-Only Control Review Prompt",
-  "task": "In a fictional engineering repository, for a small copy icon, verify native button semantics, \u201cCopy full prompt\u201d naming, 44-pixel target, visible focus, Enter and Space activation, stable naming, and a separate copied-status announcement.",
+  "task": "In a fictional engineering repository, for a small copy icon, verify native button semantics, \u201cCopy prompt body\u201d naming, 44-pixel target, visible focus, Enter and Space activation, stable naming, and a separate copied-status announcement.",
   "prompt": "docs/template-library/prompts/30-icon-only-control-review-prompt.md",
   "skill": "docs/template-library/skills/08-accessibility-inspection-skill.md",
   "contract": "docs/template-library/contracts/09-accessible-name-contract.md",

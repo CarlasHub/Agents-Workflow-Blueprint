@@ -1,6 +1,6 @@
 # Governance Kernel
 
-Version: 3.0.0
+Version: 3.0.1
 
 This is the shared control layer for every prompt, skill, and contract in the Agent Workflow Blueprint. Make this file available with any selected asset. If an asset is copied outside the repository, copy this kernel with it or provide equivalent controls explicitly.
 
@@ -126,4 +126,4 @@ Use these decision forms:
 
 ## Composition rule
 
-`GOV-COMPOSE-01`: A copy-ready asset renders each selected specialist module first, every referenced specialist control once, and the common operating rules plus each applicable asset profile from this kernel once. Source references appear at the end. Composition must reject missing controls, duplicate asset IDs, duplicate control IDs, and dependency cycles. Source modules may be copied alone only when the recipient already has this kernel and the referenced specialist controls.
+`GOV-COMPOSE-01`: A copy-ready agent body renders each selected specialist module first, every referenced specialist control once, and the common operating rules plus each applicable asset profile from this kernel once. Catalogue titles, applicability guidance, metadata, dependency declarations, and references remain outside the agent body. Review artefacts may append research, source, and control references only when explicitly requested. Composition must reject missing controls, unresolved research labels, duplicate asset IDs, duplicate control IDs, and dependency cycles. Source modules may be copied alone only when the recipient already has this kernel and the referenced specialist controls.

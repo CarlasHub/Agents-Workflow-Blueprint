@@ -12,7 +12,7 @@ Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KE
 
 ## Use the system this way
 
-1. Open an asset's single dialog, review the introduction and references, then copy the standalone code with its compact copy control; or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+1. Open an asset's single dialog, review its goal, applicability boundary, and research references, then copy only the agent-ready body with its compact copy control; or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
 2. Choose the smallest prompt that matches the task.
 3. Attach the matching skill when the work needs a repeatable procedure.
 4. Attach the matching contract when the result needs acceptance or rejection language.
@@ -35,11 +35,11 @@ Open [`CATALOGUE.md`](CATALOGUE.md) for all 100 assets grouped by type and categ
 
 ## Source modules and copy-ready assets
 
-The Markdown files under `prompts/`, `skills/`, and `contracts/` are authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website presents one dialog with a concise introduction, the complete composed prompt/skill/contract as literal Markdown code, one compact copy control beside that code, and linked references. `scripts/compose_assets.py` produces the same copied output.
+The Markdown files under `prompts/`, `skills/`, and `contracts/` are authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website presents one dialog with applicability outside the code region, the complete executable prompt/skill/contract body as literal Markdown code, one compact copy control beside that body, and research plus implementation references outside the copied content. `scripts/compose_assets.py` produces the same body-only output by default; pass `--with-references` only when creating a review artefact rather than an agent paste.
 
 ## Machine-readable catalogue
 
-Open [`assets.json`](assets.json) for site integration, version and risk metadata, required inputs, expected outputs, governance profiles, evaluation-case mappings, ordered specialist-control references, and automation.
+Open [`assets.json`](assets.json) for site integration, version and risk metadata, required inputs, expected outputs, governance profiles, evaluation-case mappings, ordered specialist-control references, curated research labels, and automation. [`research-sources.json`](research-sources.json) is the normalized citation registry used to resolve those labels to exact scholarly or standards sources.
 
 ## Usage rule
 

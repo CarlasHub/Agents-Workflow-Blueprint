@@ -59,6 +59,7 @@ const SPECIALIST_CONTROL_ID = /^SPC-[A-F0-9]{10}$/;
 const REPOSITORY_BLOB_URL = 'https://github.com/CarlasHub/Agents-Workflow-Blueprint/blob/main';
 const GOVERNANCE_KERNEL_URL = `${REPOSITORY_BLOB_URL}/docs/template-library/GOVERNANCE-KERNEL.md`;
 const SPECIALIST_CONTROL_REGISTRY_URL = `${REPOSITORY_BLOB_URL}/docs/template-library/SPECIALIST-CONTROLS.md`;
+const RESEARCH_BASIS_URL = `${REPOSITORY_BLOB_URL}/docs/template-library/RESEARCH-BASIS.md`;
 
 export function repositoryFileHref(path) {
   const value = String(path ?? '').trim();
@@ -88,6 +89,27 @@ export function parseSpecialistControls(markdown) {
     controls.set(heading[1], match[1].replace(/\s+/g, ' ').trim());
   });
   return controls;
+}
+
+export function parseResearchSources(data) {
+  if (!Array.isArray(data)) throw new Error('Research source registry must be an array');
+  const sources = new Map();
+  data.forEach((entry) => {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      throw new Error('Research source entries must be objects');
+    }
+    const label = String(entry.label ?? '').trim();
+    if (!label) throw new Error('Research source entry is missing its label');
+    if (sources.has(label)) throw new Error(`Duplicate research source: ${label}`);
+    for (const field of ['citation', 'url', 'translation']) {
+      if (!String(entry[field] ?? '').trim()) throw new Error(`Research source ${label} is missing ${field}`);
+    }
+    if (!String(entry.url).startsWith('https://') || safeHref(entry.url) === '#') {
+      throw new Error(`Research source ${label} must use a safe HTTPS URL`);
+    }
+    sources.set(label, entry);
+  });
+  return sources;
 }
 
 export function referencedSpecialistControls(markdown) {
@@ -122,31 +144,27 @@ function secondLevelSections(markdown) {
   ]));
 }
 
-function assetTitle(asset, markdown) {
-  return String(markdown ?? '').match(/^# ([^\n]+)$/m)?.[1]?.trim() || asset?.title || 'Agent workflow asset';
-}
-
-function friendlyAssetModule(asset, markdown) {
-  const title = assetTitle(asset, markdown);
+function friendlyAssetModule(markdown) {
   const body = removeMarkdownSections(markdown, [
     'Metadata',
+    'When to use',
+    'When not to use',
     'Dependencies',
-    'Shared specialist controls'
+    'Shared specialist controls',
+    'Research basis'
   ])
     .replace(/^# [^\n]+\n*/m, '')
     .replace(/^## Specialist role$/gm, '## Role')
     .replace(/^## Contract owner$/gm, '## Role')
     .replace(/^## Task-specific mission$/gm, '## Mission')
     .replace(/^## Task-specific instructions$/gm, '## Instructions')
-    .replace(/^## When to use$/gm, '## Use this when')
-    .replace(/^## When not to use$/gm, '## Do not use this when')
     .replace(/^## Required inputs$/gm, '## Inputs required')
     .replace(/^## Required evidence$/gm, '## Evidence required')
     .replace(/^## Evidence to collect$/gm, '## Evidence required')
     .replace(/^## Task-specific rejection conditions$/gm, '## Rejection conditions')
     .replace(/^## Output format$/gm, '## Response format')
     .trim();
-  return `# ${title}\n\n${body}`.trim();
+  return body;
 }
 
 function governanceHeadingLabel(heading) {
@@ -186,12 +204,28 @@ function composeGovernanceInstructions(asset, kernelMarkdown) {
   return parts.join('\n');
 }
 
-function sourceReferences(asset) {
+function sourceReferences(asset, researchSourceData) {
   const sourceUrl = repositoryFileHref(asset.path);
   if (sourceUrl === '#') throw new Error('Asset source path is invalid');
+  if (!Array.isArray(asset.research_pattern_labels) || !asset.research_pattern_labels.length) {
+    throw new Error('Asset is missing curated research labels');
+  }
+  const researchSources = parseResearchSources(researchSourceData);
+  const missingResearch = asset.research_pattern_labels.filter((label) => !researchSources.has(label));
+  if (missingResearch.length) throw new Error(`Unresolved research sources: ${missingResearch.join(', ')}`);
   const typeLabel = String(asset.type ?? 'asset').toLowerCase();
   const references = [
     '## References',
+    '',
+    '### Research basis',
+    '',
+    `- [Research-to-control mapping](${RESEARCH_BASIS_URL})`,
+    ...asset.research_pattern_labels.map((label) => {
+      const source = researchSources.get(label);
+      return `- **${label}:** [${source.citation}](${source.url}) — ${source.translation}`;
+    }),
+    '',
+    '### Asset and control sources',
     '',
     `- [Source ${typeLabel} module](${sourceUrl})`,
     `- [Shared governance kernel](${GOVERNANCE_KERNEL_URL})`,
@@ -205,9 +239,15 @@ function sourceReferences(asset) {
   return references.join('\n');
 }
 
-export function composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown) {
+export function composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown, researchSourceData) {
   const controlIds = asset?.shared_controls;
-  if (!asset?.id || !Array.isArray(controlIds) || new Set(controlIds).size !== controlIds.length) {
+  if (
+    !asset?.id
+    || !['prompt', 'skill', 'contract'].includes(asset.type)
+    || !asset.id.startsWith(`${asset.type}-`)
+    || !Array.isArray(controlIds)
+    || new Set(controlIds).size !== controlIds.length
+  ) {
     throw new Error('Asset composition metadata is invalid');
   }
   if (controlIds.some((controlId) => !SPECIALIST_CONTROL_ID.test(controlId))) {
@@ -221,14 +261,31 @@ export function composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, regis
   const missing = controlIds.filter((controlId) => !controls.has(controlId));
   if (missing.length) throw new Error(`Unresolved specialist controls: ${missing.join(', ')}`);
 
-  const parts = [friendlyAssetModule(asset, assetMarkdown)];
+  const sections = secondLevelSections(assetMarkdown);
+  const typeSignatures = {
+    prompt: ['Task-specific mission', 'Task-specific instructions'],
+    skill: ['Purpose', 'Procedure', 'Handoff format'],
+    contract: ['Acceptance objective', 'Hard gates', 'Acceptance language']
+  };
+  const forbiddenSignatures = {
+    prompt: ['Procedure', 'Hard gates', 'Acceptance language'],
+    skill: ['Task-specific mission', 'Task-specific instructions', 'Hard gates', 'Acceptance language'],
+    contract: ['Task-specific mission', 'Task-specific instructions', 'Procedure', 'Handoff format']
+  };
+  const missingSignatures = typeSignatures[asset.type].filter((heading) => !sections.has(heading));
+  const conflictingSignatures = forbiddenSignatures[asset.type].filter((heading) => sections.has(heading));
+  if (missingSignatures.length || conflictingSignatures.length) {
+    throw new Error(`Asset source does not match its declared ${asset.type} structure`);
+  }
+
+  const parts = [friendlyAssetModule(assetMarkdown)];
   if (controlIds.length) {
     parts.push('', '## Shared specialist requirements', '');
     controlIds.forEach((controlId, index) => {
       parts.push(`${index + 1}. ${controls.get(controlId)}`);
     });
   }
-  parts.push('', composeGovernanceInstructions(asset, kernelMarkdown), '', sourceReferences(asset));
+  parts.push('', composeGovernanceInstructions(asset, kernelMarkdown), '', sourceReferences(asset, researchSourceData));
   return `${parts.join('\n').trim()}\n`;
 }
 
@@ -243,14 +300,26 @@ export function splitComposedAssetMarkdown(markdown) {
   };
 }
 
-export function composeAssetIntroductionMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown) {
+export function composeAssetIntroductionMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown, researchSourceData) {
   // Run the canonical composer first so the introduction cannot hide dependency drift.
-  composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown);
+  composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown, researchSourceData);
   const sections = secondLevelSections(assetMarkdown);
+  const typeLabel = getTypeLabel(asset.type);
+  const targetOutcome = Array.isArray(asset.expected_outputs) && asset.expected_outputs.length
+    ? asset.expected_outputs[0]
+    : 'Complete the described specialist task.';
   return [
-    '### Introduction',
+    `### ${typeLabel} overview`,
     '',
-    sections.get('When to use') || asset.summary || 'Use this asset for the described specialist task.'
+    `**Target outcome:** ${targetOutcome}`,
+    '',
+    '#### Use this when',
+    '',
+    sections.get('When to use') || asset.summary || 'Use this asset for the described specialist task.',
+    '',
+    '#### Do not use this when',
+    '',
+    sections.get('When not to use') || 'Do not use this asset outside its stated specialist boundary.'
   ].join('\n').trim() + '\n';
 }
 

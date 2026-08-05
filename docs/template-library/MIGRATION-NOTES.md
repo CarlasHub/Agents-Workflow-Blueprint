@@ -1,5 +1,15 @@
 # Asset architecture migration notes
 
+## Version 3.0.1
+
+Asset IDs, source paths, source versions, and specialist-control IDs remain stable. Composition now separates review context from agent instructions.
+
+- Website and CLI copy output excludes the source title, applicability, metadata, dependencies, and references.
+- Goal, “Use this when”, “Do not use this when”, curated research citations, and implementation references remain visible in the website dialog outside the code region.
+- `research-sources.json` resolves every `research_pattern_labels` entry to an exact paper or standard plus the repository-level translation.
+- `scripts/compose_assets.py --with-references` is available for review artefacts that intentionally append citations and implementation sources.
+- Multi-asset packs preserve explicit Prompt, Skill, and Contract module boundaries; single-asset output starts directly with the executable body.
+
 ## Version 3.0.0
 
 All 100 stable asset IDs, paths, titles, governance profiles, and specialist-control IDs remain available. The change strengthens prompt sources and machine-readable quality metadata without removing skills, contracts, starter packs, or static-site behavior.
@@ -11,7 +21,6 @@ All 100 stable asset IDs, paths, titles, governance profiles, and specialist-con
 - The manifest records `risk_level`, `required_inputs`, `expected_outputs`, and `evaluation_cases` for every asset.
 - Every prompt maps to at least one fictional evaluation case. The suite covers 40 cases and compares five conditions, including frozen v2.1 and v3 prompt inputs.
 - Validation enforces prompt source size, composed size, specialist-content ratio, input alignment, conditional gates, concrete evidence, recoveries, rejection conditions, output schema, example quality, evaluation coverage, and existing normalized-control rules.
-- The website still uses one keyboard-accessible dialog. It shows an introduction, complete composed Markdown in a code region, one compact copy icon, and references.
 
 ### Adoption
 

@@ -9,7 +9,7 @@ Use this repository as a layered instruction system.
 3. Select one prompt ID from `docs/template-library/assets.json`.
 4. Add one skill from `docs/template-library/skills/` when the task needs a repeatable procedure.
 5. Add one contract from `docs/template-library/contracts/` when the result needs acceptance or rejection.
-6. Compose the selected IDs so the kernel and every shared control appear once.
+6. Compose the selected IDs so the kernel and every shared control appear once. The default output is the body intended for Codex; use `--with-references` only for an audit or review copy.
 7. Require exact command results and final status.
 
 Example composition:
@@ -24,8 +24,8 @@ python3 -S scripts/compose_assets.py \
 ## Example instruction
 
 ```text
-Use AGENTS.md and docs/engineering/workflow.md with the complete composed
-bug-remediation, regression-test-design, and test-behaviour asset produced by
+Use AGENTS.md and docs/engineering/workflow.md with the composed agent body for
+the bug-remediation, regression-test-design, and test-behaviour assets produced by
 scripts/compose_assets.py.
 Do not claim the bug is fixed unless the failure path is proven and verification results are reported.
 ```

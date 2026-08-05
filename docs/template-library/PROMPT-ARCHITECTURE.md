@@ -8,7 +8,8 @@ The library has three authored layers:
 
 1. [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) owns scope, assumptions, evidence, traceability, status, escalation, claim control, the common handoff, and prompt/skill/contract execution profiles.
 2. [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) owns specialist instructions that are reused by more than one asset.
-3. Each prompt, skill, or contract owns its applicability boundary, inputs, specialist procedure, domain evidence, domain failures, output record, and references.
+3. Each prompt, skill, or contract owns its applicability boundary, inputs, specialist procedure, domain evidence, domain failures, and output record.
+4. [`research-sources.json`](research-sources.json) resolves each curated research label to an exact paper or standard and states how the source is translated into an observable repository control.
 
 [`assets.json`](assets.json) records version, risk, required inputs, expected outputs, dependencies, and evaluation-case mappings. `scripts/compose_assets.py` and the website use the same composition rules.
 
@@ -34,14 +35,13 @@ The numerical quality thresholds are defined in [`QUALITY-RUBRIC.md`](QUALITY-RU
 
 ## Copy-ready composition
 
-Composition produces one complete prompt in this order:
+Body composition produces one agent-ready prompt in this order:
 
-1. selected source modules, including applicability, required inputs, role, mission, instructions, gates, evidence, failures, rejection conditions, output record, and example;
+1. selected source modules, beginning with required inputs and continuing through role, mission, instructions, gates, evidence, failures, rejection conditions, output record, and example;
 2. every referenced specialist control once;
-3. the applicable governance kernel rules and execution profiles once;
-4. source and control references.
+3. the applicable governance kernel rules and execution profiles once.
 
-Metadata, dependency declarations, and raw shared-control ID lists are composition metadata and are not repeated as user instructions. The copy-ready prompt ends with references but remains a single pasted instruction set.
+The source title, applicability sections, metadata, dependency declarations, raw shared-control ID lists, and research/source references are review context rather than agent instructions. The website renders them outside the code region and excludes them from both copy actions. `scripts/compose_assets.py` has the same body-only default; `--with-references` appends a separate review section when explicitly requested.
 
 ## Common handoff and domain record
 

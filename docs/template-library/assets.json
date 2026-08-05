@@ -105,7 +105,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency",
-      "Premortem failure analysis"
+      "Premortem failure analysis",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-evidence-first-implementation-prompt",
     "version": "3.0.0",
@@ -493,7 +495,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-premortem-failure-analysis-prompt",
     "version": "3.0.0",
@@ -644,7 +648,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-minimal-correct-change-prompt",
     "version": "3.0.0",
@@ -795,7 +801,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-feature-implementation-prompt",
     "version": "3.0.0",
@@ -873,7 +881,8 @@
       "Formal verification and traceability",
       "Reflexion",
       "Self-Consistency",
-      "Chain-of-Thought Prompting"
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-bug-root-cause-remediation-prompt",
     "version": "3.0.0",
@@ -951,7 +960,8 @@
       "Formal verification and traceability",
       "Reflexion",
       "Self-Consistency",
-      "Chain-of-Thought Prompting"
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-regression-risk-review-prompt",
     "version": "3.0.0",
@@ -1028,7 +1038,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency",
-      "Premortem failure analysis"
+      "Premortem failure analysis",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-code-quality-deep-audit-prompt",
     "version": "3.0.0",
@@ -1180,7 +1192,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-dead-code-removal-prompt",
     "version": "3.0.0",
@@ -1255,7 +1269,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-refactor-safety-prompt",
     "version": "3.0.0",
@@ -1332,7 +1348,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency",
-      "Premortem failure analysis"
+      "Premortem failure analysis",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-api-contract-review-prompt",
     "version": "3.0.0",
@@ -1407,7 +1425,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-data-flow-trace-prompt",
     "version": "3.0.0",
@@ -1482,7 +1502,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-state-management-audit-prompt",
     "version": "3.0.0",
@@ -1558,7 +1580,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-ui-structure-audit-prompt",
     "version": "3.0.0",
@@ -1635,7 +1659,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency",
-      "Premortem failure analysis"
+      "Premortem failure analysis",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-visual-design-quality-gate-prompt",
     "version": "3.0.0",
@@ -1711,7 +1737,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-design-system-consistency-prompt",
     "version": "3.0.0",
@@ -1787,7 +1815,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-responsive-layout-audit-prompt",
     "version": "3.0.0",
@@ -1863,7 +1893,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-interaction-state-audit-prompt",
     "version": "3.0.0",
@@ -1938,7 +1970,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-keyboard-journey-audit-prompt",
     "version": "3.0.0",
@@ -2013,7 +2047,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-accessibility-remediation-prompt",
     "version": "3.0.0",
@@ -2088,7 +2124,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-screen-reader-risk-review-prompt",
     "version": "3.0.0",
@@ -2240,7 +2278,9 @@
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-icon-only-control-review-prompt",
     "version": "3.0.0",
@@ -2317,7 +2357,8 @@
       "Formal verification and traceability",
       "Reflexion",
       "Self-Consistency",
-      "Chain-of-Thought Prompting"
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-playwright-test-design-prompt",
     "version": "3.0.0",
@@ -2395,7 +2436,8 @@
       "Reflexion",
       "Self-Consistency",
       "Chain-of-Thought Prompting",
-      "Premortem failure analysis"
+      "Premortem failure analysis",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-test-quality-audit-prompt",
     "version": "3.0.0",
@@ -2472,7 +2514,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Self-Consistency",
-      "Premortem failure analysis"
+      "Premortem failure analysis",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-release-evidence-prompt",
     "version": "3.0.0",
@@ -2547,7 +2591,9 @@
       "Reason + Act",
       "Least-to-Most Prompting",
       "System 2 / cognitive forcing",
-      "Formal verification and traceability"
+      "Formal verification and traceability",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-documentation-truthfulness-prompt",
     "version": "3.0.0",
@@ -2777,7 +2823,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Premortem failure analysis",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-security-trust-boundary-prompt",
     "version": "3.0.0",
@@ -2853,7 +2901,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Premortem failure analysis",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-secrets-handling-review-prompt",
     "version": "3.0.0",
@@ -2930,7 +2980,9 @@
       "System 2 / cognitive forcing",
       "Formal verification and traceability",
       "Premortem failure analysis",
-      "Self-Consistency"
+      "Self-Consistency",
+      "Chain-of-Thought Prompting",
+      "Tree-of-Thoughts"
     ],
     "id": "prompt-observability-and-logging-prompt",
     "version": "3.0.0",

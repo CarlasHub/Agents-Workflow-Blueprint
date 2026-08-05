@@ -8,8 +8,13 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from asset_composer import compose_assets, parse_registry  # noqa: E402
-from check_template_library import prompt_quality_failures, specialist_body_failures, valid_manifest_entry  # noqa: E402
+from asset_composer import compose_assets, load_research_sources, parse_registry  # noqa: E402
+from check_template_library import (  # noqa: E402
+    asset_type_failures,
+    prompt_quality_failures,
+    specialist_body_failures,
+    valid_manifest_entry,
+)
 
 
 class AssetValidationTest(unittest.TestCase):
@@ -47,6 +52,26 @@ class AssetValidationTest(unittest.TestCase):
         asset["dependencies"].remove("docs/template-library/GOVERNANCE-KERNEL.md")
         failures = valid_manifest_entry(asset, 0)
         self.assertTrue(any("governance kernel" in failure for failure in failures))
+
+    def test_rejects_unknown_research_source_and_type_prefix_drift(self):
+        asset = copy.deepcopy(self.asset)
+        asset["research_pattern_labels"] = [
+            "Reason + Act",
+            "Least-to-Most Prompting",
+            "Unknown research source",
+        ]
+        asset["id"] = asset["id"].removeprefix("prompt-")
+        asset["id"] = f"skill-{asset['id']}"
+        failures = valid_manifest_entry(asset, 0)
+        self.assertTrue(any("unknown research sources" in failure for failure in failures))
+        self.assertTrue(any("does not cite its declared prompt patterns" in failure for failure in failures))
+        self.assertTrue(any("prefix does not match" in failure for failure in failures))
+
+    def test_rejects_cross_type_source_sections(self):
+        source = (ROOT / self.asset["path"]).read_text(encoding="utf-8")
+        source += "\n\n## Hard gates\n\n1. Reject the result.\n"
+        failures = asset_type_failures(self.asset, self.asset["path"], source)
+        self.assertTrue(any("incompatible sections" in failure for failure in failures))
 
     def test_rejects_hollow_specialist_body(self):
         failures = specialist_body_failures(
@@ -95,18 +120,25 @@ class AssetValidationTest(unittest.TestCase):
 
     def test_single_asset_composition_is_copy_ready_and_source_linked(self):
         composition = compose_assets([self.asset["id"]])
+        preview = compose_assets([self.asset["id"]], include_references=True)
         first_control = self.asset["shared_controls"][0]
         control_text = parse_registry()[first_control]
+        first_research = load_research_sources()[self.asset["research_pattern_labels"][0]]
 
-        self.assertTrue(composition.startswith(f"# {self.asset['title']}\n\n## Use this when"))
+        self.assertTrue(composition.startswith("## Inputs required"))
         self.assertLess(composition.index("## Inputs required"), composition.index("## Role"))
         self.assertLess(composition.index("## Instructions"), composition.index("## Shared specialist requirements"))
         self.assertEqual(composition.count("## Shared operating rules"), 1)
         self.assertEqual(composition.count(control_text), 1)
-        self.assertEqual(composition.count(f"[{first_control}]("), 1)
-        self.assertIn("## References", composition)
+        self.assertEqual(preview.count(f"[{first_control}]("), 1)
+        self.assertEqual(preview.count(f"]({first_research['url']})"), 1)
+        self.assertNotIn("## References", composition)
+        self.assertIn("## References", preview)
         self.assertNotIn("# Composed Agent Workflow Asset", composition)
+        self.assertNotIn(f"# {self.asset['title']}", composition)
         self.assertNotIn("## Metadata", composition)
+        self.assertNotIn("## Use this when", composition)
+        self.assertNotIn("## Do not use this when", composition)
         self.assertNotIn("## Dependencies", composition)
 
     def test_multi_asset_composition_keeps_modules_and_dependencies_once(self):
@@ -116,9 +148,15 @@ class AssetValidationTest(unittest.TestCase):
 
         self.assertTrue(composition.startswith("# Agent Workflow Pack"))
         for asset in selected:
-            self.assertEqual(composition.count(f"## {asset['title']}"), 1)
+            self.assertEqual(
+                composition.count(f"## {asset['type'].title()}: {asset['title']}"),
+                1,
+            )
         self.assertEqual(composition.count("## Shared operating rules"), 1)
-        self.assertEqual(composition.count("[Shared governance kernel]("), 1)
+        self.assertNotIn("## References", composition)
+
+        preview = compose_assets([asset["id"] for asset in selected], include_references=True)
+        self.assertEqual(preview.count("[Shared governance kernel]("), 1)
 
 
 if __name__ == "__main__":

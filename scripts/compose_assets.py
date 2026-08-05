@@ -17,6 +17,11 @@ def main() -> int:
     parser.add_argument("--output", help="Optional output path inside the repository")
     parser.add_argument("--check", action="store_true", help="Validate deterministic composition for all assets")
     parser.add_argument("--list", action="store_true", help="List available asset IDs")
+    parser.add_argument(
+        "--with-references",
+        action="store_true",
+        help="Append research, source-module, governance, and specialist-control references",
+    )
     args = parser.parse_args()
 
     if args.list:
@@ -34,7 +39,7 @@ def main() -> int:
         return 0
 
     try:
-        composed = compose_assets(args.asset)
+        composed = compose_assets(args.asset, include_references=args.with_references)
     except (CompositionError, KeyError, OSError) as error:
         print(f"[FAIL] {error}", file=sys.stderr)
         return 1

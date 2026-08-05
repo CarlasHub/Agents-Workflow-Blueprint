@@ -14,6 +14,7 @@ from asset_composer import (
     CONTROL_ID_PATTERN,
     REGISTRY_PATH,
     compose_assets,
+    load_research_sources,
     parse_registry,
     referenced_controls,
     split_sections,
@@ -50,6 +51,7 @@ REQUIRED_LIBRARY_DOCS = (
     "PROMPT-PATTERN-MATRIX.md",
     "SCIENTIFIC-CONTROL-CHECKLIST.md",
     "HUMAN-AI-QUALITY-STANDARD.md",
+    "research-sources.json",
 )
 REQUIRED_MANIFEST_KEYS = {
     "id",
@@ -110,6 +112,33 @@ TYPE_SECTIONS = {
         "## Acceptance language",
     ),
 }
+TYPE_FORBIDDEN_SECTIONS = {
+    "prompts": (
+        "## Procedure",
+        "## Handoff format",
+        "## Hard gates",
+        "## Acceptance language",
+    ),
+    "skills": (
+        "## Task-specific mission",
+        "## Task-specific instructions",
+        "## Hard gates",
+        "## Acceptance language",
+    ),
+    "contracts": (
+        "## Task-specific mission",
+        "## Task-specific instructions",
+        "## Procedure",
+        "## Handoff format",
+    ),
+}
+PROMPT_PATTERN_SOURCE_LABELS = {
+    "CoT-safe public reasoning": "Chain-of-Thought Prompting",
+    "ReAct loop": "Reason + Act",
+    "least-to-most": "Least-to-Most Prompting",
+    "branch evaluation": "Tree-of-Thoughts",
+    "traceability": "Formal verification and traceability",
+}
 LEGACY_BOILERPLATE_HEADINGS = (
     "## Research pattern stack",
     "## Scientific control checkpoints",
@@ -166,10 +195,13 @@ def valid_manifest_entry(
     registry: dict[str, str] | None = None,
     evaluation_case_ids: set[str] | None = None,
     expected_evaluation_cases: set[str] | None = None,
+    research_sources: dict[str, dict] | None = None,
 ) -> list[str]:
     failures: list[str] = []
     if registry is None:
         registry = parse_registry()
+    if research_sources is None:
+        research_sources = load_research_sources()
     missing = sorted(REQUIRED_MANIFEST_KEYS - set(asset))
     if missing:
         failures.append(f"assets.json entry {index} missing keys: {', '.join(missing)}")
@@ -180,6 +212,8 @@ def valid_manifest_entry(
         return failures
     if not re.fullmatch(r"(?:prompt|skill|contract)-[a-z0-9]+(?:-[a-z0-9]+)*", asset["id"]):
         failures.append(f"assets.json entry has invalid id: {asset['id']}")
+    elif not asset["id"].startswith(f"{asset['type']}-"):
+        failures.append(f"assets.json entry {asset['id']} ID prefix does not match its type")
     if asset["version"] != CURRENT_VERSION:
         failures.append(f"assets.json entry {asset['id']} expected version {CURRENT_VERSION}")
     expected_folder = f"{asset['type']}s"
@@ -189,6 +223,33 @@ def valid_manifest_entry(
         value = asset[key]
         if not isinstance(value, list) or len(value) < minimum or len(value) != len(set(value)):
             failures.append(f"assets.json entry {asset['id']} has invalid {key}")
+    research_labels = asset["research_pattern_labels"]
+    if (
+        not isinstance(research_labels, list)
+        or len(research_labels) < 3
+        or len(research_labels) != len(set(research_labels))
+        or any(not isinstance(label, str) or not label.strip() for label in research_labels)
+    ):
+        failures.append(f"assets.json entry {asset['id']} has invalid research_pattern_labels")
+    else:
+        unknown_research = [label for label in research_labels if label not in research_sources]
+        if unknown_research:
+            failures.append(
+                f"assets.json entry {asset['id']} references unknown research sources: "
+                + ", ".join(unknown_research)
+            )
+        if asset["type"] == "prompt":
+            missing_pattern_sources = [
+                PROMPT_PATTERN_SOURCE_LABELS[pattern]
+                for pattern in asset["research_patterns"]
+                if pattern in PROMPT_PATTERN_SOURCE_LABELS
+                and PROMPT_PATTERN_SOURCE_LABELS[pattern] not in research_labels
+            ]
+            if missing_pattern_sources:
+                failures.append(
+                    f"assets.json entry {asset['id']} does not cite its declared prompt patterns: "
+                    + ", ".join(missing_pattern_sources)
+                )
     for key in ("required_inputs", "expected_outputs"):
         value = asset[key]
         if not isinstance(value, list) or len(value) < 3 or len(value) != len(set(value)):
@@ -263,6 +324,23 @@ def numbered_items(body: str) -> list[str]:
     return [match.group(1).strip() for match in re.finditer(r"(?m)^\d+\.\s+(.+)$", body)]
 
 
+def asset_type_failures(asset: dict, rel: str, source: str) -> list[str]:
+    failures: list[str] = []
+    asset_type = asset.get("type")
+    folder = f"{asset_type}s"
+    if folder not in TYPE_SECTIONS:
+        return [f"{rel} has an unsupported declared asset type: {asset_type}"]
+    expected_metadata = f"- Type: {asset_type.title()}"
+    if expected_metadata not in section_body(source, "Metadata"):
+        failures.append(f"{rel} metadata type does not match declared {asset_type}")
+    conflicting = [heading for heading in TYPE_FORBIDDEN_SECTIONS[folder] if heading in source]
+    if conflicting:
+        failures.append(
+            f"{rel} mixes {asset_type} structure with incompatible sections: {', '.join(conflicting)}"
+        )
+    return failures
+
+
 def prompt_quality_failures(asset: dict, rel: str, source: str) -> list[str]:
     failures: list[str] = []
     source_words = word_count(source)
@@ -331,7 +409,14 @@ def prompt_quality_failures(asset: dict, rel: str, source: str) -> list[str]:
             failures.append(f"{rel} composes to {composed_words} words before references; expected 900-1800")
         included_sections = [
             body for heading, body in split_sections(source)[1].items()
-            if heading not in {"Metadata", "Dependencies", "Shared specialist controls"}
+            if heading not in {
+                "Metadata",
+                "When to use",
+                "When not to use",
+                "Dependencies",
+                "Shared specialist controls",
+                "Research basis",
+            }
         ]
         specialist_words = word_count("\n".join(included_sections))
         specialist_ratio = specialist_words / composed_words if composed_words else 0
@@ -384,6 +469,11 @@ def main() -> int:
         failures.append(f"specialist control registry is invalid: {error}")
         registry = {}
     try:
+        research_sources = load_research_sources()
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        failures.append(f"research source registry is invalid: {error}")
+        research_sources = {}
+    try:
         assets = load_manifest(LIBRARY / "assets.json")
     except (FileNotFoundError, json.JSONDecodeError, ValueError) as error:
         failures.append(f"assets.json is unavailable or invalid: {error}")
@@ -397,7 +487,16 @@ def main() -> int:
     titles: set[str] = set()
     for index, asset in enumerate(assets):
         expected_cases = evaluation_cases_by_asset.get(asset.get("path", ""), set())
-        failures.extend(valid_manifest_entry(asset, index, registry, evaluation_case_ids, expected_cases))
+        failures.extend(
+            valid_manifest_entry(
+                asset,
+                index,
+                registry,
+                evaluation_case_ids,
+                expected_cases,
+                research_sources,
+            )
+        )
         undeclared = sorted(set(asset) - schema_properties)
         if undeclared:
             failures.append(f"assets.json entry {asset.get('id', index)} has undeclared keys: {', '.join(undeclared)}")
@@ -421,6 +520,8 @@ def main() -> int:
             asset = manifest_by_path.get(rel, {})
             if rel not in manifest_paths:
                 failures.append(f"asset file is absent from assets.json: {rel}")
+            elif asset:
+                failures.extend(asset_type_failures(asset, rel, content))
             for heading in (
                 "## Metadata",
                 "## When to use",

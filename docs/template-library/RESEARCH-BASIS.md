@@ -2,6 +2,8 @@
 
 This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well-known prompt-engineering patterns, cognitive-review controls, and systems-engineering discipline into reusable prompts, skills, and acceptance contracts.
 
+The site resolves each asset's curated research labels through [`research-sources.json`](research-sources.json). That registry is the normalized citation source for the links shown outside each copyable agent body.
+
 ## Accurate product claim
 
 The assets are **research-informed**, not magic. They are designed to improve structure, evidence discipline, reviewability, and failure disclosure. They do not guarantee correct output by themselves.
@@ -60,6 +62,8 @@ That gives reviewers useful reasoning structure without requiring private reason
 - Madaan et al., “Self-Refine: Iterative Refinement with Self-Feedback”: https://arxiv.org/abs/2303.17651
 - Lightman et al., “Let’s Verify Step by Step”: https://arxiv.org/abs/2305.20050
 - Bai et al., “Constitutional AI: Harmlessness from AI Feedback”: https://arxiv.org/abs/2212.08073
+- Mitchell, Russo, and Pennington, “Back to the future: Temporal perspective in the explanation of events”: https://doi.org/10.1002/bdm.3960020103
+- Evans and Stanovich, “Dual-Process Theories of Higher Cognition: Advancing the Debate”: https://doi.org/10.1177/1745691612460685
 - ISO/IEC/IEEE 15288 systems and software engineering lifecycle framing: https://www.iso.org/standard/81702.html
 - WCAG 2.2 accessibility success criteria and supporting guidance: https://www.w3.org/TR/WCAG22/
 - NIST SSDF secure software development practices: https://csrc.nist.gov/pubs/sp/800/218/final

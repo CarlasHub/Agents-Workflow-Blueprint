@@ -8,7 +8,7 @@ import {
   getTypeLabel,
   renderMarkdown,
   splitComposedAssetMarkdown
-} from './site-utils.js?v=20260805-3';
+} from './site-utils.js?v=20260805-4';
 
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -84,20 +84,23 @@ export function createSiteApp(documentRef = document) {
 
   async function resolveAssetViews(asset, sourceMarkdown = null) {
     if (!asset) throw new Error('Asset metadata is unavailable');
-    const [source, kernel, registry] = await Promise.all([
+    const [source, kernel, registry, researchSourceText] = await Promise.all([
       sourceMarkdown ?? fetchText(asset.path),
       fetchSharedSource('docs/template-library/GOVERNANCE-KERNEL.md'),
-      fetchSharedSource('docs/template-library/SPECIALIST-CONTROLS.md')
+      fetchSharedSource('docs/template-library/SPECIALIST-CONTROLS.md'),
+      fetchSharedSource('docs/template-library/research-sources.json')
     ]);
+    const researchSources = JSON.parse(researchSourceText);
     return {
       source,
-      complete: composeAssetMarkdown(asset, source, kernel, registry),
-      readable: composeAssetIntroductionMarkdown(asset, source, kernel, registry)
+      complete: composeAssetMarkdown(asset, source, kernel, registry, researchSources),
+      readable: composeAssetIntroductionMarkdown(asset, source, kernel, registry, researchSources)
     };
   }
 
-  async function completeAssetMarkdown(asset, sourceMarkdown = null) {
-    return (await resolveAssetViews(asset, sourceMarkdown)).complete;
+  async function copyReadyAssetBody(asset, sourceMarkdown = null) {
+    const complete = (await resolveAssetViews(asset, sourceMarkdown)).complete;
+    return splitComposedAssetMarkdown(complete).prompt;
   }
 
   function announce(message) {
@@ -161,7 +164,7 @@ export function createSiteApp(documentRef = document) {
         <div class="asset-actions">
           <button type="button" data-preview-path="${escapeAttribute(asset.path)}">Open ${escapeHtml(asset.type)}</button>
           <a href="${escapeAttribute(asset.path)}" download>Download</a>
-          <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy full ${escapeHtml(asset.type)}</button>
+          <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy ${escapeHtml(asset.type)} body</button>
         </div>
       </article>`).join('');
   }
@@ -203,15 +206,14 @@ export function createSiteApp(documentRef = document) {
   function renderAssetPreview(views) {
     const typeLabel = getTypeLabel(activePreviewAsset.type);
     const separated = splitComposedAssetMarkdown(views.complete);
-    meta.textContent = `${typeLabel} · introduction, ${activePreviewAsset.type} code, and references · ${activePreviewAsset.path}`;
+    meta.textContent = `${typeLabel} · applicability, agent-ready ${activePreviewAsset.type} body, and research references · ${activePreviewAsset.path}`;
     renderPreviewLayout({
       introduction: views.readable,
       prompt: separated.prompt,
       references: separated.references.replace(/^## References$/m, '### References'),
-      promptHeading: `Full ${activePreviewAsset.type}`,
-      copyDescription: `Full ${activePreviewAsset.type}`
+      promptHeading: `${typeLabel} body`,
+      copyDescription: `${typeLabel} body`
     });
-    activePreviewCopyText = views.complete;
   }
 
   function showSourceFallback(source) {
@@ -290,10 +292,10 @@ export function createSiteApp(documentRef = document) {
     const original = button.textContent;
     try {
       const asset = assets.find((item) => item.path === path);
-      const copied = await writeClipboard(await completeAssetMarkdown(asset));
+      const copied = await writeClipboard(await copyReadyAssetBody(asset));
       if (!copied) throw new Error('Clipboard unavailable');
       button.textContent = 'Copied';
-      announce(`Full ${asset.type} copied to the clipboard, ready to paste.`);
+      announce(`${getTypeLabel(asset.type)} body copied to the clipboard, ready to paste.`);
     } catch (error) {
       button.textContent = 'Open file instead';
       announce('Copy is unavailable. Open or download the Markdown file instead.');

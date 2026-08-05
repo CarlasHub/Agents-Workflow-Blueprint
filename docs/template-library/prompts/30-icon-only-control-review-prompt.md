@@ -88,4 +88,4 @@ Return this domain-specific record inside the `GOV-HANDOFF-01` handoff:
 
 ## Worked example
 
-For a small copy icon, verify native button semantics, “Copy full prompt” naming, 44-pixel target, visible focus, Enter and Space activation, stable naming, and a separate copied-status announcement. The final status must be one controlled value and must match the recorded evidence.
+For a small copy icon, verify native button semantics, “Copy prompt body” naming, 44-pixel target, visible focus, Enter and Space activation, stable naming, and a separate copied-status announcement. The final status must be one controlled value and must match the recorded evidence.

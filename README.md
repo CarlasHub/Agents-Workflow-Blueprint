@@ -15,8 +15,8 @@ The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptan
 
 1. Read [`docs/template-library/START-HERE.md`](docs/template-library/START-HERE.md).
 2. Choose one asset from each relevant family in the [`CATALOGUE.md`](docs/template-library/CATALOGUE.md).
-3. On the website, open an asset to use one focused dialog containing its introduction, copy-ready prompt/skill/contract code, and linked references. Use the compact copy control beside the code; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
-4. Paste the copied asset into the agent with the concrete task and repository context. Asset-specific instructions come first; shared operating requirements follow; source links are at the end.
+3. On the website, open an asset to use one focused dialog containing its applicability guidance, agent-ready prompt/skill/contract body, and linked research and implementation references. Use the compact copy control beside the body; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+4. Paste the copied body into the agent with the concrete task and repository context. The clipboard contains only executable specialist instructions, shared specialist requirements, and shared operating rules. Applicability, catalogue metadata, and references remain outside the copied body.
 5. Require command output, file evidence, limitations, and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
 
 Example:
@@ -44,7 +44,7 @@ The complete worked example in [`examples/worked-example.md`](examples/worked-ex
 | Contract | Hard gates, advisory checks, and acceptance or rejection language. |
 | Starter pack | A curated combination for a common scenario. |
 
-The asset manifest at [`docs/template-library/assets.json`](docs/template-library/assets.json) records each asset's stable ID, v3 version, risk level, purpose, category, governance profile, intended model context, required inputs, expected outputs, dependencies, specialist-control references, evidence expectations, and evaluation-case mappings. Migration details are in [`MIGRATION-NOTES.md`](docs/template-library/MIGRATION-NOTES.md).
+The asset manifest at [`docs/template-library/assets.json`](docs/template-library/assets.json) records each asset's stable ID, v3 version, risk level, purpose, category, governance profile, intended model context, required inputs, expected outputs, dependencies, specialist-control references, evidence expectations, research-pattern labels, and evaluation-case mappings. Every research label resolves through [`research-sources.json`](docs/template-library/research-sources.json) to a cited paper or standard and an explicit repository translation. Migration details are in [`MIGRATION-NOTES.md`](docs/template-library/MIGRATION-NOTES.md).
 
 ## v3 prompt quality contract
 
