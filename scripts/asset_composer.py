@@ -15,6 +15,9 @@ LIBRARY = ROOT / "docs" / "template-library"
 MANIFEST_PATH = LIBRARY / "assets.json"
 KERNEL_PATH = LIBRARY / "GOVERNANCE-KERNEL.md"
 REGISTRY_PATH = LIBRARY / "SPECIALIST-CONTROLS.md"
+REPOSITORY_BLOB_URL = "https://github.com/CarlasHub/Agents-Workflow-Blueprint/blob/main"
+GOVERNANCE_KERNEL_URL = f"{REPOSITORY_BLOB_URL}/docs/template-library/GOVERNANCE-KERNEL.md"
+SPECIALIST_CONTROL_REGISTRY_URL = f"{REPOSITORY_BLOB_URL}/docs/template-library/SPECIALIST-CONTROLS.md"
 
 CONTROL_ID_PATTERN = re.compile(r"^SPC-[A-F0-9]{10}$")
 REFERENCE_PATTERN = re.compile(r"\bSPC-[A-F0-9]{10}\b")
@@ -67,25 +70,86 @@ def referenced_controls(markdown: str) -> list[str]:
     return list(dict.fromkeys(REFERENCE_PATTERN.findall(sections.get("Shared specialist controls", ""))))
 
 
-def remove_reference_sections(markdown: str) -> str:
-    """Remove source-only dependency/reference sections from a composed module."""
+def _friendly_heading(heading: str) -> str:
+    replacements = {
+        "Specialist role": "Role",
+        "Contract owner": "Role",
+        "Task-specific mission": "Mission",
+        "Task-specific instructions": "Instructions",
+        "Required evidence": "Evidence required",
+        "Evidence to collect": "Evidence required",
+        "Task-specific rejection conditions": "Rejection conditions",
+        "Output format": "Response format",
+    }
+    return replacements.get(heading, heading)
 
-    matches = list(SECTION_PATTERN.finditer(markdown))
-    excluded = {"Dependencies", "Shared specialist controls"}
-    ranges: list[tuple[int, int]] = []
-    for index, match in enumerate(matches):
-        if match.group(1).strip() not in excluded:
+
+def _friendly_asset_module(asset: dict, markdown: str, *, heading_level: int = 1) -> str:
+    title, sections = split_sections(markdown)
+    excluded = {
+        "Metadata", "When to use", "When not to use", "Dependencies", "Shared specialist controls"
+    }
+    parts = [f"{'#' * heading_level} {title or asset.get('title', 'Agent workflow asset')}"]
+    for heading, body in sections.items():
+        if heading in excluded:
             continue
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(markdown)
-        ranges.append((match.start(), end))
-    for start, end in reversed(ranges):
-        markdown = markdown[:start] + markdown[end:]
-    return markdown.strip()
+        parts.extend(["", f"{'#' * (heading_level + 1)} {_friendly_heading(heading)}", "", body])
+    return "\n".join(parts).strip()
 
 
-def _demote_headings(markdown: str, levels: int = 2) -> str:
-    prefix = "#" * levels
-    return re.sub(r"(?m)^(#{1,4})(?=\s)", lambda match: prefix + match.group(1), markdown)
+def _governance_heading_label(heading: str) -> str:
+    return re.sub(r"^`GOV-[^`]+`\s+—\s+", "", heading).strip()
+
+
+def _governance_profile_body(profiles_markdown: str, profile: str) -> str:
+    headings = list(re.finditer(r"(?m)^### `([^`]+)`\n", profiles_markdown))
+    selected_index = next((index for index, heading in enumerate(headings) if heading.group(1) == profile), -1)
+    if selected_index < 0:
+        raise CompositionError(f"unknown governance profile: {profile}")
+    selected = headings[selected_index]
+    end = headings[selected_index + 1].start() if selected_index + 1 < len(headings) else len(profiles_markdown)
+    return profiles_markdown[selected.end():end].strip()
+
+
+def _governance_instructions(profiles: list[str]) -> str:
+    _, sections = split_sections(KERNEL_PATH.read_text(encoding="utf-8"))
+    profiles_markdown = sections.get("Asset execution profiles")
+    if not profiles_markdown:
+        raise CompositionError("governance kernel is missing asset execution profiles")
+    common_sections = [
+        (heading, body)
+        for heading, body in sections.items()
+        if heading not in {"Asset execution profiles", "Composition rule"}
+    ]
+    if not common_sections:
+        raise CompositionError("governance kernel is missing shared operating rules")
+
+    parts = ["## Shared operating rules"]
+    for heading, body in common_sections:
+        parts.extend(["", f"### {_governance_heading_label(heading)}", "", body])
+    for profile in profiles:
+        type_label = profile.removeprefix("GOV-PROFILE-").title()
+        parts.extend(["", f"### {type_label} requirements", "", _governance_profile_body(profiles_markdown, profile)])
+    return "\n".join(parts)
+
+
+def _specialist_control_href(control_id: str) -> str:
+    return f"{SPECIALIST_CONTROL_REGISTRY_URL}#{control_id.lower()}"
+
+
+def _source_references(selected: list[dict], control_ids: list[str]) -> str:
+    parts = ["## References", ""]
+    for asset in selected:
+        asset_type = str(asset.get("type", "asset")).lower()
+        parts.append(f"- [Source {asset_type} module]({REPOSITORY_BLOB_URL}/{asset['path']})")
+    parts.extend([
+        f"- [Shared governance kernel]({GOVERNANCE_KERNEL_URL})",
+        f"- [Specialist control registry]({SPECIALIST_CONTROL_REGISTRY_URL})",
+    ])
+    if control_ids:
+        links = ", ".join(f"[{control_id}]({_specialist_control_href(control_id)})" for control_id in control_ids)
+        parts.append(f"- Control definitions: {links}")
+    return "\n".join(parts)
 
 
 def compose_assets(
@@ -117,24 +181,26 @@ def compose_assets(
     if missing_controls:
         raise CompositionError(f"unresolved specialist controls: {', '.join(missing_controls)}")
 
-    parts = [
-        "# Composed Agent Workflow Asset",
-        "",
-        "> Deterministic composition: shared governance and specialist controls are included once.",
-        "",
-        "## Shared governance",
-        "",
-        _demote_headings(KERNEL_PATH.read_text(encoding="utf-8").strip()),
-    ]
+    profiles = list(dict.fromkeys(asset["governance_profile"] for asset in selected))
+    if len(selected) == 1:
+        asset = selected[0]
+        source = (ROOT / asset["path"]).read_text(encoding="utf-8")
+        parts = [_friendly_asset_module(asset, source)]
+    else:
+        parts = [
+            "# Agent Workflow Pack",
+            "",
+            "> Apply every selected module below to the user's task.",
+        ]
+        for asset in selected:
+            source = (ROOT / asset["path"]).read_text(encoding="utf-8")
+            parts.extend(["", _friendly_asset_module(asset, source, heading_level=2)])
     if control_ids:
-        parts.extend(["", "## Shared specialist controls", ""])
+        parts.extend(["", "## Shared specialist requirements", ""])
         for index, control_id in enumerate(control_ids, start=1):
-            parts.append(f"{index}. **{control_id}:** {controls[control_id]}")
+            parts.append(f"{index}. {controls[control_id]}")
 
-    parts.extend(["", "## Specialist modules"])
-    for asset in selected:
-        module = remove_reference_sections((ROOT / asset["path"]).read_text(encoding="utf-8"))
-        parts.extend(["", _demote_headings(module)])
+    parts.extend(["", _governance_instructions(profiles), "", _source_references(selected, control_ids)])
     return "\n".join(parts).rstrip() + "\n"
 
 
@@ -163,9 +229,9 @@ def validate_all_compositions() -> list[str]:
         except (CompositionError, KeyError, OSError) as error:
             failures.append(f"{asset_id} composition failed: {error}")
             continue
-        if len(re.findall(r"(?m)^### Governance Kernel$", composition)) != 1:
-            failures.append(f"{asset_id} composition must include the kernel exactly once")
+        if composition.count("## Shared operating rules") != 1:
+            failures.append(f"{asset_id} composition must include shared operating rules exactly once")
         for control_id in manifest_refs:
-            if composition.count(f"**{control_id}:**") != 1:
+            if composition.count(f"[{control_id}](") != 1 or composition.count(registry[control_id]) != 1:
                 failures.append(f"{asset_id} composition does not include {control_id} exactly once")
     return failures

@@ -10,7 +10,7 @@ The authored source has three layers:
 2. [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) owns every specialist instruction reused by more than one asset.
 3. Each prompt, skill, or contract owns only its boundary, role, mission, unique controls, and references.
 
-`assets.json` records ordered references. `scripts/compose_assets.py` includes the kernel, each selected shared control, and each selected module exactly once. Rewording repeated instructions to evade a metric is prohibited; reusable controls must be normalized instead.
+`assets.json` records ordered references. `scripts/compose_assets.py` produces copy-ready output in this order: selected specialist role and instructions, resolved shared specialist requirements, applicable shared operating rules, then source links. Each selected module, control, and applicable kernel rule is included once. Rewording repeated instructions to evade a metric is prohibited; reusable controls must be normalized instead.
 
 Shared governance is not a substitute for specialist content. Each asset retains at least three task-specific instructions, procedure steps, or hard gates and a distinct evidence section. Validation rejects modules that merely tell the agent to follow the registry.
 

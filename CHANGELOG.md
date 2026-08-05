@@ -19,8 +19,9 @@ All notable changes are recorded here. The project uses date-based release headi
 
 - Public claims now distinguish tested repository behaviour from unverified outcomes.
 - All 100 library assets are v2.1 specialist modules; shared governance and repeated specialist controls are composed exactly once.
-- Asset popups use two keyboard-accessible tabs: specialist content and the full composition. Source download/copy actions remain available without a third tab, and displayed specialist-control IDs link to their registry definitions.
-- Website copy actions distinguish a concise source module from a complete composed asset.
+- Asset popups use two keyboard-accessible tabs: a concise introduction and the full standalone prompt, skill, or contract.
+- Full assets now lead with the specialist role and instructions, retain shared operating requirements, and place linked source and control references at the end.
+- Each popup has one primary copy action whose output matches the full asset view and is ready to paste into an agent.
 - Homepage modal behaviour and builder validation were hardened for keyboard and assistive-technology use.
 - Builder ZIP generation now validates paths, duplicate entries, size limits, UTF-8 content, approval state, and generated manifests.
 

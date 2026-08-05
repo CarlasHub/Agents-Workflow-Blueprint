@@ -113,4 +113,4 @@ Use these decision forms:
 
 ## Composition rule
 
-`GOV-COMPOSE-01`: A complete asset consists of this kernel once, every referenced specialist control once, and each selected specialist module once. Composition must reject missing controls, duplicate asset IDs, duplicate control IDs, and dependency cycles. Source modules may be copied alone only when the recipient already has this kernel and the referenced specialist controls.
+`GOV-COMPOSE-01`: A copy-ready asset renders each selected specialist module first, every referenced specialist control once, and the common operating rules plus each applicable asset profile from this kernel once. Source references appear at the end. Composition must reject missing controls, duplicate asset IDs, duplicate control IDs, and dependency cycles. Source modules may be copied alone only when the recipient already has this kernel and the referenced specialist controls.

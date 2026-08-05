@@ -1072,6 +1072,7 @@ body.modal-open {
 .markdown-dialog-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.7rem;
   padding: 0.9rem 1.35rem;
   background: var(--bgColor-inset);

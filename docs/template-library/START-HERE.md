@@ -2,7 +2,7 @@
 
 ## Step 0 — Load shared governance
 
-Use the website’s **Copy complete asset** action or `scripts/compose_assets.py` so [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md), referenced [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md), and selected modules are included once. Use [`RESEARCH-DNA.md`](RESEARCH-DNA.md) only when you need the source map, [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) for task selection, and [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) for sociotechnical and trust-calibration review.
+Use the website’s **Full prompt/skill/contract** view and matching copy action, or use `scripts/compose_assets.py`. The copied output starts with the specialist role and instructions, includes the applicable shared requirements once, and ends with links to [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md), [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md), and the source module. Use [`RESEARCH-DNA.md`](RESEARCH-DNA.md) only when you need the source map, [`PROMPT-PATTERN-MATRIX.md`](PROMPT-PATTERN-MATRIX.md) for task selection, and [`HUMAN-AI-QUALITY-STANDARD.md`](HUMAN-AI-QUALITY-STANDARD.md) for sociotechnical and trust-calibration review.
 
 
 Use this page when you need the shortest safe route through the library.

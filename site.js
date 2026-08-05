@@ -1,6 +1,6 @@
 import {
   composeAssetMarkdown,
-  composeReadableAssetMarkdown,
+  composeAssetIntroductionMarkdown,
   escapeAttribute,
   escapeHtml,
   filterAssets,
@@ -42,9 +42,7 @@ export function createSiteApp(documentRef = document) {
   const title = documentRef.getElementById('markdown-preview-title');
   const meta = documentRef.querySelector('[data-markdown-preview-meta]');
   const content = documentRef.querySelector('[data-markdown-preview-content]');
-  const download = documentRef.querySelector('[data-markdown-download]');
   const copyPreview = documentRef.querySelector('[data-copy-preview]');
-  const copySource = documentRef.querySelector('[data-copy-source]');
   const previewModeButtons = Array.from(documentRef.querySelectorAll('[data-preview-mode]'));
   const backgroundRegions = [
     documentRef.querySelector('.site-header'),
@@ -86,7 +84,7 @@ export function createSiteApp(documentRef = document) {
     return {
       source,
       complete: composeAssetMarkdown(asset, source, kernel, registry),
-      readable: composeReadableAssetMarkdown(asset, source, kernel, registry)
+      readable: composeAssetIntroductionMarkdown(asset, source, kernel, registry)
     };
   }
 
@@ -155,7 +153,7 @@ export function createSiteApp(documentRef = document) {
         <div class="asset-actions">
           <button type="button" data-preview-path="${escapeAttribute(asset.path)}">Open ${escapeHtml(asset.type)}</button>
           <a href="${escapeAttribute(asset.path)}" download>Download</a>
-          <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy complete asset</button>
+          <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy full ${escapeHtml(asset.type)}</button>
         </div>
       </article>`).join('');
   }
@@ -180,8 +178,8 @@ export function createSiteApp(documentRef = document) {
     });
     const typeLabel = getTypeLabel(activePreviewAsset.type);
     const labels = {
-      readable: `${typeLabel} content · unique instructions first · ${activePreviewAsset.path}`,
-      complete: `Full ${activePreviewAsset.type} · governance and resolved controls included once · ${activePreviewAsset.path}`
+      readable: `${typeLabel} introduction · purpose and fit · ${activePreviewAsset.path}`,
+      complete: `Full ${activePreviewAsset.type} · standalone and copy-ready · sources linked at the end`
     };
     meta.textContent = labels[mode];
     const activeButton = previewModeButtons.find((button) => button.dataset.previewMode === mode);
@@ -211,10 +209,11 @@ export function createSiteApp(documentRef = document) {
       button.disabled = !available;
       if (!available) button.setAttribute('aria-selected', 'false');
       if (activePreviewAsset) {
-        const typeLabel = getTypeLabel(activePreviewAsset.type);
-        button.textContent = button.dataset.previewMode === 'readable' ? typeLabel : `Full ${activePreviewAsset.type}`;
+        button.textContent = button.dataset.previewMode === 'readable' ? 'Intro' : `Full ${activePreviewAsset.type}`;
       }
     });
+    copyPreview.disabled = !availableModes.includes('complete');
+    if (activePreviewAsset) copyPreview.textContent = `Copy full ${activePreviewAsset.type}`;
   }
 
   function showSourceFallback(source) {
@@ -236,7 +235,6 @@ export function createSiteApp(documentRef = document) {
     activePreviewAsset = asset ?? null;
     title.textContent = asset?.title || 'Template preview';
     meta.textContent = asset ? `${getTypeLabel(asset.type)} · ${getCategoryLabel(asset.category)} · ${asset.path}` : path;
-    download.href = path;
     content.innerHTML = '<p class="markdown-loading">Loading markdown preview…</p>';
     setPreviewModesAvailable([]);
     modal.hidden = false;
@@ -260,7 +258,7 @@ export function createSiteApp(documentRef = document) {
         <div class="asset-empty-state" role="status">
           <p class="eyebrow">Preview unavailable</p>
           <h3>The Markdown could not be loaded.</h3>
-          <p>Use Download to save the source file, or refresh and try again.</p>
+          <p><a href="${escapeAttribute(path)}" download>Download source</a>, or refresh and try again.</p>
         </div>`;
     }
   }
@@ -297,7 +295,7 @@ export function createSiteApp(documentRef = document) {
       const copied = await writeClipboard(await completeAssetMarkdown(asset));
       if (!copied) throw new Error('Clipboard unavailable');
       button.textContent = 'Copied';
-      announce('Complete asset copied to the clipboard with shared governance and specialist controls included once.');
+      announce(`Full ${asset.type} copied to the clipboard, ready to paste.`);
     } catch (error) {
       button.textContent = 'Open file instead';
       announce('Copy is unavailable. Open or download the Markdown file instead.');
@@ -347,10 +345,6 @@ export function createSiteApp(documentRef = document) {
     modal.addEventListener('click', (event) => {
       if (event.target.closest('[data-close-preview]')) closePreview();
     });
-    copySource.addEventListener('click', async () => {
-      const copied = activePreviewViews.source ? await writeClipboard(activePreviewViews.source) : false;
-      announce(copied ? 'Specialist source module copied to the clipboard.' : 'Copy is unavailable. Use Download instead.');
-    });
     copyPreview.addEventListener('click', async () => {
       try {
         const composed = activePreviewViews.complete || (activePreviewViews.source
@@ -358,10 +352,10 @@ export function createSiteApp(documentRef = document) {
           : null);
         const copied = composed ? await writeClipboard(composed) : false;
         announce(copied
-          ? 'Complete asset copied to the clipboard with shared governance and specialist controls included once.'
-          : 'Copy is unavailable. Use Download instead.');
+          ? `Full ${activePreviewAsset.type} copied to the clipboard, ready to paste.`
+          : 'Copy is unavailable. Open the source link instead.');
       } catch (error) {
-        announce('The full asset is unavailable. Copy the source module or use Download instead.');
+        announce('The full asset is unavailable. Open the source file instead.');
       }
     });
     previewModeButtons.forEach((button) => button.addEventListener('click', () => {

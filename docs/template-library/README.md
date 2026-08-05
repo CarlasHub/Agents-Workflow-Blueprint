@@ -1,6 +1,6 @@
 # Template Library
 
-This is the product layer of the Agent Workflow Blueprint: 100 specialist source modules and deterministic complete compositions for controlling coding-agent work with evidence, specialist review, and honest final status.
+This is the product layer of the Agent Workflow Blueprint: 100 specialist source modules and deterministic, copy-ready compositions for controlling coding-agent work with evidence, specialist review, and honest final status.
 
 ## What is included
 
@@ -12,7 +12,7 @@ Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KE
 
 ## Use the system this way
 
-1. Copy a complete asset from the website or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+1. Open an asset introduction, then copy the full standalone asset from the website or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
 2. Choose the smallest prompt that matches the task.
 3. Attach the matching skill when the work needs a repeatable procedure.
 4. Attach the matching contract when the result needs acceptance or rejection language.
@@ -33,9 +33,9 @@ Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KE
 
 Open [`CATALOGUE.md`](CATALOGUE.md) for all 100 assets grouped by type and category.
 
-## Source modules and complete assets
+## Source modules and copy-ready assets
 
-The Markdown files under `prompts/`, `skills/`, and `contracts/` are concise source modules. They contain their specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website shows specialist content first; **Copy complete asset** and `scripts/compose_assets.py` resolve the declared dependencies.
+The Markdown files under `prompts/`, `skills/`, and `contracts/` are concise authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website opens with a short **Intro**; **Full prompt/skill/contract**, the matching copy action, and `scripts/compose_assets.py` produce standalone instructions with specialist content first and source links at the end.
 
 ## Machine-readable catalogue
 

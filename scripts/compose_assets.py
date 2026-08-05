@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Compose complete prompt-library assets from normalized source modules."""
+"""Compose copy-ready prompt-library assets from normalized source modules."""
 
 from __future__ import annotations
 
@@ -30,7 +30,7 @@ def main() -> int:
             print(f"[FAIL] {failure}")
         if failures:
             return 1
-        print("Asset composition checks passed: 100 assets resolve the kernel and specialist controls exactly once.")
+        print("Asset composition checks passed: 100 copy-ready assets resolve operating rules and specialist controls exactly once.")
         return 0
 
     try:

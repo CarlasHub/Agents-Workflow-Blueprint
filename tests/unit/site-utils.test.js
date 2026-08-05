@@ -3,13 +3,14 @@ import assert from 'node:assert/strict';
 
 import {
   composeAssetMarkdown,
-  composeReadableAssetMarkdown,
+  composeAssetIntroductionMarkdown,
   escapeHtml,
   filterAssets,
   normalise,
   parseSpecialistControls,
   referencedSpecialistControls,
   renderMarkdown,
+  repositoryFileHref,
   safeHref,
   specialistControlHref
 } from '../../site-utils.js';
@@ -31,6 +32,8 @@ test('safeHref accepts expected links and rejects executable schemes', () => {
   assert.equal(safeHref('//unexpected.example/path'), '#');
   assert.match(specialistControlHref('SPC-AAAAAAAAAA'), /SPECIALIST-CONTROLS\.md#spc-aaaaaaaaaa$/);
   assert.equal(specialistControlHref('SPC-invalid'), '#');
+  assert.match(repositoryFileHref('docs/template-library/prompts/example.md'), /blob\/main\/docs\/template-library\/prompts\/example\.md$/);
+  assert.equal(repositoryFileHref('../private.md'), '#');
 });
 
 test('filterAssets combines normalised text search and type filtering', () => {
@@ -59,41 +62,61 @@ test('renderMarkdown supports lists, code, quotes, and tables', () => {
   assert.match(html, /<table>/);
 });
 
-test('complete asset composition resolves controls once and removes source-only references', () => {
-  const asset = { id: 'prompt-example', shared_controls: ['SPC-AAAAAAAAAA', 'SPC-BBBBBBBBBB'] };
-  const source = `# Example\n\n## Dependencies\n\n- Kernel\n\n## Shared specialist controls\n\nControls: \`SPC-AAAAAAAAAA\`, \`SPC-BBBBBBBBBB\`\n\n## Task-specific mission\n\nInspect the result.`;
-  const kernel = '# Governance Kernel\n\nKernel rule.';
+test('full asset composition is copy-ready, operational, and source-linked', () => {
+  const asset = {
+    id: 'prompt-example',
+    title: 'Example',
+    type: 'prompt',
+    path: 'docs/template-library/prompts/example.md',
+    governance_profile: 'GOV-PROFILE-PROMPT',
+    shared_controls: ['SPC-AAAAAAAAAA', 'SPC-BBBBBBBBBB']
+  };
+  const source = `# Example\n\n## Metadata\n\n- Type: Prompt\n\n## When to use\n\nUse for a focused review.\n\n## Dependencies\n\n- Kernel\n\n## Shared specialist controls\n\nControls: \`SPC-AAAAAAAAAA\`, \`SPC-BBBBBBBBBB\`\n\n## Specialist role\n\nYou are a reviewer.\n\n## Task-specific mission\n\nInspect the result.\n\n## Task-specific instructions\n\n1. Inspect the source.\n2. Exercise the failure path.\n3. Report evidence.`;
+  const kernel = `# Governance Kernel\n\n## \`GOV-BOUNDARY-01\` — Operating boundary\n\nKeep the task bounded.\n\n## Asset execution profiles\n\n### \`GOV-PROFILE-PROMPT\`\n\nInspect before acting.\n\n### \`GOV-PROFILE-SKILL\`\n\nRun the procedure.\n\n## Composition rule\n\nInclude dependencies once.`;
   const registry = `# Registry\n\n## SPC-AAAAAAAAAA\n\n### Control\n\nFirst shared control.\n\n### Used by\n\n- prompt-example\n\n## SPC-BBBBBBBBBB\n\n### Control\n\nSecond shared control.\n\n### Used by\n\n- prompt-example`;
   const composed = composeAssetMarkdown(asset, source, kernel, registry);
 
   assert.equal(parseSpecialistControls(registry).size, 2);
   assert.deepEqual(referencedSpecialistControls(source), asset.shared_controls);
-  assert.equal((composed.match(/### Governance Kernel/g) ?? []).length, 1);
-  assert.equal((composed.match(/\*\*SPC-AAAAAAAAAA:\*\*/g) ?? []).length, 1);
-  assert.equal((composed.match(/\*\*SPC-BBBBBBBBBB:\*\*/g) ?? []).length, 1);
+  assert.match(composed, /^# Example\n\n## Role\n\nYou are a reviewer/);
+  assert.ok(composed.indexOf('## Instructions') < composed.indexOf('## Shared specialist requirements'));
+  assert.equal((composed.match(/First shared control/g) ?? []).length, 1);
+  assert.equal((composed.match(/Second shared control/g) ?? []).length, 1);
+  assert.equal((composed.match(/## Shared operating rules/g) ?? []).length, 1);
+  assert.match(composed, /### Prompt requirements\n\nInspect before acting/);
+  assert.match(composed, /## References[\s\S]*\[Source prompt module\]/);
+  assert.match(composed, /\[SPC-AAAAAAAAAA\]\([^)]*#spc-aaaaaaaaaa\)/);
+  assert.doesNotMatch(composed, /# Composed Agent Workflow Asset/);
+  assert.doesNotMatch(composed, /## Metadata/);
+  assert.doesNotMatch(composed, /## When to use/);
   assert.doesNotMatch(composed, /## Dependencies/);
   assert.doesNotMatch(composed, /Controls: `SPC-/);
   assert.match(composed, /Inspect the result/);
 });
 
-test('readable asset composition puts specialist content first without repeated source metadata', () => {
+test('asset introduction explains purpose and points to the full copy-ready asset', () => {
   const asset = {
     id: 'prompt-example',
+    title: 'Example Prompt',
+    type: 'prompt',
+    path: 'docs/template-library/prompts/example.md',
+    summary: 'Use for a focused review.',
     governance_profile: 'GOV-PROFILE-PROMPT',
     shared_controls: ['SPC-AAAAAAAAAA']
   };
-  const source = `# Example Prompt\n\n## Metadata\n\n- Type: Prompt\n\n## When to use\n\nUse for a focused review.\n\n## Dependencies\n\n- Kernel\n\n## Shared specialist controls\n\nControls: \`SPC-AAAAAAAAAA\`\n\n## Task-specific mission\n\nInspect the result.`;
+  const source = `# Example Prompt\n\n## Metadata\n\n- Type: Prompt\n\n## When to use\n\nUse for a focused review.\n\n## When not to use\n\nDo not use for implementation.\n\n## Dependencies\n\n- Kernel\n\n## Shared specialist controls\n\nControls: \`SPC-AAAAAAAAAA\`\n\n## Specialist role\n\nYou are a reviewer.\n\n## Task-specific mission\n\nInspect the result.`;
   const registry = '# Registry\n\n## SPC-AAAAAAAAAA\n\n### Control\n\nCollect direct evidence.\n\n### Used by\n\n- prompt-example';
-  const readable = composeReadableAssetMarkdown(asset, source, '# Governance Kernel\n\nKernel rule.', registry);
+  const kernel = `# Governance Kernel\n\n## \`GOV-BOUNDARY-01\` — Operating boundary\n\nKeep the task bounded.\n\n## Asset execution profiles\n\n### \`GOV-PROFILE-PROMPT\`\n\nInspect before acting.\n\n## Composition rule\n\nInclude dependencies once.`;
+  const introduction = composeAssetIntroductionMarkdown(asset, source, kernel, registry);
 
-  assert.match(readable, /^# Example Prompt/);
-  assert.match(readable, /## Task-specific mission\n\nInspect the result/);
-  assert.match(readable, /## Resolved shared specialist controls/);
-  assert.match(readable, /Collect direct evidence/);
-  assert.match(readable, /## Shared governance applied/);
-  assert.doesNotMatch(readable, /## Metadata/);
-  assert.doesNotMatch(readable, /## Dependencies/);
-  assert.doesNotMatch(readable, /Kernel rule/);
+  assert.match(introduction, /^# Example Prompt/);
+  assert.match(introduction, /Use for a focused review/);
+  assert.match(introduction, /## Purpose\n\nInspect the result/);
+  assert.match(introduction, /## Agent role\n\nYou are a reviewer/);
+  assert.match(introduction, /## Not for\n\nDo not use for implementation/);
+  assert.match(introduction, /## Ready to use[\s\S]*Open \*\*Full prompt\*\*/);
+  assert.doesNotMatch(introduction, /Collect direct evidence/);
+  assert.doesNotMatch(introduction, /Keep the task bounded/);
 });
 
 test('complete asset composition rejects drift and missing controls', () => {

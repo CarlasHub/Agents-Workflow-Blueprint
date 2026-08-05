@@ -56,7 +56,17 @@ export function filterAssets(assets, query, type = 'all') {
 }
 
 const SPECIALIST_CONTROL_ID = /^SPC-[A-F0-9]{10}$/;
-const SPECIALIST_CONTROL_REGISTRY_URL = 'https://github.com/CarlasHub/Agents-Workflow-Blueprint/blob/main/docs/template-library/SPECIALIST-CONTROLS.md';
+const REPOSITORY_BLOB_URL = 'https://github.com/CarlasHub/Agents-Workflow-Blueprint/blob/main';
+const GOVERNANCE_KERNEL_URL = `${REPOSITORY_BLOB_URL}/docs/template-library/GOVERNANCE-KERNEL.md`;
+const SPECIALIST_CONTROL_REGISTRY_URL = `${REPOSITORY_BLOB_URL}/docs/template-library/SPECIALIST-CONTROLS.md`;
+
+export function repositoryFileHref(path) {
+  const value = String(path ?? '').trim();
+  if (!value || value.split('/').some((segment) => !segment || segment === '..') || !/^[A-Za-z0-9._/-]+$/.test(value)) {
+    return '#';
+  }
+  return `${REPOSITORY_BLOB_URL}/${value}`;
+}
 
 export function specialistControlHref(controlId) {
   return SPECIALIST_CONTROL_ID.test(controlId)
@@ -103,13 +113,95 @@ export function removeMarkdownSections(markdown, headingsToRemove) {
   ).trim();
 }
 
-export function removeAssetReferenceSections(markdown) {
-  return removeMarkdownSections(markdown, ['Dependencies', 'Shared specialist controls']);
+function secondLevelSections(markdown) {
+  const source = String(markdown ?? '').replace(/\r\n/g, '\n');
+  const headings = [...source.matchAll(/^## ([^\n]+)\n/gm)];
+  return new Map(headings.map((heading, index) => [
+    heading[1].trim(),
+    source.slice(heading.index + heading[0].length, headings[index + 1]?.index ?? source.length).trim()
+  ]));
 }
 
-function demoteHeadings(markdown, levels = 2) {
-  const prefix = '#'.repeat(levels);
-  return markdown.replace(/^(#{1,4})(?=\s)/gm, `${prefix}$1`);
+function assetTitle(asset, markdown) {
+  return String(markdown ?? '').match(/^# ([^\n]+)$/m)?.[1]?.trim() || asset?.title || 'Agent workflow asset';
+}
+
+function friendlyAssetModule(asset, markdown) {
+  const title = assetTitle(asset, markdown);
+  const body = removeMarkdownSections(markdown, [
+    'Metadata',
+    'When to use',
+    'When not to use',
+    'Dependencies',
+    'Shared specialist controls'
+  ])
+    .replace(/^# [^\n]+\n*/m, '')
+    .replace(/^## Specialist role$/gm, '## Role')
+    .replace(/^## Contract owner$/gm, '## Role')
+    .replace(/^## Task-specific mission$/gm, '## Mission')
+    .replace(/^## Task-specific instructions$/gm, '## Instructions')
+    .replace(/^## Required evidence$/gm, '## Evidence required')
+    .replace(/^## Evidence to collect$/gm, '## Evidence required')
+    .replace(/^## Task-specific rejection conditions$/gm, '## Rejection conditions')
+    .replace(/^## Output format$/gm, '## Response format')
+    .trim();
+  return `# ${title}\n\n${body}`.trim();
+}
+
+function governanceHeadingLabel(heading) {
+  return heading.replace(/^`GOV-[^`]+`\s+—\s+/, '').trim();
+}
+
+function governanceProfileBody(profilesMarkdown, profile) {
+  const headings = [...String(profilesMarkdown ?? '').matchAll(/^### `([^`]+)`\n/gm)];
+  const selectedIndex = headings.findIndex((heading) => heading[1] === profile);
+  if (selectedIndex < 0) throw new Error(`Unknown governance profile: ${profile}`);
+  const selected = headings[selectedIndex];
+  return profilesMarkdown.slice(
+    selected.index + selected[0].length,
+    headings[selectedIndex + 1]?.index ?? profilesMarkdown.length
+  ).trim();
+}
+
+function composeGovernanceInstructions(asset, kernelMarkdown) {
+  const sections = secondLevelSections(kernelMarkdown);
+  const profileSection = sections.get('Asset execution profiles');
+  if (!profileSection) throw new Error('Governance kernel is missing asset execution profiles');
+  const commonSections = [...sections.entries()].filter(([heading]) => (
+    heading !== 'Asset execution profiles' && heading !== 'Composition rule'
+  ));
+  if (!commonSections.length) throw new Error('Governance kernel is missing shared operating rules');
+
+  const parts = ['## Shared operating rules'];
+  commonSections.forEach(([heading, body]) => {
+    parts.push('', `### ${governanceHeadingLabel(heading)}`, '', body);
+  });
+  parts.push(
+    '',
+    `### ${getTypeLabel(asset.type)} requirements`,
+    '',
+    governanceProfileBody(profileSection, asset.governance_profile)
+  );
+  return parts.join('\n');
+}
+
+function sourceReferences(asset) {
+  const sourceUrl = repositoryFileHref(asset.path);
+  if (sourceUrl === '#') throw new Error('Asset source path is invalid');
+  const typeLabel = String(asset.type ?? 'asset').toLowerCase();
+  const references = [
+    '## References',
+    '',
+    `- [Source ${typeLabel} module](${sourceUrl})`,
+    `- [Shared governance kernel](${GOVERNANCE_KERNEL_URL})`,
+    `- [Specialist control registry](${SPECIALIST_CONTROL_REGISTRY_URL})`
+  ];
+  if (asset.shared_controls.length) {
+    references.push(
+      `- Control definitions: ${asset.shared_controls.map((controlId) => `[${controlId}](${specialistControlHref(controlId)})`).join(', ')}`
+    );
+  }
+  return references.join('\n');
 }
 
 export function composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown) {
@@ -128,46 +220,39 @@ export function composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, regis
   const missing = controlIds.filter((controlId) => !controls.has(controlId));
   if (missing.length) throw new Error(`Unresolved specialist controls: ${missing.join(', ')}`);
 
-  const parts = [
-    '# Composed Agent Workflow Asset',
-    '',
-    '> Deterministic composition: shared governance and specialist controls are included once.',
-    '',
-    '## Shared governance',
-    '',
-    demoteHeadings(String(kernelMarkdown).trim())
-  ];
+  const parts = [friendlyAssetModule(asset, assetMarkdown)];
   if (controlIds.length) {
-    parts.push('', '## Shared specialist controls', '');
+    parts.push('', '## Shared specialist requirements', '');
     controlIds.forEach((controlId, index) => {
-      parts.push(`${index + 1}. **${controlId}:** ${controls.get(controlId)}`);
+      parts.push(`${index + 1}. ${controls.get(controlId)}`);
     });
   }
-  parts.push('', '## Specialist modules', '', demoteHeadings(removeAssetReferenceSections(assetMarkdown)));
+  parts.push('', composeGovernanceInstructions(asset, kernelMarkdown), '', sourceReferences(asset));
   return `${parts.join('\n').trim()}\n`;
 }
 
-export function composeReadableAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown) {
-  // Run the canonical composer first so the readable view cannot hide manifest or registry drift.
+export function composeAssetIntroductionMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown) {
+  // Run the canonical composer first so the introduction cannot hide dependency drift.
   composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown);
-  const controls = parseSpecialistControls(registryMarkdown);
-  const source = removeMarkdownSections(assetMarkdown, [
-    'Metadata',
-    'Dependencies',
-    'Shared specialist controls'
-  ]);
-  const parts = [source];
-  if (asset.shared_controls.length) {
-    parts.push('', '## Resolved shared specialist controls', '');
-    asset.shared_controls.forEach((controlId, index) => {
-      parts.push(`${index + 1}. **${controlId}:** ${controls.get(controlId)}`);
-    });
-  }
+  const sections = secondLevelSections(assetMarkdown);
+  const typeLabel = String(asset.type ?? 'asset').toLowerCase();
+  const purpose = sections.get('Task-specific mission')
+    || sections.get('Purpose')
+    || sections.get('Acceptance objective');
+  const role = sections.get('Specialist role') || sections.get('Contract owner');
+  const parts = [
+    `# ${assetTitle(asset, assetMarkdown)}`,
+    '',
+    sections.get('When to use') || asset.summary || `Use this ${typeLabel} for the described specialist task.`
+  ];
+  if (purpose) parts.push('', '## Purpose', '', purpose);
+  if (role) parts.push('', '## Agent role', '', role);
+  if (sections.get('When not to use')) parts.push('', '## Not for', '', sections.get('When not to use'));
   parts.push(
     '',
-    '## Shared governance applied',
+    '## Ready to use',
     '',
-    `Governance profile \`${asset.governance_profile}\` is applied. Use the **Full ${asset.type}** view or **Copy complete asset** to include the full governance kernel.`
+    `Open **Full ${typeLabel}** for the standalone, copy-ready instructions. Governance and specialist requirements are included there, with source links at the end.`
   );
   return `${parts.join('\n').trim()}\n`;
 }

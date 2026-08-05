@@ -9,14 +9,14 @@ All 100 stable asset IDs, paths, and titles remain available. Source assets are 
 - Shared governance has stable `GOV-*` identifiers in [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md).
 - Specialist instructions used by multiple assets have one authoritative `SPC-*` entry in [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md).
 - Each manifest entry declares its governance profile and ordered specialist-control references.
-- [`compose_assets.py`](../../scripts/compose_assets.py) deterministically includes the kernel, each referenced specialist control, and each selected module once.
-- The website uses two views: the prompt, skill, or contract's specialist content and its full composition. Source download and copy actions preserve authoring-level traceability without adding a third tab.
+- [`compose_assets.py`](../../scripts/compose_assets.py) deterministically renders each selected module, the applicable kernel rules, and each referenced specialist control once in copy-ready order.
+- The website uses two views: a short introduction and the full standalone prompt, skill, or contract. The full view starts with specialist instructions and ends with linked source references; the popup has one unambiguous copy action.
 - Every source module retains at least three asset-specific instructions, procedure steps, or hard gates plus a distinct evidence section.
 - Validation rejects hollow registry delegation, duplicate specialist bodies or evidence sections, repeated inline specialist controls, near-duplicate controls at the configured threshold, orphaned controls, source/manifest drift, unresolved composition, and any unclassified repeated prose block.
 
 ### Adoption
 
-Use the website’s **Copy complete asset** action or run:
+Use the website’s **Copy full prompt/skill/contract** action or run:
 
 ```bash
 python3 -S scripts/compose_assets.py --asset <asset-id>
