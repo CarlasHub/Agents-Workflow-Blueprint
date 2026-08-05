@@ -19,6 +19,7 @@ The test suite separates deterministic source checks, JavaScript units, browser 
 | Rendered documents | `npm run test:docs` | Every maintained document has a current styled HTML route, internal maintained-document links use HTML, and raw Markdown remains an explicit download. |
 | SEO artefacts | `npm run test:seo` | Rendered documents, the static 100-asset index, sitemap, and project crawler guidance reproduce from their sources without drift. |
 | Local links | `npm run test:links` | Repository-relative Markdown and HTML references and local fragments. External URLs are counted but not fetched. |
+| Secret detection | `Security gates / secret-scan` | Gitleaks 8.24.3 scans pushed or proposed commits with redacted output; a scheduled run scans the complete Git history weekly. GitHub secret scanning and push protection remain separate controls. |
 | Full local release gate | `bash scripts/verify-release.sh` | All configured deterministic and browser gates in release order. |
 
 ## Reproduce CI locally
@@ -32,10 +33,10 @@ npm audit --audit-level=high
 bash scripts/verify-release.sh
 ```
 
-The browser server is started by Playwright on `127.0.0.1:4178`. Tests use deterministic fictional fixtures and must not use personal, production, or secret data.
+The browser server is started by Playwright on `127.0.0.1:4178`. Tests use deterministic fictional fixtures and must not use personal, production, or secret data. The local release script does not install or execute Gitleaks; the pinned remote security job is a separate required result.
 
 ## Coverage boundaries
 
-The Chromium, Firefox, and WebKit matrix does not cover every browser version, operating system, screen reader, locale, high-contrast mode, or input device. The local Markdown renderer supports the maintained repository content and is not a general CommonMark implementation. Analytics tests intercept the Google script request and prove the local consent controller's request and state transitions; they do not prove deployed data arrival, property configuration, downstream processing, or legal suitability. The link checker does not make network requests. Sitemap checks prove syntax and source alignment, not search-engine discovery or indexing. The evaluation dry run proves fixture and composition integrity only. Unit tests prove the repository implementations under test, not the quality of model output or generated downstream systems.
+The Chromium, Firefox, and WebKit matrix does not cover every browser version, operating system, screen reader, locale, high-contrast mode, or input device. The local Markdown renderer supports the maintained repository content and is not a general CommonMark implementation. Analytics tests intercept the Google script request and prove the local consent controller's request and state transitions; they do not prove deployed data arrival, property configuration, downstream processing, or legal suitability. Gitleaks and GitHub secret scanning recognize known patterns and heuristics; neither proves that arbitrary content contains no credential or confidential information. The link checker does not make network requests. Sitemap checks prove syntax and source alignment, not search-engine discovery or indexing. The evaluation dry run proves fixture and composition integrity only. Unit tests prove the repository implementations under test, not the quality of model output or generated downstream systems.
 
 Add failure cases whenever a parser, validator, router, renderer, path boundary, or public claim changes. Do not replace behavioural assertions with file-count checks.

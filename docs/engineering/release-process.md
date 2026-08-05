@@ -14,7 +14,7 @@ npm audit --audit-level=high
 bash scripts/verify-release.sh
 ```
 
-The gate runs Python verification, metadata and licence checks, all-asset deterministic composition, rendered-document and SEO reproducibility checks, source-manifest comparison, lint, unit tests, ZIP tests, local-link checks, browser tests, and automated accessibility tests. It must not modify tracked source files.
+The local gate runs Python verification, metadata and licence checks, all-asset deterministic composition, rendered-document and SEO reproducibility checks, source-manifest comparison, lint, unit tests, ZIP tests, local-link checks, browser tests, and automated accessibility tests. It must not modify tracked source files. Before merging, also require the remote `source-and-unit`, `browser-and-accessibility`, and `secret-scan` results. The secret scan is remote because the repository does not install Gitleaks as a local dependency.
 
 ## Evidence
 

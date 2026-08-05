@@ -16,6 +16,8 @@ Contributions should be small, reviewable, and aligned with the browser-local st
 
 Preserve the static GitHub Pages and browser-local builder model. Do not add a backend, secret, paid API, cloud dependency, or analytics tracker without explicit maintainer approval and documented privacy, consent, data-minimisation, and verification boundaries. Preserve the rule that `gtag.js` does not load before explicit consent, keep advertising storage and signals disabled, and retain refusal, persistence, withdrawal, and exact-ID browser coverage. Add focused unit, browser, accessibility, and failure-case coverage when behaviour changes.
 
+Never commit a populated `.env`, package-registry credentials, private keys, service-account files, production configuration, or real customer data. Use clearly fictional placeholders in tracked `.env.example` files. If a secret reaches Git history, revoke or rotate it before remediation; deleting it from the latest file is not sufficient.
+
 Maintained written content stays in Markdown. Public navigation and sitemap entries must use the generated sibling HTML routes; raw Markdown links on rendered pages are permitted only as clearly labelled downloads. Do not hand-edit generated document HTML or `dist/rendered-documents.json`. Change the source or renderer, run `node scripts/build_docs.mjs`, and verify with `npm run test:docs`.
 
 ## Verification
@@ -26,7 +28,7 @@ npx playwright install chromium
 bash scripts/verify-release.sh
 ```
 
-The release gate runs deterministic checks and browser automation. Complete any relevant manual accessibility, security, and visual review and record what was not checked. Do not commit generated test output, `node_modules`, screenshots containing personal data, or secrets.
+The release gate runs deterministic checks and browser automation. The separate `Security gates` workflow performs the redacted Gitleaks scan. Complete any relevant manual accessibility, security, and visual review and record what was not checked. Do not commit generated test output, `node_modules`, screenshots containing personal data, or secrets.
 
 ## Pull requests
 

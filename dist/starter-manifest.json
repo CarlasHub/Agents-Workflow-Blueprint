@@ -9,6 +9,7 @@
   },
   "included_files": [
     ".github/workflows/quality.yml",
+    ".github/workflows/security.yml",
     ".gitignore",
     ".nojekyll",
     ".nvmrc",

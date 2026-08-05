@@ -6,6 +6,8 @@ All notable changes are recorded here.
 
 ### Added
 
+- A SHA-pinned, redacted Gitleaks workflow for pull requests, pushes, manual runs, and weekly full-history secret scans.
+- Public-repository hardening guidance covering private vulnerability reports, secret rotation, tracked examples, and the boundary of automated scanning.
 - Styled, canonical HTML pages for all 156 maintained guides, prompts, skills, and contracts, with deterministic source-to-route generation and sitemap coverage.
 - Rendered asset pages with applicability and references outside one copy-ready code body, a compact accessible copy control, and an explicit Markdown source download.
 - Unit, browser, link, analytics-consent, and automated accessibility coverage for generated guide and asset pages.
@@ -17,6 +19,8 @@ All notable changes are recorded here.
 
 ### Changed
 
+- The public/open licensing model is now stated at the top of the README, and local credential and private-key files are excluded by default.
+- Remote release requirements now include source, browser/accessibility, and secret-scan results.
 - Primary site, catalogue, documentation-index, and sitemap links now use styled `.html` routes instead of serving raw Markdown to visitors.
 - Raw `.md` files remain maintained source artefacts and are exposed on generated pages only as explicit downloads.
 - Public entry pages now expose stronger titles and descriptions, canonical and sitemap links, index/follow directives, social metadata, and structured data where applicable.

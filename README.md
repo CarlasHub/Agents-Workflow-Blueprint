@@ -1,5 +1,7 @@
 # Agent Workflow Blueprint
 
+**Open portfolio and community project.** Code and automation are MIT-licensed. Prompts, skills, contracts, documentation, and other written workflow assets are CC BY 4.0-licensed; reuse is welcome with the required attribution.
+
 Agent Workflow Blueprint is a static, browser-local collection of governance assets for making AI-assisted engineering work easier to scope, review, and verify. It is intended for engineering teams, technical leaders, and AI-governance reviewers who need evidence-oriented workflows—not a guarantee that an agent's output is correct.
 
 The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptance contracts, a shared governance kernel, a normalized specialist-control registry, a searchable website, a crawlable static asset index, and a browser-local starter-project builder. It has no backend, authentication, paid API, or cloud-service dependency.
@@ -65,6 +67,7 @@ The builder normalises project names, validates generated relative paths, preven
 - JavaScript unit tests cover text handling, manifest validation, project generation, safe paths, and ZIP integrity.
 - Playwright tests cover homepage search, filters, modal keyboard behaviour, copy fallback, builder intake, file selection, assembly, success, and ZIP extraction.
 - Automated axe checks cover twelve representative homepage, privacy, catalogue, rendered-document, prompt, and builder states in Chromium, Firefox, and WebKit.
+- GitHub secret scanning, push protection, and a separate redacted Gitleaks workflow check new commits on pushes and pull requests; the scheduled scan checks the complete history weekly.
 - The release commands, retained failure, and results for this change are recorded in [`2026-08-05-seo-discoverability.md`](docs/engineering/release-evidence/2026-08-05-seo-discoverability.md).
 
 These are repository-level results for the tested fixtures and environment. They do not guarantee correctness for a model, task, browser, assistive technology, or downstream project.
