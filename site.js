@@ -7,7 +7,7 @@ import {
   getCategoryLabel,
   getTypeLabel,
   renderMarkdown,
-  specialistControlHref
+  splitComposedAssetMarkdown
 } from './site-utils.js';
 
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -30,6 +30,14 @@ function typeIcon(type) {
   return { prompt: '●', skill: '◆', contract: '■' }[String(type ?? '').toLowerCase()] || '•';
 }
 
+function copyIconMarkup() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M8 8.75A1.75 1.75 0 0 1 9.75 7h8.5A1.75 1.75 0 0 1 20 8.75v8.5A1.75 1.75 0 0 1 18.25 19h-8.5A1.75 1.75 0 0 1 8 17.25v-8.5Z" />
+      <path d="M16 7V5.75A1.75 1.75 0 0 0 14.25 4h-8.5A1.75 1.75 0 0 0 4 5.75v8.5A1.75 1.75 0 0 0 5.75 16H8" />
+    </svg>`;
+}
+
 export function createSiteApp(documentRef = document) {
   const grid = documentRef.getElementById('asset-grid');
   const status = documentRef.getElementById('asset-status');
@@ -42,8 +50,6 @@ export function createSiteApp(documentRef = document) {
   const title = documentRef.getElementById('markdown-preview-title');
   const meta = documentRef.querySelector('[data-markdown-preview-meta]');
   const content = documentRef.querySelector('[data-markdown-preview-content]');
-  const copyPreview = documentRef.querySelector('[data-copy-preview]');
-  const previewModeButtons = Array.from(documentRef.querySelectorAll('[data-preview-mode]'));
   const backgroundRegions = [
     documentRef.querySelector('.site-header'),
     documentRef.getElementById('main'),
@@ -55,6 +61,8 @@ export function createSiteApp(documentRef = document) {
   let activeFilter = 'all';
   let activePreviewViews = { readable: '', complete: '', source: '' };
   let activePreviewAsset = null;
+  let activePreviewCopyText = '';
+  let activePreviewCopyDescription = '';
   let lastPreviewTrigger = null;
   const sharedSourceCache = new Map();
 
@@ -164,68 +172,58 @@ export function createSiteApp(documentRef = document) {
     setBackgroundUnavailable(false);
     activePreviewViews = { readable: '', complete: '', source: '' };
     activePreviewAsset = null;
+    activePreviewCopyText = '';
+    activePreviewCopyDescription = '';
     lastPreviewTrigger?.focus();
     lastPreviewTrigger = null;
   }
 
-  function setPreviewMode(mode) {
-    const markdown = activePreviewViews[mode];
-    if (!markdown || !activePreviewAsset) return;
-    previewModeButtons.forEach((button) => {
-      const selected = button.dataset.previewMode === mode;
-      button.setAttribute('aria-selected', String(selected));
-      button.setAttribute('tabindex', selected ? '0' : '-1');
-    });
-    const typeLabel = getTypeLabel(activePreviewAsset.type);
-    const labels = {
-      readable: `${typeLabel} introduction · purpose and fit · ${activePreviewAsset.path}`,
-      complete: `Full ${activePreviewAsset.type} · standalone and copy-ready · sources linked at the end`
-    };
-    meta.textContent = labels[mode];
-    const activeButton = previewModeButtons.find((button) => button.dataset.previewMode === mode);
-    content.setAttribute('aria-labelledby', activeButton.id);
-    renderPreviewMarkdown(markdown);
+  function renderPreviewLayout({ introduction, prompt, references, promptHeading, copyDescription }) {
+    activePreviewCopyText = prompt;
+    activePreviewCopyDescription = copyDescription;
+    content.innerHTML = `
+      <section class="asset-preview-introduction" aria-label="Introduction">
+        ${renderMarkdown(introduction)}
+      </section>
+      <section class="asset-prompt-section" aria-labelledby="asset-prompt-title">
+        <div class="asset-prompt-heading">
+          <h3 id="asset-prompt-title">${escapeHtml(promptHeading)}</h3>
+          <button class="prompt-copy-button" type="button" data-copy-preview aria-label="Copy ${escapeAttribute(copyDescription.toLowerCase())}" title="Copy ${escapeAttribute(copyDescription.toLowerCase())}">
+            ${copyIconMarkup()}
+          </button>
+        </div>
+        <pre class="asset-prompt-code" tabindex="0" aria-label="${escapeAttribute(promptHeading)} code"><code data-prompt-code>${escapeHtml(prompt)}</code></pre>
+      </section>
+      <section class="asset-preview-references" data-asset-references aria-label="References">
+        ${renderMarkdown(references)}
+      </section>`;
     content.scrollTop = 0;
   }
 
-  function renderPreviewMarkdown(markdown) {
-    content.innerHTML = renderMarkdown(markdown);
-    content.querySelectorAll('strong').forEach((strong) => {
-      const match = strong.textContent.trim().match(/^(SPC-[A-F0-9]{10}):$/);
-      if (!match || strong.querySelector('a')) return;
-      const link = documentRef.createElement('a');
-      link.href = specialistControlHref(match[1]);
-      link.target = '_blank';
-      link.rel = 'noreferrer';
-      link.textContent = match[1];
-      link.setAttribute('aria-label', `${match[1]} specialist control definition`);
-      strong.replaceChildren(link, ':');
+  function renderAssetPreview(views) {
+    const typeLabel = getTypeLabel(activePreviewAsset.type);
+    const separated = splitComposedAssetMarkdown(views.complete);
+    meta.textContent = `${typeLabel} · introduction, ${activePreviewAsset.type} code, and references · ${activePreviewAsset.path}`;
+    renderPreviewLayout({
+      introduction: views.readable,
+      prompt: separated.prompt,
+      references: separated.references.replace(/^## References$/m, '### References'),
+      promptHeading: `Full ${activePreviewAsset.type}`,
+      copyDescription: `Full ${activePreviewAsset.type}`
     });
-  }
-
-  function setPreviewModesAvailable(availableModes) {
-    previewModeButtons.forEach((button) => {
-      const available = availableModes.includes(button.dataset.previewMode);
-      button.disabled = !available;
-      if (!available) button.setAttribute('aria-selected', 'false');
-      if (activePreviewAsset) {
-        button.textContent = button.dataset.previewMode === 'readable' ? 'Intro' : `Full ${activePreviewAsset.type}`;
-      }
-    });
-    copyPreview.disabled = !availableModes.includes('complete');
-    if (activePreviewAsset) copyPreview.textContent = `Copy full ${activePreviewAsset.type}`;
+    activePreviewCopyText = views.complete;
   }
 
   function showSourceFallback(source) {
-    const sourceButton = previewModeButtons.find((button) => button.dataset.previewMode === 'readable');
-    setPreviewModesAvailable(['readable']);
-    sourceButton.textContent = `${getTypeLabel(activePreviewAsset.type)} source`;
-    sourceButton.setAttribute('aria-selected', 'true');
-    sourceButton.setAttribute('tabindex', '0');
-    meta.textContent = `Source fallback · shared dependencies unavailable · ${activePreviewAsset.path}`;
-    content.setAttribute('aria-labelledby', sourceButton.id);
-    renderPreviewMarkdown(source);
-    content.scrollTop = 0;
+    const typeLabel = getTypeLabel(activePreviewAsset.type);
+    meta.textContent = `${typeLabel} source · shared dependencies unavailable · ${activePreviewAsset.path}`;
+    renderPreviewLayout({
+      introduction: `### Source module\n\nShared governance dependencies could not be loaded, so a standalone ${activePreviewAsset.type} could not be assembled. The authoring source is shown below.`,
+      prompt: source,
+      references: `### References\n\n- [Download source](${activePreviewAsset.path})`,
+      promptHeading: `${typeLabel} source`,
+      copyDescription: `${typeLabel} source`
+    });
   }
 
   async function openPreview(path, trigger) {
@@ -233,10 +231,11 @@ export function createSiteApp(documentRef = document) {
     lastPreviewTrigger = trigger;
     activePreviewViews = { readable: '', complete: '', source: '' };
     activePreviewAsset = asset ?? null;
+    activePreviewCopyText = '';
+    activePreviewCopyDescription = '';
     title.textContent = asset?.title || 'Template preview';
     meta.textContent = asset ? `${getTypeLabel(asset.type)} · ${getCategoryLabel(asset.category)} · ${asset.path}` : path;
     content.innerHTML = '<p class="markdown-loading">Loading markdown preview…</p>';
-    setPreviewModesAvailable([]);
     modal.hidden = false;
     documentRef.body.classList.add('modal-open');
     setBackgroundUnavailable(true);
@@ -247,8 +246,7 @@ export function createSiteApp(documentRef = document) {
       activePreviewViews.source = source;
       try {
         activePreviewViews = await resolveAssetViews(asset, source);
-        setPreviewModesAvailable(['readable', 'complete']);
-        setPreviewMode('readable');
+        renderAssetPreview(activePreviewViews);
       } catch (error) {
         showSourceFallback(source);
         announce('Shared prompt dependencies could not be resolved. The source module is shown instead.');
@@ -342,39 +340,23 @@ export function createSiteApp(documentRef = document) {
       if (copy) copyAsset(copy.dataset.copyPath, copy);
     });
 
-    modal.addEventListener('click', (event) => {
-      if (event.target.closest('[data-close-preview]')) closePreview();
-    });
-    copyPreview.addEventListener('click', async () => {
+    modal.addEventListener('click', async (event) => {
+      if (event.target.closest('[data-close-preview]')) {
+        closePreview();
+        return;
+      }
+      const copyPreview = event.target.closest('[data-copy-preview]');
+      if (!copyPreview) return;
       try {
-        const composed = activePreviewViews.complete || (activePreviewViews.source
-          ? await completeAssetMarkdown(activePreviewAsset, activePreviewViews.source)
-          : null);
-        const copied = composed ? await writeClipboard(composed) : false;
-        announce(copied
-          ? `Full ${activePreviewAsset.type} copied to the clipboard, ready to paste.`
-          : 'Copy is unavailable. Open the source link instead.');
+        const copied = activePreviewCopyText ? await writeClipboard(activePreviewCopyText) : false;
+        if (!copied) throw new Error('Clipboard unavailable');
+        copyPreview.classList.add('is-copied');
+        announce(`${activePreviewCopyDescription} copied to the clipboard, ready to paste.`);
+        window.setTimeout(() => copyPreview.classList.remove('is-copied'), 1600);
       } catch (error) {
-        announce('The full asset is unavailable. Open the source file instead.');
+        announce('Copy is unavailable. Use the reference link instead.');
       }
     });
-    previewModeButtons.forEach((button) => button.addEventListener('click', () => {
-      setPreviewMode(button.dataset.previewMode);
-    }));
-    previewModeButtons.forEach((button) => button.addEventListener('keydown', (event) => {
-      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-      event.preventDefault();
-      const enabled = previewModeButtons.filter((item) => !item.disabled);
-      if (!enabled.length) return;
-      const current = enabled.indexOf(button);
-      const next = event.key === 'Home'
-        ? enabled[0]
-        : event.key === 'End'
-          ? enabled.at(-1)
-          : enabled[(current + (event.key === 'ArrowRight' ? 1 : -1) + enabled.length) % enabled.length];
-      next.focus();
-      next.click();
-    }));
     documentRef.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && !modal.hidden) {
         event.preventDefault();

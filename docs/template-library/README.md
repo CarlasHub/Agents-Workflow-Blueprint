@@ -12,7 +12,7 @@ Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KE
 
 ## Use the system this way
 
-1. Open an asset introduction, then copy the full standalone asset from the website or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+1. Open an asset's single dialog, review the introduction and references, then copy the standalone code with its compact copy control; or compose selected asset IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
 2. Choose the smallest prompt that matches the task.
 3. Attach the matching skill when the work needs a repeatable procedure.
 4. Attach the matching contract when the result needs acceptance or rejection language.
@@ -35,7 +35,7 @@ Open [`CATALOGUE.md`](CATALOGUE.md) for all 100 assets grouped by type and categ
 
 ## Source modules and copy-ready assets
 
-The Markdown files under `prompts/`, `skills/`, and `contracts/` are concise authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website opens with a short **Intro**; **Full prompt/skill/contract**, the matching copy action, and `scripts/compose_assets.py` produce standalone instructions with specialist content first and source links at the end.
+The Markdown files under `prompts/`, `skills/`, and `contracts/` are concise authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website presents one dialog with a concise introduction, the standalone prompt/skill/contract as literal Markdown code, a compact copy control, and linked references. `scripts/compose_assets.py` produces the same complete copied output.
 
 ## Machine-readable catalogue
 

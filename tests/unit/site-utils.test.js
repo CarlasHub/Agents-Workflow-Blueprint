@@ -12,6 +12,7 @@ import {
   renderMarkdown,
   repositoryFileHref,
   safeHref,
+  splitComposedAssetMarkdown,
   specialistControlHref
 } from '../../site-utils.js';
 
@@ -92,9 +93,16 @@ test('full asset composition is copy-ready, operational, and source-linked', () 
   assert.doesNotMatch(composed, /## Dependencies/);
   assert.doesNotMatch(composed, /Controls: `SPC-/);
   assert.match(composed, /Inspect the result/);
+
+  const separated = splitComposedAssetMarkdown(composed);
+  assert.match(separated.prompt, /^# Example/);
+  assert.doesNotMatch(separated.prompt, /## References/);
+  assert.match(separated.references, /^## References/);
+  assert.match(separated.references, /\[Source prompt module\]/);
+  assert.equal(`${separated.prompt.trim()}\n\n${separated.references.trim()}\n`, composed);
 });
 
-test('asset introduction explains purpose and points to the full copy-ready asset', () => {
+test('asset introduction stays concise and excludes prompt instructions', () => {
   const asset = {
     id: 'prompt-example',
     title: 'Example Prompt',
@@ -109,14 +117,19 @@ test('asset introduction explains purpose and points to the full copy-ready asse
   const kernel = `# Governance Kernel\n\n## \`GOV-BOUNDARY-01\` — Operating boundary\n\nKeep the task bounded.\n\n## Asset execution profiles\n\n### \`GOV-PROFILE-PROMPT\`\n\nInspect before acting.\n\n## Composition rule\n\nInclude dependencies once.`;
   const introduction = composeAssetIntroductionMarkdown(asset, source, kernel, registry);
 
-  assert.match(introduction, /^# Example Prompt/);
+  assert.match(introduction, /^### Introduction/);
   assert.match(introduction, /Use for a focused review/);
-  assert.match(introduction, /## Purpose\n\nInspect the result/);
-  assert.match(introduction, /## Agent role\n\nYou are a reviewer/);
-  assert.match(introduction, /## Not for\n\nDo not use for implementation/);
-  assert.match(introduction, /## Ready to use[\s\S]*Open \*\*Full prompt\*\*/);
+  assert.doesNotMatch(introduction, /Inspect the result|You are a reviewer|Do not use for implementation/);
+  assert.doesNotMatch(introduction, /Ready to use|Full prompt|Purpose|Agent role|Not for/);
   assert.doesNotMatch(introduction, /Collect direct evidence/);
   assert.doesNotMatch(introduction, /Keep the task bounded/);
+});
+
+test('composed asset splitting rejects output without references', () => {
+  assert.throws(
+    () => splitComposedAssetMarkdown('# Example\n\n## Instructions\n\nDo the work.\n'),
+    /missing its References section/i
+  );
 });
 
 test('complete asset composition rejects drift and missing controls', () => {

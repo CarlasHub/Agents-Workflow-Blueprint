@@ -15,7 +15,7 @@ The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptan
 
 1. Read [`docs/template-library/START-HERE.md`](docs/template-library/START-HERE.md).
 2. Choose one asset from each relevant family in the [`CATALOGUE.md`](docs/template-library/CATALOGUE.md).
-3. On the website, open an asset to read its short **Intro**. Switch to **Full prompt**, **Full skill**, or **Full contract** for the standalone instructions, then use **Copy full prompt/skill/contract**; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
+3. On the website, open an asset to use one focused dialog containing its introduction, copy-ready prompt/skill/contract code, and linked references. Use the compact copy control beside the code; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
 4. Paste the copied asset into the agent with the concrete task and repository context. Asset-specific instructions come first; shared operating requirements follow; source links are at the end.
 5. Require command output, file evidence, limitations, and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
 
@@ -66,7 +66,7 @@ These are repository-level results for the tested fixtures and environment. They
 
 - No model-based comparative evaluation was executed because no model runtime was supplied; the deterministic evaluation dry run validates fixtures only.
 - No claim of WCAG conformance is made. Automated checks cannot replace manual assistive-technology, reflow, contrast, and usability review.
-- The GitHub Pages deployment was smoke-tested at release commit `22e0cdd`: all 100 assets loaded, prompt content opened by default, complete/source views worked, and no horizontal overflow was detected at 1440 px or 390 px. This is a deployment smoke test, not exhaustive browser or assistive-technology coverage.
+- The GitHub Pages deployment is smoke-tested during release: all 100 assets must load, the single-dialog introduction, prompt-code, references, and copy flow must work, and no horizontal overflow may occur at desktop or narrow widths. This is a deployment smoke test, not exhaustive browser or assistive-technology coverage.
 - The repository does not establish production security, legal compliance, universal effectiveness, or fitness for a specific organisation.
 
 ## Verification

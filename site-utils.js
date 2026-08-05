@@ -231,30 +231,26 @@ export function composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, regis
   return `${parts.join('\n').trim()}\n`;
 }
 
+export function splitComposedAssetMarkdown(markdown) {
+  const source = String(markdown ?? '').replace(/\r\n/g, '\n').trim();
+  const marker = '\n## References\n';
+  const referenceIndex = source.lastIndexOf(marker);
+  if (referenceIndex < 0) throw new Error('Composed asset is missing its References section');
+  return {
+    prompt: `${source.slice(0, referenceIndex).trim()}\n`,
+    references: `${source.slice(referenceIndex + 1).trim()}\n`
+  };
+}
+
 export function composeAssetIntroductionMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown) {
   // Run the canonical composer first so the introduction cannot hide dependency drift.
   composeAssetMarkdown(asset, assetMarkdown, kernelMarkdown, registryMarkdown);
   const sections = secondLevelSections(assetMarkdown);
-  const typeLabel = String(asset.type ?? 'asset').toLowerCase();
-  const purpose = sections.get('Task-specific mission')
-    || sections.get('Purpose')
-    || sections.get('Acceptance objective');
-  const role = sections.get('Specialist role') || sections.get('Contract owner');
-  const parts = [
-    `# ${assetTitle(asset, assetMarkdown)}`,
+  return [
+    '### Introduction',
     '',
-    sections.get('When to use') || asset.summary || `Use this ${typeLabel} for the described specialist task.`
-  ];
-  if (purpose) parts.push('', '## Purpose', '', purpose);
-  if (role) parts.push('', '## Agent role', '', role);
-  if (sections.get('When not to use')) parts.push('', '## Not for', '', sections.get('When not to use'));
-  parts.push(
-    '',
-    '## Ready to use',
-    '',
-    `Open **Full ${typeLabel}** for the standalone, copy-ready instructions. Governance and specialist requirements are included there, with source links at the end.`
-  );
-  return `${parts.join('\n').trim()}\n`;
+    sections.get('When to use') || asset.summary || 'Use this asset for the described specialist task.'
+  ].join('\n').trim() + '\n';
 }
 
 export function renderInlineMarkdown(value) {

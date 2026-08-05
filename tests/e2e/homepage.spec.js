@@ -83,41 +83,33 @@ test('preview closes with its close control', async ({ page }) => {
   await expect(page.getByRole('dialog')).toBeHidden();
 });
 
-test('preview opens with a concise introduction followed by a copy-ready full prompt', async ({ page }) => {
+test('preview presents one dialog with an introduction, prompt code, references, and compact copy control', async ({ page }) => {
   await page.goto('./');
   await page.locator('[data-preview-path]').first().click();
   const dialog = page.getByRole('dialog');
-  const introduction = dialog.getByRole('tab', { name: 'Intro', exact: true });
-  const complete = dialog.getByRole('tab', { name: 'Full prompt' });
+  const promptCode = dialog.locator('[data-prompt-code]');
+  const copy = dialog.getByRole('button', { name: 'Copy full prompt' });
 
-  await expect(dialog.getByRole('tab')).toHaveCount(2);
-  await expect(introduction).toHaveAttribute('aria-selected', 'true');
-  await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('Prompt introduction · purpose and fit');
-  await expect(dialog.getByRole('heading', { name: 'Purpose' })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Agent role' })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Ready to use' })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Instructions' })).toHaveCount(0);
-
-  await complete.click();
-  await expect(complete).toHaveAttribute('aria-selected', 'true');
-  await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('standalone and copy-ready');
-  await expect(dialog.getByRole('heading', { name: 'Role', exact: true })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Instructions', exact: true })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Shared specialist requirements' })).toHaveCount(1);
-  await expect(dialog.getByRole('heading', { name: 'Shared operating rules' })).toHaveCount(1);
+  await expect(dialog.getByRole('tab')).toHaveCount(0);
+  await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('introduction, prompt code, and references');
+  await expect(dialog.getByRole('heading', { name: 'Introduction' })).toHaveCount(1);
+  await expect(dialog.getByText(/Use at the start of a serious coding-agent session/)).toHaveCount(1);
+  await expect(dialog.getByRole('heading', { name: 'Full prompt' })).toHaveCount(1);
+  await expect(promptCode).toContainText('# Master Agent Enforcement Prompt');
+  await expect(promptCode).toContainText('## Role');
+  await expect(promptCode).toContainText('## Instructions');
+  await expect(promptCode).toContainText('## Shared operating rules');
+  await expect(promptCode).not.toContainText('## References');
   await expect(dialog.getByRole('heading', { name: 'References' })).toHaveCount(1);
   await expect(dialog.getByRole('link', { name: 'Source prompt module' })).toHaveAttribute('href', /prompts\/01-master-agent-enforcement-prompt\.md$/);
   await expect(dialog.getByRole('link', { name: /^SPC-/ }).first()).toHaveAttribute('href', /SPECIALIST-CONTROLS\.md#spc-/);
-
-  await page.keyboard.press('ArrowLeft');
-  await expect(introduction).toBeFocused();
-  await expect(introduction).toHaveAttribute('aria-selected', 'true');
-  await expect(dialog.getByRole('heading', { name: 'Ready to use' })).toHaveCount(1);
+  await expect(copy.locator('svg')).toHaveCount(1);
+  expect((await copy.textContent()).trim()).toBe('');
 });
 
 for (let start = 0; start < 100; start += 10) {
   const end = start + 10;
-  test(`manifest assets ${start + 1}-${end} open with an intro and copy-ready full asset`, async ({ page }) => {
+  test(`manifest assets ${start + 1}-${end} open in one dialog with intro, code, and references`, async ({ page }) => {
     await page.goto('./');
     const cards = page.locator('.asset-card');
     await expect(cards).toHaveCount(100);
@@ -133,16 +125,16 @@ for (let start = 0; start < 100; start += 10) {
       const assetType = await card.getAttribute('data-type');
       const assetTitle = (await card.locator('h3').textContent()).trim();
       await card.locator('[data-preview-path]').click();
-      await expect(dialog.getByRole('heading', { level: 1 })).toHaveText(assetTitle);
-      await expect(dialog.getByRole('heading', { name: 'Ready to use' })).toHaveCount(1);
-      await dialog.getByRole('tab', { name: `Full ${assetType}` }).click();
-      const specialistHeading = dialog.getByRole('heading', { name: expectedSection[assetType] });
-      await expect(specialistHeading).toHaveCount(1);
-      expect(await specialistHeading.evaluate((heading) => (
-        heading.nextElementSibling?.matches('ol') && heading.nextElementSibling.children.length >= 3
-      ))).toBe(true);
+      await expect(dialog.locator('#markdown-preview-title')).toHaveText(assetTitle);
+      await expect(dialog.getByRole('heading', { name: 'Introduction' })).toHaveCount(1);
+      const promptText = await dialog.locator('[data-prompt-code]').textContent();
+      const sectionMarker = `## ${expectedSection[assetType]}\n\n`;
+      expect(promptText).toContain(sectionMarker);
+      const sectionBody = promptText.slice(promptText.indexOf(sectionMarker) + sectionMarker.length).split(/\n\n## /, 1)[0];
+      expect(sectionBody.match(/^\d+\./gm)?.length ?? 0).toBeGreaterThanOrEqual(3);
       await expect(dialog.getByRole('heading', { name: 'References' })).toHaveCount(1);
-      await expect(dialog.locator('[data-preview-mode="complete"]')).toHaveAttribute('aria-selected', 'true');
+      await expect(dialog.getByRole('button', { name: `Copy full ${assetType}` })).toHaveCount(1);
+      await expect(dialog.getByRole('tab')).toHaveCount(0);
       await dialog.getByRole('button', { name: 'Close markdown preview' }).click();
     }
   });
@@ -170,7 +162,11 @@ test('preview exposes one clear full-prompt copy action', async ({ page, context
 
   await expect(dialog.getByRole('button', { name: 'Copy source module' })).toHaveCount(0);
   await expect(dialog.getByRole('link', { name: 'Download source' })).toHaveCount(0);
-  await dialog.getByRole('button', { name: 'Copy full prompt' }).click();
+  const copy = dialog.getByRole('button', { name: 'Copy full prompt' });
+  await expect(copy.locator('svg')).toHaveCount(1);
+  await copy.focus();
+  await expect(copy).toBeFocused();
+  await page.keyboard.press('Enter');
   await expect(page.locator('#site-status')).toHaveText(/ready to paste/i);
   const composed = await readClipboard(page, browserName);
   expect(composed).toMatch(/^# Master Agent Enforcement Prompt/);
@@ -195,9 +191,8 @@ test('preview source failure preserves a direct download fallback', async ({ pag
   const dialog = page.getByRole('dialog');
   await expect(dialog.getByRole('heading', { name: 'The Markdown could not be loaded.' })).toBeVisible();
   await expect(dialog.getByRole('link', { name: 'Download source' })).toHaveAttribute('href', path);
-  const previewModes = dialog.locator('[data-preview-mode]');
-  await expect(previewModes).toHaveCount(2);
-  expect(await previewModes.evaluateAll((buttons) => buttons.every((button) => button.disabled))).toBe(true);
+  await expect(dialog.locator('[data-preview-mode]')).toHaveCount(0);
+  await expect(dialog.locator('[data-copy-preview]')).toHaveCount(0);
 });
 
 test('shared dependency failure exposes the source module instead of hiding the prompt', async ({ page }) => {
@@ -206,10 +201,13 @@ test('shared dependency failure exposes the source module instead of hiding the 
   await expect(page.locator('#asset-status')).toHaveText('100 assets shown');
   await page.locator('[data-preview-path]').first().click();
   const dialog = page.getByRole('dialog');
-  await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveAttribute('aria-selected', 'true');
-  await expect(dialog.locator('[data-preview-mode="readable"]')).toHaveText('Prompt source');
-  await expect(dialog.locator('[data-preview-mode="complete"]')).toBeDisabled();
-  await expect(dialog.getByRole('heading', { name: 'Metadata' })).toHaveCount(1);
+  await expect(dialog.getByRole('tab')).toHaveCount(0);
+  await expect(dialog.getByRole('heading', { name: 'Source module' })).toHaveCount(1);
+  await expect(dialog.getByRole('heading', { name: 'Prompt source' })).toHaveCount(1);
+  await expect(dialog.locator('[data-prompt-code]')).toContainText('## Metadata');
+  await expect(dialog.getByRole('button', { name: 'Copy prompt source' })).toHaveCount(1);
+  await expect(dialog.getByRole('heading', { name: 'References' })).toHaveCount(1);
+  await expect(dialog.getByRole('link', { name: 'Download source' })).toHaveAttribute('href', /01-master-agent-enforcement-prompt\.md$/);
   await expect(page.locator('#site-status')).toHaveText(/dependencies could not be resolved/i);
 });
 

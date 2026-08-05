@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="A browser-local, evidence-oriented starter for governed coding-agent workflows." />
     <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/human-body-brand.png" />
     <link rel="me" href="https://www.linkedin.com/in/carla-goncalves-9a01a5164/" />
-    <link rel="stylesheet" href="site.css?v=20260805-1" />
+    <link rel="stylesheet" href="site.css?v=20260805-2" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -103,7 +103,7 @@ python3 -S scripts/check_template_library.py</code></pre>
             <p class="eyebrow">Template product layer</p>
             <h2 id="library-title">Find the right prompt, skill, or contract.</h2>
             <p>
-              Search the manifest, filter by type, read a short introduction, then open or copy the full standalone prompt. Source references are linked at the end.
+              Search the manifest, filter by type, then open one focused view with an introduction, copy-ready prompt code, and linked references.
               Plain download links still work without JavaScript.
             </p>
           </div>
@@ -257,19 +257,12 @@ python3 -S scripts/check_template_library.py</code></pre>
           </div>
           <button class="markdown-close" type="button" data-close-preview aria-label="Close markdown preview">Close</button>
         </header>
-        <div class="markdown-preview-modes" role="tablist" aria-label="Asset view">
-          <button id="preview-tab-asset" type="button" role="tab" data-preview-mode="readable" aria-selected="true" aria-controls="markdown-preview-panel">Intro</button>
-          <button id="preview-tab-complete" type="button" role="tab" data-preview-mode="complete" aria-selected="false" aria-controls="markdown-preview-panel" tabindex="-1">Full asset</button>
-        </div>
-        <div class="markdown-dialog-actions">
-          <button class="button button-primary" type="button" data-copy-preview>Copy full asset</button>
-        </div>
-        <article id="markdown-preview-panel" class="markdown-document" role="tabpanel" data-markdown-preview-content tabindex="0" aria-labelledby="preview-tab-asset"></article>
+        <article id="markdown-preview-panel" class="markdown-document" data-markdown-preview-content tabindex="0" aria-label="Asset introduction, prompt, and references"></article>
       </section>
     </div>
 
     <div class="visually-hidden" id="site-status" role="status" aria-live="polite" aria-atomic="true"></div>
 
-    <script type="module" src="site.js?v=20260805-1"></script>
+    <script type="module" src="site.js?v=20260805-2"></script>
   </body>
 </html>
