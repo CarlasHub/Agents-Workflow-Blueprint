@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Codex Usage Guide | Agent Workflow Blueprint</title>
+    <meta name="description" content="Use this repository as a layered instruction system.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CODEX-USAGE-GUIDE.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Codex Usage Guide">
+    <meta property="og:description" content="Use this repository as a layered instruction system.">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CODEX-USAGE-GUIDE.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Codex Usage Guide">
+    <meta name="twitter:description" content="Use this repository as a layered instruction system.">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Codex Usage Guide","description":"Use this repository as a layered instruction system.","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CODEX-USAGE-GUIDE.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Codex Usage Guide</h1>
+          <p class="document-summary">Use this repository as a layered instruction system.</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="CODEX-USAGE-GUIDE.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Use this repository as a layered instruction system.</p><h2 id="recommended-sequence">Recommended sequence</h2><ol><li>Give Codex the task.</li><li>Tell Codex to read <code>AGENTS.md</code>, <code>requirements.toml</code>, and <code>docs/engineering/workflow.md</code> first.</li><li>Select one prompt ID from <code>docs/template-library/assets.json</code>.</li><li>Add one skill from <code>docs/template-library/skills/</code> when the task needs a repeatable procedure.</li><li>Add one contract from <code>docs/template-library/contracts/</code> when the result needs acceptance or rejection.</li><li>Compose the selected IDs so the kernel and every shared control appear once. The default output is the body intended for Codex; use <code>--with-references</code> only for an audit or review copy.</li><li>Require exact command results and final status.</li></ol><p>Example composition:</p><pre><code class="bash">python3 -S scripts/compose_assets.py \
+  --asset prompt-bug-root-cause-remediation-prompt \
+  --asset skill-regression-test-design-skill \
+  --asset contract-test-behaviour-contract</code></pre><h2 id="example-instruction">Example instruction</h2><pre><code class="text">Use AGENTS.md and docs/engineering/workflow.md with the composed agent body for
+the bug-remediation, regression-test-design, and test-behaviour assets produced by
+scripts/compose_assets.py.
+Do not claim the bug is fixed unless the failure path is proven and verification results are reported.</code></pre><h2 id="model-behaviour-rule">Model behaviour rule</h2><p>Do not ask for broad generic help. Assign a specific role, a specific failure mode, and a specific contract.</p><h2 id="handoff-rule">Handoff rule</h2><p>Codex should end with:</p><ul><li>files changed</li><li>why each file changed</li><li>files inspected but not changed</li><li>verification commands run</li><li>results</li><li>remaining limitations</li><li>final status: verified, partially verified, not verified, or blocked</li></ul><h2 id="research-informed-codex-operating-loop">research-informed Codex operating loop</h2><p>Use this message at the top of a complex Codex task:</p><pre><code class="text">Use the Agent Workflow Blueprint scientific-DNA loop:
+1. Observe the repository state before editing.
+2. Decompose the task least-to-most.
+3. Compare two routes if risk or ambiguity exists.
+4. Act with the smallest safe change.
+5. Observe verification results.
+6. Refine if checks fail.
+7. Map each claim to requirement, evidence, and status.
+8. Provide a public decision record, not hidden chain-of-thought.
+9. End with verified, partially verified, not verified, or blocked.</code></pre><p>For Codex, combine one prompt, one skill, and one contract. Do not use a prompt alone for high-risk work.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="CODEX-USAGE-GUIDE.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

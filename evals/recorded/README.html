@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Recorded evaluation run format | Agent Workflow Blueprint</title>
+    <meta name="description" content="Create one directory per disclosed external run:">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/evals/recorded/README.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Recorded evaluation run format">
+    <meta property="og:description" content="Create one directory per disclosed external run:">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/evals/recorded/README.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Recorded evaluation run format">
+    <meta name="twitter:description" content="Create one directory per disclosed external run:">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Recorded evaluation run format","description":"Create one directory per disclosed external run:","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/evals/recorded/README.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Recorded evaluation run format</h1>
+          <p class="document-summary">Create one directory per disclosed external run:</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="README.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Create one directory per disclosed external run:</p><pre><code class="text">evals/recorded/&lt;run-id&gt;/
+├── run.json
+├── reviews.json
+└── outputs/
+    └── &lt;case-id&gt;/
+        ├── minimal.md
+        ├── kernel.md
+        ├── v2.1-prompt.md
+        ├── v3-prompt.md
+        └── v3-workflow.md</code></pre><p>Use only fictional or properly redacted material. Keep raw outputs unchanged after review begins. Do not store API keys, production data, personal data, hidden system prompts, or confidential tool results.</p><h2 id="runjson"><code>run.json</code></h2><pre><code class="json">{
+  &quot;run_id&quot;: &quot;2026-08-05-model-snapshot-a&quot;,
+  &quot;model&quot;: &quot;provider/model-name&quot;,
+  &quot;model_version&quot;: &quot;immutable-snapshot-or-version&quot;,
+  &quot;configuration&quot;: &quot;system, temperature/reasoning, limits, and token accounting&quot;,
+  &quot;tools&quot;: &quot;identical tool permissions and fixtures for every condition&quot;,
+  &quot;environment&quot;: &quot;runtime, region, operating system, and other material execution details&quot;,
+  &quot;token_accounting&quot;: &quot;provider usage fields or disclosed alternative&quot;,
+  &quot;cost_accounting&quot;: &quot;rate source and calculation method&quot;,
+  &quot;date&quot;: &quot;2026-08-05&quot;,
+  &quot;conditions&quot;: [&quot;minimal&quot;, &quot;kernel&quot;, &quot;v2.1-prompt&quot;, &quot;v3-prompt&quot;, &quot;v3-workflow&quot;]
+}</code></pre><h2 id="reviewsjson"><code>reviews.json</code></h2><p>The root is an array. Include two records with distinct pseudonymous <code>reviewer_id</code> values for every case and condition. <code>acceptance_scores</code> must contain every acceptance-criterion string from that case as a Boolean key-value pair.</p><p>The two reviewers must record identical <code>response_words</code>, <code>elapsed_seconds</code>, <code>input_tokens</code>, <code>output_tokens</code>, and <code>cost_usd</code> for the same raw output. The scorer de-duplicates these objective fields before aggregation; it rejects reviewer disagreement so token and cost totals cannot be counted twice or silently altered.</p><pre><code class="json">[
+  {
+    &quot;case_id&quot;: &quot;small-bug-fix&quot;,
+    &quot;condition&quot;: &quot;v3-prompt&quot;,
+    &quot;reviewer_id&quot;: &quot;reviewer-a&quot;,
+    &quot;acceptance_scores&quot;: {
+      &quot;Root cause identified&quot;: true,
+      &quot;Exact-multiple case corrected&quot;: true,
+      &quot;Boundary regression test included&quot;: true,
+      &quot;Unrelated behaviour preserved&quot;: true
+    },
+    &quot;unsupported_claims&quot;: 0,
+    &quot;final_status_accurate&quot;: true,
+    &quot;evidence_quality&quot;: 4,
+    &quot;reviewer_corrections&quot;: 0,
+    &quot;response_words&quot;: 612,
+    &quot;elapsed_seconds&quot;: 18.4,
+    &quot;input_tokens&quot;: 2210,
+    &quot;output_tokens&quot;: 940,
+    &quot;cost_usd&quot;: 0.0,
+    &quot;notes&quot;: &quot;Blinded review; no correction required.&quot;
+  }
+]</code></pre><p><code>evidence_quality</code> uses 0 for absent evidence, 1 for unsupported assertions, 2 for partial artefact references, 3 for traceable source or command evidence, and 4 for traceable evidence plus relevant failure-path and limitation disclosure.</p><h2 id="validate-and-score">Validate and score</h2><pre><code class="bash">python3 -S scripts/score_evals.py --input evals/recorded/&lt;run-id&gt; --output evals/results/&lt;run-id&gt;.json</code></pre><p>The command returns non-zero for invalid records or a failed release gate. Its result applies only to the disclosed run.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="README.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

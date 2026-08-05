@@ -73,6 +73,18 @@ test('renderMarkdown supports lists, code, quotes, and tables', () => {
   assert.match(html, /<table>/);
 });
 
+test('renderMarkdown can generate stable heading IDs and rewrite local links', () => {
+  const html = renderMarkdown(
+    '# Same heading\n\n## Same heading\n\n[Local](guide.md#start)\n\n[External](https://example.test)',
+    { headingIds: true, transformHref: (href) => href.replace(/\.md(?=#|$)/, '.html') }
+  );
+  assert.match(html, /<h1 id="same-heading">Same heading<\/h1>/);
+  assert.match(html, /<h2 id="same-heading-1">Same heading<\/h2>/);
+  assert.match(html, /href="guide\.html#start">Local<\/a>/);
+  assert.doesNotMatch(html, /href="guide\.html#start" target=/);
+  assert.match(html, /href="https:\/\/example\.test" target="_blank" rel="noreferrer"/);
+});
+
 test('research source registry requires unique, safe, complete entries', () => {
   assert.equal(parseResearchSources(researchSources).get('Reason + Act').url, researchSources[0].url);
   assert.throws(() => parseResearchSources([...researchSources, ...researchSources]), /duplicate research source/i);

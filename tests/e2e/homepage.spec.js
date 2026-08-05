@@ -201,7 +201,7 @@ test('manifest and preview failures expose usable fallbacks', async ({ page }) =
   await page.route('**/docs/template-library/assets.json', (route) => route.fulfill({ status: 503, body: 'unavailable' }));
   await page.goto('./');
   await expect(page.locator('#asset-status')).toContainText('Could not load the asset manifest');
-  await expect(page.getByRole('link', { name: 'Open catalogue' })).toHaveAttribute('href', 'docs/template-library/CATALOGUE.md');
+  await expect(page.getByRole('link', { name: 'Open catalogue' })).toHaveAttribute('href', 'docs/template-library/CATALOGUE.html');
 });
 
 test('preview source failure preserves a direct download fallback', async ({ page }) => {
@@ -263,6 +263,8 @@ test('static library index exposes all assets and submits search to the interact
   await expect(page.locator('#prompts .asset-card')).toHaveCount(40);
   await expect(page.locator('#skills .asset-card')).toHaveCount(30);
   await expect(page.locator('#contracts .asset-card')).toHaveCount(30);
+  await expect(page.locator('.asset-card h3 a').first()).toHaveAttribute('href', /\.html$/);
+  await expect(page.getByRole('link', { name: 'Download Markdown source' }).first()).toHaveAttribute('download', '');
   await page.getByRole('searchbox', { name: 'Search the interactive library' }).fill('accessibility');
   await page.getByRole('button', { name: 'Search' }).click();
   await expect(page).toHaveURL(/\?assetSearch=accessibility$/);
@@ -275,10 +277,12 @@ test('sitemap and crawler guidance expose canonical public URLs', async ({ reque
   const sitemap = await request.get('./sitemap.xml');
   expect(sitemap.ok()).toBe(true);
   const sitemapText = await sitemap.text();
-  expect((sitemapText.match(/<url>/g) || []).length).toBe(110);
+  expect((sitemapText.match(/<url>/g) || []).length).toBe(161);
   expect(sitemapText).toContain('https://carlashub.github.io/Agents-Workflow-Blueprint/library/');
   expect(sitemapText).toContain('https://carlashub.github.io/Agents-Workflow-Blueprint/privacy.html');
-  expect(sitemapText).toContain('docs/template-library/prompts/01-master-agent-enforcement-prompt.md');
+  expect(sitemapText).toContain('docs/template-library/prompts/01-master-agent-enforcement-prompt.html');
+  expect(sitemapText).toContain('docs/template-library/CODEX-USAGE-GUIDE.html');
+  expect(sitemapText).not.toContain('<loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CODEX-USAGE-GUIDE.md</loc>');
 
   const robots = await request.get('./robots.txt');
   expect(robots.ok()).toBe(true);
@@ -311,7 +315,39 @@ test('rendered documentation index is reachable and usable at narrow width', asy
   await page.goto('./docs/');
   await expect(page).toHaveTitle('Documentation — Agent Workflow Blueprint');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Start with the workflow');
-  await expect(page.getByRole('link', { name: 'shared kernel' })).toHaveAttribute('href', 'template-library/GOVERNANCE-KERNEL.md');
+  await expect(page.getByRole('link', { name: 'shared kernel' })).toHaveAttribute('href', 'template-library/GOVERNANCE-KERNEL.html');
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   expect(overflow).toBeLessThanOrEqual(1);
+});
+
+test('Codex guide is a styled HTML document with explicit Markdown source', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('./docs/template-library/CODEX-USAGE-GUIDE.html');
+  await expect(page).toHaveTitle('Codex Usage Guide | Agent Workflow Blueprint');
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex Usage Guide' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 2, name: 'Recommended sequence' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Download Markdown source' })).toHaveAttribute('href', 'CODEX-USAGE-GUIDE.md');
+  await expect(page.getByRole('link', { name: 'Download Markdown source' })).toHaveAttribute('download', '');
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
+});
+
+test('rendered asset page exposes only the agent-ready body in code with a copy icon', async ({ page, context, browserName }) => {
+  await prepareClipboard(page, context, browserName);
+  await page.goto('./docs/template-library/prompts/12-bug-root-cause-remediation-prompt.html');
+  await expect(page.getByRole('heading', { level: 1, name: 'Bug Root Cause Remediation Prompt' })).toBeVisible();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  const code = page.locator('#document-agent-body code');
+  await expect(code).toContainText('## Inputs required');
+  await expect(code).toContainText('## Role');
+  await expect(code).not.toContainText('# Bug Root Cause Remediation Prompt');
+  await expect(code).not.toContainText('## References');
+  const copy = page.getByRole('button', { name: 'Copy prompt body' });
+  await expect(copy.locator('svg')).toHaveCount(1);
+  await copy.click();
+  await expect(page.locator('#document-status')).toHaveText(/copied to the clipboard/i);
+  const copied = await readClipboard(page, browserName);
+  expect(copied).toMatch(/^## Inputs required/);
+  expect(copied).not.toContain('## References');
+  await expect(page.getByRole('link', { name: 'Download Markdown source' })).toHaveAttribute('download', '');
 });

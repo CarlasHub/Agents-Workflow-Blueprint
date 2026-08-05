@@ -31,6 +31,20 @@ test('static asset index has no serious automated accessibility violations', asy
   await expectNoSeriousViolations(page, 'static asset index');
 });
 
+test('rendered guide has no serious automated accessibility violations', async ({ page }) => {
+  await page.goto('./docs/template-library/CODEX-USAGE-GUIDE.html');
+  await expect(page.getByRole('heading', { level: 1, name: 'Codex Usage Guide' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Download Markdown source' })).toHaveAttribute('download', '');
+  await expectNoSeriousViolations(page, 'rendered guide');
+});
+
+test('rendered prompt has no serious automated accessibility violations', async ({ page }) => {
+  await page.goto('./docs/template-library/prompts/12-bug-root-cause-remediation-prompt.html');
+  await expect(page.getByRole('button', { name: 'Copy prompt body' })).toBeVisible();
+  await expect(page.locator('#document-agent-body')).toBeVisible();
+  await expectNoSeriousViolations(page, 'rendered prompt');
+});
+
 test('privacy and analytics controls have no serious automated accessibility violations', async ({ page }) => {
   await page.goto('./privacy.html');
   await expect(page.getByRole('region', { name: 'Help improve this project?' })).toBeVisible();

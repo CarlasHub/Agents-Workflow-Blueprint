@@ -6,6 +6,9 @@ All notable changes are recorded here.
 
 ### Added
 
+- Styled, canonical HTML pages for all 156 maintained guides, prompts, skills, and contracts, with deterministic source-to-route generation and sitemap coverage.
+- Rendered asset pages with applicability and references outside one copy-ready code body, a compact accessible copy control, and an explicit Markdown source download.
+- Unit, browser, link, analytics-consent, and automated accessibility coverage for generated guide and asset pages.
 - A generated, crawlable HTML catalogue containing all 100 prompts, skills, and contracts, plus a canonical XML sitemap and project crawler guidance.
 - A 1200 × 630 social preview image based on the project mark, with Open Graph and Twitter Card metadata across the public entry pages.
 - Manifest-backed SEO generation, drift checks, Python coverage, browser assertions, and an automated accessibility check for the static catalogue.
@@ -14,6 +17,8 @@ All notable changes are recorded here.
 
 ### Changed
 
+- Primary site, catalogue, documentation-index, and sitemap links now use styled `.html` routes instead of serving raw Markdown to visitors.
+- Raw `.md` files remain maintained source artefacts and are exposed on generated pages only as explicit downloads.
 - Public entry pages now expose stronger titles and descriptions, canonical and sitemap links, index/follow directives, social metadata, and structured data where applicable.
 - The homepage, documentation, and footer now provide ordinary crawlable links to the static catalogue and sitemap.
 - CI and the consolidated release gate now reject stale generated SEO artefacts.

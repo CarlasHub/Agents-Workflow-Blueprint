@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Engineering Workflow | Agent Workflow Blueprint</title>
+    <meta name="description" content="Purpose">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/workflow.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Engineering Workflow">
+    <meta property="og:description" content="Purpose">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/workflow.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Engineering Workflow">
+    <meta name="twitter:description" content="Purpose">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Engineering Workflow","description":"Purpose","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/workflow.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Engineering Workflow</h1>
+          <p class="document-summary">Purpose</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="workflow.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="purpose">Purpose</h2><p>Define the actual handoff sequence for this repository&#39;s agent workflow.</p><p>This repository is a starter for prompt, workflow, and contract design. Until a real application is added under <code>src/</code>, repository verification proves the integrity of the workflow assets themselves. It does not prove a shipped product build.</p><h2 id="required-order">Required order</h2><ol><li>Scoping</li><li>Implementation</li><li>Review</li><li>Specialist review when relevant</li><li>Verification</li><li>Documentation and release notes</li></ol><h2 id="required-artifacts">Required artifacts</h2><p>Use these templates rather than inventing ad hoc output:</p><ul><li><code>docs/engineering/templates/scoping-packet-template.md</code></li><li><code>docs/engineering/templates/review-packet-template.md</code></li><li><code>docs/engineering/templates/accessibility-review-template.md</code></li><li><code>docs/engineering/templates/security-review-template.md</code></li><li><code>docs/engineering/templates/release-evidence-template.md</code></li></ul><h2 id="phase-details">Phase details</h2><h3 id="1-scoping">1. Scoping</h3><ul><li>Use <code>PROMPTS/scoping-agent.md</code>.</li><li>Preserve the template headings from <code>docs/engineering/templates/scoping-packet-template.md</code>.</li><li>Do not begin implementation until scope, risks, affected files, and verification expectations are explicit.</li></ul><h3 id="2-implementation">2. Implementation</h3><ul><li>Use <code>PROMPTS/implementation-agent.md</code>.</li><li>Read the approved scoping packet before changing files.</li><li>Keep the diff bounded to the approved scope unless a blocker forces escalation.</li></ul><h3 id="3-review">3. Review</h3><ul><li>Use <code>PROMPTS/review-agent.md</code>.</li><li>Review the actual diff, changed docs, changed tests, and neighbouring files.</li><li>A review is incomplete if it does not call out scope drift, correctness risks, test gaps, and documentation drift.</li></ul><h3 id="4-specialist-review-when-relevant">4. Specialist review when relevant</h3><ul><li>Use <code>PROMPTS/a11y-review-agent.md</code> for UI, keyboard flow, focus, semantics, filters, dashboards, tables, charts, dialogs, or status messaging.</li><li>Use <code>PROMPTS/security-review-agent.md</code> when the task touches auth, session state, access control, exports, secrets, provider keys, tokens, logging of sensitive data, or operational controls.</li><li>Use <code>PROMPTS/release-agent.md</code> when docs, examples, screenshots, release notes, commands, or public capability claims changed.</li></ul><h3 id="5-verification">5. Verification</h3><ul><li>Run the commands listed in <code>requirements.toml</code>.</li><li>Report actual results.</li><li>If a command could not run, state the reason and the resulting evidence gap.</li></ul><h3 id="6-documentation-and-release-notes">6. Documentation and release notes</h3><ul><li>Update docs only to match verified behaviour.</li><li>Disclose starter-level limits honestly.</li><li>Do not imply that example files are production features.</li></ul><h2 id="subagent-policy">Subagent policy</h2><ul><li>Do not delegate by default.</li><li>Use subagents only for bounded, parallelizable work that does not block the immediate next step.</li><li>If the platform or session requires explicit user permission to spawn subagents, do not spawn them implicitly.</li></ul><h2 id="starter-repository-verification-scope">Starter-repository verification scope</h2><p>The current repository validates:</p><ul><li>prompt structure and prompt-to-template linkage</li><li>workflow docs and required artifacts</li><li>example packet presence and example honesty</li><li>template-library presence, manifest integrity, and expected counts</li><li>unsupported-claim checks for key docs and examples</li><li>starter build artifact generation for the workflow bundle</li></ul><p>The current repository does not validate:</p><ul><li>a real browser application</li><li>a production dashboard backend</li><li>real export code</li><li>real authentication flows</li></ul><p>Those claims become valid only after the repository contains and verifies those systems.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="workflow.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

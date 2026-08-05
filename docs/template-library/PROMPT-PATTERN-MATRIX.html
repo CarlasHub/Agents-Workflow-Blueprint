@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Prompt Pattern Matrix | Agent Workflow Blueprint</title>
+    <meta name="description" content="Use this matrix to decide which research control belongs in which asset. The matrix is intentionally practical: it maps prompt engineering research into rev…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-PATTERN-MATRIX.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Prompt Pattern Matrix">
+    <meta property="og:description" content="Use this matrix to decide which research control belongs in which asset. The matrix is intentionally practical: it maps prompt engineering research into rev…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-PATTERN-MATRIX.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prompt Pattern Matrix">
+    <meta name="twitter:description" content="Use this matrix to decide which research control belongs in which asset. The matrix is intentionally practical: it maps prompt engineering research into rev…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Prompt Pattern Matrix","description":"Use this matrix to decide which research control belongs in which asset. The matrix is intentionally practical: it maps prompt engineering research into rev…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-PATTERN-MATRIX.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Prompt Pattern Matrix</h1>
+          <p class="document-summary">Use this matrix to decide which research control belongs in which asset. The matrix is intentionally practical: it maps prompt engineering research into rev…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="PROMPT-PATTERN-MATRIX.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Use this matrix to decide which research control belongs in which asset. The matrix is intentionally practical: it maps prompt-engineering research into reviewable behaviours.</p>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Pattern</th><th>Best for</th><th>Behaviour required</th><th>Evidence expected</th><th>Failure it prevents</th></tr></thead>
+        <tbody><tr><td>Chain-of-Thought summary</td><td>Complex reasoning, planning, audits</td><td>Concise public rationale and assumptions</td><td>Decision summary, assumption list, evidence table</td><td>Fluent final answers with no visible reasoning artefacts</td></tr><tr><td>Tree-of-Thoughts</td><td>Architecture, UI strategy, remediation choices</td><td>Compare multiple candidate branches</td><td>Rejected branch, selected branch, trade-off</td><td>Anchoring on first plausible solution</td></tr><tr><td>ReAct</td><td>Coding, debugging, UI review, repository inspection</td><td>Observe → act → observe loop</td><td>Files inspected, commands run, screenshots, logs</td><td>Hallucinated environment state</td></tr><tr><td>Least-to-Most</td><td>Large implementation tasks</td><td>Decompose into ordered subproblems</td><td>Subtask checklist with status</td><td>Big-bang changes and hidden scope creep</td></tr><tr><td>Self-Consistency</td><td>Verification and release claims</td><td>Cross-check independent evidence routes</td><td>Source + command + behaviour + docs comparison</td><td>Trusting one lucky passing signal</td></tr><tr><td>Reflexion</td><td>Failed tests, debugging, remediation</td><td>Turn failed feedback into a correction note</td><td>Failure log and second attempt rationale</td><td>Repeating the same error after feedback</td></tr><tr><td>System 2 forcing</td><td>High-risk review and final answer</td><td>Slow checklist, uncertainty labels, premortem</td><td>Premortem, risk list, final status</td><td>Completion bias and premature closure</td></tr><tr><td>Traceability</td><td>Contracts, release, compliance</td><td>Map every claim to a requirement and verifier</td><td>Requirement → artefact → evidence → status</td><td>Unsupported acceptance and hallucinated features</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="minimum-pattern-stack-by-task">Minimum pattern stack by task</h2><ol><li><strong>Any coding task</strong>: ReAct + Least-to-Most + Traceability.</li><li><strong>Bug fix</strong>: ReAct + Reflexion + Self-Consistency + Traceability.</li><li><strong>UI review</strong>: ReAct + Self-Consistency + Traceability + System 2 forcing.</li><li><strong>Accessibility remediation</strong>: ReAct + Traceability + Self-Consistency + Standards mapping.</li><li><strong>Architecture or refactor</strong>: Tree-of-Thoughts + Least-to-Most + Premortem + Traceability.</li><li><strong>Release claim</strong>: Self-Consistency + Traceability + System 2 forcing + Premortem.</li><li><strong>Security or privacy</strong>: Premortem + Traceability + ReAct + Self-Consistency.</li><li><strong>Documentation truthfulness</strong>: ReAct + Traceability + Self-Consistency.</li><li><strong>Template writing</strong>: Chain-of-Thought summary + Tree-of-Thoughts + Traceability.</li><li><strong>Final merge gate</strong>: All controls, with extra weight on evidence and rejection clauses.</li></ol><h2 id="required-phrasing-standard">Required phrasing standard</h2><p>Use evidence-facing phrasing:</p><ul><li>Good: “I inspected <code>path</code>, ran <code>command</code>, observed <code>result</code>, and the remaining unverified area is <code>x</code>. Final status: partially verified.”</li><li>Bad: “I reasoned through it and everything should work.”</li></ul><p>Use branch-aware phrasing:</p><ul><li>Good: “I considered A and B. A was rejected because it changes shared behaviour. B was selected because it satisfies the requirement with lower regression risk.”</li><li>Bad: “I picked the simplest approach.”</li></ul><p>Use traceability phrasing:</p><ul><li>Good: “Requirement → file → command/manual check → status.”</li><li>Bad: “Feature complete.”</li></ul>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="PROMPT-PATTERN-MATRIX.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

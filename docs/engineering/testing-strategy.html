@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Testing strategy | Agent Workflow Blueprint</title>
+    <meta name="description" content="Purpose">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/testing-strategy.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Testing strategy">
+    <meta property="og:description" content="Purpose">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/testing-strategy.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Testing strategy">
+    <meta name="twitter:description" content="Purpose">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Testing strategy","description":"Purpose","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/testing-strategy.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Testing strategy</h1>
+          <p class="document-summary">Purpose</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="testing-strategy.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="purpose">Purpose</h2><p>The test suite separates deterministic source checks, JavaScript units, browser behaviour, automated accessibility checks, ZIP inspection, and manual review. Passing one layer does not imply the others passed.</p><h2 id="test-layers">Test layers</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Layer</th><th>Command</th><th>What it checks</th></tr></thead>
+        <tbody><tr><td>Python source checks</td><td><code>npm test</code></td><td>Claim rules, asset metadata, local-link logic, prompts, workflow, examples, research mapping, and licences through Python unit and release scripts.</td></tr><tr><td>JavaScript units</td><td><code>npm run test:unit</code></td><td>Escaping, safe links, Markdown rendering, generated document routing, raw-source download boundaries, normalisation, filtering, manifest data, project names, generated files, and approval state.</td></tr><tr><td>Asset composition</td><td><code>npm run test:compose</code></td><td>All 100 modules resolve the kernel and referenced specialist controls exactly once, without missing or duplicate IDs.</td></tr><tr><td>Evaluation fixtures</td><td><code>python3 -S scripts/run_evals.py --dry-run --check</code></td><td>All 40 prompts have cases, five conditions compose, frozen v2.1 baselines exist, and prompt-size output matches the checked-in record. No model is executed.</td></tr><tr><td>Recorded evaluation scoring</td><td><code>python3 -S scripts/score_evals.py --input &lt;recorded-run&gt;</code></td><td>Disclosures, raw outputs, complete criteria, two independent reviews per case-condition, aggregates, and the finite-suite release gate. Requires externally generated outputs.</td></tr><tr><td>ZIP integrity</td><td><code>npm run test:zip</code></td><td>CRC-readable archives, UTF-8 content, duplicate or unsafe path rejection, and empty-set rejection.</td></tr><tr><td>Browser behaviour</td><td><code>npm run test:e2e</code></td><td>Homepage, analytics-consent, privacy, static-catalogue, rendered-guide, rendered-prompt, and builder workflows in Chromium, Firefox, and WebKit, including keyboard modal behaviour and extracted ZIP content.</td></tr><tr><td>Automated accessibility</td><td><code>npm run test:a11y</code></td><td>Axe checks across twelve representative page states in Chromium, Firefox, and WebKit plus DOM assertions.</td></tr><tr><td>Rendered documents</td><td><code>npm run test:docs</code></td><td>Every maintained document has a current styled HTML route, internal maintained-document links use HTML, and raw Markdown remains an explicit download.</td></tr><tr><td>SEO artefacts</td><td><code>npm run test:seo</code></td><td>Rendered documents, the static 100-asset index, sitemap, and project crawler guidance reproduce from their sources without drift.</td></tr><tr><td>Local links</td><td><code>npm run test:links</code></td><td>Repository-relative Markdown and HTML references and local fragments. External URLs are counted but not fetched.</td></tr><tr><td>Full local release gate</td><td><code>bash scripts/verify-release.sh</code></td><td>All configured deterministic and browser gates in release order.</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="reproduce-ci-locally">Reproduce CI locally</h2><p>Use Node.js <code>22.18.0</code> and Python 3:</p><pre><code class="bash">npm ci
+npx playwright install chromium firefox webkit
+npm audit --audit-level=high
+bash scripts/verify-release.sh</code></pre><p>The browser server is started by Playwright on <code>127.0.0.1:4178</code>. Tests use deterministic fictional fixtures and must not use personal, production, or secret data.</p><h2 id="coverage-boundaries">Coverage boundaries</h2><p>The Chromium, Firefox, and WebKit matrix does not cover every browser version, operating system, screen reader, locale, high-contrast mode, or input device. The local Markdown renderer supports the maintained repository content and is not a general CommonMark implementation. Analytics tests intercept the Google script request and prove the local consent controller&#39;s request and state transitions; they do not prove deployed data arrival, property configuration, downstream processing, or legal suitability. The link checker does not make network requests. Sitemap checks prove syntax and source alignment, not search-engine discovery or indexing. The evaluation dry run proves fixture and composition integrity only. Unit tests prove the repository implementations under test, not the quality of model output or generated downstream systems.</p><p>Add failure cases whenever a parser, validator, router, renderer, path boundary, or public claim changes. Do not replace behavioural assertions with file-count checks.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="testing-strategy.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

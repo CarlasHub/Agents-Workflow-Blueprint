@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Release process | Agent Workflow Blueprint</title>
+    <meta name="description" content="Preconditions">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-process.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Release process">
+    <meta property="og:description" content="Preconditions">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-process.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Release process">
+    <meta name="twitter:description" content="Preconditions">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Release process","description":"Preconditions","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-process.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Release process</h1>
+          <p class="document-summary">Preconditions</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="release-process.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="preconditions">Preconditions</h2><ul><li>Worktree changes have been reviewed and the target commit is known.</li><li>Node.js matches <code>.nvmrc</code>; Python 3 and the Chromium, Firefox, and WebKit Playwright browsers are available.</li><li>Dependencies were installed with <code>npm ci</code> from <code>package-lock.json</code>.</li><li>No secrets, personal data, production data, or unpublished third-party material are present.</li></ul><h2 id="gate">Gate</h2><pre><code class="bash">npm audit --audit-level=high
+bash scripts/verify-release.sh</code></pre><p>The gate runs Python verification, metadata and licence checks, all-asset deterministic composition, rendered-document and SEO reproducibility checks, source-manifest comparison, lint, unit tests, ZIP tests, local-link checks, browser tests, and automated accessibility tests. It must not modify tracked source files.</p><h2 id="evidence">Evidence</h2><p>Copy <a href="templates/release-evidence-template.html"><code>release-evidence-template.md</code></a> and record the exact commit or worktree state, operating environment, commands, results, browser coverage, accessibility evidence, evaluation status, known limitations, and final status. Attach Playwright artefacts only when they help explain a failure; do not upload sensitive data.</p><h2 id="publication">Publication</h2><p>Release verification does not authorise committing, tagging, pushing, creating a pull request, publishing GitHub Pages, submitting a sitemap, or changing Analytics property settings. Those actions require explicit maintainer approval. After deployment, smoke-test canonical links, metadata, homepage search and modal, static library index, one rendered guide, one rendered prompt, sitemap, builder generation, and ZIP download on the deployed URL. Confirm the rendered guide is served as <code>text/html</code>, the prompt body copy control copies only the agent-ready body, maintained-document links use HTML routes, and raw Markdown appears only as an explicit download. Verify that rejecting Analytics makes no <code>gtag.js</code> request, accepting loads only <code>G-PZEC365PCE</code>, withdrawal persists, and expected page views appear in Realtime. Use Search Console to submit <code>https://carlashub.github.io/Agents-Workflow-Blueprint/sitemap.xml</code> and record the observed processing result; submission is a discovery hint, not indexing proof.</p><h2 id="rollback">Rollback</h2><p>If a release gate or deployed smoke test fails, mark the release <code>not verified</code>, preserve the failure evidence, and revert through normal version-control review. Do not edit generated evidence to hide an unfavourable result.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="release-process.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

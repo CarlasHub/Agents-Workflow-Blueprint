@@ -323,10 +323,27 @@ export function composeAssetIntroductionMarkdown(asset, assetMarkdown, kernelMar
   ].join('\n').trim() + '\n';
 }
 
-export function renderInlineMarkdown(value) {
+export function markdownHeadingId(value) {
+  return String(value ?? '')
+    .replace(/`([^`]+)`/g, '$1')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('en')
+    .replace(/[^\p{L}\p{N}_\- ]/gu, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+export function renderInlineMarkdown(value, options = {}) {
   let html = escapeHtml(value);
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, text, href) => (
-    `<a href="${escapeAttribute(safeHref(href))}" target="_blank" rel="noreferrer">${text}</a>`
+    (() => {
+      const transformed = typeof options.transformHref === 'function' ? options.transformHref(href) : href;
+      const safe = safeHref(transformed);
+      const external = /^https?:/i.test(safe);
+      const attributes = external ? ' target="_blank" rel="noreferrer"' : '';
+      return `<a href="${escapeAttribute(safe)}"${attributes}>${text}</a>`;
+    })()
   ));
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -338,21 +355,21 @@ function splitTableRow(line) {
   return line.replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim());
 }
 
-function renderTable(rows) {
-  if (rows.length < 2) return rows.map((row) => `<p>${renderInlineMarkdown(row)}</p>`).join('');
+function renderTable(rows, options = {}) {
+  if (rows.length < 2) return rows.map((row) => `<p>${renderInlineMarkdown(row, options)}</p>`).join('');
   const header = splitTableRow(rows[0]);
   const bodyRows = rows.slice(2).map(splitTableRow);
   return `
     <div class="markdown-table-wrap">
       <table>
-        <thead><tr>${header.map((cell) => `<th>${renderInlineMarkdown(cell)}</th>`).join('')}</tr></thead>
-        <tbody>${bodyRows.map((row) => `<tr>${row.map((cell) => `<td>${renderInlineMarkdown(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+        <thead><tr>${header.map((cell) => `<th>${renderInlineMarkdown(cell, options)}</th>`).join('')}</tr></thead>
+        <tbody>${bodyRows.map((row) => `<tr>${row.map((cell) => `<td>${renderInlineMarkdown(cell, options)}</td>`).join('')}</tr>`).join('')}</tbody>
       </table>
     </div>
   `;
 }
 
-export function renderMarkdown(markdown) {
+export function renderMarkdown(markdown, options = {}) {
   const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
   const html = [];
   let paragraph = [];
@@ -362,21 +379,22 @@ export function renderMarkdown(markdown) {
   let inCode = false;
   let codeLines = [];
   let codeLanguage = '';
+  const headingCounts = new Map();
 
   function flushParagraph() {
     if (!paragraph.length) return;
-    html.push(`<p>${renderInlineMarkdown(paragraph.join(' '))}</p>`);
+    html.push(`<p>${renderInlineMarkdown(paragraph.join(' '), options)}</p>`);
     paragraph = [];
   }
   function flushList() {
     if (!listType) return;
-    html.push(`<${listType}>${listItems.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join('')}</${listType}>`);
+    html.push(`<${listType}>${listItems.map((item) => `<li>${renderInlineMarkdown(item, options)}</li>`).join('')}</${listType}>`);
     listType = null;
     listItems = [];
   }
   function flushTable() {
     if (!tableRows.length) return;
-    html.push(renderTable(tableRows));
+    html.push(renderTable(tableRows, options));
     tableRows = [];
   }
   function flushOpenBlocks() {
@@ -419,7 +437,12 @@ export function renderMarkdown(markdown) {
     if (heading) {
       flushParagraph();
       flushList();
-      html.push(`<h${heading[1].length}>${renderInlineMarkdown(heading[2])}</h${heading[1].length}>`);
+      const baseId = markdownHeadingId(heading[2]);
+      const duplicate = headingCounts.get(baseId) ?? 0;
+      headingCounts.set(baseId, duplicate + 1);
+      const headingId = duplicate === 0 ? baseId : `${baseId}-${duplicate}`;
+      const idAttribute = options.headingIds && headingId ? ` id="${escapeAttribute(headingId)}"` : '';
+      html.push(`<h${heading[1].length}${idAttribute}>${renderInlineMarkdown(heading[2], options)}</h${heading[1].length}>`);
       continue;
     }
     if (/^---+$/.test(trimmed)) {
@@ -430,7 +453,7 @@ export function renderMarkdown(markdown) {
     const quote = trimmed.match(/^>\s?(.+)$/);
     if (quote) {
       flushOpenBlocks();
-      html.push(`<blockquote>${renderInlineMarkdown(quote[1])}</blockquote>`);
+      html.push(`<blockquote>${renderInlineMarkdown(quote[1], options)}</blockquote>`);
       continue;
     }
     const unordered = trimmed.match(/^[-*]\s+(.+)$/);

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Agent Workflow Blueprint | Agent Workflow Blueprint</title>
+    <meta name="description" content="Agent Workflow Blueprint is a static, browser local collection of governance assets for making AI assisted engineering work easier to scope, review, and ver…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/README.html">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="icon" type="image/png" href="assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Agent Workflow Blueprint">
+    <meta property="og:description" content="Agent Workflow Blueprint is a static, browser local collection of governance assets for making AI assisted engineering work easier to scope, review, and ver…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/README.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agent Workflow Blueprint">
+    <meta name="twitter:description" content="Agent Workflow Blueprint is a static, browser local collection of governance assets for making AI assisted engineering work easier to scope, review, and ver…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Agent Workflow Blueprint","description":"Agent Workflow Blueprint is a static, browser local collection of governance assets for making AI assisted engineering work easier to scope, review, and ver…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/README.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="">Interactive library</a>
+          <a href="library/">Static catalogue</a>
+          <a href="docs/">Documentation</a>
+          <a href="build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="">Home</a><span aria-hidden="true">/</span><a href="docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Agent Workflow Blueprint</h1>
+          <p class="document-summary">Agent Workflow Blueprint is a static, browser local collection of governance assets for making AI assisted engineering work easier to scope, review, and ver…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="docs/">Browse documentation</a>
+            <a class="button button-secondary" href="README.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Agent Workflow Blueprint is a static, browser-local collection of governance assets for making AI-assisted engineering work easier to scope, review, and verify. It is intended for engineering teams, technical leaders, and AI-governance reviewers who need evidence-oriented workflows—not a guarantee that an agent&#39;s output is correct.</p><p>The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptance contracts, a shared governance kernel, a normalized specialist-control registry, a searchable website, a crawlable static asset index, and a browser-local starter-project builder. It has no backend, authentication, paid API, or cloud-service dependency.</p><h2 id="who-it-is-for">Who it is for</h2><ul><li>Engineering teams defining reviewable agent workflows.</li><li>Reviewers who need explicit acceptance, rejection, and evidence criteria.</li><li>Governance teams adapting source-mapped controls to local policy.</li><li>Open-source adopters who want a static, inspectable starting point.</li></ul><h2 id="five-minute-start">Five-minute start</h2><ol><li>Read <a href="docs/template-library/START-HERE.html"><code>docs/template-library/START-HERE.md</code></a>.</li><li>Choose one asset from each relevant family in the <a href="docs/template-library/CATALOGUE.html"><code>CATALOGUE.md</code></a>.</li><li>On the website, open an asset to use one focused dialog containing its applicability guidance, agent-ready prompt/skill/contract body, and linked research and implementation references. Use the compact copy control beside the body; or compose selected IDs with <code>python3 -S scripts/compose_assets.py --asset &lt;id&gt;</code>.</li><li>Paste the copied body into the agent with the concrete task and repository context. The clipboard contains only executable specialist instructions, shared specialist requirements, and shared operating rules. Applicability, catalogue metadata, and references remain outside the copied body.</li><li>Require command output, file evidence, limitations, and one final status: <code>verified</code>, <code>partially verified</code>, <code>not verified</code>, or <code>blocked</code>.</li></ol><p>Search engines and no-JavaScript users can discover all asset titles and summaries through the generated <a href="library"><code>library/</code></a> index. Every maintained guide, prompt, skill, and contract also has a styled HTML page. <a href="sitemap.xml"><code>sitemap.xml</code></a> lists those rendered pages as canonical public routes; raw Markdown remains available only through explicit source-download links.</p><p>Example:</p><pre><code class="text">Compose these asset IDs:
+- prompt-bug-root-cause-remediation-prompt
+- skill-regression-test-design-skill
+- contract-test-behaviour-contract
+
+Fix the reproduced defect. Do not report success until the failure path and
+regression checks have run. Return evidence, limitations, and a final status.</code></pre><p>The complete worked example in <a href="examples/worked-example.html"><code>examples/worked-example.md</code></a> shows input, asset selection, scoped work, evidence, verification, limitations, and final status.</p><h2 id="how-the-parts-fit-together">How the parts fit together</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Part</th><th>Purpose</th></tr></thead>
+        <tbody><tr><td>Governance kernel</td><td>Shared scope, evidence, uncertainty, escalation, and status rules.</td></tr><tr><td>Specialist-control registry</td><td>Authoritative <code>SPC-*</code> controls reused across multiple assets.</td></tr><tr><td>Prompt</td><td>A specialist mission and task-specific instructions.</td></tr><tr><td>Skill</td><td>A repeatable procedure and handoff format.</td></tr><tr><td>Contract</td><td>Hard gates, advisory checks, and acceptance or rejection language.</td></tr><tr><td>Starter pack</td><td>A curated combination for a common scenario.</td></tr></tbody>
+      </table>
+    </div>
+  <p>The asset manifest at <a href="docs/template-library/assets.json"><code>docs/template-library/assets.json</code></a> records each asset&#39;s stable ID, v3 version, risk level, purpose, category, governance profile, intended model context, required inputs, expected outputs, dependencies, specialist-control references, evidence expectations, research-pattern labels, and evaluation-case mappings. Every research label resolves through <a href="docs/template-library/research-sources.json"><code>research-sources.json</code></a> to a cited paper or standard and an explicit repository translation. Migration details are in <a href="docs/template-library/MIGRATION-NOTES.html"><code>MIGRATION-NOTES.md</code></a>.</p><h2 id="v3-prompt-quality-contract">v3 prompt quality contract</h2><p>All 40 prompts now define a specific use boundary and named alternative, four or more required inputs, five to ten domain instructions, conditional decision gates, concrete evidence, failure-and-recovery pairs, rejection conditions, a domain output record, and a worked example. The validator enforces source and composed size bounds, specialist-content ratio, manifest alignment, evaluation coverage, and control resolution. These checks establish deterministic structural quality; they do not prove model effectiveness.</p><h2 id="browser-local-builder">Browser-local builder</h2><p>Open <a href="build-project/index.html"><code>build-project/index.html</code></a> from the static site, complete the intake form, review the proposed files, and create a ZIP. Generation occurs entirely in the browser. The result is a starter scaffold; it is not a deployed or validated system.</p><p>The builder normalises project names, validates generated relative paths, prevents duplicate and traversal paths, distinguishes pending from explicitly approved work, and writes a generated manifest. The documented size limits are 1 MiB per generated file and 20 MiB for the uncompressed file set.</p><h2 id="what-has-been-verified">What has been verified</h2><ul><li>Repository structure, manifest metadata, asset dependencies, normalized controls, deterministic composition, licence files, local links, and generated-manifest reproducibility are checked by scripts.</li><li>Document and SEO generation checks keep 156 rendered HTML documents, the static 100-asset index, sitemap, crawler guidance, canonical metadata, and social-image references aligned with their Markdown sources and manifest.</li><li>JavaScript unit tests cover text handling, manifest validation, project generation, safe paths, and ZIP integrity.</li><li>Playwright tests cover homepage search, filters, modal keyboard behaviour, copy fallback, builder intake, file selection, assembly, success, and ZIP extraction.</li><li>Automated axe checks cover twelve representative homepage, privacy, catalogue, rendered-document, prompt, and builder states in Chromium, Firefox, and WebKit.</li><li>The release commands, retained failure, and results for this change are recorded in <a href="docs/engineering/release-evidence/2026-08-05-seo-discoverability.html"><code>2026-08-05-seo-discoverability.md</code></a>.</li></ul><p>These are repository-level results for the tested fixtures and environment. They do not guarantee correctness for a model, task, browser, assistive technology, or downstream project.</p><h2 id="what-has-not-been-verified">What has not been verified</h2><ul><li>No model-based comparative evaluation was executed because no usable model runtime and credential path was available to this repository process; the deterministic evaluation dry run validates fixtures only.</li><li>No claim of WCAG conformance is made. Automated checks cannot replace manual assistive-technology, reflow, contrast, and usability review.</li><li>The GitHub Pages deployment is smoke-tested during release: all 100 assets must load, the single-dialog introduction, prompt-code, references, and copy flow must work, and no horizontal overflow may occur at desktop or narrow widths. This is a deployment smoke test, not exhaustive browser or assistive-technology coverage.</li><li>The repository does not establish production security, legal compliance, universal effectiveness, or fitness for a specific organisation.</li></ul><h2 id="verification">Verification</h2><p>Use Node.js <code>22.18.0</code> and Python 3. Install the pinned JavaScript dependencies and browser matrix once:</p><pre><code class="bash">npm ci
+npx playwright install chromium firefox webkit</code></pre><p>Run the same release gates used by CI:</p><pre><code class="bash">npm run lint
+npm run test
+npm run test:compose
+npm run test:zip
+npm run test:links
+npm run test:e2e
+npm run test:a11y
+bash scripts/verify-release.sh</code></pre><p>Individual Python checks and local CI equivalents are documented in <a href="docs/engineering/testing-strategy.html"><code>testing-strategy.md</code></a>. The full gate does not imply runtime quality outside the cases it executes.</p><h2 id="evaluation-status">Evaluation status</h2><p><a href="evals/README.html"><code>evals/</code></a> contains 40 fictional cases covering every prompt and five conditions: minimal, kernel only, frozen v2.1 prompt, v3 prompt, and v3 prompt-plus-skill-plus-contract workflow. <code>python3 -S scripts/run_evals.py --dry-run --check</code> validates coverage, composition, frozen baselines, and prompt sizes without calling a model. <a href="scripts/score_evals.py"><code>scripts/score_evals.py</code></a> validates and scores externally recorded outputs only after complete disclosure and two independent reviews per case and condition. Behavioural metrics remain blocked until such a run exists. See <a href="docs/engineering/evaluation-methodology.html"><code>evaluation-methodology.md</code></a>.</p><h2 id="search-and-analytics">Search and analytics</h2><p>The homepage, documentation, builder, static library index, and 156 rendered document pages expose canonical URLs, index/follow metadata, Open Graph data, a 1200 × 630 social image, and a project sitemap. The static index keeps all 100 asset titles, summaries, types, categories, and links to rendered HTML in the delivered response instead of relying on crawler-side JavaScript rendering. Repository Markdown is the maintained authoring source and remains downloadable from each rendered page, but it is not used as primary site navigation or in the sitemap.</p><p>This worktree configures GA4 measurement ID <code>G-PZEC365PCE</code> through <a href="analytics.js"><code>analytics.js</code></a>. The external Google tag does not load before explicit opt-in. Rejection persists locally, advertising storage and signals remain disabled, and the persistent Analytics settings control supports later withdrawal. See <a href="privacy.html"><code>privacy.html</code></a> for the user-facing notice. These repository checks do not establish legal suitability or prove that the deployed Analytics property receives data. Search Console ownership and sitemap submission remain external account actions.</p><h2 id="documentation">Documentation</h2><ul><li><a href="docs/index.html">Rendered documentation index</a></li><li><a href="docs/engineering/workflow.html">Engineering workflow</a></li><li><a href="docs/engineering/testing-strategy.html">Testing strategy</a></li><li><a href="docs/engineering/accessibility-testing.html">Accessibility testing</a></li><li><a href="docs/engineering/release-process.html">Release process</a></li><li><a href="docs/engineering/seo-and-analytics.html">SEO and analytics</a></li><li><a href="privacy.html">User-facing privacy and analytics notice</a></li><li><a href="docs/template-library/RESEARCH-BASIS.html">Research basis</a></li></ul><h2 id="limitations">Limitations</h2><p>The assets are prompts and review controls, not policy enforcement. Model behaviour varies. A small local evaluation cannot support broad effectiveness claims. Generated projects require independent engineering, security, accessibility, legal, privacy, and operational review appropriate to their context.</p><p>A sitemap is a discovery hint, not proof that Google or another search engine indexed a URL. The project is hosted below a shared <code>github.io</code> origin, so the project-local <code>robots.txt</code> is not a substitute for host-root crawler policy. Use Search Console URL Inspection and sitemap reporting after publication to verify observed indexing.</p><h2 id="licensing">Licensing</h2><p>This repository uses split licensing:</p><ul><li>Code, scripts, HTML, CSS, JavaScript, schemas, tests, and automation are licensed under the <a href="LICENSE-CODE">MIT License</a>.</li><li>Documentation, prompts, skills, contracts, templates, and other written content are licensed under <a href="LICENSE-CONTENT">CC BY 4.0</a>.</li></ul><p><a href="LICENSE"><code>LICENSE</code></a> defines the path mapping. <a href="NOTICE"><code>NOTICE</code></a> gives attribution guidance, and <a href="THIRD-PARTY-NOTICES.html"><code>THIRD-PARTY-NOTICES.md</code></a> records bundled dependencies. This description is not legal advice.</p><h2 id="contributing-and-security">Contributing and security</h2><p>See <a href="CONTRIBUTING.html"><code>CONTRIBUTING.md</code></a> for asset and test requirements, <a href="SECURITY.html"><code>SECURITY.md</code></a> for private vulnerability reporting guidance, <a href="CODE_OF_CONDUCT.html"><code>CODE_OF_CONDUCT.md</code></a>, and <a href="CHANGELOG.html"><code>CHANGELOG.md</code></a>.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="">Interactive library</a></li>
+          <li><a href="library/">Static catalogue</a></li>
+          <li><a href="README.md" download>Markdown source</a></li>
+          <li><a href="privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="document-page.js?v=20260805-1"></script>
+    <script type="module" src="analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="privacy.html"></script>
+  </body>
+</html>

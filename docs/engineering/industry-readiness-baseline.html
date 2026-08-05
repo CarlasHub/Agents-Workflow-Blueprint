@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Industry readiness baseline | Agent Workflow Blueprint</title>
+    <meta name="description" content="Recorded: 2026 08 04">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-baseline.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Industry readiness baseline">
+    <meta property="og:description" content="Recorded: 2026 08 04">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-baseline.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Industry readiness baseline">
+    <meta name="twitter:description" content="Recorded: 2026 08 04">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Industry readiness baseline","description":"Recorded: 2026 08 04","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-baseline.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Industry readiness baseline</h1>
+          <p class="document-summary">Recorded: 2026 08 04</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="industry-readiness-baseline.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Recorded: 2026-08-04</p><p>Baseline commit: <code>9499243b014a80530b43dc640604e69617f059bc</code> on <code>main</code>.</p><p>This record separates source inspection, runtime observation, and release judgement. It describes the repository before the industry-readiness implementation began.</p><h2 id="measurement-method">Measurement method</h2><ul><li>Asset scope: Markdown files in <code>docs/template-library/prompts/</code>, <code>skills/</code>, and <code>contracts/</code>.</li><li>Words: tokens matching letters, numbers, apostrophes, underscores, or hyphens.</li><li>Duplicate text: extra occurrences of identical, whitespace-normalised Markdown blocks containing at least 20 words. The ratio is duplicate extra words divided by all asset words.</li><li>Automated test count: test cases in a JavaScript or browser test suite. Existing validation scripts are counted separately because they are checks, not behavioural test cases.</li><li>Browser observations: local static server and the deployed GitHub Pages site at 1440 × 1000 and 390 × 844.</li></ul><h2 id="measured-starting-values">Measured starting values</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Measure</th><th>Baseline</th></tr></thead>
+        <tbody><tr><td>Prompts</td><td>40</td></tr><tr><td>Skills</td><td>30</td></tr><tr><td>Contracts</td><td>30</td></tr><tr><td>Total asset lines</td><td>15,440</td></tr><tr><td>Total asset words</td><td>157,173</td></tr><tr><td>Median asset size</td><td>1,574.5 words / 157 lines</td></tr><tr><td>Largest asset</td><td><code>contracts/30-agent-output-format-contract.md</code>, 1,699 words</td></tr><tr><td>Repeated blocks</td><td>42</td></tr><tr><td>Duplicate extra words</td><td>76,739 (48.82%)</td></tr><tr><td>Unsupported <code>research-backed</code> occurrences</td><td>205 across 104 public files</td></tr><tr><td>Existing verification scripts</td><td>8</td></tr><tr><td>Automated JavaScript/browser test cases</td><td>0</td></tr><tr><td>CI workflow files</td><td>0</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="existing-verification-result">Existing verification result</h2><p><code>bash scripts/verify-release.sh</code> passed before edits. It ran prompt, workflow, example, claim, template-library, research-basis, and starter-manifest checks and wrote a 146-file manifest. Source inspection confirmed that these checks primarily validate files, phrases, counts, numbered-point depth, links between known assets, and manifest generation. They did not execute the browser UI or open a generated ZIP.</p><h2 id="confirmed-strengths">Confirmed strengths</h2><ul><li>Static GitHub Pages architecture and browser-local project builder are already present.</li><li>The library has stable paths and a complete 40/30/30 catalogue.</li><li>Repository instructions explicitly separate implementation, review, verification, and release claims.</li><li>Existing checks disclose that structural verification does not prove application behaviour.</li><li>The site has native controls, a skip link, visible focus styles, a no-JavaScript catalogue fallback, and an explicit limitations panel.</li><li>The builder keeps approval pending unless the approval option is selected.</li></ul><h2 id="concern-classification">Concern classification</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Concern</th><th>Classification</th><th>Evidence</th></tr></thead>
+        <tbody><tr><td>Intended licences but no formal files</td><td>confirmed</td><td>No <code>LICENSE</code>, <code>LICENSE-CODE</code>, <code>LICENSE-CONTENT</code>, <code>NOTICE</code>, or third-party notice existed.</td></tr><tr><td>Governance/research duplication</td><td>confirmed</td><td>48.82% duplicate-block overhead; ten section headings occurred in all 100 assets.</td></tr><tr><td>Checks mainly structural</td><td>confirmed</td><td>Existing scripts inspect phrases, paths, counts, and generated manifest metadata.</td></tr><tr><td>No browser, keyboard, accessibility, or ZIP-integrity tests</td><td>confirmed</td><td>No JavaScript test package or test cases existed.</td></tr><tr><td>Incomplete modal semantics</td><td>confirmed</td><td>Dialog had initial focus and Escape/return-focus handling, but no focus containment or background inertness.</td></tr><tr><td>Reduced motion incomplete</td><td>confirmed</td><td>Homepage entrance animation existed with no <code>prefers-reduced-motion</code> rule.</td></tr><tr><td>Broad live regions</td><td>confirmed</td><td>Builder root and complete generated-file views used <code>aria-live=&quot;polite&quot;</code>.</td></tr><tr><td>Unsupported <code>research-backed</code> overclaim</td><td>confirmed</td><td>205 occurrences appeared in public assets and generated content.</td></tr><tr><td>No comparative evaluations</td><td>confirmed</td><td>No <code>evals/</code> suite, runner, raw results, or baseline comparison existed.</td></tr><tr><td>Incomplete CI/release automation</td><td>confirmed</td><td>No workflow files, lock file, browser tests, link check, or dependency audit existed.</td></tr><tr><td>Raw Markdown navigation</td><td>confirmed</td><td>Primary onboarding and card links opened source Markdown directly.</td></tr><tr><td>Incomplete metadata/release presentation</td><td>confirmed</td><td>Canonical, Open Graph, social-preview, favicon, theme-colour, and release evidence were absent or incomplete.</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="runtime-observations">Runtime observations</h2><p>Desktop inspection showed a coherent dark visual system and usable primary hierarchy. At 390px, the live and local homepage overflowed horizontally: the navigation, truth panel, hero heading, and command block extended beyond the viewport. This is a confirmed responsive defect, not a full accessibility verdict.</p><h2 id="unavailable-or-incomplete-baseline-checks">Unavailable or incomplete baseline checks</h2><ul><li>No assistive-technology session was performed.</li><li>Colour contrast was not measured programmatically at baseline.</li><li>200% and 400% zoom were not behaviourally tested at baseline.</li><li>The builder ZIP was not downloaded and extracted at baseline.</li><li>External links were not exhaustively checked at baseline.</li><li>No model evaluation was available; no model results were inferred or fabricated.</li></ul><h2 id="baseline-release-judgement">Baseline release judgement</h2><p>The starting repository was a strong, evidence-conscious prototype with substantial reusable content. It was not independently verifiable as an industry-ready product because material legal, duplication, runtime, accessibility, CI, ZIP-integrity, evaluation, and onboarding evidence was absent.</p><p>Final baseline status: <code>not verified</code>.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="industry-readiness-baseline.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

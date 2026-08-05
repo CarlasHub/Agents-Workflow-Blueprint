@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Scientific DNA of the Agent Workflow Blueprint | Agent Workflow Blueprint</title>
+    <meta name="description" content="This document explains the research and engineering ideas behind the prompt, skill, and contract library. The goal is not to make exaggerated claims about p…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SCIENTIFIC-DNA.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Scientific DNA of the Agent Workflow Blueprint">
+    <meta property="og:description" content="This document explains the research and engineering ideas behind the prompt, skill, and contract library. The goal is not to make exaggerated claims about p…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SCIENTIFIC-DNA.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Scientific DNA of the Agent Workflow Blueprint">
+    <meta name="twitter:description" content="This document explains the research and engineering ideas behind the prompt, skill, and contract library. The goal is not to make exaggerated claims about p…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Scientific DNA of the Agent Workflow Blueprint","description":"This document explains the research and engineering ideas behind the prompt, skill, and contract library. The goal is not to make exaggerated claims about p…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SCIENTIFIC-DNA.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Scientific DNA of the Agent Workflow Blueprint</h1>
+          <p class="document-summary">This document explains the research and engineering ideas behind the prompt, skill, and contract library. The goal is not to make exaggerated claims about p…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="SCIENTIFIC-DNA.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>This document explains the research and engineering ideas behind the prompt, skill, and contract library. The goal is not to make exaggerated claims about prompts. The goal is to turn useful research patterns into repeatable, reviewable operating rules for coding agents.</p><h2 id="core-position">Core position</h2><p>Strong agent prompts should not rely on inspiration, vibes, or motivational wording. They should create a controlled work loop:</p><ol><li>observe the real state before acting;</li><li>decompose the task into smaller sub-problems;</li><li>compare more than one plausible route when risk is material;</li><li>act in the smallest safe step;</li><li>verify against evidence;</li><li>revise when evidence contradicts the first attempt;</li><li>map every final claim back to a requirement and proof source.</li></ol><p>That is the product thesis of this repository.</p><h2 id="critical-correction-do-not-demand-hidden-chain-of-thought">Critical correction: do not demand hidden chain-of-thought</h2><p>Older prompt-writing advice often says to make the model “show its work”. For this repository, the safer rule is different:</p><blockquote>Ask for a public decision record, evidence table, branch comparison, and verification log — not private hidden chain-of-thought.</blockquote><p>This preserves the benefit of structured reasoning while keeping the output useful, auditable, and safe for real review.</p><h2 id="research-patterns-translated-into-repository-behaviour">Research patterns translated into repository behaviour</h2><h3 id="1-cot-safe-public-reasoning-record">1. CoT-safe public reasoning record</h3><p>Chain-of-thought research showed that stepwise intermediate reasoning can improve complex reasoning performance in large language models. This repository translates that into public artefacts: task restatement, evidence table, decision log, inspected files, failed checks, and final status.</p><p>Prompt rule used here:</p><pre><code class="text">Do not give a bare conclusion. Provide a public decision record: task, evidence, alternatives considered, verification, limitations, and final status.</code></pre><h3 id="2-tree-of-thoughts-style-branch-evaluation">2. Tree-of-Thoughts style branch evaluation</h3><p>Tree-of-Thoughts expands beyond one linear path by considering multiple candidate reasoning paths and evaluating them. This repository uses a lightweight version: compare at least two implementation or review paths when risk, ambiguity, or irreversible change is present.</p><p>Prompt rule used here:</p><pre><code class="text">When the change is risky or ambiguous, produce at least two viable routes, reject weak routes with reasons, then choose the safest route with evidence.</code></pre><h3 id="3-react-observe-reason-act-verify-loop">3. ReAct observe-reason-act-verify loop</h3><p>ReAct combines reasoning with action so the agent does not invent answers detached from the environment. This repository maps that into a strict loop for coding work: observe files, reason about constraints, act through edits or tests, observe results, then revise.</p><p>Prompt rule used here:</p><pre><code class="text">Observe before acting. After every material action, observe the result before claiming success.</code></pre><h3 id="4-least-to-most-decomposition">4. Least-to-most decomposition</h3><p>Least-to-most prompting decomposes complex work into smaller sub-problems and solves them in sequence. This repository applies that pattern to implementation, debugging, UI work, accessibility remediation, security review, release review, and documentation repair.</p><p>Prompt rule used here:</p><pre><code class="text">Solve the smallest blocking sub-problem first. Do not jump to a broad rewrite while the failure boundary is still unknown.</code></pre><h3 id="5-self-consistency-and-branch-agreement">5. Self-consistency and branch agreement</h3><p>Self-consistency work shows the value of considering multiple reasoning paths rather than accepting the first path. This repository uses a practical agent version: compare the chosen solution against at least one rival explanation, rejected route, or failure hypothesis.</p><p>Prompt rule used here:</p><pre><code class="text">Before final status, test the chosen explanation against an alternative explanation and state why the final explanation survives.</code></pre><h3 id="6-self-refinement-and-reflexion-style-repair">6. Self-refinement and Reflexion-style repair</h3><p>Self-refinement and Reflexion-style agent work show the value of feedback-driven revision. This repository uses that through failure disclosure, failed-command loops, review packets, and final repair recommendations.</p><p>Prompt rule used here:</p><pre><code class="text">If verification fails, do not reframe the failure as success. Record the failure, update the hypothesis, and either repair or return blocked/partially verified.</code></pre><h3 id="7-process-supervision-over-outcome-only-claims">7. Process supervision over outcome-only claims</h3><p>Outcome-only claims are weak because they hide the route to the result. Process supervision research supports evaluating intermediate steps, not only the final answer. This repository turns that into process artefacts: current-state inspection, evidence ladders, command logs, screenshots, issue lists, and final status vocabulary.</p><p>Prompt rule used here:</p><pre><code class="text">The final answer is not enough. The path to the answer must be inspectable.</code></pre><h3 id="8-constitutional-contract-based-constraints">8. Constitutional / contract-based constraints</h3><p>Constitutional AI uses explicit principles to guide critique and revision. This repository applies the same product idea at workflow level: contracts define rejection clauses, limited-acceptance wording, and exact acceptance wording.</p><p>Prompt rule used here:</p><pre><code class="text">Do not judge from confidence. Judge from clauses, evidence, and rejection triggers.</code></pre><h3 id="9-systems-engineering-traceability">9. Systems-engineering traceability</h3><p>Systems engineering standards separate requirements, verification, validation, lifecycle processes, and traceable evidence. This repository adapts that into acceptance contracts and release gates: every claim must map to a requirement, evidence source, verification result, and final status.</p><p>Prompt rule used here:</p><pre><code class="text">Every material claim must trace to a requirement, inspected artefact, evidence source, and verification status.</code></pre><h2 id="the-elite-prompt-kernel">The elite prompt kernel</h2><p>Every high-risk asset should contain this kernel:</p><pre><code class="text">ROLE: specialist with authority to reject weak work.
+MISSION: bounded outcome, not general helpfulness.
+OBSERVE: inspect repository, UI, tests, data, docs, and constraints before acting.
+DECOMPOSE: split the task into small sub-problems.
+BRANCH: compare routes when risk or ambiguity exists.
+ACT: make the smallest safe change or judgement.
+VERIFY: run checks or state why checks are unavailable.
+TRACE: map claims to requirements and evidence.
+DISCLOSE: list unknowns, failures, and limitations.
+STATUS: end with verified, partially verified, not verified, or blocked.</code></pre><h2 id="what-this-repository-does-not-claim">What this repository does not claim</h2><ul><li>It does not claim prompts guarantee correctness.</li><li>It does not claim a model literally switches into a human-like “System 2”.</li><li>It does not claim hidden reasoning should be exposed.</li><li>It does not claim a passing script proves runtime UI, security, accessibility, or deployment behaviour.</li><li>It does not replace human review for high-risk work.</li></ul><h2 id="why-this-matters">Why this matters</h2><p>The real value is not that the prompts are long. The value is that they make weak behaviour difficult to hide:</p><ul><li>skipped inspection becomes visible;</li><li>unsupported confidence becomes rejectable;</li><li>broad scope drift becomes traceable;</li><li>unverified UI claims become blocked;</li><li>failed commands become part of the result instead of being buried.</li></ul>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="SCIENTIFIC-DNA.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

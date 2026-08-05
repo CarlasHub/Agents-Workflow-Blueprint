@@ -69,7 +69,9 @@ test('every public HTML entry point exposes the consent and privacy controls', a
     ['./library/', '../privacy.html'],
     ['./docs/', '../privacy.html'],
     ['./build-project/', '../privacy.html'],
-    ['./privacy.html', 'privacy.html']
+    ['./privacy.html', 'privacy.html'],
+    ['./docs/template-library/CODEX-USAGE-GUIDE.html', '../../privacy.html'],
+    ['./docs/template-library/prompts/12-bug-root-cause-remediation-prompt.html', '../../../privacy.html']
   ];
 
   for (const [path, privacyHref] of pages) {

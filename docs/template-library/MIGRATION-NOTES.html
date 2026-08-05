@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Asset architecture migration notes | Agent Workflow Blueprint</title>
+    <meta name="description" content="Version 3.0.1">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/MIGRATION-NOTES.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Asset architecture migration notes">
+    <meta property="og:description" content="Version 3.0.1">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/MIGRATION-NOTES.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Asset architecture migration notes">
+    <meta name="twitter:description" content="Version 3.0.1">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Asset architecture migration notes","description":"Version 3.0.1","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/MIGRATION-NOTES.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Asset architecture migration notes</h1>
+          <p class="document-summary">Version 3.0.1</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="MIGRATION-NOTES.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="version-301">Version 3.0.1</h2><p>Asset IDs, source paths, source versions, and specialist-control IDs remain stable. Composition now separates review context from agent instructions.</p><ul><li>Website and CLI copy output excludes the source title, applicability, metadata, dependencies, and references.</li><li>Goal, “Use this when”, “Do not use this when”, curated research citations, and implementation references remain visible in the website dialog outside the code region.</li><li><code>research-sources.json</code> resolves every <code>research_pattern_labels</code> entry to an exact paper or standard plus the repository-level translation.</li><li><code>scripts/compose_assets.py --with-references</code> is available for review artefacts that intentionally append citations and implementation sources.</li><li>Multi-asset packs preserve explicit Prompt, Skill, and Contract module boundaries; single-asset output starts directly with the executable body.</li></ul><h2 id="version-300">Version 3.0.0</h2><p>All 100 stable asset IDs, paths, titles, governance profiles, and specialist-control IDs remain available. The change strengthens prompt sources and machine-readable quality metadata without removing skills, contracts, starter packs, or static-site behavior.</p><h3 id="what-changed">What changed</h3><ul><li>All 40 prompts now include explicit use and non-use boundaries, four or more required inputs, five to ten domain-specific instructions, decision gates, concrete evidence, failure-and-recovery pairs, rejection conditions, a domain output record, and a worked example.</li><li>The common handoff schema lives once in <code>GOV-HANDOFF-01</code>; each prompt contributes only its domain-specific record.</li><li>The manifest records <code>risk_level</code>, <code>required_inputs</code>, <code>expected_outputs</code>, and <code>evaluation_cases</code> for every asset.</li><li>Every prompt maps to at least one fictional evaluation case. The suite covers 40 cases and compares five conditions, including frozen v2.1 and v3 prompt inputs.</li><li>Validation enforces prompt source size, composed size, specialist-content ratio, input alignment, conditional gates, concrete evidence, recoveries, rejection conditions, output schema, example quality, evaluation coverage, and existing normalized-control rules.</li></ul><h3 id="adoption">Adoption</h3><p>Existing v2.1 links and asset IDs continue to resolve. Recompose copied assets to receive the v3 prompt content:</p><pre><code class="bash">python3 -S scripts/compose_assets.py --asset &lt;asset-id&gt;</code></pre><p>Do not replace the frozen files in <code>evals/baselines/v2.1-composed/</code>; they are comparison inputs. Deterministic v3 validation does not establish behavioural improvement. Use the recorded-output process in <code>docs/engineering/evaluation-methodology.md</code> for that evidence.</p><h2 id="version-210">Version 2.1.0</h2><p>All 100 stable asset IDs, paths, and titles remain available. Source assets are now concise specialist modules rather than copies of shared policy.</p><h3 id="what-changed-1">What changed</h3><ul><li>Shared governance has stable <code>GOV-*</code> identifiers in <a href="GOVERNANCE-KERNEL.html"><code>GOVERNANCE-KERNEL.md</code></a>.</li><li>Specialist instructions used by multiple assets have one authoritative <code>SPC-*</code> entry in <a href="SPECIALIST-CONTROLS.html"><code>SPECIALIST-CONTROLS.md</code></a>.</li><li>Each manifest entry declares its governance profile and ordered specialist-control references.</li><li><a href="../../scripts/compose_assets.py"><code>compose_assets.py</code></a> deterministically renders each selected module, the applicable kernel rules, and each referenced specialist control once in copy-ready order.</li><li>The website uses one dialog containing a short introduction, the full standalone prompt, skill, or contract as literal Markdown code, a compact copy control, and linked references.</li><li>Every source module retains at least three asset-specific instructions, procedure steps, or hard gates plus a distinct evidence section.</li><li>Validation rejects hollow registry delegation, duplicate specialist bodies or evidence sections, repeated inline specialist controls, near-duplicate controls at the configured threshold, orphaned controls, source/manifest drift, unresolved composition, and any unclassified repeated prose block.</li></ul><h3 id="adoption-1">Adoption</h3><p>Use the compact copy control beside the website’s prompt/skill/contract code or run:</p><pre><code class="bash">python3 -S scripts/compose_assets.py --asset &lt;asset-id&gt;</code></pre><p>Repeat <code>--asset</code> to compose a prompt, skill, and contract together. Source modules remain readable and stable, but require their declared kernel and registry dependencies when used outside the repository.</p><h2 id="version-200">Version 2.0.0</h2><p>The 100 asset paths and titles remain stable. No prompt, skill, or contract identifier was removed.</p><h3 id="what-changed-2">What changed</h3><ul><li>Shared scope, evidence, uncertainty, traceability, failure-disclosure, escalation, and handoff rules moved to <a href="GOVERNANCE-KERNEL.html"><code>GOVERNANCE-KERNEL.md</code></a>.</li><li>Each asset now concentrates on its specialist role, mission or objective, task-specific procedure, evidence, and rejection or failure conditions.</li><li><a href="assets.json"><code>assets.json</code></a> now records a stable ID, semantic version, purpose, intended model context, dependencies, and evidence expectations.</li><li><a href="asset.schema.json"><code>asset.schema.json</code></a> defines the manifest entry contract.</li><li>Validation is quality-based: metadata integrity, stable paths, dependencies, required specialist sections, evidence language, rejection language, and duplicate-block limits replace the previous twenty-numbered-point size gate.</li></ul><h3 id="adoption-2">Adoption</h3><p>Existing links continue to work. Version 2.0 consumers should migrate to complete v2.1 composition so shared specialist controls are not omitted.</p><h3 id="deprecated-patterns">Deprecated patterns</h3><ul><li>Repeating the full research stack and generic output contract in every asset is deprecated.</li><li>Unsupported certainty wording is deprecated; use <code>research-informed</code> or <code>source-mapped</code> wording.</li><li>Asset quality is no longer inferred from line count or numbered-rule count.</li></ul><p>No asset is currently renamed or removed.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="MIGRATION-NOTES.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

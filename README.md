@@ -19,7 +19,7 @@ The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptan
 4. Paste the copied body into the agent with the concrete task and repository context. The clipboard contains only executable specialist instructions, shared specialist requirements, and shared operating rules. Applicability, catalogue metadata, and references remain outside the copied body.
 5. Require command output, file evidence, limitations, and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
 
-Search engines and no-JavaScript users can discover all asset titles and summaries through the generated [`library/`](library) index. [`sitemap.xml`](sitemap.xml) lists the canonical site pages and all 100 source assets.
+Search engines and no-JavaScript users can discover all asset titles and summaries through the generated [`library/`](library) index. Every maintained guide, prompt, skill, and contract also has a styled HTML page. [`sitemap.xml`](sitemap.xml) lists those rendered pages as canonical public routes; raw Markdown remains available only through explicit source-download links.
 
 Example:
 
@@ -61,10 +61,10 @@ The builder normalises project names, validates generated relative paths, preven
 ## What has been verified
 
 - Repository structure, manifest metadata, asset dependencies, normalized controls, deterministic composition, licence files, local links, and generated-manifest reproducibility are checked by scripts.
-- SEO generation checks keep the static 100-asset index, sitemap, crawler guidance, canonical metadata, and social-image references aligned with the manifest.
+- Document and SEO generation checks keep 156 rendered HTML documents, the static 100-asset index, sitemap, crawler guidance, canonical metadata, and social-image references aligned with their Markdown sources and manifest.
 - JavaScript unit tests cover text handling, manifest validation, project generation, safe paths, and ZIP integrity.
 - Playwright tests cover homepage search, filters, modal keyboard behaviour, copy fallback, builder intake, file selection, assembly, success, and ZIP extraction.
-- Automated axe checks cover ten representative homepage, privacy, static-catalogue, and builder states in Chromium, Firefox, and WebKit.
+- Automated axe checks cover twelve representative homepage, privacy, catalogue, rendered-document, prompt, and builder states in Chromium, Firefox, and WebKit.
 - The release commands, retained failure, and results for this change are recorded in [`2026-08-05-seo-discoverability.md`](docs/engineering/release-evidence/2026-08-05-seo-discoverability.md).
 
 These are repository-level results for the tested fixtures and environment. They do not guarantee correctness for a model, task, browser, assistive technology, or downstream project.
@@ -106,7 +106,7 @@ Individual Python checks and local CI equivalents are documented in [`testing-st
 
 ## Search and analytics
 
-The homepage, documentation, builder, and static library index expose canonical URLs, index/follow metadata, Open Graph data, a 1200 × 630 social image, and a project sitemap. The static index keeps all 100 asset titles, summaries, types, categories, and source links in delivered HTML instead of relying on crawler-side JavaScript rendering.
+The homepage, documentation, builder, static library index, and 156 rendered document pages expose canonical URLs, index/follow metadata, Open Graph data, a 1200 × 630 social image, and a project sitemap. The static index keeps all 100 asset titles, summaries, types, categories, and links to rendered HTML in the delivered response instead of relying on crawler-side JavaScript rendering. Repository Markdown is the maintained authoring source and remains downloadable from each rendered page, but it is not used as primary site navigation or in the sitemap.
 
 This worktree configures GA4 measurement ID `G-PZEC365PCE` through [`analytics.js`](analytics.js). The external Google tag does not load before explicit opt-in. Rejection persists locally, advertising storage and signals remain disabled, and the persistent Analytics settings control supports later withdrawal. See [`privacy.html`](privacy.html) for the user-facing notice. These repository checks do not establish legal suitability or prove that the deployed Analytics property receives data. Search Console ownership and sitemap submission remain external account actions.
 

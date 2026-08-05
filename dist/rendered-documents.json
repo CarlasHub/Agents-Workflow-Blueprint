@@ -1,0 +1,786 @@
+{
+  "generated_by": "scripts/build_docs.mjs",
+  "document_count": 156,
+  "documents": [
+    {
+      "source": "CHANGELOG.md",
+      "output": "CHANGELOG.html",
+      "kind": "guide"
+    },
+    {
+      "source": "CODE_OF_CONDUCT.md",
+      "output": "CODE_OF_CONDUCT.html",
+      "kind": "guide"
+    },
+    {
+      "source": "CONTRIBUTING.md",
+      "output": "CONTRIBUTING.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/a11y-review-agent.md",
+      "output": "PROMPTS/a11y-review-agent.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/implementation-agent.md",
+      "output": "PROMPTS/implementation-agent.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/release-agent.md",
+      "output": "PROMPTS/release-agent.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/review-agent.md",
+      "output": "PROMPTS/review-agent.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/scoping-agent.md",
+      "output": "PROMPTS/scoping-agent.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/security-review-agent.md",
+      "output": "PROMPTS/security-review-agent.html",
+      "kind": "guide"
+    },
+    {
+      "source": "PROMPTS/system-prompt-patterns.md",
+      "output": "PROMPTS/system-prompt-patterns.html",
+      "kind": "guide"
+    },
+    {
+      "source": "README.md",
+      "output": "README.html",
+      "kind": "guide"
+    },
+    {
+      "source": "SECURITY.md",
+      "output": "SECURITY.html",
+      "kind": "guide"
+    },
+    {
+      "source": "THIRD-PARTY-NOTICES.md",
+      "output": "THIRD-PARTY-NOTICES.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/accessibility-testing.md",
+      "output": "docs/engineering/accessibility-testing.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/contracts/accessibility.md",
+      "output": "docs/engineering/contracts/accessibility.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/contracts/architecture.md",
+      "output": "docs/engineering/contracts/architecture.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/contracts/release.md",
+      "output": "docs/engineering/contracts/release.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/contracts/security.md",
+      "output": "docs/engineering/contracts/security.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/contracts/testing.md",
+      "output": "docs/engineering/contracts/testing.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/evaluation-methodology.md",
+      "output": "docs/engineering/evaluation-methodology.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/industry-readiness-baseline.md",
+      "output": "docs/engineering/industry-readiness-baseline.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/industry-readiness-report.md",
+      "output": "docs/engineering/industry-readiness-report.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/release-evidence/2026-08-04-industry-readiness.md",
+      "output": "docs/engineering/release-evidence/2026-08-04-industry-readiness.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/release-evidence/2026-08-05-seo-discoverability.md",
+      "output": "docs/engineering/release-evidence/2026-08-05-seo-discoverability.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/release-evidence/2026-08-05-v3-prompt-quality.md",
+      "output": "docs/engineering/release-evidence/2026-08-05-v3-prompt-quality.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/release-process.md",
+      "output": "docs/engineering/release-process.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/seo-and-analytics.md",
+      "output": "docs/engineering/seo-and-analytics.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/templates/accessibility-review-template.md",
+      "output": "docs/engineering/templates/accessibility-review-template.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/templates/release-evidence-template.md",
+      "output": "docs/engineering/templates/release-evidence-template.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/templates/review-packet-template.md",
+      "output": "docs/engineering/templates/review-packet-template.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/templates/scoping-packet-template.md",
+      "output": "docs/engineering/templates/scoping-packet-template.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/templates/security-review-template.md",
+      "output": "docs/engineering/templates/security-review-template.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/testing-strategy.md",
+      "output": "docs/engineering/testing-strategy.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/engineering/workflow.md",
+      "output": "docs/engineering/workflow.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/CATALOGUE.md",
+      "output": "docs/template-library/CATALOGUE.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/CODEX-USAGE-GUIDE.md",
+      "output": "docs/template-library/CODEX-USAGE-GUIDE.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/EXAMPLES.md",
+      "output": "docs/template-library/EXAMPLES.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/GOVERNANCE-KERNEL.md",
+      "output": "docs/template-library/GOVERNANCE-KERNEL.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/HUMAN-AI-QUALITY-STANDARD.md",
+      "output": "docs/template-library/HUMAN-AI-QUALITY-STANDARD.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/MIGRATION-NOTES.md",
+      "output": "docs/template-library/MIGRATION-NOTES.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/PROMPT-ARCHITECTURE.md",
+      "output": "docs/template-library/PROMPT-ARCHITECTURE.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/PROMPT-PATTERN-MATRIX.md",
+      "output": "docs/template-library/PROMPT-PATTERN-MATRIX.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/QUALITY-RUBRIC.md",
+      "output": "docs/template-library/QUALITY-RUBRIC.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/README.md",
+      "output": "docs/template-library/README.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/RESEARCH-BASIS.md",
+      "output": "docs/template-library/RESEARCH-BASIS.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/RESEARCH-DNA.md",
+      "output": "docs/template-library/RESEARCH-DNA.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/SCIENTIFIC-CONTROL-CHECKLIST.md",
+      "output": "docs/template-library/SCIENTIFIC-CONTROL-CHECKLIST.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/SCIENTIFIC-DNA.md",
+      "output": "docs/template-library/SCIENTIFIC-DNA.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/SPECIALIST-CONTROLS.md",
+      "output": "docs/template-library/SPECIALIST-CONTROLS.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/START-HERE.md",
+      "output": "docs/template-library/START-HERE.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/STARTER-PACKS.md",
+      "output": "docs/template-library/STARTER-PACKS.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/SYSTEM-2-PROMPTING-GUIDE.md",
+      "output": "docs/template-library/SYSTEM-2-PROMPTING-GUIDE.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/TRACEABILITY-MATRIX.md",
+      "output": "docs/template-library/TRACEABILITY-MATRIX.html",
+      "kind": "guide"
+    },
+    {
+      "source": "docs/template-library/contracts/01-completion-honesty-contract.md",
+      "output": "docs/template-library/contracts/01-completion-honesty-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/02-evidence-contract.md",
+      "output": "docs/template-library/contracts/02-evidence-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/03-scope-control-contract.md",
+      "output": "docs/template-library/contracts/03-scope-control-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/04-assumption-contract.md",
+      "output": "docs/template-library/contracts/04-assumption-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/05-verification-contract.md",
+      "output": "docs/template-library/contracts/05-verification-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/06-test-behaviour-contract.md",
+      "output": "docs/template-library/contracts/06-test-behaviour-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/07-accessibility-contract-plus.md",
+      "output": "docs/template-library/contracts/07-accessibility-contract-plus.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/08-keyboard-interaction-contract.md",
+      "output": "docs/template-library/contracts/08-keyboard-interaction-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/09-accessible-name-contract.md",
+      "output": "docs/template-library/contracts/09-accessible-name-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/10-ui-visual-quality-contract.md",
+      "output": "docs/template-library/contracts/10-ui-visual-quality-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/11-design-system-contract.md",
+      "output": "docs/template-library/contracts/11-design-system-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/12-responsive-behaviour-contract.md",
+      "output": "docs/template-library/contracts/12-responsive-behaviour-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/13-code-quality-contract.md",
+      "output": "docs/template-library/contracts/13-code-quality-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/14-architecture-boundary-contract.md",
+      "output": "docs/template-library/contracts/14-architecture-boundary-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/15-refactor-safety-contract.md",
+      "output": "docs/template-library/contracts/15-refactor-safety-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/16-dead-code-removal-contract.md",
+      "output": "docs/template-library/contracts/16-dead-code-removal-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/17-documentation-truth-contract.md",
+      "output": "docs/template-library/contracts/17-documentation-truth-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/18-readme-claim-contract.md",
+      "output": "docs/template-library/contracts/18-readme-claim-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/19-release-evidence-contract-plus.md",
+      "output": "docs/template-library/contracts/19-release-evidence-contract-plus.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/20-security-boundary-contract.md",
+      "output": "docs/template-library/contracts/20-security-boundary-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/21-secrets-handling-contract.md",
+      "output": "docs/template-library/contracts/21-secrets-handling-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/22-privacy-and-data-contract.md",
+      "output": "docs/template-library/contracts/22-privacy-and-data-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/23-logging-safety-contract.md",
+      "output": "docs/template-library/contracts/23-logging-safety-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/24-error-handling-contract.md",
+      "output": "docs/template-library/contracts/24-error-handling-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/25-performance-budget-contract.md",
+      "output": "docs/template-library/contracts/25-performance-budget-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/26-dependency-addition-contract.md",
+      "output": "docs/template-library/contracts/26-dependency-addition-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/27-api-stability-contract.md",
+      "output": "docs/template-library/contracts/27-api-stability-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/28-git-hygiene-contract.md",
+      "output": "docs/template-library/contracts/28-git-hygiene-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/29-template-library-quality-contract.md",
+      "output": "docs/template-library/contracts/29-template-library-quality-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/contracts/30-agent-output-format-contract.md",
+      "output": "docs/template-library/contracts/30-agent-output-format-contract.html",
+      "kind": "contract"
+    },
+    {
+      "source": "docs/template-library/prompts/01-master-agent-enforcement-prompt.md",
+      "output": "docs/template-library/prompts/01-master-agent-enforcement-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/02-evidence-first-implementation-prompt.md",
+      "output": "docs/template-library/prompts/02-evidence-first-implementation-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/03-anti-fake-completion-audit-prompt.md",
+      "output": "docs/template-library/prompts/03-anti-fake-completion-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/04-assumption-exposure-prompt.md",
+      "output": "docs/template-library/prompts/04-assumption-exposure-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/05-uncertainty-calibration-prompt.md",
+      "output": "docs/template-library/prompts/05-uncertainty-calibration-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/06-contradiction-detection-prompt.md",
+      "output": "docs/template-library/prompts/06-contradiction-detection-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/07-premortem-failure-analysis-prompt.md",
+      "output": "docs/template-library/prompts/07-premortem-failure-analysis-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/08-scope-boundary-lock-prompt.md",
+      "output": "docs/template-library/prompts/08-scope-boundary-lock-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/09-minimal-correct-change-prompt.md",
+      "output": "docs/template-library/prompts/09-minimal-correct-change-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/10-repository-reconnaissance-prompt.md",
+      "output": "docs/template-library/prompts/10-repository-reconnaissance-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/11-feature-implementation-prompt.md",
+      "output": "docs/template-library/prompts/11-feature-implementation-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/12-bug-root-cause-remediation-prompt.md",
+      "output": "docs/template-library/prompts/12-bug-root-cause-remediation-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/13-regression-risk-review-prompt.md",
+      "output": "docs/template-library/prompts/13-regression-risk-review-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/14-code-quality-deep-audit-prompt.md",
+      "output": "docs/template-library/prompts/14-code-quality-deep-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/15-architecture-drift-audit-prompt.md",
+      "output": "docs/template-library/prompts/15-architecture-drift-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/16-dead-code-removal-prompt.md",
+      "output": "docs/template-library/prompts/16-dead-code-removal-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/17-refactor-safety-prompt.md",
+      "output": "docs/template-library/prompts/17-refactor-safety-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/18-api-contract-review-prompt.md",
+      "output": "docs/template-library/prompts/18-api-contract-review-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/19-data-flow-trace-prompt.md",
+      "output": "docs/template-library/prompts/19-data-flow-trace-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/20-state-management-audit-prompt.md",
+      "output": "docs/template-library/prompts/20-state-management-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/21-ui-structure-audit-prompt.md",
+      "output": "docs/template-library/prompts/21-ui-structure-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/22-visual-design-quality-gate-prompt.md",
+      "output": "docs/template-library/prompts/22-visual-design-quality-gate-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/23-design-system-consistency-prompt.md",
+      "output": "docs/template-library/prompts/23-design-system-consistency-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/24-responsive-layout-audit-prompt.md",
+      "output": "docs/template-library/prompts/24-responsive-layout-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/25-interaction-state-audit-prompt.md",
+      "output": "docs/template-library/prompts/25-interaction-state-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/26-keyboard-journey-audit-prompt.md",
+      "output": "docs/template-library/prompts/26-keyboard-journey-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/27-accessibility-remediation-prompt.md",
+      "output": "docs/template-library/prompts/27-accessibility-remediation-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/28-screen-reader-risk-review-prompt.md",
+      "output": "docs/template-library/prompts/28-screen-reader-risk-review-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/29-wcag-mapping-review-prompt.md",
+      "output": "docs/template-library/prompts/29-wcag-mapping-review-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/30-icon-only-control-review-prompt.md",
+      "output": "docs/template-library/prompts/30-icon-only-control-review-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/31-playwright-test-design-prompt.md",
+      "output": "docs/template-library/prompts/31-playwright-test-design-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/32-test-quality-audit-prompt.md",
+      "output": "docs/template-library/prompts/32-test-quality-audit-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/33-release-evidence-prompt.md",
+      "output": "docs/template-library/prompts/33-release-evidence-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/34-documentation-truthfulness-prompt.md",
+      "output": "docs/template-library/prompts/34-documentation-truthfulness-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/35-readme-upgrade-prompt.md",
+      "output": "docs/template-library/prompts/35-readme-upgrade-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/36-github-pages-template-hub-prompt.md",
+      "output": "docs/template-library/prompts/36-github-pages-template-hub-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/37-security-trust-boundary-prompt.md",
+      "output": "docs/template-library/prompts/37-security-trust-boundary-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/38-secrets-handling-review-prompt.md",
+      "output": "docs/template-library/prompts/38-secrets-handling-review-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/39-observability-and-logging-prompt.md",
+      "output": "docs/template-library/prompts/39-observability-and-logging-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/prompts/40-final-merge-gate-prompt.md",
+      "output": "docs/template-library/prompts/40-final-merge-gate-prompt.html",
+      "kind": "prompt"
+    },
+    {
+      "source": "docs/template-library/skills/01-scoping-packet-skill.md",
+      "output": "docs/template-library/skills/01-scoping-packet-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/02-implementation-planning-skill.md",
+      "output": "docs/template-library/skills/02-implementation-planning-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/03-repository-mapping-skill.md",
+      "output": "docs/template-library/skills/03-repository-mapping-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/04-evidence-collection-skill.md",
+      "output": "docs/template-library/skills/04-evidence-collection-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/05-verification-reporting-skill.md",
+      "output": "docs/template-library/skills/05-verification-reporting-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/06-failure-disclosure-skill.md",
+      "output": "docs/template-library/skills/06-failure-disclosure-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/07-ui-screenshot-review-skill.md",
+      "output": "docs/template-library/skills/07-ui-screenshot-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/08-accessibility-inspection-skill.md",
+      "output": "docs/template-library/skills/08-accessibility-inspection-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/09-wcag-mapping-skill.md",
+      "output": "docs/template-library/skills/09-wcag-mapping-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/10-keyboard-testing-skill.md",
+      "output": "docs/template-library/skills/10-keyboard-testing-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/11-playwright-debugging-skill.md",
+      "output": "docs/template-library/skills/11-playwright-debugging-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/12-regression-test-design-skill.md",
+      "output": "docs/template-library/skills/12-regression-test-design-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/13-code-review-skill.md",
+      "output": "docs/template-library/skills/13-code-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/14-refactor-planning-skill.md",
+      "output": "docs/template-library/skills/14-refactor-planning-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/15-dead-code-detection-skill.md",
+      "output": "docs/template-library/skills/15-dead-code-detection-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/16-architecture-review-skill.md",
+      "output": "docs/template-library/skills/16-architecture-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/17-api-contract-inspection-skill.md",
+      "output": "docs/template-library/skills/17-api-contract-inspection-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/18-security-review-skill.md",
+      "output": "docs/template-library/skills/18-security-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/19-secrets-review-skill.md",
+      "output": "docs/template-library/skills/19-secrets-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/20-data-privacy-review-skill.md",
+      "output": "docs/template-library/skills/20-data-privacy-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/21-documentation-audit-skill.md",
+      "output": "docs/template-library/skills/21-documentation-audit-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/22-release-notes-review-skill.md",
+      "output": "docs/template-library/skills/22-release-notes-review-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/23-readme-structuring-skill.md",
+      "output": "docs/template-library/skills/23-readme-structuring-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/24-template-catalogue-design-skill.md",
+      "output": "docs/template-library/skills/24-template-catalogue-design-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/25-github-pages-ux-skill.md",
+      "output": "docs/template-library/skills/25-github-pages-ux-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/26-copy-ready-prompt-writing-skill.md",
+      "output": "docs/template-library/skills/26-copy-ready-prompt-writing-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/27-agent-behaviour-hardening-skill.md",
+      "output": "docs/template-library/skills/27-agent-behaviour-hardening-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/28-prompt-evaluation-skill.md",
+      "output": "docs/template-library/skills/28-prompt-evaluation-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/29-risk-register-skill.md",
+      "output": "docs/template-library/skills/29-risk-register-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "docs/template-library/skills/30-final-delivery-packaging-skill.md",
+      "output": "docs/template-library/skills/30-final-delivery-packaging-skill.html",
+      "kind": "skill"
+    },
+    {
+      "source": "evals/README.md",
+      "output": "evals/README.html",
+      "kind": "guide"
+    },
+    {
+      "source": "evals/recorded/README.md",
+      "output": "evals/recorded/README.html",
+      "kind": "guide"
+    },
+    {
+      "source": "examples/worked-example.md",
+      "output": "examples/worked-example.html",
+      "kind": "guide"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Traceability Matrix Pattern | Agent Workflow Blueprint</title>
+    <meta name="description" content="Use this pattern when an agent must prove that work satisfies requirements instead of merely describing what it did.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/TRACEABILITY-MATRIX.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Traceability Matrix Pattern">
+    <meta property="og:description" content="Use this pattern when an agent must prove that work satisfies requirements instead of merely describing what it did.">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/TRACEABILITY-MATRIX.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Traceability Matrix Pattern">
+    <meta name="twitter:description" content="Use this pattern when an agent must prove that work satisfies requirements instead of merely describing what it did.">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Traceability Matrix Pattern","description":"Use this pattern when an agent must prove that work satisfies requirements instead of merely describing what it did.","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/TRACEABILITY-MATRIX.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Traceability Matrix Pattern</h1>
+          <p class="document-summary">Use this pattern when an agent must prove that work satisfies requirements instead of merely describing what it did.</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="TRACEABILITY-MATRIX.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Use this pattern when an agent must prove that work satisfies requirements instead of merely describing what it did.</p><h2 id="requirement-to-evidence-matrix">Requirement-to-evidence matrix</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Requirement</th><th>Source inspected</th><th>Action taken</th><th>Verification evidence</th><th>Status</th><th>Remaining gap</th></tr></thead>
+        <tbody><tr><td>&lt;requirement&gt;</td><td>&lt;file/path/UI/doc&gt;</td><td>&lt;change/review&gt;</td><td>&lt;command/manual check&gt;</td><td>verified / partially verified / not verified / blocked</td><td>&lt;gap&gt;</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="rules">Rules</h2><ol><li>Every material requirement gets one row.</li><li>Every acceptance claim must point to a row.</li><li>Unknowns stay visible as unknowns.</li><li>Passing tests cannot prove unrelated UI, security, accessibility, or docs claims.</li><li>Manual checks must be named, not implied.</li><li>Unavailable tools must be disclosed.</li><li>A requirement with no evidence cannot be marked verified.</li><li>A release claim must include limitation rows.</li><li>A contract clause can reject work even when implementation looks plausible.</li><li>The final status must match the weakest material row.</li></ol><h2 id="example">Example</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Requirement</th><th>Source inspected</th><th>Action taken</th><th>Verification evidence</th><th>Status</th><th>Remaining gap</th></tr></thead>
+        <tbody><tr><td>Copy button works</td><td><code>site.js</code>, <code>index.html</code></td><td>Added clipboard API handling with a local fallback</td><td>Playwright grants clipboard permission, clicks the control, reads the clipboard, and verifies source and composed content</td><td>verified</td><td>Browser permission policy can still require the documented download fallback</td></tr><tr><td>Template count is 100</td><td><code>docs/template-library/assets.json</code></td><td>Manifest checked by script</td><td><code>python3 -S scripts/check_template_library.py</code> passed</td><td>verified</td><td>None</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="required-research-vocabulary-cross-reference">Required research vocabulary cross-reference</h2><p>This document participates in the same control vocabulary used across the library: CoT-safe public reasoning, Tree-of-Thoughts branch evaluation, ReAct observation loops, Least-to-most decomposition, Self-consistency checks, Self-refinement after failed checks, Process supervision, and traceability.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="TRACEABILITY-MATRIX.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

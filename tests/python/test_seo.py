@@ -9,7 +9,15 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from build_seo import SITE_URL, library_index_html, load_assets, robots_text, sitemap_xml  # noqa: E402
+from build_seo import (  # noqa: E402
+    SITE_URL,
+    library_index_html,
+    load_assets,
+    public_document_sources,
+    rendered_document_path,
+    robots_text,
+    sitemap_xml,
+)
 
 
 class SeoBuildTest(unittest.TestCase):
@@ -23,7 +31,8 @@ class SeoBuildTest(unittest.TestCase):
         for asset in self.assets:
             self.assertIn(f'id="{asset["id"]}"', page)
             self.assertIn(asset["title"], page)
-            self.assertIn(f'../{asset["path"]}', page)
+            self.assertIn(f'../{rendered_document_path(asset["path"])}', page)
+            self.assertIn(f'href="../{asset["path"]}" download>Download Markdown source', page)
         self.assertIn('name="assetSearch"', page)
         self.assertIn('name="robots" content="index,follow,max-image-preview:large"', page)
         self.assertIn('name="twitter:card" content="summary_large_image"', page)
@@ -34,12 +43,18 @@ class SeoBuildTest(unittest.TestCase):
         root = ET.fromstring(source)
         namespace = {"sitemap": "http://www.sitemaps.org/schemas/sitemap/0.9"}
         locations = [element.text for element in root.findall("sitemap:url/sitemap:loc", namespace)]
-        self.assertEqual(len(locations), 110)
+        self.assertEqual(len(locations), 5 + len(public_document_sources()))
         self.assertEqual(len(locations), len(set(locations)))
         self.assertTrue(all(location.startswith(SITE_URL) for location in locations))
+        self.assertTrue(all(not location.endswith(".md") for location in locations))
         self.assertIn(SITE_URL, locations)
         self.assertIn(f"{SITE_URL}library/", locations)
         self.assertIn(f"{SITE_URL}privacy.html", locations)
+        self.assertIn(f"{SITE_URL}docs/template-library/CODEX-USAGE-GUIDE.html", locations)
+        self.assertIn(
+            f"{SITE_URL}docs/template-library/prompts/01-master-agent-enforcement-prompt.html",
+            locations,
+        )
 
     def test_robots_points_to_the_canonical_sitemap(self):
         source = robots_text()

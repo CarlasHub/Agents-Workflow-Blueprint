@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>System Prompt Patterns for Repository Agents | Agent Workflow Blueprint</title>
+    <meta name="description" content="Use this file as teaching material for students and teams. These are not task prompts. These are reusable patterns that make agent behaviour more stable.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/system-prompt-patterns.html">
+    <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+    <link rel="icon" type="image/png" href="../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="System Prompt Patterns for Repository Agents">
+    <meta property="og:description" content="Use this file as teaching material for students and teams. These are not task prompts. These are reusable patterns that make agent behaviour more stable.">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/system-prompt-patterns.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="System Prompt Patterns for Repository Agents">
+    <meta name="twitter:description" content="Use this file as teaching material for students and teams. These are not task prompts. These are reusable patterns that make agent behaviour more stable.">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"System Prompt Patterns for Repository Agents","description":"Use this file as teaching material for students and teams. These are not task prompts. These are reusable patterns that make agent behaviour more stable.","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/system-prompt-patterns.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../">Interactive library</a>
+          <a href="../library/">Static catalogue</a>
+          <a href="../docs/">Documentation</a>
+          <a href="../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a><span aria-hidden="true">/</span><a href="../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>System Prompt Patterns for Repository Agents</h1>
+          <p class="document-summary">Use this file as teaching material for students and teams. These are not task prompts. These are reusable patterns that make agent behaviour more stable.</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="system-prompt-patterns.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Use this file as teaching material for students and teams. These are not task prompts. These are reusable patterns that make agent behaviour more stable.</p><h2 id="pattern-1-role-mission-boundary">Pattern 1: Role + mission + boundary</h2><p>Bad: &quot;Help with this feature&quot;</p><p>Better: &quot;You are the implementation agent for a production internal dashboard. Implement only the approved feature scope, preserve existing behaviour outside the specified files, and stop if hidden architecture conflicts require a broader change.&quot;</p><p>Why it works:</p><ul><li>assigns role</li><li>narrows mission</li><li>sets stop condition</li></ul><h2 id="pattern-2-read-order-before-output">Pattern 2: Read order before output</h2><p>Bad: &quot;Fix the filters&quot;</p><p>Better: &quot;Read AGENTS.md, docs/engineering/contracts/accessibility.md, docs/engineering/contracts/testing.md, then inspect the filter panel component, filter state store, and related Playwright tests before proposing changes.&quot;</p><p>Why it works:</p><ul><li>reduces blind guessing</li><li>grounds the model in repo rules first</li><li>reduces hallucinated architecture</li></ul><h2 id="pattern-3-explicit-output-schema">Pattern 3: Explicit output schema</h2><p>Bad: &quot;Review the PR&quot;</p><p>Better: &quot;Return: executive verdict, release blockers, major issues, accessibility findings, testing verdict, documentation drift, and non-negotiable fixes before merge.&quot;</p><p>Why it works:</p><ul><li>makes results reusable</li><li>reduces rambly output</li><li>helps automated parsing</li></ul><h2 id="pattern-4-anti-hallucination-clauses">Pattern 4: Anti-hallucination clauses</h2><p>Use language like:</p><ul><li>&quot;Do not invent file names, APIs, or hidden services.&quot;</li><li>&quot;If you cannot verify a claim from inspected files, mark it unverified.&quot;</li><li>&quot;Do not turn inferred behaviour into asserted fact.&quot;</li><li>&quot;State assumptions explicitly.&quot;</li></ul><h2 id="pattern-5-review-stricter-than-implementation">Pattern 5: Review stricter than implementation</h2><p>Implementation prompt should optimise for correctness and scope. Review prompt should optimise for scepticism and evidence.</p><h2 id="pattern-6-real-artifacts-not-placeholders">Pattern 6: Real artifacts, not placeholders</h2><p>Bad: &quot;Use the approved scoping packet&quot;</p><p>Better: &quot;Read the approved scoping packet produced from <code>docs/engineering/templates/scoping-packet-template.md</code> and preserve those headings in the handoff.&quot;</p><p>Why it works:</p><ul><li>points to a real repository artifact</li><li>reduces fake handoff language</li><li>makes workflow checks automatable</li></ul><h2 id="pattern-7-prompt-workflow-checks">Pattern 7: Prompt + workflow + checks</h2><p>Prompts alone do not enforce behaviour. Stable repository workflows need:</p><ul><li>role-specific prompts</li><li>real template files</li><li>config and reusable skills</li><li>validation scripts that fail when artifacts drift</li></ul>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../">Interactive library</a></li>
+          <li><a href="../library/">Static catalogue</a></li>
+          <li><a href="system-prompt-patterns.md" download>Markdown source</a></li>
+          <li><a href="../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../privacy.html"></script>
+  </body>
+</html>

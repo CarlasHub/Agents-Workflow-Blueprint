@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Accessibility Contract | Agent Workflow Blueprint</title>
+    <meta name="description" content="Purpose">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/accessibility.html">
+    <link rel="sitemap" type="application/xml" href="../../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Accessibility Contract">
+    <meta property="og:description" content="Purpose">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/accessibility.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Accessibility Contract">
+    <meta name="twitter:description" content="Purpose">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Accessibility Contract","description":"Purpose","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/accessibility.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../../">Interactive library</a>
+          <a href="../../../library/">Static catalogue</a>
+          <a href="../../../docs/">Documentation</a>
+          <a href="../../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../">Home</a><span aria-hidden="true">/</span><a href="../../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Accessibility Contract</h1>
+          <p class="document-summary">Purpose</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="accessibility.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="purpose">Purpose</h2><p>Ensure UI work remains grounded in real user access rather than superficial compliance theatre.</p><h2 id="baseline-principles">Baseline principles</h2><ol><li>Native semantics first.</li><li>Visible labels should generally provide the accessible name.</li><li>ARIA is used only when needed and correctly.</li><li>Keyboard operation is a first-class requirement.</li><li>Focus management must be intentional.</li><li>Status changes must be understandable.</li><li>Dense dashboards still need clear structure.</li></ol><h2 id="required-for-every-ui-affecting-task">Required for every UI-affecting task</h2><p>The agent must identify:</p><ul><li>impacted user journeys</li><li>semantics changed</li><li>focus order changed</li><li>keyboard interaction changed</li><li>accessible name changes</li><li>status message changes</li><li>table or chart comprehension changes</li><li>colour and perception risk</li></ul><h2 id="findings-model">Findings model</h2><p>Use these categories:</p><ul><li>deterministic_failure</li><li>corroborated_failure</li><li>engine_limited_review</li><li>state_limited_review</li><li>visual_composition_review</li><li>human_judgement_review</li><li>advisory_note</li></ul><h2 id="wording-restrictions">Wording restrictions</h2><p>Never claim:</p><ul><li>fully accessible</li><li>compliant</li><li>WCAG passed</li><li>accessible for screen readers</li></ul><p>unless the repository&#39;s defined process has actually earned that statement.</p><h2 id="dashboard-specific-guidance">Dashboard-specific guidance</h2><p>Internal dashboards create recurring problems:</p><ul><li>charts without meaningful summaries</li><li>colour-coded severity with no redundant cue</li><li>filters with weak labels</li><li>data tables with poor column logic</li><li>modals and drawers with weak focus return</li><li>alert toasts that are visually obvious but poorly announced</li><li>long pages with no landmarks or heading structure</li></ul><h2 id="review-focus-areas">Review focus areas</h2><ul><li>filter panels</li><li>comparison controls</li><li>segmented views</li><li>tab systems</li><li>error states</li><li>CSV, PDF, and screenshot export controls</li><li>audit-history tables</li><li>drill-down drawers</li><li>report share dialogs</li></ul><h2 id="testing-guidance">Testing guidance</h2><p>Automated checks can catch important classes of issues. They do not eliminate the need for judgement-based review.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../../">Interactive library</a></li>
+          <li><a href="../../../library/">Static catalogue</a></li>
+          <li><a href="accessibility.md" download>Markdown source</a></li>
+          <li><a href="../../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../../privacy.html"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>SEO discoverability and Analytics consent implementation evidence | Agent Workflow Blueprint</title>
+    <meta name="description" content="Recorded: 2026 08 05, Europe/Lisbon">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-05-seo-discoverability.html">
+    <link rel="sitemap" type="application/xml" href="../../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="SEO discoverability and Analytics consent implementation evidence">
+    <meta property="og:description" content="Recorded: 2026 08 05, Europe/Lisbon">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-05-seo-discoverability.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SEO discoverability and Analytics consent implementation evidence">
+    <meta name="twitter:description" content="Recorded: 2026 08 05, Europe/Lisbon">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SEO discoverability and Analytics consent implementation evidence","description":"Recorded: 2026 08 05, Europe/Lisbon","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-05-seo-discoverability.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../../">Interactive library</a>
+          <a href="../../../library/">Static catalogue</a>
+          <a href="../../../docs/">Documentation</a>
+          <a href="../../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../">Home</a><span aria-hidden="true">/</span><a href="../../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>SEO discoverability and Analytics consent implementation evidence</h1>
+          <p class="document-summary">Recorded: 2026 08 05, Europe/Lisbon</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="2026-08-05-seo-discoverability.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Recorded: 2026-08-05, Europe/Lisbon</p><h2 id="scope">Scope</h2><p>This record covers repository-side search discoverability, crawlable asset content, social-preview metadata, generated SEO artefacts, consent-first GA4 wiring, and their automated checks. It does not claim a deployment, a search-engine crawl, indexing, ranking, Search Console processing, live Analytics collection, or legal consent determination.</p><h2 id="implemented">Implemented</h2><ul><li>Added a 1200 × 630 social image based on the existing project mark.</li><li>Added complete Open Graph and Twitter Card metadata to the homepage, documentation index, builder, and generated static catalogue.</li><li>Added homepage <code>WebSite</code>, <code>CollectionPage</code>, <code>SoftwareSourceCode</code>, and <code>Person</code> JSON-LD entities.</li><li>Added a generated static HTML catalogue containing all 100 manifest assets and ordinary crawlable links to their sources.</li><li>Added a 110-URL canonical sitemap, including the privacy page, and project crawler guidance.</li><li>Added an opt-in GA4 controller for <code>G-PZEC365PCE</code> across every public HTML entry point. The external tag stays unloaded before acceptance; rejection persists; advertising storage and signals remain disabled; preferences can be reopened; withdrawal disables later measurement and removes accessible <code>_ga</code> cookies.</li><li>Added a user-facing privacy page and tests for refusal, acceptance, exact tag identity, Consent Mode commands, persistence, withdrawal, cookie removal, blocked local storage, and public-page coverage.</li><li>Added deterministic generation, stale-file rejection, failure-case coverage, browser assertions, automated accessibility coverage, CI wiring, release-gate wiring, and aligned operator documentation.</li></ul><h2 id="verification-results">Verification results</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Command or review</th><th>Observed result</th></tr></thead>
+        <tbody><tr><td><code>python3 -S scripts/build_seo.py --check</code></td><td>Passed: 100 assets and 3 generated SEO files are current and reproducible</td></tr><tr><td><code>python3 -S scripts/build_starter.py --check</code></td><td>Passed: 318-file starter manifest is current and reproducible</td></tr><tr><td><code>npm run lint</code></td><td>Passed</td></tr><tr><td><code>npm test</code></td><td>Passed: 23 JavaScript unit and 28 Python unit executions</td></tr><tr><td><code>npm run test:zip</code></td><td>Passed: 4 ZIP executions</td></tr><tr><td><code>npm run test:links</code></td><td>Passed: 653 local links inspected; 618 external links were recorded but not fetched</td></tr><tr><td><code>npm run test:e2e</code></td><td>Passed: 126 browser executions across Chromium, Firefox, and WebKit</td></tr><tr><td><code>npm run test:a11y</code></td><td>Passed: 30 automated accessibility executions across Chromium, Firefox, and WebKit</td></tr><tr><td><code>bash scripts/verify-release.sh</code></td><td>Passed: every configured deterministic, unit, ZIP, link, browser, and automated accessibility gate completed</td></tr><tr><td><code>git diff --check</code></td><td>Passed</td></tr><tr><td>Rendered desktop and 390 × 844 review</td><td>Static catalogue hierarchy, search handoff, cards, responsive navigation, and narrow layout rendered without observed horizontal overflow</td></tr><tr><td>Consent and privacy rendered review</td><td>The consent region renders below the header without covering controls; desktop and 390 × 844 layouts keep readable text, visible choices, and no observed horizontal overflow</td></tr><tr><td>Pre-deployment live-origin check</td><td>Existing homepage returned HTTP 200; the new static catalogue, sitemap, privacy page, and social image returned HTTP 404 because this worktree has not been committed and deployed</td></tr><tr><td>Social-image inspection</td><td>PNG confirmed at 1200 × 630; project name and Prompts/Skills/Contracts message are legible</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="retained-failure-and-correction">Retained failure and correction</h2><ol><li>The first accessibility matrix found the new inline static-catalogue link was distinguishable from surrounding muted text only by a low-contrast colour. Axe reported <code>link-in-text-block</code> as serious in the homepage, library, and open-dialog states across all three engines. The link now uses the existing inline-link class with a persistent underline.</li><li>The first consent implementation exposed its non-modal prompt as a second <code>dialog</code>, conflicting with the product requirement that the asset preview remain the only dialog. The consent prompt now uses a named <code>region</code>; all existing single-dialog behavior remains intact.</li><li>The first full Analytics browser matrix found that the fixed consent panel could cover a builder restore control in Firefox when the choice was ignored. The consent region now renders in document flow below the header, remains visible, and cannot intercept underlying product controls. The focused failure rerun and complete 126-execution matrix passed.</li></ol><h2 id="boundaries">Boundaries</h2><ul><li>A sitemap is a discovery hint, not evidence that any search engine crawled or indexed a URL.</li><li>The project-local <code>robots.txt</code> is not authoritative for the shared <code>carlashub.github.io</code> origin root.</li><li>GA4 measurement ID <code>G-PZEC365PCE</code> is configured locally, but deployed data arrival and Analytics Realtime reporting are not verified.</li><li>Search Console submission, live-origin smoke testing, remote CI, deployed social-card retrieval, and deployed consent behavior remain post-publication checks.</li><li>Property-level retention, enhanced-measurement settings, downstream Google processing, and legal suitability were not established by repository tests.</li><li>Automated accessibility results do not establish WCAG conformance; the manual checks listed in the accessibility guide remain separate.</li></ul><h2 id="final-status">Final status</h2><p><code>partially verified</code></p><p>Repository implementation and local verification are complete. Deployment, indexing, Search Console, Analytics collection, and legal consent suitability are not verified.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../../">Interactive library</a></li>
+          <li><a href="../../../library/">Static catalogue</a></li>
+          <li><a href="2026-08-05-seo-discoverability.md" download>Markdown source</a></li>
+          <li><a href="../../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../../privacy.html"></script>
+  </body>
+</html>

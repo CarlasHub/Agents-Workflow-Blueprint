@@ -8,6 +8,7 @@ import argparse
 from html import escape
 import json
 from pathlib import Path, PurePosixPath
+import subprocess
 import sys
 from urllib.parse import quote
 
@@ -19,6 +20,8 @@ ROBOTS_PATH = ROOT / "robots.txt"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 LIBRARY_INDEX_PATH = ROOT / "library" / "index.html"
 SOCIAL_IMAGE_URL = f"{SITE_URL}assets/agent-workflow-blueprint-social.png"
+DOCUMENT_BUILD_SCRIPT = ROOT / "scripts" / "build_docs.mjs"
+RENDERED_DOCUMENT_MANIFEST_PATH = ROOT / "dist" / "rendered-documents.json"
 
 CORE_PATHS = (
     "",
@@ -26,11 +29,6 @@ CORE_PATHS = (
     "build-project/",
     "docs/",
     "privacy.html",
-    "docs/template-library/START-HERE.md",
-    "docs/template-library/CATALOGUE.md",
-    "docs/template-library/RESEARCH-BASIS.md",
-    "docs/template-library/CODEX-USAGE-GUIDE.md",
-    "docs/template-library/PROMPT-ARCHITECTURE.md",
 )
 
 
@@ -67,6 +65,37 @@ def public_url(path: str) -> str:
     return SITE_URL + quote(path, safe="/-._~")
 
 
+def public_document_sources() -> list[str]:
+    if not RENDERED_DOCUMENT_MANIFEST_PATH.is_file():
+        raise ValueError("missing rendered-document manifest")
+    manifest = json.loads(RENDERED_DOCUMENT_MANIFEST_PATH.read_text(encoding="utf-8"))
+    documents = manifest.get("documents")
+    if not isinstance(documents, list):
+        raise ValueError("rendered-document manifest is invalid")
+    sources = [entry.get("source") for entry in documents if isinstance(entry, dict)]
+    if len(sources) != len(documents) or any(not isinstance(path, str) for path in sources):
+        raise ValueError("rendered-document manifest contains an invalid source")
+    return sources
+
+
+def rendered_document_path(source_path: str) -> str:
+    if not source_path.endswith(".md"):
+        raise ValueError(f"public document source is not Markdown: {source_path}")
+    return f"{source_path[:-3]}.html"
+
+
+def build_rendered_documents(check: bool) -> int:
+    command = ["node", str(DOCUMENT_BUILD_SCRIPT)]
+    if check:
+        command.append("--check")
+    try:
+        result = subprocess.run(command, cwd=ROOT, check=False)
+    except OSError as error:
+        print(f"[FAIL] unable to run rendered-document build: {error}")
+        return 1
+    return result.returncode
+
+
 def robots_text() -> str:
     return (
         "User-agent: *\n"
@@ -76,7 +105,11 @@ def robots_text() -> str:
 
 
 def sitemap_xml(assets: list[dict]) -> str:
-    paths = list(dict.fromkeys((*CORE_PATHS, *(asset["path"] for asset in assets))))
+    source_paths = public_document_sources()
+    missing_assets = sorted({asset["path"] for asset in assets} - set(source_paths))
+    if missing_assets:
+        raise ValueError("asset sources missing from rendered documents: " + ", ".join(missing_assets))
+    paths = list(dict.fromkeys((*CORE_PATHS, *(rendered_document_path(path) for path in source_paths))))
     entries = []
     for path in paths:
         image = ""
@@ -100,14 +133,19 @@ def sitemap_xml(assets: list[dict]) -> str:
 def asset_card(asset: dict) -> str:
     tags = ", ".join(str(tag) for tag in asset["tags"])
     source_href = f"../{quote(asset['path'], safe='/-._~')}"
+    page_href = f"../{quote(rendered_document_path(asset['path']), safe='/-._~')}"
     return f'''        <article class="asset-card" id="{escape(asset['id'], quote=True)}">
           <div class="asset-card-head">
             <span class="asset-type">{escape(asset['type'].title())}</span>
             <span class="asset-category">{escape(asset['category'])}</span>
           </div>
-          <h3><a href="{source_href}">{escape(asset['title'])}</a></h3>
+          <h3><a href="{page_href}">{escape(asset['title'])}</a></h3>
           <p>{escape(asset['summary'])}</p>
           <p class="catalogue-tags"><strong>Topics:</strong> {escape(tags)}</p>
+          <div class="asset-actions">
+            <a href="{page_href}">Read rendered page</a>
+            <a href="{source_href}" download>Download Markdown source</a>
+          </div>
         </article>'''
 
 
@@ -155,7 +193,7 @@ def library_index_html(assets: list[dict]) -> str:
     <meta name="twitter:description" content="A crawlable catalogue of evidence-first prompts, procedures and acceptance gates for software-development agents.">
     <meta name="twitter:image" content="{SOCIAL_IMAGE_URL}">
     <meta name="twitter:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
-    <link rel="stylesheet" href="../site.css?v=20260805-4">
+    <link rel="stylesheet" href="../site.css?v=20260805-5">
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to catalogue</a>
@@ -194,7 +232,7 @@ def library_index_html(assets: list[dict]) -> str:
         <ul class="footer-links">
           <li><a href="../">Interactive library</a></li>
           <li><a href="../docs/">Documentation</a></li>
-          <li><a href="../README.md">README</a></li>
+          <li><a href="../README.html">README</a></li>
           <li><a href="../sitemap.xml">Sitemap</a></li>
           <li><a href="../privacy.html">Privacy and analytics</a></li>
         </ul>
@@ -218,6 +256,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true", help="fail if generated SEO files differ")
     args = parser.parse_args()
+    if build_rendered_documents(args.check) != 0:
+        return 1
     try:
         assets = load_assets()
         files = generated_files(assets)
@@ -230,13 +270,19 @@ def main() -> int:
         if stale:
             print("[FAIL] stale SEO artefacts: " + ", ".join(map(str, stale)))
             return 1
-        print(f"SEO artefacts are reproducible: {len(assets)} assets and {len(files)} generated files.")
+        print(
+            f"SEO artefacts are reproducible: {len(assets)} assets, "
+            f"{len(public_document_sources())} rendered documents, and {len(files)} SEO files."
+        )
         return 0
 
     for path, content in files.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
-    print(f"Wrote {len(files)} SEO artefacts for {len(assets)} assets.")
+    print(
+        f"Wrote {len(files)} SEO artefacts for {len(assets)} assets and "
+        f"{len(public_document_sources())} rendered documents."
+    )
     return 0
 
 

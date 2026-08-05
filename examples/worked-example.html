@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Worked example: visible validation error | Agent Workflow Blueprint</title>
+    <meta name="description" content="Task">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/examples/worked-example.html">
+    <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+    <link rel="icon" type="image/png" href="../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Worked example: visible validation error">
+    <meta property="og:description" content="Task">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/examples/worked-example.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Worked example: visible validation error">
+    <meta name="twitter:description" content="Task">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Worked example: visible validation error","description":"Task","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/examples/worked-example.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../">Interactive library</a>
+          <a href="../library/">Static catalogue</a>
+          <a href="../docs/">Documentation</a>
+          <a href="../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a><span aria-hidden="true">/</span><a href="../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Worked example: visible validation error</h1>
+          <p class="document-summary">Task</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="worked-example.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="task">Task</h2><p>A fictional settings form silently rejects an empty project name. Add an accessible inline error while preserving entered data. The fixture contains no personal or production data.</p><h2 id="selected-assets">Selected assets</h2><ul><li>Shared kernel: <code>docs/template-library/GOVERNANCE-KERNEL.md</code></li><li>Prompt: <code>prompts/27-accessibility-remediation-prompt.md</code></li><li>Skill: <code>skills/10-keyboard-testing-skill.md</code></li><li>Contract: <code>contracts/07-accessibility-contract-plus.md</code></li></ul><h2 id="scoped-work">Scoped work</h2><p>Inspect the form submit handler, field markup, error renderer, focus management, styles, and tests. Change only the project-name validation path. Do not redesign the form, add a dependency, or claim overall conformance.</p><h2 id="implementation-evidence">Implementation evidence</h2><p>The hypothetical patch adds a persistent error element, connects it with <code>aria-describedby</code>, sets <code>aria-invalid=&quot;true&quot;</code> after failed validation, preserves other values, and focuses the first invalid control. The implementation does not add redundant live regions or replace the native input.</p><h2 id="verification">Verification</h2><p>Expected evidence for this fictional example:</p><ol><li>A unit test proves empty and whitespace-only values are rejected.</li><li>A browser test submits the form, observes the connected error, verifies focus, and confirms other input remains.</li><li>A keyboard pass confirms focus remains visible and the correction path works.</li><li>An axe scan reports no serious violations in the tested form state.</li></ol><p>No command is reported as passed here because this is a teaching example rather than an executed repository change.</p><h2 id="limitations">Limitations</h2><p>The evidence would cover one validation state in the tested browser. It would not establish WCAG conformance, screen-reader usability across platforms, or correctness of unrelated form states.</p><h2 id="final-status">Final status</h2><p><code>not verified</code> — the example defines the required evidence but intentionally contains no fabricated execution result.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../">Interactive library</a></li>
+          <li><a href="../library/">Static catalogue</a></li>
+          <li><a href="worked-example.md" download>Markdown source</a></li>
+          <li><a href="../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../privacy.html"></script>
+  </body>
+</html>

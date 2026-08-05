@@ -717,6 +717,79 @@ h1 {
   font-size: 0.88rem;
 }
 
+.document-main {
+  padding-block: clamp(2rem, 6vw, 5rem);
+}
+
+.document-shell {
+  width: min(62rem, calc(100% - 2rem));
+}
+
+.document-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--fgColor-muted);
+  font-size: 0.9rem;
+}
+
+.document-breadcrumb a {
+  color: var(--fgColor-muted);
+}
+
+.document-hero {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid var(--borderColor-default);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  background:
+    linear-gradient(135deg, rgba(47, 129, 247, 0.12), transparent 56%),
+    var(--bgColor-muted);
+}
+
+.document-hero h1 {
+  max-width: 22ch;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.document-summary {
+  max-width: 68ch;
+  margin: 1rem 0 0;
+  color: var(--fgColor-muted);
+  font-size: 1.05rem;
+}
+
+.document-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.document-content {
+  --document-padding: clamp(1.25rem, 4vw, 2.5rem);
+  overflow: visible;
+  padding: var(--document-padding);
+  border: 1px solid var(--borderColor-default);
+  border-top: 0;
+  border-radius: 0 0 var(--radius-large) var(--radius-large);
+  background: var(--bgColor-default);
+}
+
+.document-content [id] {
+  scroll-margin-top: 6rem;
+}
+
+.document-content .document-prompt-section {
+  margin-inline: calc(0px - var(--document-padding));
+  padding-inline: var(--document-padding);
+}
+
+.document-content .asset-prompt-code {
+  max-height: none;
+}
+
 .privacy-main {
   padding-block: clamp(4rem, 8vw, 7rem);
 }
@@ -1284,7 +1357,7 @@ body.modal-open {
 }
 
 .markdown-document a {
-  color: var(--fgColor-accent);
+  color: var(--fgColor-link);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -1395,6 +1468,28 @@ body.modal-open {
 
   .markdown-document {
     padding: 1rem;
+  }
+
+  .document-shell {
+    width: min(100% - 1.25rem, 62rem);
+  }
+
+  .document-hero,
+  .document-content {
+    padding: 1rem;
+  }
+
+  .document-content {
+    --document-padding: 1rem;
+  }
+
+  .document-content .document-prompt-section {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+
+  .document-actions > * {
+    flex: 1 1 100%;
   }
 }
 

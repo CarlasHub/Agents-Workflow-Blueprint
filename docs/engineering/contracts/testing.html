@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Testing Contract | Agent Workflow Blueprint</title>
+    <meta name="description" content="Purpose">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/testing.html">
+    <link rel="sitemap" type="application/xml" href="../../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Testing Contract">
+    <meta property="og:description" content="Purpose">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/testing.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Testing Contract">
+    <meta name="twitter:description" content="Purpose">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Testing Contract","description":"Purpose","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/testing.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../../">Interactive library</a>
+          <a href="../../../library/">Static catalogue</a>
+          <a href="../../../docs/">Documentation</a>
+          <a href="../../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../">Home</a><span aria-hidden="true">/</span><a href="../../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Testing Contract</h1>
+          <p class="document-summary">Purpose</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="testing.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="purpose">Purpose</h2><p>Make sure tests prove real behaviour rather than provide decorative confidence.</p><h2 id="test-stack-expectations">Test stack expectations</h2><ul><li>unit tests for local logic and state transitions</li><li>integration tests for domain flows</li><li>Playwright tests for real user journeys</li><li>accessibility checks for meaningful UI issues</li><li>release verification for shipped artefacts and docs</li></ul><h2 id="rules">Rules</h2><ol><li>Prefer tests that match user-observable outcomes.</li><li>Avoid brittle selectors where user-facing locators exist.</li><li>Avoid tests that only verify implementation detail.</li><li>When a bug is fixed, add a regression test if practical.</li><li>When a task affects dashboard interaction, include loading, empty, and error states where relevant.</li></ol><h2 id="playwright-standards">Playwright standards</h2><ul><li>prefer <code>getByRole</code>, <code>getByLabel</code>, <code>getByText</code> where appropriate</li><li>assert visible outcomes, not just clicks</li><li>assert focus when dialogs, menus, or drawers open or close</li><li>assert applied filter state</li><li>assert sort and pagination persistence if affected</li><li>assert toast or status messaging when relevant</li></ul><h2 id="accessibility-test-expectations">Accessibility test expectations</h2><p>Use automated checks to catch obvious failures. Use targeted assertions for:</p><ul><li>labels</li><li>headings</li><li>roles</li><li>state exposure</li><li>status text</li><li>dialog focus</li><li>aria snapshots where helpful</li></ul><h2 id="release-verification">Release verification</h2><p>Release verification is required when:</p><ul><li>docs changed</li><li>screenshots changed</li><li>export behaviour changed</li><li>public claims changed</li><li>build pipeline changed</li></ul><h2 id="starter-repository-note">Starter repository note</h2><p>If the repository is still a workflow starter rather than a runnable product, tests must say that plainly. Starter checks may validate prompts, packet templates, examples, and build artifacts for the workflow bundle. They must not be described as proof of product behaviour.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../../">Interactive library</a></li>
+          <li><a href="../../../library/">Static catalogue</a></li>
+          <li><a href="testing.md" download>Markdown source</a></li>
+          <li><a href="../../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../../privacy.html"></script>
+  </body>
+</html>

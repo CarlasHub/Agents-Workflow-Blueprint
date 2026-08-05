@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Repository level evaluation methodology | Agent Workflow Blueprint</title>
+    <meta name="description" content="Objective and limit">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/evaluation-methodology.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Repository level evaluation methodology">
+    <meta property="og:description" content="Objective and limit">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/evaluation-methodology.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Repository level evaluation methodology">
+    <meta name="twitter:description" content="Objective and limit">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Repository level evaluation methodology","description":"Objective and limit","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/evaluation-methodology.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Repository level evaluation methodology</h1>
+          <p class="document-summary">Objective and limit</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="evaluation-methodology.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="objective-and-limit">Objective and limit</h2><p>The suite compares prompt conditions for 40 fictional engineering tasks, with at least one case for every v3 prompt. It is a provider-neutral evaluation harness, not scientific validation and not evidence of universal effectiveness. Only a disclosed recorded run can support statements about observed model behaviour.</p><h2 id="conditions">Conditions</h2><p>Every case uses the same task, model snapshot, system configuration, tools, and runtime limits under five conditions:</p><ol><li><code>minimal</code> — the task plus a concise baseline instruction.</li><li><code>kernel</code> — the task plus the shared governance kernel.</li><li><code>v2.1-prompt</code> — the task plus the frozen v2.1 composed version of the selected prompt.</li><li><code>v3-prompt</code> — the task plus the v3 selected prompt composed through the production composer.</li><li><code>v3-workflow</code> — the task plus the v3 prompt, selected skill and contract, governance kernel, and resolved specialist controls.</li></ol><p>The v2.1 files under <code>evals/baselines/v2.1-composed/</code> are immutable comparison inputs. Do not regenerate them from v3 sources.</p><p>For a real run, disclose the run ID, model name, model version or snapshot, system and reasoning configuration, tool permissions, date, execution environment, token-accounting method, and cost-accounting method. A comparison is invalid if conditions receive different hidden context or capabilities.</p><h2 id="cases-and-metrics">Cases and metrics</h2><p>The 40 fictional cases cover implementation, diagnosis, scope, architecture, API, data flow, UI, responsive behavior, keyboard use, accessibility, tests, documentation, security, secrets, observability, release evidence, and final merge decisions. Each case defines acceptance criteria and deliberate failure signals.</p><p>Two independent reviewers score every case and condition. The recorded metrics are:</p><ul><li>criterion-level acceptance;</li><li>unsupported completion claims;</li><li>final-status accuracy;</li><li>evidence quality from 0 to 4;</li><li>reviewer corrections;</li><li>response words and elapsed time;</li><li>input and output tokens;</li><li>cost when available;</li><li>reviewer notes and retained disagreements.</li></ul><p>Reviewers must inspect the saved raw output, not a summary. Use pseudonymous reviewer identifiers, keep corrections and unfavourable outcomes, and do not contain production secrets or personal data in cases, outputs, or notes.</p><h2 id="deterministic-dry-run">Deterministic dry run</h2><pre><code class="bash">python3 -S scripts/run_evals.py --dry-run --check</code></pre><p>This validates fixture schemas, prompt coverage, asset paths, condition composition, frozen baselines, and deterministic input word counts. It does not execute a model. Behavioural metrics remain <code>blocked</code> in <code>evals/results/dry-run.json</code> and must not be inferred from structural quality.</p><p>After an intentional evaluation-input change, regenerate and review the checked-in record:</p><pre><code class="bash">python3 -S scripts/run_evals.py --dry-run --output evals/results/dry-run.json</code></pre><h2 id="recorded-runs-and-scoring">Recorded runs and scoring</h2><p>Store an external run using <a href="../../evals/recorded/README.html"><code>evals/recorded/README.md</code></a>, including <code>run.json</code>, every raw condition output, and two independent reviews per case-condition pair. Score it with:</p><pre><code class="bash">python3 -S scripts/score_evals.py --input evals/recorded/&lt;run-id&gt; --output evals/results/&lt;run-id&gt;.json</code></pre><p>The scorer rejects incomplete disclosure, missing outputs, unknown cases or conditions, incomplete criterion maps, invalid metric types, and fewer than two distinct reviewer IDs per case-condition pair.</p><h2 id="v3-release-gate">v3 release gate</h2><p>The recorded v3 prompt condition passes only when all of these checks pass against the recorded v2.1 prompt condition:</p><ol><li>acceptance-criterion coverage does not decrease;</li><li>mean evidence quality does not decrease;</li><li>final-status accuracy does not decrease;</li><li>mean reviewer corrections do not increase;</li><li>mean reviewer-reported unsupported claims do not increase;</li><li>mean v3 input tokens are no more than 150% of the v2.1 mean;</li><li>every high-risk v3 review records zero unsupported claims;</li><li>every high-risk v3 review marks the final status accurate.</li></ol><p>The gate is a repository release policy for this finite suite. Passing it does not establish safety, correctness, accessibility, compliance, or effectiveness outside the disclosed run.</p><h2 id="interpretation">Interpretation</h2><p>Report per-condition aggregates with the model and run disclosures beside them. Treat reviewer disagreement, blocked cases, failures, and cost increases as results. Do not extrapolate from this sample to other models, tasks, organisations, languages, tool configurations, or risk levels. A dry run supports only fixture and composition claims; a recorded run supports only observations about that run.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="evaluation-methodology.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

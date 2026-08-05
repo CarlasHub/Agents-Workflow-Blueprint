@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Comparative evaluation suite | Agent Workflow Blueprint</title>
+    <meta name="description" content="This directory contains a repository level, fictional evaluation suite for comparing five prompt conditions across all 40 prompts. It contains deterministic…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/evals/README.html">
+    <link rel="sitemap" type="application/xml" href="../sitemap.xml">
+    <link rel="icon" type="image/png" href="../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Comparative evaluation suite">
+    <meta property="og:description" content="This directory contains a repository level, fictional evaluation suite for comparing five prompt conditions across all 40 prompts. It contains deterministic…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/evals/README.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Comparative evaluation suite">
+    <meta name="twitter:description" content="This directory contains a repository level, fictional evaluation suite for comparing five prompt conditions across all 40 prompts. It contains deterministic…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Comparative evaluation suite","description":"This directory contains a repository level, fictional evaluation suite for comparing five prompt conditions across all 40 prompts. It contains deterministic…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/evals/README.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../">Interactive library</a>
+          <a href="../library/">Static catalogue</a>
+          <a href="../docs/">Documentation</a>
+          <a href="../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../">Home</a><span aria-hidden="true">/</span><a href="../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Comparative evaluation suite</h1>
+          <p class="document-summary">This directory contains a repository level, fictional evaluation suite for comparing five prompt conditions across all 40 prompts. It contains deterministic…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="README.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>This directory contains a repository-level, fictional evaluation suite for comparing five prompt conditions across all 40 prompts. It contains deterministic fixtures and scoring infrastructure, not model-generated performance results or scientific validation.</p><h2 id="layout">Layout</h2><ul><li><code>cases/</code> — 40 tasks with acceptance criteria, failure signals, and selected prompt, skill, and contract paths.</li><li><code>baselines/</code> — minimal, kernel-only, full-workflow, and frozen v2.1 composed instructions.</li><li><code>results/dry-run.json</code> — checked-in deterministic coverage, composition, and prompt-size record.</li><li><code>recorded/</code> — the format for externally generated, redacted outputs and independent reviews.</li><li><a href="../docs/engineering/evaluation-methodology.html"><code>evaluation-methodology.md</code></a> — conditions, scoring, release gates, disclosure requirements, and interpretation limits.</li></ul><h2 id="deterministic-validation">Deterministic validation</h2><p>Reject drift from the checked-in dry-run record:</p><pre><code class="bash">python3 -S scripts/run_evals.py --dry-run --check</code></pre><p>Regenerate the record only after an intentional fixture, prompt, composer, or condition change:</p><pre><code class="bash">python3 -S scripts/run_evals.py --dry-run --output evals/results/dry-run.json</code></pre><p>The runner verifies that every prompt has a case, every referenced asset exists, the v2.1 baseline is present, all five conditions compose, and their input word counts are reproducible. Success does not prove that one condition improves model behaviour.</p><h2 id="recorded-output-scoring">Recorded-output scoring</h2><p>Generate outputs in an approved external environment, preserve them using the <a href="recorded/README.html"><code>recorded/</code> format</a>, and obtain two independent reviews for every case and condition. Then run:</p><pre><code class="bash">python3 -S scripts/score_evals.py --input evals/recorded/&lt;run-id&gt; --output evals/results/&lt;run-id&gt;.json</code></pre><p>The scorer validates disclosure and review completeness, aggregates observed metrics, and applies the documented v3-versus-v2.1 release gate. It does not call a model, create credentials, or infer missing results.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../">Interactive library</a></li>
+          <li><a href="../library/">Static catalogue</a></li>
+          <li><a href="README.md" download>Markdown source</a></li>
+          <li><a href="../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../privacy.html"></script>
+  </body>
+</html>

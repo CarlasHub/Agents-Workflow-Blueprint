@@ -13,7 +13,7 @@ npm run test:a11y
 npm run test:e2e
 ```
 
-The automated suite covers the homepage, analytics-consent region, privacy page, interactive library controls, preview dialog, static catalogue, builder landing page, form, preview, assembly, and success states in Chromium, Firefox, and WebKit. Behavioural tests cover initial dialog focus, tab containment, Escape, trigger-focus restoration, background inertness, consent choice and withdrawal, scoped announcements, accessible errors, and narrow viewport overflow.
+The automated suite covers the homepage, analytics-consent region, privacy page, interactive library controls, preview dialog, static catalogue, rendered guide, rendered prompt with its copy control, builder landing page, form, preview, assembly, and success states in Chromium, Firefox, and WebKit. Behavioural tests cover initial dialog focus, tab containment, Escape, trigger-focus restoration, background inertness, consent choice and withdrawal, scoped announcements, accessible errors, prompt-body copy feedback, and narrow viewport overflow.
 
 ## Manual checklist
 
@@ -23,6 +23,7 @@ Record browser, operating system, viewport, zoom, input, assistive technology, d
 - Confirm visible focus at normal, 200%, and 400% zoom.
 - Confirm dialog name and description, contained focus, Escape behaviour, and focus restoration with a screen reader.
 - Exercise search, filters, copy fallback, form errors, removal warnings, build progress, and ZIP success announcements.
+- Verify rendered-document heading order, link purpose, source-download labelling, code-region scrolling, and copy feedback with keyboard and a screen reader.
 - Inspect reflow at 320 CSS pixels and with long text or localisation expansion.
 - Check normal, hover, focus, disabled, error, and selected-state contrast with a contrast measurement tool.
 - Test forced-colours or high-contrast mode and reduced motion.

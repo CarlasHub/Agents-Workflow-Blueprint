@@ -17,8 +17,9 @@ ROOT_FILES = {
     "AGENTS.md", "CHANGELOG.md", "CODE_OF_CONDUCT.md", "CONTRIBUTING.md",
     "DELIVERY-NOTES.md", "LICENSE", "LICENSE-CODE", "LICENSE-CONTENT", "NOTICE",
     "README.md", "SECURITY.md", "THIRD-PARTY-NOTICES.md",
+    "dist/rendered-documents.json",
     "eslint.config.js", "index.html", "package-lock.json", "package.json",
-    "analytics.js", "playwright.config.js", "privacy.html", "requirements.toml", "robots.txt", "site-utils.js",
+    "analytics.js", "document-page.js", "playwright.config.js", "privacy.html", "requirements.toml", "robots.txt", "site-utils.js",
     "site.css", "site.js", "sitemap.xml",
 }
 SOURCE_DIRS = (".github", "PROMPTS", "assets", "build-project", "docs", "evals", "examples", "library", "scripts", "tests")

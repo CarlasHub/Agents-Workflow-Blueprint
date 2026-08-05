@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>SEO and analytics | Agent Workflow Blueprint</title>
+    <meta name="description" content="Search architecture">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/seo-and-analytics.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="SEO and analytics">
+    <meta property="og:description" content="Search architecture">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/seo-and-analytics.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SEO and analytics">
+    <meta name="twitter:description" content="Search architecture">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SEO and analytics","description":"Search architecture","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/seo-and-analytics.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>SEO and analytics</h1>
+          <p class="document-summary">Search architecture</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="seo-and-analytics.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="search-architecture">Search architecture</h2><p>The project is a static GitHub Pages site. Search-critical content must remain available without user interaction or successful client-side rendering.</p><ul><li><code>index.html</code> provides the primary canonical page, visible product summary, Open Graph metadata, large social image, and JSON-LD graph.</li><li><code>scripts/build_docs.mjs</code> discovers maintained Markdown from the configured documentation roots and their local Markdown link graph, then creates a sibling styled HTML page for each source.</li><li>Rendered asset pages keep applicability and references outside a single copy-ready prompt, skill, or contract code block. Raw Markdown is exposed only through explicit download links.</li><li><code>dist/rendered-documents.json</code> records every source-to-HTML route and lets SEO generation reject an asset without a rendered public page.</li><li><code>library/index.html</code> is generated from <code>docs/template-library/assets.json</code> and contains all 100 asset titles, summaries, types, categories, tags, and crawlable rendered-page links in delivered HTML.</li><li><code>sitemap.xml</code> lists canonical site entry points and every generated HTML document. It does not list raw Markdown URLs.</li><li><code>robots.txt</code> points to the sitemap for deployments where the project controls the crawler-policy location.</li><li><code>scripts/build_seo.py --check</code> rejects drift between the manifest and generated SEO files.</li></ul><p>Generate the files after an intentional asset, documentation, link, or manifest change:</p><pre><code class="bash">node scripts/build_docs.mjs
+python3 -S scripts/build_seo.py
+python3 -S scripts/build_starter.py</code></pre><p><code>python3 -S scripts/build_seo.py</code> invokes the document generator before rebuilding the catalogue and sitemap. <code>node scripts/build_docs.mjs --check</code> verifies that generated pages and the source-to-route manifest are current without writing files.</p><h2 id="verification-boundary">Verification boundary</h2><p>Generated-file, HTML, browser, link, and accessibility checks establish repository structure and tested browser behaviour. They do not prove that a search engine crawled, indexed, ranked, or displayed a URL or its structured data. <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap" target="_blank" rel="noreferrer">Google describes sitemap submission as a hint rather than a guarantee</a>.</p><p>After publication, verify the canonical homepage, static library index, social image, and sitemap over the live origin. Submit <code>https://carlashub.github.io/Agents-Workflow-Blueprint/sitemap.xml</code> through the verified Search Console property and retain the processing result. Use URL Inspection for observed crawl and index state.</p><p>The deployed project is hosted below the shared <code>carlashub.github.io</code> origin. Crawler policy is normally read from the origin-root <code>/robots.txt</code>; the repository cannot prove or control that host-root response from this project path. The project-local file remains useful for a future custom-domain or root deployment, but it is not treated as current indexing proof.</p><h2 id="google-analytics-implementation">Google Analytics implementation</h2><p>This worktree configures public GA4 Web-stream measurement ID <code>G-PZEC365PCE</code>. <a href="https://support.google.com/analytics/answer/12270356" target="_blank" rel="noreferrer">Google identifies this <code>G-</code> value as the identifier connecting a website to a Web data stream</a>.</p><p><code>analytics.js</code> implements a basic, opt-in consent flow on the homepage, generated static catalogue, rendered documentation pages, documentation index, builder, and privacy page:</p><ul><li>Consent Mode v2 defaults <code>analytics_storage</code>, <code>ad_storage</code>, <code>ad_user_data</code>, and <code>ad_personalization</code> to <code>denied</code>.</li><li>The external <code>gtag.js</code> request is not created before the visitor explicitly allows Analytics.</li><li>Acceptance grants analytics storage only. Advertising storage, advertising user data, advertising personalisation, Google signals, and advertising-personalisation signals remain disabled.</li><li>Rejection is persisted in local storage and keeps the Google script unloaded on later page loads.</li><li>A persistent Analytics settings control lets the visitor reopen the choice. Withdrawal disables further measurement, sends a denied consent update if the tag was already loaded, and removes accessible <code>_ga</code> cookies for the host.</li><li>The privacy page identifies the measurement ID, default data categories described by Google, local preference storage, controls, and verification boundaries.</li></ul><p><a href="https://developers.google.com/tag-platform/security/guides/consent" target="_blank" rel="noreferrer">Google&#39;s consent-mode guidance</a> requires a default consent state before measurement commands and an update following user interaction. The implementation is deliberately stricter than advanced consent mode because it does not load the Google script before acceptance.</p><p>Browser tests intercept the exact Google tag URL and prove no request before consent, persisted rejection, exact-ID loading after acceptance, consent commands, cookie removal, and later withdrawal. These tests do not prove live collection or legal compliance. After deployment, verify refusal and acceptance on the live origin, confirm the privacy text matches organisational policy, and inspect Realtime without publishing account screenshots or identifiers beyond the public <code>G-</code> ID.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="seo-and-analytics.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

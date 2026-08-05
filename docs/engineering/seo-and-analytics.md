@@ -5,17 +5,23 @@
 The project is a static GitHub Pages site. Search-critical content must remain available without user interaction or successful client-side rendering.
 
 - `index.html` provides the primary canonical page, visible product summary, Open Graph metadata, large social image, and JSON-LD graph.
-- `library/index.html` is generated from `docs/template-library/assets.json` and contains all 100 asset titles, summaries, types, categories, tags, and crawlable source links in delivered HTML.
-- `sitemap.xml` lists canonical site entry points, key guidance, and every asset source URL.
+- `scripts/build_docs.mjs` discovers maintained Markdown from the configured documentation roots and their local Markdown link graph, then creates a sibling styled HTML page for each source.
+- Rendered asset pages keep applicability and references outside a single copy-ready prompt, skill, or contract code block. Raw Markdown is exposed only through explicit download links.
+- `dist/rendered-documents.json` records every source-to-HTML route and lets SEO generation reject an asset without a rendered public page.
+- `library/index.html` is generated from `docs/template-library/assets.json` and contains all 100 asset titles, summaries, types, categories, tags, and crawlable rendered-page links in delivered HTML.
+- `sitemap.xml` lists canonical site entry points and every generated HTML document. It does not list raw Markdown URLs.
 - `robots.txt` points to the sitemap for deployments where the project controls the crawler-policy location.
 - `scripts/build_seo.py --check` rejects drift between the manifest and generated SEO files.
 
-Generate the files after an intentional manifest change:
+Generate the files after an intentional asset, documentation, link, or manifest change:
 
 ```bash
+node scripts/build_docs.mjs
 python3 -S scripts/build_seo.py
 python3 -S scripts/build_starter.py
 ```
+
+`python3 -S scripts/build_seo.py` invokes the document generator before rebuilding the catalogue and sitemap. `node scripts/build_docs.mjs --check` verifies that generated pages and the source-to-route manifest are current without writing files.
 
 ## Verification boundary
 
@@ -29,7 +35,7 @@ The deployed project is hosted below the shared `carlashub.github.io` origin. Cr
 
 This worktree configures public GA4 Web-stream measurement ID `G-PZEC365PCE`. [Google identifies this `G-` value as the identifier connecting a website to a Web data stream](https://support.google.com/analytics/answer/12270356).
 
-`analytics.js` implements a basic, opt-in consent flow on the homepage, generated static catalogue, documentation index, builder, and privacy page:
+`analytics.js` implements a basic, opt-in consent flow on the homepage, generated static catalogue, rendered documentation pages, documentation index, builder, and privacy page:
 
 - Consent Mode v2 defaults `analytics_storage`, `ad_storage`, `ad_user_data`, and `ad_personalization` to `denied`.
 - The external `gtag.js` request is not created before the visitor explicitly allows Analytics.

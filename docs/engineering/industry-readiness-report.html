@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>v3 industry readiness implementation report | Agent Workflow Blueprint</title>
+    <meta name="description" content="Recorded: 2026 08 05, Europe/Lisbon">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-report.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="v3 industry readiness implementation report">
+    <meta property="og:description" content="Recorded: 2026 08 05, Europe/Lisbon">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-report.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="v3 industry readiness implementation report">
+    <meta name="twitter:description" content="Recorded: 2026 08 05, Europe/Lisbon">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"v3 industry readiness implementation report","description":"Recorded: 2026 08 05, Europe/Lisbon","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-report.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>v3 industry readiness implementation report</h1>
+          <p class="document-summary">Recorded: 2026 08 05, Europe/Lisbon</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="industry-readiness-report.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Recorded: 2026-08-05, Europe/Lisbon</p><p>Source baseline: <code>main</code> at <code>fb37a81b22e51d61d73e698c8a3514fbf01e3204</code>. Implementation commit: <code>600d6fa177b6b29245f1a2132b92370552fbdbcb</code>. Hosted quality run, Pages deployment, and public smoke results are recorded in <a href="release-evidence/2026-08-05-v3-prompt-quality.html"><code>release-evidence/2026-08-05-v3-prompt-quality.md</code></a>.</p><h2 id="executive-result">Executive result</h2><p>The 40 prompt sources now satisfy an enforced v3 engineering-prompt contract: explicit applicability boundaries, concrete inputs, domain procedures, conditional gates, evidence requirements, recoveries, rejection conditions, output records, and worked examples. The 100-asset manifest, composer, browser UI, evaluation fixtures, tests, generated starter manifest, and current documentation are aligned with version <code>3.0.0</code>.</p><p>Local deterministic, unit, ZIP, three-engine browser, and automated accessibility gates pass. Structural prompt quality is verified for the enforced rules. Model effectiveness is not verified because no usable model runtime and credential path was available to the repository process, so no model output or score was fabricated. Manual assistive-technology and independent legal review are also unavailable. The release judgement remains <code>partially verified</code>.</p><h2 id="implemented-phases">Implemented phases</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Phase</th><th>Implementation</th><th>Evidence</th><th>Boundary</th></tr></thead>
+        <tbody><tr><td>Prompt quality contract</td><td>Added manifest risk/input/output/evaluation fields and numerical prompt-quality gates for source size, composition size, specialist ratio, inputs, instructions, gates, evidence, recovery, rejection, output, and example quality</td><td><code>asset.schema.json</code>, <code>assets.json</code>, <code>check_template_library.py</code>, negative Python tests</td><td>Structural checks do not establish model behaviour</td></tr><tr><td>Full prompt rewrite</td><td>Rewrote all 40 prompts with domain-specific engineering procedures while preserving stable IDs and paths; skills and contracts remain executable v3-compatible modules</td><td>40 prompt sources; validator pass; representative source inspection</td><td>Skills and contracts were version-aligned, not rewritten to the same prompt schema</td></tr><tr><td>Composition and handoff</td><td>Included applicability and required inputs in copied output; moved the repeated handoff schema to <code>GOV-HANDOFF-01</code>; retained each shared control once</td><td>Python/JavaScript composer parity tests; 100-asset composition check</td><td>Downstream agents may still ignore instructions</td></tr><tr><td>Evaluation infrastructure</td><td>Expanded from 8 to 40 fictional cases, froze 40 v2.1 baselines, added five conditions, dry-run drift checking, provider-neutral scoring, two-reviewer completeness, objective-metric de-duplication, and release gates</td><td><code>run_evals.py --dry-run --check</code>; scorer unit and failure cases</td><td>No recorded model run exists</td></tr><tr><td>Browser experience</td><td>Preserved one dialog containing introduction, complete Markdown prompt code, one compact copy icon, and references; longer v3 prompts remain scrollable</td><td>All-100-asset dialog tests in Chromium, Firefox, and WebKit; captured desktop review; narrow and 400%-equivalent overflow assertions</td><td>Direct in-app browser control was unavailable in this session</td></tr><tr><td>Documentation and release</td><td>Updated onboarding, architecture, quality rubric, migration, evaluation, testing, changelog, package version, cache version, CI gate, and generated starter manifest</td><td>Claim, link, workflow, starter-drift, lint, and full release checks</td><td>Hosted CI, Pages, and live-origin evidence are recorded only after publication</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="quantitative-prompt-evidence">Quantitative prompt evidence</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Measure</th><th>v3 result</th></tr></thead>
+        <tbody><tr><td>Prompt sources</td><td>40</td></tr><tr><td>Prompt source words</td><td>22,325 total; 516 minimum; 559.5 median; 632 maximum</td></tr><tr><td>Composed prompt words before references</td><td>1,345 minimum; 1,392.5 median; 1,497 maximum</td></tr><tr><td>Specialist source share of composed prompt</td><td>38.4% minimum; 40.05% median; 42.2% maximum</td></tr><tr><td>Prompt risk levels</td><td>14 standard; 12 elevated; 14 high</td></tr><tr><td>Shared controls</td><td>168 resolved; zero orphan or unclassified duplicate failures</td></tr><tr><td>Evaluation coverage</td><td>40 cases; every prompt mapped</td></tr><tr><td>Frozen v2.1 prompt input</td><td>1,220.6 mean words</td></tr><tr><td>v3 prompt input</td><td>1,628.0 mean words; 33.4% word growth over v2.1</td></tr><tr><td>v3 full-workflow input</td><td>2,461.7 mean words</td></tr></tbody>
+      </table>
+    </div>
+  <p>Word counts are deterministic lexical measurements, not token counts and not evidence of outcome quality. The recorded-run release gate uses disclosed provider token accounting and permits at most 50% mean input-token growth for <code>v3-prompt</code> relative to <code>v2.1-prompt</code>.</p><h2 id="verification-results">Verification results</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Command</th><th>Observed result</th></tr></thead>
+        <tbody><tr><td><code>python3 -S scripts/check_template_library.py</code></td><td>Passed: 100 assets, unique IDs and paths, valid dependencies, 168 controls resolved, 0.0% unclassified duplicate ratio</td></tr><tr><td><code>python3 -S scripts/run_evals.py --dry-run --check</code></td><td>Passed: 40 cases and five conditions; model metrics blocked</td></tr><tr><td><code>python3 -S scripts/compose_assets.py --check</code></td><td>Passed: 100 copy-ready assets resolve operating rules and specialist controls once</td></tr><tr><td><code>python3 -S scripts/build_starter.py --check</code></td><td>Passed after intentional regeneration: 305-file manifest is current and reproducible</td></tr><tr><td><code>npm run lint</code></td><td>Passed</td></tr><tr><td><code>npm run test</code></td><td>Passed: 21 JavaScript unit and 22 Python unit executions</td></tr><tr><td><code>npm run test:zip</code></td><td>Passed: 4 ZIP executions</td></tr><tr><td><code>npm run test:browser</code></td><td>Passed: 129 combined browser/accessibility executions across Chromium, Firefox, and WebKit</td></tr><tr><td><code>npm audit --audit-level=high</code></td><td>Passed: zero reported vulnerabilities</td></tr><tr><td><code>bash scripts/verify-release.sh</code></td><td>Passed: all deterministic checks, 105 browser executions, and 24 automated accessibility executions</td></tr><tr><td><code>git diff --check</code></td><td>Passed at implementation checkpoints</td></tr></tbody>
+      </table>
+    </div>
+  <p>Local environment: macOS 26.5.1, Python 3.11.7, Node.js 26.5.0, npm 11.17.0, Playwright 1.62.1. The project and CI pin Node.js 22.18.0; the local test result therefore covers a newer Node runtime, while hosted CI must confirm the pinned runtime.</p><h2 id="retained-failures-and-corrections">Retained failures and corrections</h2><ol><li>The first strengthened template validation found an unparseable output-template shape, insufficient concrete-evidence vocabulary for several legitimate artefacts, and 2.27% repeated handoff prose. The domain record was simplified, concrete verifier terms were expanded, and the common handoff moved to the kernel. The validator then passed with 0.0% unclassified duplication.</li><li>The first generated-artifact check rejected stale <code>dist/starter-manifest.json</code>. After all new evaluation documentation was included, the builder regenerated it with 305 files and the drift check passed.</li><li>The first 129-case browser run passed 126 cases and failed the same assertion in three engines. The assertion counted a sentence across both the introduction and the deliberately complete prompt. It was scoped to the introduction section; the focused three-engine rerun passed, followed by a full 129/129 pass.</li><li>The initial recorded-output scorer counted objective token and cost fields once per reviewer. It now requires reviewer agreement, de-duplicates those fields per raw output, rejects duplicate reviewer records, rejects malformed numeric types, and has targeted failure coverage.</li></ol><h2 id="ui-and-accessibility-result">UI and accessibility result</h2><p>The captured dialog shows one modal, a distinct introduction, the full v3 prompt in a literal scrollable code region, one icon-only copy control with an accessible name, and references below the code. Automated tests cover focus containment, Escape, focus restoration, inert background, copy success/fallback, all 100 assets, source/dependency failure fallbacks, 320/390-pixel and 400%-equivalent overflow, and reduced motion across three engines.</p><p>Automated axe results cover eight states in each engine. These results do not establish WCAG conformance. Manual screen-reader, voice-control, high-contrast, localisation, and complete zoom/reflow review were not performed. The in-app browser-control integration required for a live side-by-side session was not exposed; the repository Playwright matrix and captured failure artefact were used instead.</p><h2 id="evaluation-result">Evaluation result</h2><p>The dry run proves that all 40 case fixtures, asset paths, frozen v2.1 baselines, v3 compositions, and prompt-size records are internally consistent. It does not call or score a model. <code>scripts/score_evals.py</code> can score only a complete external run with disclosed model/configuration/environment/accounting, saved raw outputs, and exactly two independent reviews per case-condition pair.</p><p>Behavioural correctness, unsupported claims, evidence quality, reviewer corrections, final-status accuracy, elapsed time, model tokens, and cost remain unavailable. No positive or negative v3-versus-v2.1 effect is claimed.</p><h2 id="remaining-risks">Remaining risks</h2><ul><li>Model outcomes remain unmeasured; deterministic prompt richness can still fail in a particular model or context.</li><li>Independent legal, security, privacy, accessibility, and organisational-policy review has not been performed.</li><li>Prompt and workflow input size increases context and cost; the 50% token-growth gate requires a recorded run.</li><li>Automated browsers cannot represent every browser version, operating system, assistive technology, input method, locale, or manual usability finding.</li><li>Generated projects remain starter scaffolds and require independent downstream engineering and release review.</li><li>Hosted CI, Pages deployment, and live-origin behavior are not local-test claims and require separate publication evidence.</li></ul><h2 id="final-status">Final status</h2><p><code>partially verified</code></p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="industry-readiness-report.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

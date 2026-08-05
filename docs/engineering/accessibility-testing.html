@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Accessibility testing | Agent Workflow Blueprint</title>
+    <meta name="description" content="Evidence model">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/accessibility-testing.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Accessibility testing">
+    <meta property="og:description" content="Evidence model">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/accessibility-testing.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Accessibility testing">
+    <meta name="twitter:description" content="Evidence model">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Accessibility testing","description":"Evidence model","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/accessibility-testing.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Accessibility testing</h1>
+          <p class="document-summary">Evidence model</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="accessibility-testing.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="evidence-model">Evidence model</h2><p>Accessibility is a release requirement, but automated results are only one evidence source. This repository distinguishes automated results, keyboard checks, guided manual checks, and checks not performed. It does not claim WCAG conformance from axe or Playwright.</p><h2 id="automated-checks">Automated checks</h2><p>Run:</p><pre><code class="bash">npm run test:a11y
+npm run test:e2e</code></pre><p>The automated suite covers the homepage, analytics-consent region, privacy page, interactive library controls, preview dialog, static catalogue, rendered guide, rendered prompt with its copy control, builder landing page, form, preview, assembly, and success states in Chromium, Firefox, and WebKit. Behavioural tests cover initial dialog focus, tab containment, Escape, trigger-focus restoration, background inertness, consent choice and withdrawal, scoped announcements, accessible errors, prompt-body copy feedback, and narrow viewport overflow.</p><h2 id="manual-checklist">Manual checklist</h2><p>Record browser, operating system, viewport, zoom, input, assistive technology, date, tester, findings, and untested areas.</p><ul><li>Traverse every interactive control with keyboard only in a logical order.</li><li>Confirm visible focus at normal, 200%, and 400% zoom.</li><li>Confirm dialog name and description, contained focus, Escape behaviour, and focus restoration with a screen reader.</li><li>Exercise search, filters, copy fallback, form errors, removal warnings, build progress, and ZIP success announcements.</li><li>Verify rendered-document heading order, link purpose, source-download labelling, code-region scrolling, and copy feedback with keyboard and a screen reader.</li><li>Inspect reflow at 320 CSS pixels and with long text or localisation expansion.</li><li>Check normal, hover, focus, disabled, error, and selected-state contrast with a contrast measurement tool.</li><li>Test forced-colours or high-contrast mode and reduced motion.</li><li>Verify headings, landmarks, link purposes, labels, descriptions, and error associations.</li><li>Confirm state is not communicated by colour alone.</li></ul><h2 id="current-boundary">Current boundary</h2><p>Automated Chromium, Firefox, and WebKit checks are reproducible. Manual screen-reader, high-contrast, colour measurement, and complete 400% zoom review must be recorded per release when performed. An unchecked item remains an open review item, not a passed requirement.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="accessibility-testing.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

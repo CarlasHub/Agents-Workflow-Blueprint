@@ -16,6 +16,8 @@ Delivered changes include:
 - pull-request and `main` CI with pinned actions, least-privilege permissions, dependency audit, and failure artefacts;
 - 40 fictional comparative-evaluation cases covering every prompt across five offline dry-run conditions;
 - a generated static 100-asset index, XML sitemap, crawler guidance, structured metadata, and 1200 × 630 social thumbnail;
+- 156 styled, canonical document pages that keep raw Markdown as an explicit source download instead of primary site content;
+- single-body prompt, skill, and contract pages with applicability and research references outside the copy-ready code and a compact accessible copy control;
 - an opt-in GA4 integration that remains unloaded before consent, disables advertising storage and signals, persists rejection, and supports withdrawal; and
 - contributor, security, onboarding, testing, accessibility, evaluation, release, baseline, and completion documentation.
 

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Prompt Architecture Guide | Agent Workflow Blueprint</title>
+    <meta name="description" content="This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt specific engineering instructions from shared governance an…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-ARCHITECTURE.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Prompt Architecture Guide">
+    <meta property="og:description" content="This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt specific engineering instructions from shared governance an…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-ARCHITECTURE.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prompt Architecture Guide">
+    <meta name="twitter:description" content="This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt specific engineering instructions from shared governance an…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Prompt Architecture Guide","description":"This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt specific engineering instructions from shared governance an…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-ARCHITECTURE.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Prompt Architecture Guide</h1>
+          <p class="document-summary">This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt specific engineering instructions from shared governance an…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="PROMPT-ARCHITECTURE.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt-specific engineering instructions from shared governance and repeated specialist controls so copied output remains rich, reviewable, and deterministic.</p><h2 id="source-layers">Source layers</h2><p>The library has three authored layers:</p><ol><li><a href="GOVERNANCE-KERNEL.html"><code>GOVERNANCE-KERNEL.md</code></a> owns scope, assumptions, evidence, traceability, status, escalation, claim control, the common handoff, and prompt/skill/contract execution profiles.</li><li><a href="SPECIALIST-CONTROLS.html"><code>SPECIALIST-CONTROLS.md</code></a> owns specialist instructions that are reused by more than one asset.</li><li>Each prompt, skill, or contract owns its applicability boundary, inputs, specialist procedure, domain evidence, domain failures, and output record.</li><li><a href="research-sources.json"><code>research-sources.json</code></a> resolves each curated research label to an exact paper or standard and states how the source is translated into an observable repository control.</li></ol><p><a href="assets.json"><code>assets.json</code></a> records version, risk, required inputs, expected outputs, dependencies, and evaluation-case mappings. <code>scripts/compose_assets.py</code> and the website use the same composition rules.</p><h2 id="v3-prompt-source-contract">v3 prompt source contract</h2><p>Each of the 40 prompts contains these sections:</p><ol><li><code>Metadata</code> — type, category, v3 version, and governance profile.</li><li><code>When to use</code> — the intended task boundary.</li><li><code>When not to use</code> — an explicit exclusion and named alternative.</li><li><code>Dependencies</code> and <code>Shared specialist controls</code> — resolvable composition inputs.</li><li><code>Required inputs</code> — four or more concrete items needed for safe execution.</li><li><code>Specialist role</code> and <code>Task-specific mission</code> — narrow authority and desired outcome.</li><li><code>Task-specific instructions</code> — five to ten ordered domain actions.</li><li><code>Decision gates</code> — stop, approval, escalation, and completion decisions.</li><li><code>Required evidence</code> — concrete artefacts and failure-path proof.</li><li><code>Failure modes and recovery</code> — paired failure handling, not optimistic defaults.</li><li><code>Task-specific rejection conditions</code> — hard reasons not to accept the result.</li><li><code>Output format</code> — a compact domain record nested in the common handoff.</li><li><code>Worked example</code> — a concrete interpretation and final-status constraint.</li></ol><p>The numerical quality thresholds are defined in <a href="QUALITY-RUBRIC.html"><code>QUALITY-RUBRIC.md</code></a> and enforced by <code>scripts/check_template_library.py</code>.</p><h2 id="copy-ready-composition">Copy-ready composition</h2><p>Body composition produces one agent-ready prompt in this order:</p><ol><li>selected source modules, beginning with required inputs and continuing through role, mission, instructions, gates, evidence, failures, rejection conditions, output record, and example;</li><li>every referenced specialist control once;</li><li>the applicable governance kernel rules and execution profiles once.</li></ol><p>The source title, applicability sections, metadata, dependency declarations, raw shared-control ID lists, and research/source references are review context rather than agent instructions. The website renders them outside the code region and excludes them from both copy actions. <code>scripts/compose_assets.py</code> has the same body-only default; <code>--with-references</code> appends a separate review section when explicitly requested.</p><h2 id="common-handoff-and-domain-record">Common handoff and domain record</h2><p>All assets use <code>GOV-HANDOFF-01</code> once:</p><pre><code class="markdown"># Agent workflow handoff
+
+## Scope and inputs
+## Findings or implementation result
+## Decisions and rejected alternative
+## Evidence and failure-path results
+## Remaining risks and required approvals
+## Final status</code></pre><p>The selected prompt&#39;s domain output record belongs inside <code>Findings or implementation result</code>. Prompt sources do not repeat the full handoff schema.</p><h2 id="evidence-ladder">Evidence ladder</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Evidence level</th><th>Meaning</th><th>Acceptable examples</th></tr></thead>
+        <tbody><tr><td>Source evidence</td><td>The deciding artefact was inspected.</td><td>File, function, route, component, config, contract.</td></tr><tr><td>Behaviour evidence</td><td>The relevant runtime state was observed.</td><td>UI state, browser interaction, API response, log.</td></tr><tr><td>Command evidence</td><td>A reproducible check was run.</td><td>Test, lint, build, schema validator, security scan.</td></tr><tr><td>Specialist evidence</td><td>Domain risk was reviewed.</td><td>WCAG mapping, keyboard journey, threat boundary, performance budget.</td></tr><tr><td>Release evidence</td><td>A claim is tied to release criteria.</td><td>Review packet, known limitations, controlled final status.</td></tr></tbody>
+      </table>
+    </div>
+  <p>A fluent answer without the evidence required for its material claim is not accepted.</p><h2 id="decision-and-reasoning-rules">Decision and reasoning rules</h2><p>Use branch evaluation for material, ambiguous, cross-cutting, security-sensitive, accessibility-sensitive, or hard-to-reverse choices. Record the selected route, at least one plausible alternative, evidence needed, and the reason for rejection.</p><p>Do not request hidden chain-of-thought. Require a public decision record containing assumptions, alternatives, evidence, verification, limitations, and status.</p><h2 id="controlled-status">Controlled status</h2><p>Only four final statuses are allowed:</p><ul><li><code>verified</code> — all material requirements have reproducible evidence;</li><li><code>partially verified</code> — useful work exists but material evidence is incomplete;</li><li><code>not verified</code> — evidence is insufficient, contradictory, or a material check failed;</li><li><code>blocked</code> — progress cannot safely continue without missing authority, context, tooling, or an external state change.</li></ul><p>No marketing claim may follow the final status.</p><h2 id="quality-boundary">Quality boundary</h2><p>Deterministic validation establishes source structure, manifest consistency, control resolution, composition limits, and fixture coverage. It does not establish model correctness or industry-wide effectiveness. Use the recorded-output process in <a href="../engineering/evaluation-methodology.html"><code>evaluation-methodology.md</code></a> for behavioural evidence.</p><h2 id="research-vocabulary-cross-reference">Research vocabulary cross-reference</h2><p>This architecture uses the repository&#39;s source-mapped control vocabulary: CoT-safe public reasoning, Tree-of-Thoughts branch evaluation, ReAct observation loops, Least-to-most decomposition, Self-consistency checks, Self-refinement after failed checks, Process supervision, and traceability. The terms describe design influences, not a claim that every model implements a named internal mechanism.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="PROMPT-ARCHITECTURE.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

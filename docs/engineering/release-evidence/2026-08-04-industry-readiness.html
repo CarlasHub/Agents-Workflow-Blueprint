@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Release evidence — 2026 08 04 industry readiness implementation | Agent Workflow Blueprint</title>
+    <meta name="description" content="Source state">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-04-industry-readiness.html">
+    <link rel="sitemap" type="application/xml" href="../../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Release evidence — 2026 08 04 industry readiness implementation">
+    <meta property="og:description" content="Source state">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-04-industry-readiness.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Release evidence — 2026 08 04 industry readiness implementation">
+    <meta name="twitter:description" content="Source state">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Release evidence — 2026 08 04 industry readiness implementation","description":"Source state","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-04-industry-readiness.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../../">Interactive library</a>
+          <a href="../../../library/">Static catalogue</a>
+          <a href="../../../docs/">Documentation</a>
+          <a href="../../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../../">Home</a><span aria-hidden="true">/</span><a href="../../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Release evidence — 2026 08 04 industry readiness implementation</h1>
+          <p class="document-summary">Source state</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="2026-08-04-industry-readiness.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <h2 id="source-state">Source state</h2><ul><li>Baseline commit: <code>9499243b014a80530b43dc640604e69617f059bc</code></li><li>Implementation release commit: <code>22e0cdd2619f5ad92854ddafc098e7ea94e9c2ae</code></li><li>Branch: <code>main</code></li><li>Publication: implementation release commit pushed to <code>main</code> and fast-forwarded to the configured <code>gh-pages</code> source</li><li>GitHub Actions: run <code>30930578524</code> passed both quality jobs</li><li>GitHub Pages: deployment <code>5747939438</code> succeeded for the implementation release commit</li></ul><h2 id="environment">Environment</h2><ul><li>Date/timezone: 2026-08-04, Europe/Lisbon</li><li>macOS: 26.5.1</li><li>Python: 3.11.7 (CI is pinned by <code>.python-version</code> to 3.13.7)</li><li>Node.js: 26.5.0 (CI and <code>.nvmrc</code> are pinned to 22.18.0)</li><li>npm: 11.17.0</li><li>Local Google Chrome: 149.0.7827.201</li><li>Automated browsers: Playwright 1.62.1 bundled Chromium, Firefox, and WebKit</li></ul><h2 id="commands-and-observed-results">Commands and observed results</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Command</th><th>Result</th><th>Evidence or limitation</th></tr></thead>
+        <tbody><tr><td><code>npm ci</code></td><td>passed</td><td>76 packages installed from the lock file; local Node 26.5.0 produced an expected engine warning because the project and CI pin Node 22.18.0.</td></tr><tr><td><code>npm audit --audit-level=high</code></td><td>passed after authorised network retry</td><td>Zero vulnerabilities reported. The first sandboxed request was unavailable because registry DNS was blocked.</td></tr><tr><td><code>python3 -S scripts/asset_metrics.py</code></td><td>passed</td><td>24,920 source-asset words; median 248; 340 distinct inline specialist items; 168 shared controls; 1,200 references; no orphan, repeated-inline, near-duplicate, or unclassified duplicate controls; 0.0% duplicate ratio.</td></tr><tr><td><code>python3 -S scripts/compose_assets.py --check</code></td><td>passed</td><td>All 100 assets resolved the kernel and specialist controls exactly once.</td></tr><tr><td><code>python3 -S scripts/run_evals.py --dry-run --output evals/results/dry-run.json</code></td><td>passed</td><td>Eight cases and three conditions validated; model metrics blocked.</td></tr><tr><td><code>npm run test:a11y -- --repeat-each=2</code></td><td>passed</td><td>All eight states passed twice after removal of transient opacity contrast.</td></tr><tr><td><code>ruby -e &quot;require &#39;yaml&#39;; YAML.load_file(&#39;.github/workflows/quality.yml&#39;); puts &#39;GitHub Actions YAML parses.&#39;&quot;</code></td><td>passed</td><td>Workflow YAML parsed locally.</td></tr><tr><td><code>node --check site.js</code> and changed-module syntax checks</td><td>passed</td><td>Homepage and builder modules parsed.</td></tr><tr><td><code>python3 -m py_compile scripts/*.py</code></td><td>passed</td><td>Python scripts compiled in the local interpreter.</td></tr><tr><td><code>git diff --check</code></td><td>passed</td><td>No whitespace-error output.</td></tr><tr><td><code>bash scripts/verify-release.sh</code></td><td>passed</td><td>Final local run: 20 JavaScript units, 10 Python units, 4 ZIP units, 488 local links, 105 browser executions, 24 automated accessibility executions, and all 100 compositions passed.</td></tr><tr><td><code>gh run watch 30930578524 --exit-status</code></td><td>passed</td><td>GitHub-hosted source/unit and browser/accessibility jobs passed; browser job executed the 105-case matrix and the 24-case accessibility matrix.</td></tr><tr><td><code>git merge-base --is-ancestor origin/gh-pages main</code></td><td>passed</td><td>Existing Pages history was an ancestor of the verified release; no force push was required.</td></tr><tr><td><code>git push origin main:gh-pages</code></td><td>passed</td><td>Fast-forwarded <code>gh-pages</code> from <code>9499243</code> to <code>22e0cdd</code>.</td></tr><tr><td><code>gh api -X GET repos/CarlasHub/Agents-Workflow-Blueprint/deployments/5747939438/statuses</code></td><td>passed</td><td>GitHub reported <code>success</code> and the canonical environment URL.</td></tr><tr><td>Live Chromium smoke test against <code>https://carlashub.github.io/Agents-Workflow-Blueprint/</code></td><td>passed</td><td>Loaded 100 cards; opened <code>Master Agent Enforcement Prompt</code> with specialist content first; switched complete/source modes; found no horizontal overflow at 1440 px or 390 px.</td></tr></tbody>
+      </table>
+    </div>
+  <p>An earlier consolidated run failed one homepage axe state because opacity animation transiently lowered text contrast. That failure was retained, the animation was corrected, all eight states were repeated twice, and the final consolidated run passed.</p><p>During the v2.1 composition work, the first browser run failed because a new modal test selected 101 identically named copy buttons instead of scoping the locator to the dialog. The locator was corrected. The prompt-first popup change then exposed a three-row/four-child dialog-grid overlap, an unfocusable scroll region, and test-harness clipboard permission differences. The grid gained a dedicated row, the scroll region gained keyboard focus and visible focus treatment, and the harness now exercises the Clipboard API in Chromium and the application fallback in Firefox/WebKit. The all-asset popup check was subsequently split into bounded 10-asset cases after slower hosted WebKit runs exceeded per-test timeouts; the final local and hosted 105-case matrices passed without weakening coverage. The first source bundle also correctly rejected a stale starter manifest; it was regenerated to 229 files and its drift check passed.</p><h2 id="accessibility">Accessibility</h2><p>Automated and scripted keyboard evidence is present across Chromium, Firefox, and WebKit. No manual screen-reader, high-contrast, or complete visual zoom session was performed. No conformance claim is made.</p><h2 id="evaluation">Evaluation</h2><p>The eight-case, three-condition dry run passed fixture, reference, and prompt-size validation. Model-dependent correctness, claims, evidence, correction, status, time, token, and cost metrics are blocked because no model runtime was supplied. No model result was fabricated.</p><h2 id="known-limitations">Known limitations</h2><p>See <a href="../industry-readiness-report.html"><code>industry-readiness-report.md</code></a>. The release remains partially verified until model comparison, independent legal review, and manual accessibility review are available. Remote CI and a focused deployed-site smoke test are complete.</p><h2 id="final-status">Final status</h2><p><code>partially verified</code></p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../../">Interactive library</a></li>
+          <li><a href="../../../library/">Static catalogue</a></li>
+          <li><a href="2026-08-04-industry-readiness.md" download>Markdown source</a></li>
+          <li><a href="../../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../../privacy.html"></script>
+  </body>
+</html>

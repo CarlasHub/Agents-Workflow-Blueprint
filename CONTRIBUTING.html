@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Contributing | Agent Workflow Blueprint</title>
+    <meta name="description" content="Contributions should be small, reviewable, and aligned with the browser local static architecture. By contributing, you agree that code is provided under MI…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/CONTRIBUTING.html">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="icon" type="image/png" href="assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Contributing">
+    <meta property="og:description" content="Contributions should be small, reviewable, and aligned with the browser local static architecture. By contributing, you agree that code is provided under MI…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/CONTRIBUTING.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contributing">
+    <meta name="twitter:description" content="Contributions should be small, reviewable, and aligned with the browser local static architecture. By contributing, you agree that code is provided under MI…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Contributing","description":"Contributions should be small, reviewable, and aligned with the browser local static architecture. By contributing, you agree that code is provided under MI…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/CONTRIBUTING.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="">Interactive library</a>
+          <a href="library/">Static catalogue</a>
+          <a href="docs/">Documentation</a>
+          <a href="build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="">Home</a><span aria-hidden="true">/</span><a href="docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Contributing</h1>
+          <p class="document-summary">Contributions should be small, reviewable, and aligned with the browser local static architecture. By contributing, you agree that code is provided under MI…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="docs/">Browse documentation</a>
+            <a class="button button-secondary" href="CONTRIBUTING.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Contributions should be small, reviewable, and aligned with the browser-local static architecture. By contributing, you agree that code is provided under MIT and written content under CC BY 4.0 as mapped in <a href="LICENSE"><code>LICENSE</code></a>.</p><h2 id="add-or-update-an-asset">Add or update an asset</h2><ol><li>Read <a href="docs/template-library/GOVERNANCE-KERNEL.html"><code>GOVERNANCE-KERNEL.md</code></a>, <a href="docs/template-library/SPECIALIST-CONTROLS.html"><code>SPECIALIST-CONTROLS.md</code></a>, and <a href="docs/template-library/QUALITY-RUBRIC.html"><code>QUALITY-RUBRIC.md</code></a>.</li><li>Keep the asset specialist-specific; do not copy the shared governance sections into it.</li><li>Include when to use and not use it, dependencies, evidence requirements, rejection or failure conditions, and honest final-status language.</li><li>If an instruction is already used by another asset, reference its <code>SPC-*</code> ID. Add a new registry control only when at least two assets use exactly that instruction.</li><li>Add or update the matching entry in <a href="docs/template-library/assets.json"><code>assets.json</code></a>, including its governance profile and ordered <code>shared_controls</code>. Preserve stable IDs and paths unless migration is necessary.</li><li>If an ID or path changes, add a migration note and update every catalogue and starter-pack reference.</li><li>Regenerate rendered pages with <code>node scripts/build_docs.mjs</code>, then run <code>python3 -S scripts/compose_assets.py --check</code>, <code>python3 -S scripts/check_template_library.py</code>, and the full verification described below.</li></ol><h2 id="code-and-website-changes">Code and website changes</h2><p>Preserve the static GitHub Pages and browser-local builder model. Do not add a backend, secret, paid API, cloud dependency, or analytics tracker without explicit maintainer approval and documented privacy, consent, data-minimisation, and verification boundaries. Preserve the rule that <code>gtag.js</code> does not load before explicit consent, keep advertising storage and signals disabled, and retain refusal, persistence, withdrawal, and exact-ID browser coverage. Add focused unit, browser, accessibility, and failure-case coverage when behaviour changes.</p><p>Maintained written content stays in Markdown. Public navigation and sitemap entries must use the generated sibling HTML routes; raw Markdown links on rendered pages are permitted only as clearly labelled downloads. Do not hand-edit generated document HTML or <code>dist/rendered-documents.json</code>. Change the source or renderer, run <code>node scripts/build_docs.mjs</code>, and verify with <code>npm run test:docs</code>.</p><h2 id="verification">Verification</h2><pre><code class="bash">npm ci
+npx playwright install chromium
+bash scripts/verify-release.sh</code></pre><p>The release gate runs deterministic checks and browser automation. Complete any relevant manual accessibility, security, and visual review and record what was not checked. Do not commit generated test output, <code>node_modules</code>, screenshots containing personal data, or secrets.</p><h2 id="pull-requests">Pull requests</h2><p>Describe the defect or requirement, smallest relevant files, chosen implementation, rejected alternative, focused and regression commands, actual results, and remaining limitations. Link behavioural changes to tests and documentation. Do not claim checks that were skipped or unavailable.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="">Interactive library</a></li>
+          <li><a href="library/">Static catalogue</a></li>
+          <li><a href="CONTRIBUTING.md" download>Markdown source</a></li>
+          <li><a href="privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="document-page.js?v=20260805-1"></script>
+    <script type="module" src="analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="privacy.html"></script>
+  </body>
+</html>

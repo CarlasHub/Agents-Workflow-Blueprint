@@ -8,7 +8,7 @@ import {
   getTypeLabel,
   renderMarkdown,
   splitComposedAssetMarkdown
-} from './site-utils.js?v=20260805-4';
+} from './site-utils.js?v=20260805-5';
 
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -36,6 +36,11 @@ function copyIconMarkup() {
       <path d="M8 8.75A1.75 1.75 0 0 1 9.75 7h8.5A1.75 1.75 0 0 1 20 8.75v8.5A1.75 1.75 0 0 1 18.25 19h-8.5A1.75 1.75 0 0 1 8 17.25v-8.5Z" />
       <path d="M16 7V5.75A1.75 1.75 0 0 0 14.25 4h-8.5A1.75 1.75 0 0 0 4 5.75v8.5A1.75 1.75 0 0 0 5.75 16H8" />
     </svg>`;
+}
+
+function renderedDocumentPath(path) {
+  const value = String(path ?? '');
+  return value.endsWith('.md') ? `${value.slice(0, -3)}.html` : value;
 }
 
 export function createSiteApp(documentRef = document) {
@@ -163,7 +168,8 @@ export function createSiteApp(documentRef = document) {
         <p>${escapeHtml(asset.summary)}</p>
         <div class="asset-actions">
           <button type="button" data-preview-path="${escapeAttribute(asset.path)}">Open ${escapeHtml(asset.type)}</button>
-          <a href="${escapeAttribute(asset.path)}" download>Download</a>
+          <a href="${escapeAttribute(renderedDocumentPath(asset.path))}">Read page</a>
+          <a href="${escapeAttribute(asset.path)}" download>Download Markdown</a>
           <button type="button" data-copy-path="${escapeAttribute(asset.path)}">Copy ${escapeHtml(asset.type)} body</button>
         </div>
       </article>`).join('');

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Quality Rubric for Agent Output | Agent Workflow Blueprint</title>
+    <meta name="description" content="Use this rubric to score any agent response produced with this repository.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/QUALITY-RUBRIC.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Quality Rubric for Agent Output">
+    <meta property="og:description" content="Use this rubric to score any agent response produced with this repository.">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/QUALITY-RUBRIC.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quality Rubric for Agent Output">
+    <meta name="twitter:description" content="Use this rubric to score any agent response produced with this repository.">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Quality Rubric for Agent Output","description":"Use this rubric to score any agent response produced with this repository.","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/QUALITY-RUBRIC.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Quality Rubric for Agent Output</h1>
+          <p class="document-summary">Use this rubric to score any agent response produced with this repository.</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="QUALITY-RUBRIC.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>Use this rubric to score any agent response produced with this repository.</p><p>When reviewing an asset itself, reject duplicated governance prose, repeated inline specialist controls, unresolved <code>SPC-*</code> references, a source module presented as complete without composition, or a hollow module that delegates all specialist work to shared controls. Each asset needs distinct executable specialist content and evidence requirements; genuinely shared wording belongs in the kernel or specialist registry.</p><h2 id="v3-prompt-source-quality-gate">v3 prompt source quality gate</h2><p>Every prompt source must pass the deterministic checks in <code>scripts/check_template_library.py</code>. The minimum acceptance contract is:</p><ol><li>450–900 source words so the prompt is substantial without becoming an unbounded handbook.</li><li>A specific <code>When not to use</code> boundary that names a more appropriate alternative.</li><li>At least four concrete required inputs, consistent with the manifest.</li><li>Five to ten numbered, domain-specific instructions.</li><li>At least three decision gates, including two conditional stop, approval, or escalation gates.</li><li>At least four evidence requirements, including three concrete artefacts, commands, runtime observations, tables, logs, screenshots, tests, documents, or verifier outputs.</li><li>At least three explicit failure-mode and recovery pairs.</li><li>At least three task-specific rejection conditions.</li><li>A parseable domain output template that is placed inside the common <code>GOV-HANDOFF-01</code> handoff.</li><li>A worked example of at least 35 words with controlled final-status guidance.</li><li>A composed prompt between 900 and 1,800 words before source references.</li><li>At least 30% specialist source content in the composed prompt.</li></ol><p>Passing these gates proves structural prompt quality, internal consistency, and deterministic composition. It does not prove model effectiveness. Behavioural comparisons require a disclosed recorded run under <a href="../engineering/evaluation-methodology.html"><code>evaluation-methodology.md</code></a>.</p><h2 id="5-strong-accept">5 — Strong accept</h2><ol><li>Scope is restated precisely.</li><li>Relevant files and instructions were inspected.</li><li>Assumptions are labelled.</li><li>Evidence exists for every material claim.</li><li>Commands are reported exactly.</li><li>UI, accessibility, security, docs, and release limits are checked when relevant.</li><li>Final status is honest.</li><li>Known limitations are disclosed.</li></ol><h2 id="4-accept-with-minor-corrections">4 — Accept with minor corrections</h2><p>The work is mostly supported, but one low-risk evidence gap, wording issue, or documentation correction remains.</p><h2 id="3-limited-acceptance">3 — Limited acceptance</h2><p>Useful progress exists, but one important behaviour, edge case, command, or review lane is only partially verified.</p><h2 id="2-reject-for-evidence-gap">2 — Reject for evidence gap</h2><p>The answer may be plausible, but it does not provide enough file, command, UI, or manual-review evidence to accept.</p><h2 id="1-reject-for-false-confidence">1 — Reject for false confidence</h2><p>The answer claims completion, release quality, accessibility, security, or correctness without evidence.</p><h2 id="0-blocked">0 — Blocked</h2><p>The answer invents facts, hides failures, removes safeguards, or changes scope without permission.</p><h2 id="required-verdict-language">Required verdict language</h2><ul><li><code>Accepted with evidence</code> only when proof exists.</li><li><code>Limited acceptance</code> when progress exists but evidence is incomplete.</li><li><code>Rejected</code> when a contract clause fails.</li><li><code>Blocked</code> when continued work is unsafe or impossible without missing inputs.</li></ul><p>Use only one final status: verified, partially verified, not verified, blocked.</p><h2 id="evidence-control-score">Evidence-control score</h2><p>Use this score when judging whether an agent output deserves acceptance.</p><ol><li><strong>Observation</strong> — Did the agent inspect the real artefacts before acting?</li><li><strong>Decomposition</strong> — Did it break complex work into ordered subproblems?</li><li><strong>Branching</strong> — Did it compare alternatives when the decision was material?</li><li><strong>Action containment</strong> — Did it avoid unnecessary broad rewrites?</li><li><strong>Independent verification</strong> — Did it cross-check source, command, behaviour, docs, and limitations?</li><li><strong>Correction loop</strong> — Did failed checks become explicit correction requirements?</li><li><strong>Traceability</strong> — Can every claim be mapped to requirement, artefact, evidence, and status?</li><li><strong>Failure disclosure</strong> — Are missing proof and residual risk visible?</li></ol><p>Reject outputs that are fluent but fail observation, verification, or traceability.</p><h2 id="human-ai-quality-overlay">Human-AI quality overlay</h2><p>Use <a href="HUMAN-AI-QUALITY-STANDARD.html"><code>HUMAN-AI-QUALITY-STANDARD.md</code></a> when the output changes prompts, skills, contracts, rules, generated projects, user-facing AI behaviour, or governance language.</p><p>Reject output that:</p><ol><li>Anthropomorphises the agent in a way that could mislead users.</li><li>Hides uncertainty, capability limits, or human escalation points.</li><li>Treats trust as a tone problem instead of an evidence problem.</li><li>Ignores automation bias and overreliance risk.</li><li>Ignores prompt injection, untrusted content, or excessive agency.</li><li>Ignores accessibility, cognitive load, or user correction paths.</li><li>Claims research, enterprise quality, safety, or compliance without a source map and verification evidence.</li></ol>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="QUALITY-RUBRIC.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

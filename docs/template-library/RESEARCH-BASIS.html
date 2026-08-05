@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Research and Standards Basis | Agent Workflow Blueprint</title>
+    <meta name="description" content="This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well known prompt engineering pattern…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-BASIS.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Research and Standards Basis">
+    <meta property="og:description" content="This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well known prompt engineering pattern…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-BASIS.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research and Standards Basis">
+    <meta name="twitter:description" content="This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well known prompt engineering pattern…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Research and Standards Basis","description":"This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well known prompt engineering pattern…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-BASIS.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Research and Standards Basis</h1>
+          <p class="document-summary">This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well known prompt engineering pattern…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="RESEARCH-BASIS.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>This library is not a research paper and does not claim that one prompt design solves agent reliability. It translates well-known prompt-engineering patterns, cognitive-review controls, and systems-engineering discipline into reusable prompts, skills, and acceptance contracts.</p><p>The site resolves each asset&#39;s curated research labels through <a href="research-sources.json"><code>research-sources.json</code></a>. That registry is the normalized citation source for the links shown outside each copyable agent body.</p><h2 id="accurate-product-claim">Accurate product claim</h2><p>The assets are <strong>research-informed</strong>, not magic. They are designed to improve structure, evidence discipline, reviewability, and failure disclosure. They do not guarantee correct output by themselves.</p><h2 id="important-correction-to-common-prompt-advice">Important correction to common prompt advice</h2><p>Do not design serious agent workflows around revealing hidden chain-of-thought. Use <strong>CoT-safe public reasoning artefacts</strong> instead:</p><ul><li>task restatement;</li><li>assumptions table;</li><li>branch comparison;</li><li>decision log;</li><li>inspected files and UI states;</li><li>command output;</li><li>verification table;</li><li>failure disclosure;</li><li>final status.</li></ul><p>That gives reviewers useful reasoning structure without requiring private reasoning traces.</p><h2 id="research-patterns-mapped-to-this-library">Research patterns mapped to this library</h2>
+    <div class="markdown-table-wrap">
+      <table>
+        <thead><tr><th>Pattern</th><th>Source idea</th><th>Repository translation</th></tr></thead>
+        <tbody><tr><td>Chain-of-Thought</td><td>Stepwise intermediate reasoning can improve complex reasoning.</td><td>Use public decision records, not hidden chain-of-thought.</td></tr><tr><td>Tree-of-Thoughts</td><td>Explore and evaluate multiple reasoning paths.</td><td>Require branch comparison for ambiguous/risky choices.</td></tr><tr><td>ReAct</td><td>Interleave reasoning and action with environmental observations.</td><td>Observe files/tests/UI before editing; observe results after actions.</td></tr><tr><td>Least-to-Most</td><td>Decompose hard tasks into easier sub-problems solved in sequence.</td><td>Force atomic implementation, debugging, and review steps.</td></tr><tr><td>Self-Consistency</td><td>Compare multiple reasoning paths before settling on an answer.</td><td>Require rival hypothesis or alternative route checks.</td></tr><tr><td>Self-Refine / Reflexion</td><td>Use feedback and failed attempts to improve later attempts.</td><td>Treat failed checks as inputs for revision, not as embarrassment.</td></tr><tr><td>Process supervision</td><td>Evaluate the route to an answer, not just the final result.</td><td>Require evidence ladders, command logs, and traceable statuses.</td></tr><tr><td>Constitutional / contract-based critique</td><td>Use explicit principles for critique and revision.</td><td>Use acceptance contracts with rejection wording.</td></tr><tr><td>Systems-engineering traceability</td><td>Map requirements to verification evidence.</td><td>Require claim → requirement → evidence → status mapping.</td></tr></tbody>
+      </table>
+    </div>
+  <h2 id="behavioural-controls-used-across-the-library">Behavioural controls used across the library</h2><ol><li><strong>Checklist discipline</strong> — repeated, explicit checks reduce missed steps during complex work.</li><li><strong>Cognitive forcing</strong> — the assets force assumptions, uncertainty, scope, and evidence to be stated before final claims.</li><li><strong>Premortem analysis</strong> — agents must imagine failure before closing the task, which exposes risks that optimistic implementation often misses.</li><li><strong>Adversarial review</strong> — agents must search for evidence against their own preferred conclusion.</li><li><strong>Evidence calibration</strong> — confidence must be tied to inspected files, runtime behaviour, command results, and manual checks.</li><li><strong>Separation of duties</strong> — implementation, review, specialist review, and release judgement are intentionally separated.</li><li><strong>Acceptance contracts</strong> — contracts are phrased as rejection rules so incomplete work is easier to stop.</li><li><strong>Traceability</strong> — every material output claim must be tied to a requirement, artefact, evidence source, and status.</li><li><strong>Branch comparison</strong> — risky tasks must compare more than one path before committing to a route.</li><li><strong>Failure visibility</strong> — failed checks, skipped checks, blocked tools, and uninspected behaviour are first-class outputs.</li></ol><h2 id="standards-and-documentation-mapped-into-the-assets">Standards and documentation mapped into the assets</h2><ul><li>Wei et al., “Chain-of-Thought Prompting Elicits Reasoning in Large Language Models”: https://arxiv.org/abs/2201.11903</li><li>Yao et al., “Tree of Thoughts: Deliberate Problem Solving with Large Language Models”: https://arxiv.org/abs/2305.10601</li><li>Yao et al., “ReAct: Synergizing Reasoning and Acting in Language Models”: https://arxiv.org/abs/2210.03629</li><li>Zhou et al., “Least-to-Most Prompting Enables Complex Reasoning in Large Language Models”: https://arxiv.org/abs/2205.10625</li><li>Wang et al., “Self-Consistency Improves Chain of Thought Reasoning in Language Models”: https://arxiv.org/abs/2203.11171</li><li>Shinn et al., “Reflexion: Language Agents with Verbal Reinforcement Learning”: https://arxiv.org/abs/2303.11366</li><li>Madaan et al., “Self-Refine: Iterative Refinement with Self-Feedback”: https://arxiv.org/abs/2303.17651</li><li>Lightman et al., “Let’s Verify Step by Step”: https://arxiv.org/abs/2305.20050</li><li>Bai et al., “Constitutional AI: Harmlessness from AI Feedback”: https://arxiv.org/abs/2212.08073</li><li>Mitchell, Russo, and Pennington, “Back to the future: Temporal perspective in the explanation of events”: https://doi.org/10.1002/bdm.3960020103</li><li>Evans and Stanovich, “Dual-Process Theories of Higher Cognition: Advancing the Debate”: https://doi.org/10.1177/1745691612460685</li><li>ISO/IEC/IEEE 15288 systems and software engineering lifecycle framing: https://www.iso.org/standard/81702.html</li><li>WCAG 2.2 accessibility success criteria and supporting guidance: https://www.w3.org/TR/WCAG22/</li><li>NIST SSDF secure software development practices: https://csrc.nist.gov/pubs/sp/800/218/final</li><li>OWASP Cheat Sheet Series practical security guidance: https://cheatsheetseries.owasp.org/</li><li>NIST AI RMF and Generative AI Profile: https://www.nist.gov/itl/ai-risk-management-framework</li><li>NIST ARIA pilot evaluation report: https://www.nist.gov/publications/assessing-risks-and-impacts-ai-aria-pilot-evaluation-report</li><li>OWASP Top 10 for LLM Applications 2025: https://genai.owasp.org/llm-top-10/</li><li>Google People + AI Guidebook: https://pair.withgoogle.com/guidebook-v2/</li><li>Microsoft Guidelines for Human-AI Interaction: https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/</li><li>OpenAI prompt engineering best practices: https://help.openai.com/en/articles/10032626-prompt-engineering-best-practices-for-chatgpt</li><li>Schulhoff et al., “The Prompt Report: A Systematic Survey of Prompt Engineering Techniques”: https://arxiv.org/abs/2406.06608</li></ul><h2 id="human-ai-quality-layer">Human-AI quality layer</h2><p>Use <a href="HUMAN-AI-QUALITY-STANDARD.html"><code>HUMAN-AI-QUALITY-STANDARD.md</code></a> for the current source-mapped quality bar covering sociotechnical framing, mental-model calibration, trust calibration, automation-bias resistance, human handoff, untrusted-content boundaries, output validation, accessibility, and failure visibility.</p><h2 id="important-limitation">Important limitation</h2><p>The assets improve structure, consistency, and evidence discipline. They do not guarantee correct output by themselves. A reviewer must still inspect the actual code, UI, tests, commands, and limitations.</p><h2 id="required-research-vocabulary-cross-reference">Required research vocabulary cross-reference</h2><p>This document participates in the same control vocabulary used across the library: CoT-safe public reasoning, Tree-of-Thoughts branch evaluation, ReAct observation loops, Least-to-most decomposition, Self-consistency checks, Self-refinement after failed checks, Process supervision, and traceability.</p>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="RESEARCH-BASIS.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

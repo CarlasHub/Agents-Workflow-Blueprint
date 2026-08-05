@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Research DNA for Agent Workflow Blueprint | Agent Workflow Blueprint</title>
+    <meta name="description" content="This page turns the research concepts behind the library into practical controls that can be checked in real work. The goal is not to make dramatic claims a…">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-DNA.html">
+    <link rel="sitemap" type="application/xml" href="../../sitemap.xml">
+    <link rel="icon" type="image/png" href="../../assets/human-body-brand.png">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Research DNA for Agent Workflow Blueprint">
+    <meta property="og:description" content="This page turns the research concepts behind the library into practical controls that can be checked in real work. The goal is not to make dramatic claims a…">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-DNA.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research DNA for Agent Workflow Blueprint">
+    <meta name="twitter:description" content="This page turns the research concepts behind the library into practical controls that can be checked in real work. The goal is not to make dramatic claims a…">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <link rel="stylesheet" href="../../site.css?v=20260805-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Research DNA for Agent Workflow Blueprint","description":"This page turns the research concepts behind the library into practical controls that can be checked in real work. The goal is not to make dramatic claims a…","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-DNA.html","isPartOf":{"@type":"WebSite","name":"Agent Workflow Blueprint","url":"https://carlashub.github.io/Agents-Workflow-Blueprint/"}}</script>
+  </head>
+  <body class="document-page-body">
+    <a class="skip-link" href="#content">Skip to document</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="../../">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Document navigation">
+          <a href="../../">Interactive library</a>
+          <a href="../../library/">Static catalogue</a>
+          <a href="../../docs/">Documentation</a>
+          <a href="../../build-project/">Build project</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="document-main">
+      <div class="shell document-shell">
+        <nav class="document-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a><span aria-hidden="true">/</span><a href="../../docs/">Docs</a><span aria-hidden="true">/</span><span aria-current="page">Documentation</span>
+        </nav>
+        <header class="document-hero">
+          <p class="eyebrow">Rendered documentation</p>
+          <h1>Research DNA for Agent Workflow Blueprint</h1>
+          <p class="document-summary">This page turns the research concepts behind the library into practical controls that can be checked in real work. The goal is not to make dramatic claims a…</p>
+          <div class="document-actions">
+            <a class="button button-primary" href="../../docs/">Browse documentation</a>
+            <a class="button button-secondary" href="RESEARCH-DNA.md" download>Download Markdown source</a>
+          </div>
+        </header>
+        <article class="markdown-document document-content">
+          <p>This page turns the research concepts behind the library into practical controls that can be checked in real work. The goal is not to make dramatic claims about prompts. The goal is to make coding-agent behaviour more observable, more bounded, and harder to falsely complete.</p><h2 id="important-correction">Important correction</h2><p>Do not describe this library as “tricking the AI into mathematical pathways.” That wording is too strong and not scientifically precise. A better product claim is:</p><blockquote>These templates impose deliberation, decomposition, environment-observation, self-checking, and traceability constraints so agents are less likely to close work before evidence exists.</blockquote><h2 id="the-method-stack">The method stack</h2><p>Source: Wei et al. (2022), <em>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</em>. Translation in this repo: require a concise reasoning summary, assumptions, selected path, rejected path, and evidence ledger before final status. Do not require a long hidden-thought transcript.</p><ol><li><strong>Chain-of-Thought prompting</strong></li></ol><p>Source: Yao et al. (2023), <em>Tree of Thoughts: Deliberate Problem Solving with Large Language Models</em>. Translation in this repo: ask the agent to compare multiple candidate branches when a task has meaningful alternatives, then reject weak branches before editing.</p><ol><li><strong>Tree-of-Thoughts</strong></li></ol><p>Source: Yao et al. (2022), <em>ReAct: Synergizing Reasoning and Acting in Language Models</em>. Translation in this repo: force an observe → act → observe loop so the agent checks files, UI, commands, logs, and docs instead of inventing the state of the system.</p><ol><li><strong>ReAct: Reason + Act</strong></li></ol><p>Source: Zhou et al. (2022), <em>Least-to-Most Prompting Enables Complex Reasoning in Large Language Models</em>. Translation in this repo: decompose work into small ordered subproblems and verify each step before using it as a foundation for the next step.</p><ol><li><strong>Least-to-Most prompting</strong></li></ol><p>Source: Wang et al. (2022), <em>Self-Consistency Improves Chain of Thought Reasoning in Language Models</em>. Translation in this repo: compare independent evidence routes — source inspection, command output, behaviour, screenshots, docs — before accepting a claim.</p><ol><li><strong>Self-Consistency</strong></li></ol><p>Source: Shinn et al. (2023), <em>Reflexion: Language Agents with Verbal Reinforcement Learning</em>. Translation in this repo: when checks fail, the agent must convert feedback into a correction note before trying again.</p><ol><li><strong>Reflexion</strong></li></ol><p>Source: Kahneman (2011), <em>Thinking, Fast and Slow</em>. Translation in this repo: use forced checklists, uncertainty labels, premortems, and adversarial review to slow down premature closure.</p><ol><li><strong>System 2 / cognitive forcing</strong></li></ol><p>Source: ISO/IEC/IEEE 15288-style systems-engineering lifecycle concepts. Translation in this repo: every acceptance claim must map to requirement, artefact, evidence, verifier, and status.</p><ol><li><strong>Formal verification and traceability</strong></li></ol><p>Sources: Google People + AI Guidebook, Microsoft Guidelines for Human-AI Interaction, NIST AI RMF, NIST ARIA, and WCAG 2.2. Translation in this repo: prompts, skills, contracts, and rules must expose limits, evidence, uncertainty, correction paths, human handoff, accessibility impact, and sociotechnical risk.</p><ol><li><strong>Human-AI interaction and trust calibration</strong></li></ol><p>Sources: OWASP Top 10 for LLM Applications 2025, OpenAI prompt guidance, and prompt-engineering survey research. Translation in this repo: serious agent work must handle prompt injection, sensitive-data leakage, excessive agency, insecure output handling, misinformation, eval coverage, and untrusted-content boundaries.</p><ol><li><strong>LLM application security and evaluation</strong></li></ol><h2 id="prompt-design-principles-used-here">Prompt design principles used here</h2><ol><li>State the role narrowly enough to prevent vague behaviour.</li><li>Define a mission that can be accepted or rejected.</li><li>Separate the user request from inferred goals.</li><li>Require repository observation before planning.</li><li>Label assumptions as confirmed, inferred, or unknown.</li><li>Decompose complex work into small ordered subproblems.</li><li>Compare alternative branches when a decision is material.</li><li>Prefer the smallest safe implementation that satisfies the requirement.</li><li>Use environment feedback before final claims.</li><li>Convert failed checks into correction notes.</li><li>Keep implementation, review, and release judgement separate.</li><li>Require evidence for claims rather than fluent confidence.</li><li>Use contracts as rejection language, not polite suggestions.</li><li>Preserve explicit final status vocabulary.</li><li>Require limitations even when the work is strong.</li><li>Treat missing runtime, UI, accessibility, security, or test proof as not verified.</li><li>Reject scope drift unless explicitly approved.</li><li>Record commands exactly as executed.</li><li>Require reviewer-reproducible evidence.</li><li>Do not let a passing command prove unrelated behaviour.</li><li>Use specialist prompts for UI, accessibility, security, testing, docs, and release risk.</li><li>Provide a handoff that can be audited without trusting the agent.</li><li>Keep examples practical and reject weak outputs visibly.</li><li>Avoid marketing claims that exceed verification.</li><li>Ensure every template has enough substance to stand alone.</li></ol><h2 id="what-this-library-does-not-claim">What this library does not claim</h2><ul><li>It does not guarantee model correctness.</li><li>It does not replace human review.</li><li>It does not prove live application behaviour without running the live application.</li><li>It does not claim that longer prompts are automatically better.</li><li>It does not claim that public chain-of-thought text is required. The product uses concise reasoning summaries and evidence ledgers.</li></ul><h2 id="strong-product-positioning">Strong product positioning</h2><p>Use this wording:</p><blockquote>Agent Workflow Blueprint is a research-informed prompt, skill, and contract library for controlling coding-agent behaviour through decomposition, environment observation, adversarial review, evidence traceability, and explicit failure disclosure.</blockquote>
+        </article>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Research-informed workflow controls for software-development agents.</p></div>
+        <ul class="footer-links">
+          <li><a href="../../">Interactive library</a></li>
+          <li><a href="../../library/">Static catalogue</a></li>
+          <li><a href="RESEARCH-DNA.md" download>Markdown source</a></li>
+          <li><a href="../../privacy.html">Privacy and analytics</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="visually-hidden" id="document-status" role="status" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="../../document-page.js?v=20260805-1"></script>
+    <script type="module" src="../../analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="../../privacy.html"></script>
+  </body>
+</html>

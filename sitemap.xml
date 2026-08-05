@@ -17,318 +17,471 @@
     <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/privacy.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/START-HERE.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/CHANGELOG.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CATALOGUE.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-BASIS.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CODEX-USAGE-GUIDE.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/a11y-review-agent.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-ARCHITECTURE.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/implementation-agent.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/01-master-agent-enforcement-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/release-agent.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/02-evidence-first-implementation-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/review-agent.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/03-anti-fake-completion-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/scoping-agent.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/04-assumption-exposure-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/security-review-agent.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/05-uncertainty-calibration-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/PROMPTS/system-prompt-patterns.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/06-contradiction-detection-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/README.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/07-premortem-failure-analysis-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/SECURITY.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/08-scope-boundary-lock-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/THIRD-PARTY-NOTICES.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/09-minimal-correct-change-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/accessibility-testing.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/10-repository-reconnaissance-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/accessibility.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/11-feature-implementation-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/architecture.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/12-bug-root-cause-remediation-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/release.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/13-regression-risk-review-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/security.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/14-code-quality-deep-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/contracts/testing.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/15-architecture-drift-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/evaluation-methodology.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/16-dead-code-removal-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-baseline.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/17-refactor-safety-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/industry-readiness-report.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/18-api-contract-review-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-04-industry-readiness.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/19-data-flow-trace-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-05-seo-discoverability.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/20-state-management-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-evidence/2026-08-05-v3-prompt-quality.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/21-ui-structure-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/release-process.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/22-visual-design-quality-gate-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/seo-and-analytics.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/23-design-system-consistency-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/templates/accessibility-review-template.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/24-responsive-layout-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/templates/release-evidence-template.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/25-interaction-state-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/templates/review-packet-template.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/26-keyboard-journey-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/templates/scoping-packet-template.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/27-accessibility-remediation-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/templates/security-review-template.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/28-screen-reader-risk-review-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/testing-strategy.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/29-wcag-mapping-review-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/engineering/workflow.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/30-icon-only-control-review-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CATALOGUE.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/31-playwright-test-design-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/CODEX-USAGE-GUIDE.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/32-test-quality-audit-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/EXAMPLES.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/33-release-evidence-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/GOVERNANCE-KERNEL.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/34-documentation-truthfulness-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/HUMAN-AI-QUALITY-STANDARD.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/35-readme-upgrade-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/MIGRATION-NOTES.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/36-github-pages-template-hub-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-ARCHITECTURE.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/37-security-trust-boundary-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/PROMPT-PATTERN-MATRIX.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/38-secrets-handling-review-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/QUALITY-RUBRIC.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/39-observability-and-logging-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/README.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/40-final-merge-gate-prompt.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-BASIS.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/01-scoping-packet-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/RESEARCH-DNA.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/02-implementation-planning-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SCIENTIFIC-CONTROL-CHECKLIST.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/03-repository-mapping-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SCIENTIFIC-DNA.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/04-evidence-collection-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SPECIALIST-CONTROLS.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/05-verification-reporting-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/START-HERE.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/06-failure-disclosure-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/STARTER-PACKS.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/07-ui-screenshot-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/SYSTEM-2-PROMPTING-GUIDE.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/08-accessibility-inspection-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/TRACEABILITY-MATRIX.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/09-wcag-mapping-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/01-completion-honesty-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/10-keyboard-testing-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/02-evidence-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/11-playwright-debugging-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/03-scope-control-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/12-regression-test-design-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/04-assumption-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/13-code-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/05-verification-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/14-refactor-planning-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/06-test-behaviour-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/15-dead-code-detection-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/07-accessibility-contract-plus.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/16-architecture-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/08-keyboard-interaction-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/17-api-contract-inspection-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/09-accessible-name-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/18-security-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/10-ui-visual-quality-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/19-secrets-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/11-design-system-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/20-data-privacy-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/12-responsive-behaviour-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/21-documentation-audit-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/13-code-quality-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/22-release-notes-review-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/14-architecture-boundary-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/23-readme-structuring-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/15-refactor-safety-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/24-template-catalogue-design-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/16-dead-code-removal-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/25-github-pages-ux-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/17-documentation-truth-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/26-copy-ready-prompt-writing-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/18-readme-claim-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/27-agent-behaviour-hardening-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/19-release-evidence-contract-plus.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/28-prompt-evaluation-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/20-security-boundary-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/29-risk-register-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/21-secrets-handling-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/30-final-delivery-packaging-skill.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/22-privacy-and-data-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/01-completion-honesty-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/23-logging-safety-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/02-evidence-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/24-error-handling-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/03-scope-control-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/25-performance-budget-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/04-assumption-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/26-dependency-addition-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/05-verification-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/27-api-stability-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/06-test-behaviour-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/28-git-hygiene-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/07-accessibility-contract-plus.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/29-template-library-quality-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/08-keyboard-interaction-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/30-agent-output-format-contract.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/09-accessible-name-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/01-master-agent-enforcement-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/10-ui-visual-quality-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/02-evidence-first-implementation-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/11-design-system-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/03-anti-fake-completion-audit-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/12-responsive-behaviour-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/04-assumption-exposure-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/13-code-quality-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/05-uncertainty-calibration-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/14-architecture-boundary-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/06-contradiction-detection-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/15-refactor-safety-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/07-premortem-failure-analysis-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/16-dead-code-removal-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/08-scope-boundary-lock-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/17-documentation-truth-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/09-minimal-correct-change-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/18-readme-claim-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/10-repository-reconnaissance-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/19-release-evidence-contract-plus.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/11-feature-implementation-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/20-security-boundary-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/12-bug-root-cause-remediation-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/21-secrets-handling-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/13-regression-risk-review-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/22-privacy-and-data-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/14-code-quality-deep-audit-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/23-logging-safety-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/15-architecture-drift-audit-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/24-error-handling-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/16-dead-code-removal-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/25-performance-budget-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/17-refactor-safety-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/26-dependency-addition-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/18-api-contract-review-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/27-api-stability-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/19-data-flow-trace-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/28-git-hygiene-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/20-state-management-audit-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/29-template-library-quality-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/21-ui-structure-audit-prompt.html</loc>
   </url>
   <url>
-    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/contracts/30-agent-output-format-contract.md</loc>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/22-visual-design-quality-gate-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/23-design-system-consistency-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/24-responsive-layout-audit-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/25-interaction-state-audit-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/26-keyboard-journey-audit-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/27-accessibility-remediation-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/28-screen-reader-risk-review-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/29-wcag-mapping-review-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/30-icon-only-control-review-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/31-playwright-test-design-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/32-test-quality-audit-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/33-release-evidence-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/34-documentation-truthfulness-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/35-readme-upgrade-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/36-github-pages-template-hub-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/37-security-trust-boundary-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/38-secrets-handling-review-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/39-observability-and-logging-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/prompts/40-final-merge-gate-prompt.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/01-scoping-packet-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/02-implementation-planning-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/03-repository-mapping-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/04-evidence-collection-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/05-verification-reporting-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/06-failure-disclosure-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/07-ui-screenshot-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/08-accessibility-inspection-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/09-wcag-mapping-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/10-keyboard-testing-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/11-playwright-debugging-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/12-regression-test-design-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/13-code-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/14-refactor-planning-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/15-dead-code-detection-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/16-architecture-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/17-api-contract-inspection-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/18-security-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/19-secrets-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/20-data-privacy-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/21-documentation-audit-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/22-release-notes-review-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/23-readme-structuring-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/24-template-catalogue-design-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/25-github-pages-ux-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/26-copy-ready-prompt-writing-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/27-agent-behaviour-hardening-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/28-prompt-evaluation-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/29-risk-register-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/docs/template-library/skills/30-final-delivery-packaging-skill.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/evals/README.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/evals/recorded/README.html</loc>
+  </url>
+  <url>
+    <loc>https://carlashub.github.io/Agents-Workflow-Blueprint/examples/worked-example.html</loc>
   </url>
 </urlset>
