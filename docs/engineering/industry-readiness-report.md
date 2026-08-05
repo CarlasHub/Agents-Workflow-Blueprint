@@ -2,7 +2,7 @@
 
 Recorded: 2026-08-05, Europe/Lisbon
 
-Source baseline: `main` at `fb37a81b22e51d61d73e698c8a3514fbf01e3204`. The final implementation commit, hosted quality run, Pages deployment, and public smoke result are recorded in the dated release-evidence file after publication.
+Source baseline: `main` at `fb37a81b22e51d61d73e698c8a3514fbf01e3204`. Implementation commit: `600d6fa177b6b29245f1a2132b92370552fbdbcb`. Hosted quality run, Pages deployment, and public smoke results are recorded in [`release-evidence/2026-08-05-v3-prompt-quality.md`](release-evidence/2026-08-05-v3-prompt-quality.md).
 
 ## Executive result
 
