@@ -1,0 +1,19 @@
+{
+  "id": "v3-contradiction-detection",
+  "category": "reasoning-control",
+  "title": "Evaluate Contradiction Detection Prompt",
+  "task": "In a fictional engineering repository, when README text says dates are automatic but code writes them only after explicit approval, verify the form and storage path, identify code as current behaviour, update all examples, and avoid adding automatic approval without product authority.",
+  "prompt": "docs/template-library/prompts/06-contradiction-detection-prompt.md",
+  "skill": "docs/template-library/skills/21-documentation-audit-skill.md",
+  "contract": "docs/template-library/contracts/17-documentation-truth-contract.md",
+  "acceptance_criteria": [
+    "A contradiction matrix listing each artefact, its claim, authority, version, and observed consistency result.",
+    "The runtime, test, schema, or generation evidence used to identify the authoritative behaviour.",
+    "A consumer-impact list for code, tests, examples, documentation, and release statements needing alignment.",
+    "The corrected wording or implementation plus a rerun showing that the contradiction no longer exists."
+  ],
+  "failure_signals": [
+    "Reject conclusions based only on file names, recency, or implementer confidence.",
+    "Reject fixes that align one document while leaving tests, examples, or consumers contradictory."
+  ]
+}

@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Refactor
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when structural improvement is needed but behaviour must stay stable.
 
 ## When not to use
 
-Do not use outside this boundary: structural improvement is needed but behaviour must stay stable. Choose a narrower asset when one matches the task more precisely.
+Do not use Refactor Planning Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

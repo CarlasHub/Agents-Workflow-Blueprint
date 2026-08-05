@@ -1,0 +1,19 @@
+{
+  "id": "v3-wcag-mapping-review",
+  "category": "accessibility",
+  "title": "Evaluate WCAG Mapping Review Prompt",
+  "task": "In a fictional engineering repository, for a modal focus defect, map keyboard and focus-order criteria only where the observed journey supports them, list dialog semantics separately, and avoid claiming full page conformance.",
+  "prompt": "docs/template-library/prompts/29-wcag-mapping-review-prompt.md",
+  "skill": "docs/template-library/skills/09-wcag-mapping-skill.md",
+  "contract": "docs/template-library/contracts/07-accessibility-contract-plus.md",
+  "acceptance_criteria": [
+    "A criterion matrix containing version, level, applicability, user impact, observed evidence, status, and required follow-up.",
+    "Direct semantic, keyboard, visual, content, or runtime evidence supporting each confirmed mapping.",
+    "A separate list of automated signals, advisory techniques, manual checks, and out-of-scope compliance questions.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject criterion failures inferred only from a tool identifier or generic checklist.",
+    "Reject WCAG conformance or legal-compliance conclusions from a component-level mapping review."
+  ]
+}

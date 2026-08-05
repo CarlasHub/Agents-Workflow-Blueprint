@@ -1,0 +1,19 @@
+{
+  "id": "v3-dead-code-removal",
+  "category": "clean-up",
+  "title": "Evaluate Dead Code Removal Prompt",
+  "task": "In a fictional engineering repository, for an old report route, check router registration, deep links, feature flags, analytics, docs, tests, and external bookmarks before deleting the handler and its configuration.",
+  "prompt": "docs/template-library/prompts/16-dead-code-removal-prompt.md",
+  "skill": "docs/template-library/skills/15-dead-code-detection-skill.md",
+  "contract": "docs/template-library/contracts/16-dead-code-removal-contract.md",
+  "acceptance_criteria": [
+    "A liveness inventory with static, dynamic, runtime, generated, external, and compatibility evidence for each candidate.",
+    "An exact removal diff covering associated tests, configuration, dependencies, assets, and documentation.",
+    "Build, packaging, test, and representative runtime evidence after removal.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject deletion based solely on static search, coverage absence, or lack of recent commits.",
+    "Reject partial removals that leave stale configuration, dependencies, documentation, or generated references."
+  ]
+}

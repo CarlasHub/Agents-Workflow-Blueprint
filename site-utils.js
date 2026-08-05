@@ -130,8 +130,6 @@ function friendlyAssetModule(asset, markdown) {
   const title = assetTitle(asset, markdown);
   const body = removeMarkdownSections(markdown, [
     'Metadata',
-    'When to use',
-    'When not to use',
     'Dependencies',
     'Shared specialist controls'
   ])
@@ -140,6 +138,9 @@ function friendlyAssetModule(asset, markdown) {
     .replace(/^## Contract owner$/gm, '## Role')
     .replace(/^## Task-specific mission$/gm, '## Mission')
     .replace(/^## Task-specific instructions$/gm, '## Instructions')
+    .replace(/^## When to use$/gm, '## Use this when')
+    .replace(/^## When not to use$/gm, '## Do not use this when')
+    .replace(/^## Required inputs$/gm, '## Inputs required')
     .replace(/^## Required evidence$/gm, '## Evidence required')
     .replace(/^## Evidence to collect$/gm, '## Evidence required')
     .replace(/^## Task-specific rejection conditions$/gm, '## Rejection conditions')

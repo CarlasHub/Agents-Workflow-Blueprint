@@ -1,0 +1,19 @@
+{
+  "id": "v3-minimal-correct-change",
+  "category": "implementation",
+  "title": "Evaluate Minimal Correct Change Prompt",
+  "task": "In a fictional engineering repository, for an off-by-one paginator, patch the boundary calculation that owns page count, add exact-multiple and empty-list regression tests, retain ordering and API shape, and reject a rewrite of the pagination subsystem.",
+  "prompt": "docs/template-library/prompts/09-minimal-correct-change-prompt.md",
+  "skill": "docs/template-library/skills/02-implementation-planning-skill.md",
+  "contract": "docs/template-library/contracts/06-test-behaviour-contract.md",
+  "acceptance_criteria": [
+    "A source-owner trace showing why the selected function, component, handler, or configuration controls the behaviour.",
+    "Before-and-after failure-path evidence tied to an externally meaningful assertion.",
+    "A candidate comparison and diff review showing why broader edits were rejected.",
+    "Focused and regression results plus explicit compatibility, accessibility, security, and release notes."
+  ],
+  "failure_signals": [
+    "Reject minimal diffs that leave known edge cases, validation, or failure handling incorrect.",
+    "Reject unrelated refactors, dependency additions, formatting churn, or public-interface changes."
+  ]
+}

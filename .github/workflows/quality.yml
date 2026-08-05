@@ -43,7 +43,7 @@ jobs:
           python3 -S scripts/check_licenses.py
           python3 -S scripts/check_links.py
           python3 -S scripts/build_starter.py --check
-          python3 -S scripts/run_evals.py --dry-run
+          python3 -S scripts/run_evals.py --dry-run --check
       - name: Run lint and unit gates
         run: |
           npm run lint

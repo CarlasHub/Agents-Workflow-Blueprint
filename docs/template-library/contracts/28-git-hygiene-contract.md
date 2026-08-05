@@ -4,7 +4,7 @@
 
 - Type: Contract
 - Category: Delivery
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-CONTRACT`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when packaging branch changes, commits, generated files, or merge handoffs.
 
 ## When not to use
 
-Do not use outside this boundary: packaging branch changes, commits, generated files, or merge handoffs. Choose a narrower asset when one matches the task more precisely.
+Do not use Git Hygiene Contract to perform implementation or manufacture missing evidence. Apply it only to reviewable artefacts produced by the relevant task and procedure.
 
 ## Dependencies
 

@@ -4,7 +4,7 @@
 
 - Type: Contract
 - Category: Evidence
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-CONTRACT`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when every claim must be traceable to inspected files, behaviour, commands, 
 
 ## When not to use
 
-Do not use outside this boundary: every claim must be traceable to inspected files, behaviour, commands, or manual evidence. Choose a narrower asset when one matches the task more precisely.
+Do not use Evidence Contract to perform implementation or manufacture missing evidence. Apply it only to reviewable artefacts produced by the relevant task and procedure.
 
 ## Dependencies
 

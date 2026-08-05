@@ -16,11 +16,9 @@ from asset_composer import compose_assets, load_manifest
 ROOT = Path(__file__).resolve().parents[1]
 CASES = ROOT / "evals" / "cases"
 KERNEL = "docs/template-library/GOVERNANCE-KERNEL.md"
-CONDITIONS = {
-    "minimal": ["evals/baselines/minimal.md"],
-    "kernel": ["evals/baselines/kernel-only.md", KERNEL],
-    "full": ["evals/baselines/full-workflow.md"],
-}
+V2_BASELINES = ROOT / "evals" / "baselines" / "v2.1-composed"
+DRY_RUN_RESULT = ROOT / "evals" / "results" / "dry-run.json"
+CONDITIONS = ("minimal", "kernel", "v2.1-prompt", "v3-prompt", "v3-workflow")
 REQUIRED_FIELDS = {
     "id", "category", "title", "task", "prompt", "skill", "contract",
     "acceptance_criteria", "failure_signals",
@@ -57,8 +55,15 @@ def load_cases() -> list[dict]:
         for field in ("prompt", "skill", "contract"):
             read_source(case[field])
         cases.append(case)
-    if len(cases) != 8:
-        raise ValueError(f"expected 8 evaluation cases, found {len(cases)}")
+    manifest_prompts = {
+        asset["path"] for asset in load_manifest() if asset["type"] == "prompt"
+    }
+    covered_prompts = {case["prompt"] for case in cases}
+    missing_prompts = sorted(manifest_prompts - covered_prompts)
+    if missing_prompts:
+        raise ValueError("evaluation suite does not cover prompts: " + ", ".join(missing_prompts))
+    if len(cases) < len(manifest_prompts):
+        raise ValueError(f"expected at least {len(manifest_prompts)} evaluation cases, found {len(cases)}")
     return cases
 
 
@@ -66,28 +71,33 @@ def create_dry_run(cases: list[dict]) -> dict:
     results = []
     manifest_by_path = {asset["path"]: asset["id"] for asset in load_manifest()}
     for case in cases:
-        sizes = {}
-        for condition, sources in CONDITIONS.items():
-            if condition == "full":
-                selected_ids = [manifest_by_path[case[field]] for field in ("prompt", "skill", "contract")]
-                text = "\n".join([read_source(sources[0]), compose_assets(selected_ids)])
-            else:
-                text = "\n".join(read_source(source) for source in sources)
-            sizes[condition] = word_count(f"{text}\n{case['task']}")
+        prompt_id = manifest_by_path[case["prompt"]]
+        selected_ids = [manifest_by_path[case[field]] for field in ("prompt", "skill", "contract")]
+        v2_path = V2_BASELINES / f"{prompt_id}.md"
+        if not v2_path.is_file():
+            raise ValueError(f"missing v2.1 baseline composition: {v2_path.relative_to(ROOT)}")
+        texts = {
+            "minimal": read_source("evals/baselines/minimal.md"),
+            "kernel": "\n".join([read_source("evals/baselines/kernel-only.md"), read_source(KERNEL)]),
+            "v2.1-prompt": v2_path.read_text(encoding="utf-8"),
+            "v3-prompt": compose_assets([prompt_id]),
+            "v3-workflow": "\n".join([read_source("evals/baselines/full-workflow.md"), compose_assets(selected_ids)]),
+        }
+        sizes = {condition: word_count(f"{texts[condition]}\n{case['task']}") for condition in CONDITIONS}
         results.append({
             "case_id": case["id"],
             "prompt_words": sizes,
             "behavioural_metrics": "blocked: dry-run mode does not execute a model",
         })
     return {
-        "suite_version": "1.0.0",
+        "suite_version": "2.0.0",
         "mode": "dry-run",
         "case_count": len(cases),
         "conditions": list(CONDITIONS),
         "model": None,
         "configuration": None,
         "observed_results": "unavailable",
-        "limitation": "Fixture and prompt-size validation only; no model output was generated or scored.",
+        "limitation": "Fixture, coverage, composition, and prompt-size validation only; no model output was generated or scored.",
         "cases": results,
     }
 
@@ -96,6 +106,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true", help="validate fixtures without a model")
     parser.add_argument("--output", type=Path, help="write the deterministic JSON record")
+    parser.add_argument("--check", action="store_true", help="reject drift from evals/results/dry-run.json")
     args = parser.parse_args()
     if not args.dry_run:
         print("[FAIL] only --dry-run is supported; model execution is intentionally external")
@@ -106,12 +117,16 @@ def main() -> int:
         print(f"[FAIL] {error}")
         return 1
     output = json.dumps(record, indent=2) + "\n"
+    if args.check:
+        if not DRY_RUN_RESULT.is_file() or DRY_RUN_RESULT.read_text(encoding="utf-8") != output:
+            print("[FAIL] evals/results/dry-run.json is stale; regenerate it with --output evals/results/dry-run.json")
+            return 1
     if args.output:
         output_path = args.output if args.output.is_absolute() else ROOT / args.output
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(output, encoding="utf-8")
         print(f"Wrote {output_path.relative_to(ROOT)}")
-    print(f"Evaluation dry run passed: {len(record['cases'])} cases, 3 conditions; model metrics blocked.")
+    print(f"Evaluation dry run passed: {len(record['cases'])} cases, {len(CONDITIONS)} conditions; model metrics blocked.")
     return 0
 
 

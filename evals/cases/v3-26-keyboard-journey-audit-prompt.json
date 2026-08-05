@@ -1,0 +1,19 @@
+{
+  "id": "v3-keyboard-journey-audit",
+  "category": "accessibility",
+  "title": "Evaluate Keyboard Journey Audit Prompt",
+  "task": "In a fictional engineering repository, for a search dialog, tab from the trigger, verify close control and fields, cycle both directions, submit an error, press Escape, and confirm focus returns to the original trigger.",
+  "prompt": "docs/template-library/prompts/26-keyboard-journey-audit-prompt.md",
+  "skill": "docs/template-library/skills/10-keyboard-testing-skill.md",
+  "contract": "docs/template-library/contracts/08-keyboard-interaction-contract.md",
+  "acceptance_criteria": [
+    "A step-by-step keyboard journey log with key, focused element, visible indicator, state, result, and issue status.",
+    "Browser evidence for forward, reverse, overlay, error, rerender, and restoration paths.",
+    "Source and automated-test mapping for confirmed failures, with remaining manual checks identified.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject keyboard acceptance based only on click handlers or programmatic focus tests.",
+    "Reject journeys with focus loss, hidden focus, inaccessible overlays, or no error recovery."
+  ]
+}

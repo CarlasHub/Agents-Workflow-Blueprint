@@ -1,0 +1,19 @@
+{
+  "id": "v3-refactor-safety",
+  "category": "refactor",
+  "title": "Evaluate Refactor Safety Prompt",
+  "task": "In a fictional engineering repository, for moving validation into a domain service, characterize existing errors and ordering, migrate one caller behind an adapter, verify consumers, then remove the adapter only after full coverage.",
+  "prompt": "docs/template-library/prompts/17-refactor-safety-prompt.md",
+  "skill": "docs/template-library/skills/14-refactor-planning-skill.md",
+  "contract": "docs/template-library/contracts/15-refactor-safety-contract.md",
+  "acceptance_criteria": [
+    "A preservation matrix mapped to source owners, consumers, and executable checks.",
+    "Before-and-after dependency or ownership maps showing the intended structural improvement.",
+    "Characterization, focused, consumer, integration, and regression results for each migrated boundary.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject refactors without an explicit preservation contract.",
+    "Reject rewrites whose correctness depends on replacing all consumers simultaneously."
+  ]
+}

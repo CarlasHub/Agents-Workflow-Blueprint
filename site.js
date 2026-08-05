@@ -8,7 +8,7 @@ import {
   getTypeLabel,
   renderMarkdown,
   splitComposedAssetMarkdown
-} from './site-utils.js';
+} from './site-utils.js?v=20260805-3';
 
 const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 

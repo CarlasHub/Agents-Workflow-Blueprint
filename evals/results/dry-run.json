@@ -1,23 +1,27 @@
 {
-  "suite_version": "1.0.0",
+  "suite_version": "2.0.0",
   "mode": "dry-run",
-  "case_count": 8,
+  "case_count": 40,
   "conditions": [
     "minimal",
     "kernel",
-    "full"
+    "v2.1-prompt",
+    "v3-prompt",
+    "v3-workflow"
   ],
   "model": null,
   "configuration": null,
   "observed_results": "unavailable",
-  "limitation": "Fixture and prompt-size validation only; no model output was generated or scored.",
+  "limitation": "Fixture, coverage, composition, and prompt-size validation only; no model output was generated or scored.",
   "cases": [
     {
       "case_id": "small-bug-fix",
       "prompt_words": {
         "minimal": 42,
-        "kernel": 1065,
-        "full": 2133
+        "kernel": 1132,
+        "v2.1-prompt": 1245,
+        "v3-prompt": 1646,
+        "v3-workflow": 2661
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -25,8 +29,10 @@
       "case_id": "accessibility-remediation",
       "prompt_words": {
         "minimal": 41,
-        "kernel": 1064,
-        "full": 1911
+        "kernel": 1131,
+        "v2.1-prompt": 1208,
+        "v3-prompt": 1642,
+        "v3-workflow": 2339
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -34,8 +40,10 @@
       "case_id": "unsupported-success-claim",
       "prompt_words": {
         "minimal": 41,
-        "kernel": 1064,
-        "full": 2137
+        "kernel": 1131,
+        "v2.1-prompt": 1248,
+        "v3-prompt": 1675,
+        "v3-workflow": 2696
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -43,8 +51,10 @@
       "case_id": "documentation-contradiction",
       "prompt_words": {
         "minimal": 39,
-        "kernel": 1062,
-        "full": 1872
+        "kernel": 1129,
+        "v2.1-prompt": 1186,
+        "v3-prompt": 1611,
+        "v3-workflow": 2293
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -52,8 +62,10 @@
       "case_id": "security-configuration-review",
       "prompt_words": {
         "minimal": 41,
-        "kernel": 1064,
-        "full": 1883
+        "kernel": 1131,
+        "v2.1-prompt": 1192,
+        "v3-prompt": 1623,
+        "v3-workflow": 2309
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -61,8 +73,10 @@
       "case_id": "incomplete-test-coverage",
       "prompt_words": {
         "minimal": 40,
-        "kernel": 1063,
-        "full": 1917
+        "kernel": 1130,
+        "v2.1-prompt": 1206,
+        "v3-prompt": 1625,
+        "v3-workflow": 2326
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -70,8 +84,10 @@
       "case_id": "scope-creep-detection",
       "prompt_words": {
         "minimal": 42,
-        "kernel": 1065,
-        "full": 1942
+        "kernel": 1132,
+        "v2.1-prompt": 1248,
+        "v3-prompt": 1659,
+        "v3-workflow": 2345
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     },
@@ -79,8 +95,362 @@
       "case_id": "release-evidence-review",
       "prompt_words": {
         "minimal": 39,
-        "kernel": 1062,
-        "full": 1889
+        "kernel": 1129,
+        "v2.1-prompt": 1204,
+        "v3-prompt": 1642,
+        "v3-workflow": 2331
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-master-agent-enforcement",
+      "prompt_words": {
+        "minimal": 58,
+        "kernel": 1148,
+        "v2.1-prompt": 1286,
+        "v3-prompt": 1742,
+        "v3-workflow": 2449
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-evidence-first-implementation",
+      "prompt_words": {
+        "minimal": 54,
+        "kernel": 1144,
+        "v2.1-prompt": 1243,
+        "v3-prompt": 1686,
+        "v3-workflow": 2728
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-assumption-exposure",
+      "prompt_words": {
+        "minimal": 52,
+        "kernel": 1142,
+        "v2.1-prompt": 1236,
+        "v3-prompt": 1654,
+        "v3-workflow": 2652
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-uncertainty-calibration",
+      "prompt_words": {
+        "minimal": 50,
+        "kernel": 1140,
+        "v2.1-prompt": 1231,
+        "v3-prompt": 1636,
+        "v3-workflow": 2992
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-contradiction-detection",
+      "prompt_words": {
+        "minimal": 57,
+        "kernel": 1147,
+        "v2.1-prompt": 1248,
+        "v3-prompt": 1660,
+        "v3-workflow": 2648
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-premortem-failure-analysis",
+      "prompt_words": {
+        "minimal": 48,
+        "kernel": 1138,
+        "v2.1-prompt": 1212,
+        "v3-prompt": 1605,
+        "v3-workflow": 2607
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-minimal-correct-change",
+      "prompt_words": {
+        "minimal": 51,
+        "kernel": 1141,
+        "v2.1-prompt": 1232,
+        "v3-prompt": 1639,
+        "v3-workflow": 2646
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-repository-reconnaissance",
+      "prompt_words": {
+        "minimal": 47,
+        "kernel": 1137,
+        "v2.1-prompt": 1233,
+        "v3-prompt": 1640,
+        "v3-workflow": 2636
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-feature-implementation",
+      "prompt_words": {
+        "minimal": 52,
+        "kernel": 1142,
+        "v2.1-prompt": 1233,
+        "v3-prompt": 1655,
+        "v3-workflow": 2662
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-regression-risk-review",
+      "prompt_words": {
+        "minimal": 45,
+        "kernel": 1135,
+        "v2.1-prompt": 1222,
+        "v3-prompt": 1608,
+        "v3-workflow": 2586
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-code-quality-deep-audit",
+      "prompt_words": {
+        "minimal": 46,
+        "kernel": 1136,
+        "v2.1-prompt": 1218,
+        "v3-prompt": 1609,
+        "v3-workflow": 2597
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-architecture-drift-audit",
+      "prompt_words": {
+        "minimal": 47,
+        "kernel": 1137,
+        "v2.1-prompt": 1205,
+        "v3-prompt": 1587,
+        "v3-workflow": 2267
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-dead-code-removal",
+      "prompt_words": {
+        "minimal": 45,
+        "kernel": 1135,
+        "v2.1-prompt": 1217,
+        "v3-prompt": 1610,
+        "v3-workflow": 2300
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-refactor-safety",
+      "prompt_words": {
+        "minimal": 48,
+        "kernel": 1138,
+        "v2.1-prompt": 1197,
+        "v3-prompt": 1580,
+        "v3-workflow": 2247
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-api-contract-review",
+      "prompt_words": {
+        "minimal": 45,
+        "kernel": 1135,
+        "v2.1-prompt": 1199,
+        "v3-prompt": 1591,
+        "v3-workflow": 2276
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-data-flow-trace",
+      "prompt_words": {
+        "minimal": 43,
+        "kernel": 1133,
+        "v2.1-prompt": 1209,
+        "v3-prompt": 1587,
+        "v3-workflow": 2596
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-state-management-audit",
+      "prompt_words": {
+        "minimal": 43,
+        "kernel": 1133,
+        "v2.1-prompt": 1200,
+        "v3-prompt": 1587,
+        "v3-workflow": 2583
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-ui-structure-audit",
+      "prompt_words": {
+        "minimal": 45,
+        "kernel": 1135,
+        "v2.1-prompt": 1227,
+        "v3-prompt": 1617,
+        "v3-workflow": 2319
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-visual-design-quality-gate",
+      "prompt_words": {
+        "minimal": 45,
+        "kernel": 1135,
+        "v2.1-prompt": 1207,
+        "v3-prompt": 1606,
+        "v3-workflow": 2308
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-design-system-consistency",
+      "prompt_words": {
+        "minimal": 47,
+        "kernel": 1137,
+        "v2.1-prompt": 1208,
+        "v3-prompt": 1587,
+        "v3-workflow": 2286
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-responsive-layout-audit",
+      "prompt_words": {
+        "minimal": 49,
+        "kernel": 1139,
+        "v2.1-prompt": 1213,
+        "v3-prompt": 1601,
+        "v3-workflow": 2300
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-interaction-state-audit",
+      "prompt_words": {
+        "minimal": 44,
+        "kernel": 1134,
+        "v2.1-prompt": 1214,
+        "v3-prompt": 1596,
+        "v3-workflow": 2605
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-keyboard-journey-audit",
+      "prompt_words": {
+        "minimal": 49,
+        "kernel": 1139,
+        "v2.1-prompt": 1219,
+        "v3-prompt": 1626,
+        "v3-workflow": 2323
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-screen-reader-risk-review",
+      "prompt_words": {
+        "minimal": 52,
+        "kernel": 1142,
+        "v2.1-prompt": 1222,
+        "v3-prompt": 1637,
+        "v3-workflow": 2337
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-wcag-mapping-review",
+      "prompt_words": {
+        "minimal": 47,
+        "kernel": 1137,
+        "v2.1-prompt": 1224,
+        "v3-prompt": 1620,
+        "v3-workflow": 2307
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-icon-only-control-review",
+      "prompt_words": {
+        "minimal": 48,
+        "kernel": 1138,
+        "v2.1-prompt": 1211,
+        "v3-prompt": 1640,
+        "v3-workflow": 2337
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-playwright-test-design",
+      "prompt_words": {
+        "minimal": 47,
+        "kernel": 1137,
+        "v2.1-prompt": 1211,
+        "v3-prompt": 1633,
+        "v3-workflow": 2329
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-readme-upgrade",
+      "prompt_words": {
+        "minimal": 52,
+        "kernel": 1142,
+        "v2.1-prompt": 1222,
+        "v3-prompt": 1622,
+        "v3-workflow": 2312
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-github-pages-template-hub",
+      "prompt_words": {
+        "minimal": 47,
+        "kernel": 1137,
+        "v2.1-prompt": 1248,
+        "v3-prompt": 1646,
+        "v3-workflow": 2341
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-secrets-handling-review",
+      "prompt_words": {
+        "minimal": 52,
+        "kernel": 1142,
+        "v2.1-prompt": 1210,
+        "v3-prompt": 1629,
+        "v3-workflow": 2320
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-observability-and-logging",
+      "prompt_words": {
+        "minimal": 46,
+        "kernel": 1136,
+        "v2.1-prompt": 1202,
+        "v3-prompt": 1620,
+        "v3-workflow": 2618
+      },
+      "behavioural_metrics": "blocked: dry-run mode does not execute a model"
+    },
+    {
+      "case_id": "v3-final-merge-gate",
+      "prompt_words": {
+        "minimal": 50,
+        "kernel": 1140,
+        "v2.1-prompt": 1229,
+        "v3-prompt": 1639,
+        "v3-workflow": 2653
       },
       "behavioural_metrics": "blocked: dry-run mode does not execute a model"
     }

@@ -1,83 +1,98 @@
 # Prompt Architecture Guide
 
-This guide defines the internal architecture used by the 100 assets. It is designed for coding agents, repository reviewers, and template-library maintainers.
+This guide defines the v3 architecture used by the Agent Workflow Blueprint. It separates prompt-specific engineering instructions from shared governance and repeated specialist controls so copied output remains rich, reviewable, and deterministic.
 
-## Normalized source architecture
+## Source layers
 
-The authored source has three layers:
+The library has three authored layers:
 
-1. [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) owns shared scope, evidence, status, handoff, and prompt/skill/contract profiles.
-2. [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) owns every specialist instruction reused by more than one asset.
-3. Each prompt, skill, or contract owns only its boundary, role, mission, unique controls, and references.
+1. [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) owns scope, assumptions, evidence, traceability, status, escalation, claim control, the common handoff, and prompt/skill/contract execution profiles.
+2. [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) owns specialist instructions that are reused by more than one asset.
+3. Each prompt, skill, or contract owns its applicability boundary, inputs, specialist procedure, domain evidence, domain failures, output record, and references.
 
-`assets.json` records ordered references. `scripts/compose_assets.py` produces copy-ready output in this order: selected specialist role and instructions, resolved shared specialist requirements, applicable shared operating rules, then source links. Each selected module, control, and applicable kernel rule is included once. Rewording repeated instructions to evade a metric is prohibited; reusable controls must be normalized instead.
+[`assets.json`](assets.json) records version, risk, required inputs, expected outputs, dependencies, and evaluation-case mappings. `scripts/compose_assets.py` and the website use the same composition rules.
 
-Shared governance is not a substitute for specialist content. Each asset retains at least three task-specific instructions, procedure steps, or hard gates and a distinct evidence section. Validation rejects modules that merely tell the agent to follow the registry.
+## v3 prompt source contract
 
-## The nine-layer composed prompt architecture
+Each of the 40 prompts contains these sections:
 
-1. **Role lock** — assign a narrow specialist role with authority to reject weak work.
-2. **Mission boundary** — state the desired outcome and what must not be claimed.
-3. **Input inspection** — require repository, UI, test, docs, and constraint inspection before action.
-4. **Least-to-most decomposition** — split work into small tasks that can be verified.
-5. **Branch evaluation** — compare candidate routes for risk, cost, reversibility, and evidence.
-6. **ReAct execution** — observe, act, observe again, then adjust.
-7. **Evidence ladder** — require source, behaviour, command, and manual-review evidence.
-8. **Traceability matrix** — map requirement to evidence and status.
-9. **Failure disclosure** — final answer must include incomplete, unverified, risky, or blocked items.
+1. `Metadata` — type, category, v3 version, and governance profile.
+2. `When to use` — the intended task boundary.
+3. `When not to use` — an explicit exclusion and named alternative.
+4. `Dependencies` and `Shared specialist controls` — resolvable composition inputs.
+5. `Required inputs` — four or more concrete items needed for safe execution.
+6. `Specialist role` and `Task-specific mission` — narrow authority and desired outcome.
+7. `Task-specific instructions` — five to ten ordered domain actions.
+8. `Decision gates` — stop, approval, escalation, and completion decisions.
+9. `Required evidence` — concrete artefacts and failure-path proof.
+10. `Failure modes and recovery` — paired failure handling, not optimistic defaults.
+11. `Task-specific rejection conditions` — hard reasons not to accept the result.
+12. `Output format` — a compact domain record nested in the common handoff.
+13. `Worked example` — a concrete interpretation and final-status constraint.
 
-## The standard evidence ladder
+The numerical quality thresholds are defined in [`QUALITY-RUBRIC.md`](QUALITY-RUBRIC.md) and enforced by `scripts/check_template_library.py`.
+
+## Copy-ready composition
+
+Composition produces one complete prompt in this order:
+
+1. selected source modules, including applicability, required inputs, role, mission, instructions, gates, evidence, failures, rejection conditions, output record, and example;
+2. every referenced specialist control once;
+3. the applicable governance kernel rules and execution profiles once;
+4. source and control references.
+
+Metadata, dependency declarations, and raw shared-control ID lists are composition metadata and are not repeated as user instructions. The copy-ready prompt ends with references but remains a single pasted instruction set.
+
+## Common handoff and domain record
+
+All assets use `GOV-HANDOFF-01` once:
+
+```markdown
+# Agent workflow handoff
+
+## Scope and inputs
+## Findings or implementation result
+## Decisions and rejected alternative
+## Evidence and failure-path results
+## Remaining risks and required approvals
+## Final status
+```
+
+The selected prompt's domain output record belongs inside `Findings or implementation result`. Prompt sources do not repeat the full handoff schema.
+
+## Evidence ladder
 
 | Evidence level | Meaning | Acceptable examples |
 | --- | --- | --- |
-| Source evidence | The relevant artefact was inspected. | File path, function, component, config, contract. |
-| Behaviour evidence | Real behaviour was observed. | UI state, browser interaction, API response, log. |
-| Command evidence | A check was run and recorded. | Test command, lint command, build command, script output. |
-| Specialist evidence | Domain risk was checked. | WCAG mapping, security boundary review, performance budget. |
-| Release evidence | Claim is tied to release criteria. | Release packet, known limitations, final status. |
+| Source evidence | The deciding artefact was inspected. | File, function, route, component, config, contract. |
+| Behaviour evidence | The relevant runtime state was observed. | UI state, browser interaction, API response, log. |
+| Command evidence | A reproducible check was run. | Test, lint, build, schema validator, security scan. |
+| Specialist evidence | Domain risk was reviewed. | WCAG mapping, keyboard journey, threat boundary, performance budget. |
+| Release evidence | A claim is tied to release criteria. | Review packet, known limitations, controlled final status. |
 
-## The branch-evaluation rule
+A fluent answer without the evidence required for its material claim is not accepted.
 
-Use branch evaluation when any of the following are true:
+## Decision and reasoning rules
 
-1. the task changes shared behaviour;
-2. the UI may regress;
-3. accessibility or security risk is present;
-4. requirements are ambiguous;
-5. the first fix feels obvious but unproven;
-6. the change is hard to reverse;
-7. tests are missing or shallow;
-8. documentation claims could drift from implementation.
+Use branch evaluation for material, ambiguous, cross-cutting, security-sensitive, accessibility-sensitive, or hard-to-reverse choices. Record the selected route, at least one plausible alternative, evidence needed, and the reason for rejection.
 
-Required output:
+Do not request hidden chain-of-thought. Require a public decision record containing assumptions, alternatives, evidence, verification, limitations, and status.
 
-```text
-Branch A: <route>, benefits, risks, evidence needed.
-Branch B: <route>, benefits, risks, evidence needed.
-Selected branch: <route> because <evidence-based reason>.
-Rejected branch: <route> because <specific risk or mismatch>.
-```
-
-## The public reasoning rule
-
-A serious prompt should not say “show your hidden reasoning”. It should say:
-
-```text
-Provide a public decision record with enough detail for review: assumptions, alternatives considered, evidence, verification, limitations, and status.
-```
-
-## The final-status rule
+## Controlled status
 
 Only four final statuses are allowed:
 
-- `verified` — all relevant claims have evidence.
-- `partially verified` — useful work exists, but material claims remain unverified.
-- `not verified` — no adequate evidence supports the claim.
-- `blocked` — work cannot safely continue without missing input, tool access, runtime, or decision.
+- `verified` — all material requirements have reproducible evidence;
+- `partially verified` — useful work exists but material evidence is incomplete;
+- `not verified` — evidence is insufficient, contradictory, or a material check failed;
+- `blocked` — progress cannot safely continue without missing authority, context, tooling, or an external state change.
 
-No marketing sentence may appear after the final status.
+No marketing claim may follow the final status.
 
+## Quality boundary
 
-## Required research vocabulary cross-reference
+Deterministic validation establishes source structure, manifest consistency, control resolution, composition limits, and fixture coverage. It does not establish model correctness or industry-wide effectiveness. Use the recorded-output process in [`evaluation-methodology.md`](../engineering/evaluation-methodology.md) for behavioural evidence.
 
-This document participates in the same control vocabulary used across the library: CoT-safe public reasoning, Tree-of-Thoughts branch evaluation, ReAct observation loops, Least-to-most decomposition, Self-consistency checks, Self-refinement after failed checks, Process supervision, and traceability.
+## Research vocabulary cross-reference
+
+This architecture uses the repository's source-mapped control vocabulary: CoT-safe public reasoning, Tree-of-Thoughts branch evaluation, ReAct observation loops, Least-to-most decomposition, Self-consistency checks, Self-refinement after failed checks, Process supervision, and traceability. The terms describe design influences, not a claim that every model implements a named internal mechanism.

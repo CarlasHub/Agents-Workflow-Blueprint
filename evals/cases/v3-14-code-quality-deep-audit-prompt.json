@@ -1,0 +1,19 @@
+{
+  "id": "v3-code-quality-deep-audit",
+  "category": "code-quality",
+  "title": "Evaluate Code Quality Deep Audit Prompt",
+  "task": "In a fictional engineering repository, for a service module, separate duplicate authorization policy from harmless formatting, trace callers and errors, verify dead branches, and propose ordered fixes with consumer-facing regression tests.",
+  "prompt": "docs/template-library/prompts/14-code-quality-deep-audit-prompt.md",
+  "skill": "docs/template-library/skills/13-code-review-skill.md",
+  "contract": "docs/template-library/contracts/13-code-quality-contract.md",
+  "acceptance_criteria": [
+    "A responsibility and dependency map for the audited modules and their public consumers.",
+    "Findings with exact paths, symbols, impact, confidence, reproduction or inspection evidence, and severity rationale.",
+    "A prioritized remediation sequence with preservation tests and rejected rewrite alternatives.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject quality findings based only on line count, personal style, or unsupported complexity claims.",
+    "Reject a complete-quality verdict when relevant runtime, tests, or consumers were not inspected."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "v3-ui-structure-audit",
+  "category": "ui-ux",
+  "title": "Evaluate UI Structure Audit Prompt",
+  "task": "In a fictional engineering repository, for a dashboard, verify landmarks, heading order, filter grouping, result status, table semantics, empty and error states, and mobile reading order before adjusting decorative spacing.",
+  "prompt": "docs/template-library/prompts/21-ui-structure-audit-prompt.md",
+  "skill": "docs/template-library/skills/07-ui-screenshot-review-skill.md",
+  "contract": "docs/template-library/contracts/10-ui-visual-quality-contract.md",
+  "acceptance_criteria": [
+    "Annotated screenshots or runtime observations mapped to components and semantic structure.",
+    "A hierarchy and task-flow map covering landmarks, headings, groups, reading order, actions, and edge states.",
+    "Before-and-after narrow and wide evidence for every corrected structural issue.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject visual-only fixes that leave semantic hierarchy or task grouping broken.",
+    "Reject UI-structure approval based on source inspection without rendered-state evidence when a runtime is available."
+  ]
+}

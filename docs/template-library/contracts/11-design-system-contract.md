@@ -4,7 +4,7 @@
 
 - Type: Contract
 - Category: Design System
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-CONTRACT`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when UI must follow reusable components, tokens, and interaction patterns.
 
 ## When not to use
 
-Do not use outside this boundary: UI must follow reusable components, tokens, and interaction patterns. Choose a narrower asset when one matches the task more precisely.
+Do not use Design System Contract to perform implementation or manufacture missing evidence. Apply it only to reviewable artefacts produced by the relevant task and procedure.
 
 ## Dependencies
 

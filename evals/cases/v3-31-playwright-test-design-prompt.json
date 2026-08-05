@@ -1,0 +1,19 @@
+{
+  "id": "v3-playwright-test-design",
+  "category": "testing",
+  "title": "Evaluate Playwright Test Design Prompt",
+  "task": "In a fictional engineering repository, for a modal copy flow, test semantic open, initial focus, one-dialog content, keyboard copy, live status, Escape, focus restoration, dependency failure, and narrow overflow using observable waits.",
+  "prompt": "docs/template-library/prompts/31-playwright-test-design-prompt.md",
+  "skill": "docs/template-library/skills/11-playwright-debugging-skill.md",
+  "contract": "docs/template-library/contracts/06-test-behaviour-contract.md",
+  "acceptance_criteria": [
+    "A test matrix mapping requirements and failure paths to browser journeys, fixtures, selectors, and assertions.",
+    "Proof that selectors and waits use stable user-observable contracts and tests fail when the target behaviour is broken.",
+    "Local and CI results with browser, retry, trace, screenshot, video, and flaky-run evidence preserved.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject browser tests that assert implementation details without user-observable outcomes.",
+    "Reject retries, sleeps, or broad mocks used to conceal nondeterminism."
+  ]
+}

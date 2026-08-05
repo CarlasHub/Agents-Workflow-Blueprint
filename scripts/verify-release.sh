@@ -12,7 +12,7 @@ python3 -S scripts/check_research_basis.py
 python3 -S scripts/check_licenses.py
 python3 -S scripts/check_links.py
 python3 -S scripts/build_starter.py --check
-python3 -S scripts/run_evals.py --dry-run
+python3 -S scripts/run_evals.py --dry-run --check
 
 if [[ ! -x node_modules/.bin/playwright ]]; then
   echo "[FAIL] JavaScript dependencies are missing; run npm ci first."

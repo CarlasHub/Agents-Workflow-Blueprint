@@ -1,0 +1,19 @@
+{
+  "id": "v3-assumption-exposure",
+  "category": "reasoning-control",
+  "title": "Evaluate Assumption Exposure Prompt",
+  "task": "In a fictional engineering repository, for automatic approval dates, distinguish the confirmed storage code from the inferred product expectation, compare automatic and explicit-approval branches, identify the product owner, and block behaviour changes until the requirement is resolved.",
+  "prompt": "docs/template-library/prompts/04-assumption-exposure-prompt.md",
+  "skill": "docs/template-library/skills/29-risk-register-skill.md",
+  "contract": "docs/template-library/contracts/04-assumption-contract.md",
+  "acceptance_criteria": [
+    "An assumption register containing classification, impact, owner, evidence source, and resolution status.",
+    "Direct citations to repository files, runtime observations, stakeholder decisions, or contracts that confirm material assumptions.",
+    "A branch comparison showing how alternative assumptions change implementation or acceptance.",
+    "A list of stop decisions and the exact missing input required to continue safely."
+  ],
+  "failure_signals": [
+    "Reject plans that hide material assumptions inside implementation detail.",
+    "Reject architecture or risk decisions based on an unresolved high-impact unknown."
+  ]
+}

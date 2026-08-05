@@ -16,7 +16,7 @@ test('asset manifest has 100 unique IDs and paths', () => {
 test('asset manifest entries contain every schema-required field', () => {
   for (const asset of manifest) {
     for (const key of schema.required) assert.ok(Object.hasOwn(asset, key), `${asset.id} missing ${key}`);
-    assert.equal(asset.version, '2.1.0');
+    assert.equal(asset.version, '3.0.0');
     assert.ok(asset.dependencies.includes('docs/template-library/GOVERNANCE-KERNEL.md'));
     assert.ok(asset.dependencies.includes('docs/template-library/SPECIALIST-CONTROLS.md'));
     assert.match(asset.governance_profile, /^GOV-PROFILE-(PROMPT|SKILL|CONTRACT)$/);
@@ -24,6 +24,11 @@ test('asset manifest entries contain every schema-required field', () => {
     assert.equal(new Set(asset.shared_controls).size, asset.shared_controls.length);
     for (const controlId of asset.shared_controls) assert.match(controlId, /^SPC-[A-F0-9]{10}$/);
     assert.ok(asset.evidence_expectations.length >= 2);
+    assert.match(asset.risk_level, /^(standard|elevated|high)$/);
+    assert.ok(asset.required_inputs.length >= 3);
+    assert.ok(asset.expected_outputs.length >= 3);
+    assert.ok(Array.isArray(asset.evaluation_cases));
+    if (asset.type === 'prompt') assert.ok(asset.evaluation_cases.length >= 1);
   }
 });
 

@@ -13,7 +13,8 @@ REQUIRED_FILES = [
     "docs/engineering/accessibility-testing.md", "docs/engineering/release-process.md",
     "docs/engineering/evaluation-methodology.md", "docs/engineering/industry-readiness-baseline.md",
     "docs/template-library/GOVERNANCE-KERNEL.md", "docs/template-library/SPECIALIST-CONTROLS.md",
-    "docs/template-library/asset.schema.json", "scripts/compose_assets.py",
+    "docs/template-library/asset.schema.json", "scripts/compose_assets.py", "scripts/score_evals.py",
+    "evals/recorded/README.md", "evals/results/dry-run.json",
     "docs/engineering/templates/scoping-packet-template.md",
     "docs/engineering/templates/review-packet-template.md",
     "docs/engineering/templates/accessibility-review-template.md",
@@ -28,7 +29,7 @@ REQUIRED_COMMANDS = [
     "python3 -S scripts/check_template_library.py", "python3 -S scripts/check_research_basis.py",
     "python3 -S scripts/compose_assets.py --check",
     "python3 -S scripts/check_licenses.py", "python3 -S scripts/build_starter.py --check",
-    "python3 -S scripts/run_evals.py --dry-run", "npm run lint", "npm run test",
+    "python3 -S scripts/run_evals.py --dry-run --check", "npm run lint", "npm run test",
     "npm run test:e2e", "npm run test:a11y", "npm run test:links", "npm run test:zip",
 ]
 

@@ -1,0 +1,19 @@
+{
+  "id": "v3-observability-and-logging",
+  "category": "observability",
+  "title": "Evaluate Observability and Logging Prompt",
+  "task": "In a fictional engineering repository, for asynchronous report generation, correlate request, queue, worker, storage, and download; expose latency and failure states; redact inputs; alert on user-impact thresholds; and test the runbook.",
+  "prompt": "docs/template-library/prompts/39-observability-and-logging-prompt.md",
+  "skill": "docs/template-library/skills/29-risk-register-skill.md",
+  "contract": "docs/template-library/contracts/23-logging-safety-contract.md",
+  "acceptance_criteria": [
+    "An observability contract mapping decisions and failure modes to logs, metrics, traces, audit events, fields, and owners.",
+    "Sanitized runtime examples proving event generation, correlation, redaction, sampling, and failure visibility.",
+    "Dashboard, alert, runbook, retention, access, and recovery-test evidence with cost or cardinality limits.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject logging changes that lack an operator decision or user-impact purpose.",
+    "Reject observability readiness based only on emitted events without alert, ownership, redaction, and response evidence."
+  ]
+}

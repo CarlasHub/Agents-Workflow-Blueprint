@@ -1,0 +1,19 @@
+{
+  "id": "v3-state-management-audit",
+  "category": "state",
+  "title": "Evaluate State Management Audit Prompt",
+  "task": "In a fictional engineering repository, for optimistic item deletion, trace pending UI, server conflict, rollback, announcement, focus, retry, navigation, and concurrent list refresh before accepting the state design.",
+  "prompt": "docs/template-library/prompts/20-state-management-audit-prompt.md",
+  "skill": "docs/template-library/skills/13-code-review-skill.md",
+  "contract": "docs/template-library/contracts/24-error-handling-contract.md",
+  "acceptance_criteria": [
+    "A state ownership and transition diagram including asynchronous, error, cancellation, and cleanup paths.",
+    "Reproduction evidence for stale, duplicate, impossible, race, or recovery states identified by the audit.",
+    "Observable transition tests covering initialization, success, failure, retry, cancellation, and relevant navigation.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject additional synchronization layers that preserve duplicated ownership.",
+    "Reject state correctness claims based only on happy-path snapshots or reducer unit tests."
+  ]
+}

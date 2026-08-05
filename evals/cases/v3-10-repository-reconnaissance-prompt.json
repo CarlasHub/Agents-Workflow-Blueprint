@@ -1,0 +1,19 @@
+{
+  "id": "v3-repository-reconnaissance",
+  "category": "repository-analysis",
+  "title": "Evaluate Repository Reconnaissance Prompt",
+  "task": "In a fictional engineering repository, for approval dates, trace the form event through validation, state, generated manifest, storage output, tests, and README examples; mark automatic-date behaviour unsupported if no owning path exists.",
+  "prompt": "docs/template-library/prompts/10-repository-reconnaissance-prompt.md",
+  "skill": "docs/template-library/skills/03-repository-mapping-skill.md",
+  "contract": "docs/template-library/contracts/14-architecture-boundary-contract.md",
+  "acceptance_criteria": [
+    "A repository map containing entry points, owners, dependencies, state or data transitions, consumers, and external boundaries.",
+    "A success-path and failure-path trace with exact files, symbols, routes, commands, or configuration keys.",
+    "An inventory of relevant tests, fixtures, documentation, generated sources, and release checks.",
+    "A confirmed/inferred/unknown ledger for unresolved dynamic wiring or inaccessible systems."
+  ],
+  "failure_signals": [
+    "Reject ownership conclusions based only on file names or search frequency.",
+    "Reject unrequested edits, cleanup, or architecture changes during a read-only mapping task."
+  ]
+}

@@ -4,6 +4,25 @@ Use this rubric to score any agent response produced with this repository.
 
 When reviewing an asset itself, reject duplicated governance prose, repeated inline specialist controls, unresolved `SPC-*` references, a source module presented as complete without composition, or a hollow module that delegates all specialist work to shared controls. Each asset needs distinct executable specialist content and evidence requirements; genuinely shared wording belongs in the kernel or specialist registry.
 
+## v3 prompt source quality gate
+
+Every prompt source must pass the deterministic checks in `scripts/check_template_library.py`. The minimum acceptance contract is:
+
+1. 450–900 source words so the prompt is substantial without becoming an unbounded handbook.
+2. A specific `When not to use` boundary that names a more appropriate alternative.
+3. At least four concrete required inputs, consistent with the manifest.
+4. Five to ten numbered, domain-specific instructions.
+5. At least three decision gates, including two conditional stop, approval, or escalation gates.
+6. At least four evidence requirements, including three concrete artefacts, commands, runtime observations, tables, logs, screenshots, tests, documents, or verifier outputs.
+7. At least three explicit failure-mode and recovery pairs.
+8. At least three task-specific rejection conditions.
+9. A parseable domain output template that is placed inside the common `GOV-HANDOFF-01` handoff.
+10. A worked example of at least 35 words with controlled final-status guidance.
+11. A composed prompt between 900 and 1,800 words before source references.
+12. At least 30% specialist source content in the composed prompt.
+
+Passing these gates proves structural prompt quality, internal consistency, and deterministic composition. It does not prove model effectiveness. Behavioural comparisons require a disclosed recorded run under [`evaluation-methodology.md`](../engineering/evaluation-methodology.md).
+
 ## 5 — Strong accept
 
 1. Scope is restated precisely.

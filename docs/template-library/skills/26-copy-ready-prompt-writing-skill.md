@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Prompt Writing
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when prompts must be immediately usable by agents without vague placeholders
 
 ## When not to use
 
-Do not use outside this boundary: prompts must be immediately usable by agents without vague placeholders. Choose a narrower asset when one matches the task more precisely.
+Do not use Copy-Ready Prompt Writing Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

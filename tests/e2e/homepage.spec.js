@@ -93,11 +93,17 @@ test('preview presents one dialog with an introduction, prompt code, references,
   await expect(dialog.getByRole('tab')).toHaveCount(0);
   await expect(dialog.locator('[data-markdown-preview-meta]')).toContainText('introduction, prompt code, and references');
   await expect(dialog.getByRole('heading', { name: 'Introduction' })).toHaveCount(1);
-  await expect(dialog.getByText(/Use at the start of a serious coding-agent session/)).toHaveCount(1);
+  await expect(dialog.locator('.asset-preview-introduction').getByText(/Use at the start of a serious coding-agent session/)).toHaveCount(1);
   await expect(dialog.getByRole('heading', { name: 'Full prompt' })).toHaveCount(1);
   await expect(promptCode).toContainText('# Master Agent Enforcement Prompt');
+  await expect(promptCode).toContainText('## Use this when');
+  await expect(promptCode).toContainText('## Do not use this when');
+  await expect(promptCode).toContainText('## Inputs required');
   await expect(promptCode).toContainText('## Role');
   await expect(promptCode).toContainText('## Instructions');
+  await expect(promptCode).toContainText('## Decision gates');
+  await expect(promptCode).toContainText('## Failure modes and recovery');
+  await expect(promptCode).toContainText('## Worked example');
   await expect(promptCode).toContainText('## Shared operating rules');
   await expect(promptCode).not.toContainText('## References');
   await expect(dialog.getByRole('heading', { name: 'References' })).toHaveCount(1);

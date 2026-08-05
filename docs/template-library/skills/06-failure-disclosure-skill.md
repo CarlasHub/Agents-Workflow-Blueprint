@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Honesty
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when the answer must disclose incomplete, unverified, risky, or weaker-than-
 
 ## When not to use
 
-Do not use outside this boundary: the answer must disclose incomplete, unverified, risky, or weaker-than-requested work. Choose a narrower asset when one matches the task more precisely.
+Do not use Failure Disclosure Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

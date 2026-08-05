@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Verification
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when command results, manual checks, and skipped checks must be reported cle
 
 ## When not to use
 
-Do not use outside this boundary: command results, manual checks, and skipped checks must be reported cleanly. Choose a narrower asset when one matches the task more precisely.
+Do not use Verification Reporting Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

@@ -4,7 +4,7 @@
 
 - Type: Contract
 - Category: API
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-CONTRACT`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when public API, schema, route, exported function, or integration behaviour 
 
 ## When not to use
 
-Do not use outside this boundary: public API, schema, route, exported function, or integration behaviour may change. Choose a narrower asset when one matches the task more precisely.
+Do not use API Stability Contract to perform implementation or manufacture missing evidence. Apply it only to reviewable artefacts produced by the relevant task and procedure.
 
 ## Dependencies
 

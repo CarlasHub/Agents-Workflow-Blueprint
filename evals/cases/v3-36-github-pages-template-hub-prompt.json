@@ -1,0 +1,19 @@
+{
+  "id": "v3-github-pages-template-hub",
+  "category": "site-product",
+  "title": "Evaluate GitHub Pages Template Hub Prompt",
+  "task": "In a fictional engineering repository, for this site, verify 100 cards, one prompt dialog with intro/code/references, keyboard copy, dependency fallback, 390-pixel overflow, cache version, Pages build, and public-origin smoke evidence.",
+  "prompt": "docs/template-library/prompts/36-github-pages-template-hub-prompt.md",
+  "skill": "docs/template-library/skills/25-github-pages-ux-skill.md",
+  "contract": "docs/template-library/contracts/29-template-library-quality-contract.md",
+  "acceptance_criteria": [
+    "A static architecture and threat-boundary map covering content, manifest, browser, clipboard, downloads, cache, and deployment.",
+    "Browser evidence for catalogue, prompt/skill/contract dialogs, copy, references, failure fallbacks, keyboard, and narrow overflow.",
+    "CI, Pages build, cache-version, public-origin, link, and no-JavaScript smoke results for the same commit.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject static architectures that embed secrets or imply trusted server behaviour.",
+    "Reject deployment completion without public-origin verification of the current commit."
+  ]
+}

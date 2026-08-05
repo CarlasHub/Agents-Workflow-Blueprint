@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Accessibility
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when translating accessibility findings into WCAG 2.2 references and remedia
 
 ## When not to use
 
-Do not use outside this boundary: translating accessibility findings into WCAG 2.2 references and remediation evidence. Choose a narrower asset when one matches the task more precisely.
+Do not use WCAG Mapping Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

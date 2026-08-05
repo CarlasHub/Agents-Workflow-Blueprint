@@ -1,0 +1,19 @@
+{
+  "id": "v3-readme-upgrade",
+  "category": "documentation",
+  "title": "Evaluate README Upgrade Prompt",
+  "task": "In a fictional engineering repository, for this library, lead with the 100 assets and single-dialog copy flow, show one verified composition command, distinguish source modules from composed assets, and state that model effectiveness still requires recorded evaluation.",
+  "prompt": "docs/template-library/prompts/35-readme-upgrade-prompt.md",
+  "skill": "docs/template-library/skills/23-readme-structuring-skill.md",
+  "contract": "docs/template-library/contracts/18-readme-claim-contract.md",
+  "acceptance_criteria": [
+    "An audience-to-section map explaining the README hierarchy and removed duplication.",
+    "Observed results for every documented setup, verification, composition, build, and development command.",
+    "A claim and link audit covering capability, version, license, limitation, examples, docs navigation, and deployed site.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject polished README text that outruns verified product behaviour.",
+    "Reject duplication of detailed maintained documentation when a clear link is sufficient."
+  ]
+}

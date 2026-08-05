@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Documentation
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when docs must be checked against implementation and repository reality.
 
 ## When not to use
 
-Do not use outside this boundary: docs must be checked against implementation and repository reality. Choose a narrower asset when one matches the task more precisely.
+Do not use Documentation Audit Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

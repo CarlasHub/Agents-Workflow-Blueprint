@@ -1,0 +1,19 @@
+{
+  "id": "v3-regression-risk-review",
+  "category": "review",
+  "title": "Evaluate Regression Risk Review Prompt",
+  "task": "In a fictional engineering repository, for shared date parsing, trace API, UI, exports, timezone handling, stored formats, and error messages; require boundary fixtures and rollback or forward recovery before approval.",
+  "prompt": "docs/template-library/prompts/13-regression-risk-review-prompt.md",
+  "skill": "docs/template-library/skills/13-code-review-skill.md",
+  "contract": "docs/template-library/contracts/15-refactor-safety-contract.md",
+  "acceptance_criteria": [
+    "An impact graph connecting changed artefacts to callers, consumers, states, interfaces, and operational boundaries.",
+    "A risk register with existing coverage, missing checks, detection signal, recovery path, and owner.",
+    "Focused evidence for the most severe plausible regression, including non-happy-path behaviour.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject approval based solely on diff size or a green existing suite.",
+    "Reject risk reports that mix confirmed defects with unsupported speculation."
+  ]
+}

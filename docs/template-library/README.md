@@ -4,11 +4,11 @@ This is the product layer of the Agent Workflow Blueprint: 100 specialist source
 
 ## What is included
 
-- **40 scenario-specific prompts** for execution, review, UI, accessibility, testing, security, documentation, and release control.
+- **40 v3 scenario-specific prompts** for execution, review, UI, accessibility, testing, security, documentation, and release control.
 - **30 executable skills** for repeatable agent workflows.
 - **30 enforceable contracts** for acceptance, rejection, and evidence gates.
 
-Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) and the normalized [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) registry. Reused controls exist once and are included once during composition. Each source module still retains at least three non-interchangeable specialist instructions, procedure steps, or hard gates plus distinct evidence requirements. The controlled final statuses remain **verified, partially verified, not verified, blocked**.
+Every asset references the concise shared [`GOVERNANCE-KERNEL.md`](GOVERNANCE-KERNEL.md) and the normalized [`SPECIALIST-CONTROLS.md`](SPECIALIST-CONTROLS.md) registry. Reused controls exist once and are included once during composition. Every prompt also includes concrete inputs, five to ten domain instructions, decision gates, evidence, recovery paths, rejection conditions, an output record, and a worked example. Skills and contracts retain their executable procedures and hard gates. The controlled final statuses remain **verified, partially verified, not verified, blocked**.
 
 ## Use the system this way
 
@@ -35,11 +35,11 @@ Open [`CATALOGUE.md`](CATALOGUE.md) for all 100 assets grouped by type and categ
 
 ## Source modules and copy-ready assets
 
-The Markdown files under `prompts/`, `skills/`, and `contracts/` are concise authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website presents one dialog with a concise introduction, the standalone prompt/skill/contract as literal Markdown code, a compact copy control, and linked references. `scripts/compose_assets.py` produces the same complete copied output.
+The Markdown files under `prompts/`, `skills/`, and `contracts/` are authoring modules. They contain specialist work directly and reference only genuinely shared controls. Do not provide a source module alone unless the recipient already has its kernel and registry dependencies. The website presents one dialog with a concise introduction, the complete composed prompt/skill/contract as literal Markdown code, one compact copy control beside that code, and linked references. `scripts/compose_assets.py` produces the same copied output.
 
 ## Machine-readable catalogue
 
-Open [`assets.json`](assets.json) for site integration, governance profiles, ordered specialist-control references, and automation.
+Open [`assets.json`](assets.json) for site integration, version and risk metadata, required inputs, expected outputs, governance profiles, evaluation-case mappings, ordered specialist-control references, and automation.
 
 ## Usage rule
 
@@ -61,7 +61,7 @@ The product does not rely on prompt length alone. It relies on observable contro
 These documents map published techniques to inspectable repository controls without claiming that the repository independently validates those techniques:
 
 - `SCIENTIFIC-DNA.md` — maps CoT-safe public reasoning, Tree-of-Thoughts-style branching, ReAct loops, least-to-most decomposition, self-consistency, self-refinement, process supervision, constitutional/contract critique, and traceability to repository behaviour.
-- `PROMPT-ARCHITECTURE.md` — defines the nine-layer structure used by high-risk prompts.
+- `PROMPT-ARCHITECTURE.md` — defines the v3 source contract, composition order, common handoff, and evidence architecture.
 - `TRACEABILITY-MATRIX.md` — provides the requirement-to-evidence matrix used by contracts and release gates.
 - `SYSTEM-2-PROMPTING-GUIDE.md` — explains how to use “System 2” as a deliberate-work metaphor without overclaiming human-like cognition.
 

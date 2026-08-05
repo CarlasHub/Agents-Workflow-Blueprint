@@ -1,0 +1,19 @@
+{
+  "id": "v3-architecture-drift-audit",
+  "category": "architecture",
+  "title": "Evaluate Architecture Drift Audit Prompt",
+  "task": "In a fictional engineering repository, for UI code calling storage directly, verify the intended adapter boundary, trace actual calls and tests, distinguish a documented exception, and stage migration without breaking existing consumers.",
+  "prompt": "docs/template-library/prompts/15-architecture-drift-audit-prompt.md",
+  "skill": "docs/template-library/skills/16-architecture-review-skill.md",
+  "contract": "docs/template-library/contracts/14-architecture-boundary-contract.md",
+  "acceptance_criteria": [
+    "An intended-versus-current architecture map with concrete dependency and ownership rules.",
+    "Direct import, registration, runtime, schema, or deployment evidence for every drift finding.",
+    "A staged correction plan identifying consumers, compatibility, rollout, observability, and rollback.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject drift findings inferred solely from naming or repository layout.",
+    "Reject big-bang architecture rewrites without consumer, migration, and rollback evidence."
+  ]
+}

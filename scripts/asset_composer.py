@@ -76,7 +76,12 @@ def _friendly_heading(heading: str) -> str:
         "Contract owner": "Role",
         "Task-specific mission": "Mission",
         "Task-specific instructions": "Instructions",
+        "When to use": "Use this when",
+        "When not to use": "Do not use this when",
+        "Required inputs": "Inputs required",
+        "Decision gates": "Decision gates",
         "Required evidence": "Evidence required",
+        "Failure modes and recovery": "Failure modes and recovery",
         "Evidence to collect": "Evidence required",
         "Task-specific rejection conditions": "Rejection conditions",
         "Output format": "Response format",
@@ -86,9 +91,7 @@ def _friendly_heading(heading: str) -> str:
 
 def _friendly_asset_module(asset: dict, markdown: str, *, heading_level: int = 1) -> str:
     title, sections = split_sections(markdown)
-    excluded = {
-        "Metadata", "When to use", "When not to use", "Dependencies", "Shared specialist controls"
-    }
+    excluded = {"Metadata", "Dependencies", "Shared specialist controls"}
     parts = [f"{'#' * heading_level} {title or asset.get('title', 'Agent workflow asset')}"]
     for heading, body in sections.items():
         if heading in excluded:

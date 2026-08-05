@@ -1,6 +1,6 @@
 # Specialist Control Registry
 
-Version: 1.0.0
+Version: 3.0.0
 
 This registry is the authoritative source for specialist controls used by more than one asset. Assets reference stable IDs; deterministic composition includes each selected control once. Generic governance remains in `GOVERNANCE-KERNEL.md`.
 

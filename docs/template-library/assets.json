@@ -32,7 +32,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-master-agent-enforcement-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use at the start of a serious coding-agent session when the agent must obey repository rules, evidence discipline, and release-honesty constraints.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -60,6 +60,21 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-master-agent-enforcement"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, exclusions, delivery boundary, and authority granted to the agent.",
+      "Applicable repository instructions, workflow contracts, affected artefacts, and required release gates.",
+      "Available tools, runtimes, permissions, external systems, and any actions that require separate approval.",
+      "The specialist prompt, skill, and acceptance contract selected for the concrete engineering task."
+    ],
+    "expected_outputs": [
+      "Governed engineering handoff",
+      "A scope and control map naming the governing instructions, selected specialist assets, affected paths, owners, and excluded work.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -93,7 +108,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-evidence-first-implementation-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a feature, bug fix, refactor, or documentation change must be implemented with proof before any success claim.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -121,6 +136,21 @@
       "SPC-CD53A45407",
       "SPC-5207222384",
       "SPC-2BF68A2A8A"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-evidence-first-implementation"
+    ],
+    "required_inputs": [
+      "The requested behaviour expressed as observable user, API, data, or repository outcomes.",
+      "The current implementation path, affected tests and documentation, and repository-defined verification commands.",
+      "Known failure cases, edge states, compatibility obligations, and non-functional constraints.",
+      "The permitted edit, dependency, migration, deployment, and external-action boundary."
+    ],
+    "expected_outputs": [
+      "Evidence-first implementation result",
+      "Before-and-after evidence for the exact behaviour, including the original failing or missing path.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -157,7 +187,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-anti-fake-completion-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use after an agent claims success and you need to test whether the claim is real, exaggerated, or unsupported.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -185,6 +215,21 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "unsupported-success-claim"
+    ],
+    "required_inputs": [
+      "The exact completion, quality, accessibility, security, or release claim being asserted.",
+      "The implementation diff, referenced artefacts, command transcripts, runtime evidence, and manual-review records.",
+      "The acceptance criteria and failure signals that would disprove the claim.",
+      "Known skipped checks, unavailable environments, mocks, stubs, and unresolved reviewer comments."
+    ],
+    "expected_outputs": [
+      "Completion-claim audit",
+      "An atomic claim ledger mapping each assertion to its cited and independently inspected evidence.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -220,7 +265,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-assumption-exposure-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before implementation or review when hidden assumptions could change architecture, UX, security, or release judgement.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -248,6 +293,21 @@
       "SPC-B2399CA6E8",
       "SPC-3C8402A601",
       "SPC-C529DE3CCA"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-assumption-exposure"
+    ],
+    "required_inputs": [
+      "The proposed implementation, review decision, architecture change, or release claim under consideration.",
+      "Confirmed requirements, stakeholder decisions, repository rules, and system constraints.",
+      "Unknowns involving users, data, integrations, permissions, environments, compatibility, or operations.",
+      "Evidence sources that could confirm or falsify each material assumption."
+    ],
+    "expected_outputs": [
+      "Assumption and decision register",
+      "An assumption register containing classification, impact, owner, evidence source, and resolution status.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -283,7 +343,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-uncertainty-calibration-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when an answer sounds confident but evidence quality varies across code, UI, tests, or documentation.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -311,6 +371,21 @@
       "SPC-B2399CA6E8",
       "SPC-3C8402A601",
       "SPC-C529DE3CCA"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-uncertainty-calibration"
+    ],
+    "required_inputs": [
+      "The answer, review, estimate, or completion claim whose confidence needs calibration.",
+      "Available source, runtime, command, specialist, and manual-review evidence for each material statement.",
+      "Known environmental limits, sampling limits, mocks, stale data, and unavailable checks.",
+      "The consequence of false confidence or excessive caution for users and release decisions."
+    ],
+    "expected_outputs": [
+      "Calibrated claim report",
+      "A claim-confidence table containing evidence type, scope, contradiction, limitation, and calibrated status.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -346,7 +421,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-contradiction-detection-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when docs, tests, UI, code, README, or release language may disagree.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -374,6 +449,21 @@
       "SPC-B2399CA6E8",
       "SPC-3C8402A601",
       "SPC-C529DE3CCA"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-contradiction-detection"
+    ],
+    "required_inputs": [
+      "The claim or behaviour being compared across code, tests, configuration, UI, API, documentation, and release evidence.",
+      "Candidate sources of truth and their owners, dates, generated status, and runtime authority.",
+      "The affected consumers and consequences if the contradiction is resolved in either direction.",
+      "Commands or runtime observations capable of distinguishing stale text from broken implementation."
+    ],
+    "expected_outputs": [
+      "Contradiction resolution matrix",
+      "A contradiction matrix listing each artefact, its claim, authority, version, and observed consistency result.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -406,7 +496,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-premortem-failure-analysis-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before merge, release, or large refactor to imagine failure and prevent avoidable blind spots.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -434,6 +524,21 @@
       "SPC-B7DED1701F",
       "SPC-51A2F90F74",
       "SPC-48BCE38DB5"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-premortem-failure-analysis"
+    ],
+    "required_inputs": [
+      "The proposed change, release, migration, or operational action and its intended success condition.",
+      "Affected users, systems, data, integrations, dependencies, and rollback owners.",
+      "Known constraints involving scale, timing, permissions, partial failure, and observability.",
+      "Available staging, test, backup, feature-flag, monitoring, and recovery mechanisms."
+    ],
+    "expected_outputs": [
+      "Premortem and recovery register",
+      "A ranked failure register with initiating event, affected asset, detection signal, impact, and recovery difficulty.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -468,7 +573,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-scope-boundary-lock-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when the task is at risk of scope creep, hidden dependencies, or accidental redesign.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -496,6 +601,21 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "scope-creep-detection"
+    ],
+    "required_inputs": [
+      "The user\u2019s exact requested outcome and explicitly authorized systems, files, data, environments, and external actions.",
+      "Inferred improvements, adjacent defects, technical debt, and optional opportunities discovered during inspection.",
+      "Required acceptance criteria, verification work, and preservation obligations that remain in scope.",
+      "Actions requiring new authority, destructive effects, production access, secrets, cost, or third-party coordination."
+    ],
+    "expected_outputs": [
+      "Locked scope ledger",
+      "A scope ledger mapping every planned change and verifier to a requirement or preservation obligation.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -527,7 +647,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-minimal-correct-change-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a requested fix must avoid broad rewrites, unrelated styling, or unnecessary dependency changes.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -555,6 +675,21 @@
       "SPC-CD53A45407",
       "SPC-5207222384",
       "SPC-2BF68A2A8A"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-minimal-correct-change"
+    ],
+    "required_inputs": [
+      "The exact failing or missing behaviour and the smallest observable acceptance condition.",
+      "The owning implementation path, callers, consumers, tests, defaults, and compatibility commitments.",
+      "Candidate fixes with their affected surface, reversibility, and failure-path coverage.",
+      "Repository constraints on dependencies, architecture, generated files, accessibility, security, and release."
+    ],
+    "expected_outputs": [
+      "Minimal-change implementation record",
+      "A source-owner trace showing why the selected function, component, handler, or configuration controls the behaviour.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -589,7 +724,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-repository-reconnaissance-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use at the beginning of work on an unfamiliar repository, template pack, or docs/product system.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -617,6 +752,21 @@
       "SPC-F1F42D414B",
       "SPC-D1ABD938E7",
       "SPC-738D856382"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-repository-reconnaissance"
+    ],
+    "required_inputs": [
+      "The question or requested behaviour that the repository inspection must answer.",
+      "Repository instructions, workspace roots, generated or vendored boundaries, and permitted read-only tools.",
+      "Known entry points such as routes, commands, UI triggers, APIs, jobs, configuration, or documentation links.",
+      "The depth required: ownership map, runtime trace, dependency graph, test inventory, or release path."
+    ],
+    "expected_outputs": [
+      "Repository ownership and behaviour map",
+      "A repository map containing entry points, owners, dependencies, state or data transitions, consumers, and external boundaries.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -648,7 +798,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-feature-implementation-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for new feature work that needs design, code, tests, docs, and release evidence kept aligned.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -676,6 +826,21 @@
       "SPC-CD53A45407",
       "SPC-5207222384",
       "SPC-2BF68A2A8A"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-feature-implementation"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The user journeys, API consumers, data states, permissions, and edge conditions affected by the feature.",
+      "Product and technical decisions covering defaults, compatibility, rollout, analytics, accessibility, security, and operational ownership."
+    ],
+    "expected_outputs": [
+      "Feature implementation and behaviour record",
+      "A behaviour matrix covering relevant user, API, data, permission, loading, empty, invalid, and error states.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -711,7 +876,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-bug-root-cause-remediation-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a symptom is known but the actual cause, blast radius, and regression risk must be proven.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -739,6 +904,21 @@
       "SPC-CD53A45407",
       "SPC-5207222384",
       "SPC-2BF68A2A8A"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "small-bug-fix"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "A reproducible failure report with expected behaviour, actual behaviour, inputs, environment, frequency, and impact.",
+      "Logs, traces, stack output, data samples, recent changes, and candidate boundaries capable of producing the symptom."
+    ],
+    "expected_outputs": [
+      "Root-cause and remediation report",
+      "The original reproducible failure and the first incorrect state transition identified in the causal trace.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -774,7 +954,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-regression-risk-review-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use after any implementation that might break adjacent behaviour, shared contracts, or existing user paths.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -802,6 +982,21 @@
       "SPC-B7DED1701F",
       "SPC-51A2F90F74",
       "SPC-48BCE38DB5"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-regression-risk-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The complete diff, intended behaviour, changed interfaces, dependency graph, and migration or rollout plan.",
+      "Existing tests, production or usage signals, downstream consumers, compatibility promises, and rollback capabilities."
+    ],
+    "expected_outputs": [
+      "Regression risk and coverage report",
+      "An impact graph connecting changed artefacts to callers, consumers, states, interfaces, and operational boundaries.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -836,7 +1031,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-code-quality-deep-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for maintainability, structure, dead-code, duplication, and readability review.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -864,6 +1059,21 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-code-quality-deep-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The target modules, architectural boundaries, quality concerns, supported platforms, and maintenance constraints.",
+      "Static-analysis results, complexity or defect evidence, tests, runtime hotspots, and known ownership or compatibility obligations."
+    ],
+    "expected_outputs": [
+      "Code-quality audit and remediation backlog",
+      "A responsibility and dependency map for the audited modules and their public consumers.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -898,7 +1108,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-architecture-drift-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a change may violate boundaries, patterns, ownership, or long-term design constraints.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -926,6 +1136,21 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-architecture-drift-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Documented architecture, module or service boundaries, dependency rules, data ownership, and approved exceptions.",
+      "Current imports, registrations, routes, schemas, runtime calls, deployment topology, and recent structural changes."
+    ],
+    "expected_outputs": [
+      "Architecture drift decision record",
+      "An intended-versus-current architecture map with concrete dependency and ownership rules.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -958,7 +1183,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-dead-code-removal-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when removing unused files, branches, exports, styles, docs, tests, or generated artefacts.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -986,6 +1211,21 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-dead-code-removal"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Candidate files, symbols, routes, flags, configuration, assets, dependencies, or generated outputs proposed for removal.",
+      "Static references, dynamic registration, reflection, build entry points, runtime telemetry, tests, documentation, and release compatibility."
+    ],
+    "expected_outputs": [
+      "Dead-code liveness and removal record",
+      "A liveness inventory with static, dynamic, runtime, generated, external, and compatibility evidence for each candidate.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1018,7 +1258,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-refactor-safety-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when improving structure without intentionally changing behaviour.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1046,6 +1286,21 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-refactor-safety"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The refactor objective, preservation contract, approved structural boundary, and explicitly excluded behaviour changes.",
+      "Current public interfaces, callers, state and data flows, errors, performance constraints, tests, fixtures, and deployment assumptions."
+    ],
+    "expected_outputs": [
+      "Refactor preservation and migration record",
+      "A preservation matrix mapped to source owners, consumers, and executable checks.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1080,7 +1335,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-api-contract-review-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when request/response shapes, public functions, schemas, integrations, or API docs may change.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1108,6 +1363,21 @@
       "SPC-CE597C98CD",
       "SPC-B96524207B",
       "SPC-71CF36EE63"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-api-contract-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The API specification, implementation, schemas, authentication and authorization rules, version policy, and affected consumers.",
+      "Representative success and error requests, compatibility commitments, rate or size limits, observability, and rollout plan."
+    ],
+    "expected_outputs": [
+      "API contract and compatibility review",
+      "A producer-consumer contract matrix covering schemas, defaults, errors, permissions, side effects, and versions.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1140,7 +1410,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-data-flow-trace-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when data origin, transformation, persistence, display, export, or logging must be understood.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1168,6 +1438,21 @@
       "SPC-CE597C98CD",
       "SPC-B96524207B",
       "SPC-71CF36EE63"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-data-flow-trace"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The data element, event, identifier, or user action to trace and its expected lifecycle.",
+      "Entry points, schemas, transformations, stores, caches, queues, exports, logs, deletion rules, and external processors."
+    ],
+    "expected_outputs": [
+      "End-to-end data-flow and lifecycle trace",
+      "An end-to-end data-flow diagram with actors, stores, transformations, trust boundaries, and owners.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1200,7 +1485,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-state-management-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for frontend or application state that may become stale, inconsistent, duplicated, or race-prone.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1228,6 +1513,21 @@
       "SPC-CE597C98CD",
       "SPC-B96524207B",
       "SPC-71CF36EE63"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-state-management-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The user journey, state owners, events, reducers or stores, server synchronization, persistence, routing, and derived state.",
+      "Loading, empty, error, optimistic, stale, retry, cancellation, concurrency, offline, and permission states."
+    ],
+    "expected_outputs": [
+      "State ownership and transition audit",
+      "A state ownership and transition diagram including asynchronous, error, cancellation, and cleanup paths.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1261,7 +1561,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-ui-structure-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a UI must be inspected for hierarchy, grouping, spacing, layout, and real rendered structure.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1289,6 +1589,21 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-ui-structure-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Rendered screens and responsive states plus the components, routes, content model, and design-system primitives that produce them.",
+      "Primary tasks, information hierarchy, landmarks, reading order, interaction groups, empty states, errors, and navigation expectations."
+    ],
+    "expected_outputs": [
+      "UI structure and hierarchy audit",
+      "Annotated screenshots or runtime observations mapped to components and semantic structure.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1323,7 +1638,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-visual-design-quality-gate-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before accepting a UI that must look polished, readable, aligned, and professionally finished.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1351,6 +1666,21 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-visual-design-quality-gate"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Rendered reference screens, design tokens, component specifications, target viewports, content variants, and brand constraints.",
+      "The intended hierarchy, density, alignment, typography, spacing, colour, imagery, and responsive behaviour."
+    ],
+    "expected_outputs": [
+      "Visual quality gate report",
+      "Viewport screenshots or live observations with exact component and state locations for each finding.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1384,7 +1714,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-design-system-consistency-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when components, tokens, typography, icons, spacing, and interaction states must remain consistent.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1412,6 +1742,21 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-design-system-consistency"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Design tokens, component APIs, variant rules, documented exceptions, and the rendered surfaces being compared.",
+      "Usage locations, duplicated styles, one-off values, themes, responsive states, and accessibility requirements."
+    ],
+    "expected_outputs": [
+      "Design-system consistency and migration report",
+      "A usage inventory mapping components and tokens to surfaces, variants, states, themes, and exceptions.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1445,7 +1790,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-responsive-layout-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when layouts must survive mobile, tablet, desktop, long content, and constrained viewport states.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1473,6 +1818,21 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-responsive-layout-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Target viewport ranges, zoom expectations, content extremes, device or input constraints, and supported browser matrix.",
+      "Rendered pages, layout containers, breakpoints, intrinsic sizing, overflow behaviour, tables, dialogs, navigation, and media."
+    ],
+    "expected_outputs": [
+      "Responsive reflow and overflow audit",
+      "Viewport and zoom matrix results with measured document and component overflow.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1506,7 +1866,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-interaction-state-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for buttons, forms, menus, tables, cards, dialogs, navigation, and other interactive UI states.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1534,6 +1894,21 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-interaction-state-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Interactive components, state model, user tasks, supported input methods, asynchronous operations, and design-system state rules.",
+      "Primary, hover, focus, active, selected, expanded, disabled, loading, success, warning, error, retry, and cancellation states."
+    ],
+    "expected_outputs": [
+      "Interaction-state behaviour matrix",
+      "A control-state matrix covering trigger, visuals, semantics, focus, announcement, result, and recovery.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1566,7 +1941,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-keyboard-journey-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when interactive surfaces must be navigable without a mouse and must avoid keyboard traps.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1594,6 +1969,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-keyboard-journey-audit"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The primary and secondary user journeys, interactive elements, overlays, routes, dynamic updates, and expected keyboard conventions.",
+      "Supported browsers, platform conventions, focus styles, skip mechanisms, shortcuts, and composite-widget patterns."
+    ],
+    "expected_outputs": [
+      "Keyboard journey evidence log",
+      "A step-by-step keyboard journey log with key, focused element, visible indicator, state, result, and issue status.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1626,7 +2016,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-accessibility-remediation-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a specific accessibility issue must be fixed without fake pass language or harmful ARIA patches.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1654,6 +2044,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "accessibility-remediation"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The confirmed accessibility issue, affected users, normative requirement or usability expectation, and reproduction steps.",
+      "Rendered UI, semantic source, state owner, keyboard behaviour, accessible tree evidence, tests, and supported assistive-technology scope."
+    ],
+    "expected_outputs": [
+      "Accessibility remediation and residual-risk report",
+      "Before-and-after user-impact reproduction with semantic, keyboard, focus, announcement, and responsive observations.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1686,7 +2091,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-screen-reader-risk-review-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when dynamic UI, forms, icon controls, modals, route changes, or live regions may confuse assistive technology users.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1714,6 +2119,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-screen-reader-risk-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The user journeys, semantic markup, accessible names and descriptions, dynamic states, announcements, and supported browser/assistive-technology combinations.",
+      "Known keyboard behaviour, visual context, forms, tables, dialogs, live regions, route changes, and error handling."
+    ],
+    "expected_outputs": [
+      "Screen-reader risk and manual test plan",
+      "An accessibility-tree and semantic review mapped to each primary journey and dynamic state.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1748,7 +2168,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-wcag-mapping-review-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when findings need a careful mapping to WCAG 2.2 success criteria and severity without overstating certainty.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1776,6 +2196,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-wcag-mapping-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The specific interface, user impact, observed issue, target WCAG version and conformance level, and organizational interpretation policy.",
+      "Rendered and semantic evidence, keyboard behaviour, content, media, forms, dynamic states, responsive behaviour, and automation results."
+    ],
+    "expected_outputs": [
+      "WCAG applicability and evidence matrix",
+      "A criterion matrix containing version, level, applicability, user impact, observed evidence, status, and required follow-up.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1808,7 +2243,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-icon-only-control-review-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when icon buttons, compact actions, menus, or toolbar controls may lack clear names or affordances.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1836,6 +2271,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-icon-only-control-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Every icon-only button, link, toggle, menu item, toolbar control, and status indicator in the requested scope.",
+      "The user purpose, visible context, native element, accessible name, tooltip, state, target size, focus, and activation behaviour."
+    ],
+    "expected_outputs": [
+      "Icon-control accessibility inventory",
+      "A control inventory with purpose, element, accessible name, state, keyboard behaviour, target size, and feedback.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1870,7 +2320,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-playwright-test-design-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when designing browser tests for real user behaviour, accessibility checks, and stable selectors.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1898,6 +2348,21 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-playwright-test-design"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The user-visible journeys, browsers, viewports, permissions, data fixtures, external boundaries, and failure states requiring browser evidence.",
+      "Existing selectors, accessibility semantics, network strategy, test isolation, CI resources, retries, traces, and artifact policy."
+    ],
+    "expected_outputs": [
+      "Playwright journey and failure-path design",
+      "A test matrix mapping requirements and failure paths to browser journeys, fixtures, selectors, and assertions.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1933,7 +2398,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-test-quality-audit-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when tests pass but may be shallow, flaky, over-mocked, or unrelated to real risk.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -1961,6 +2426,21 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "incomplete-test-coverage"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The changed or critical behaviour, test suite, coverage reports, fixtures, mocks, fakes, test utilities, and CI history.",
+      "Known defects, edge cases, contracts, integration boundaries, nondeterminism, platform variance, and maintenance pain."
+    ],
+    "expected_outputs": [
+      "Test evidence and coverage-quality audit",
+      "A requirement-to-test matrix with layer, assertion, fixture, failure signal, and evidence limitation.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -1995,7 +2475,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-release-evidence-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before final handoff, merge approval, release note creation, or claim publication.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2023,6 +2503,21 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "release-evidence-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The proposed release scope, commit or artifact identifiers, acceptance criteria, change log, approvals, and deployment target.",
+      "Source checks, tests, builds, browser evidence, accessibility and security reviews, migrations, rollback, monitoring, and hosted smoke results."
+    ],
+    "expected_outputs": [
+      "Release evidence and decision packet",
+      "A release matrix linking requirement, commit or artifact, command or manual check, environment, observed result, and status.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2055,7 +2550,7 @@
       "Formal verification and traceability"
     ],
     "id": "prompt-documentation-truthfulness-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when docs, guides, examples, or site copy may promise more than the implementation proves.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2083,6 +2578,21 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "documentation-contradiction"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The documentation claims, commands, examples, screenshots, setup steps, version references, and intended audience in scope.",
+      "Current implementation, configuration, APIs, UI, generated outputs, tests, release evidence, and known limitations."
+    ],
+    "expected_outputs": [
+      "Documentation claim and correction ledger",
+      "A claim ledger containing document location, claim type, source of truth, verification method, result, and corrected wording.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2117,7 +2627,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-readme-upgrade-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a README needs to become a useful product entry point, not just a file list.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2145,6 +2655,21 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-readme-upgrade"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Verified product purpose, audiences, supported journeys, setup requirements, commands, limitations, license, and contribution paths.",
+      "Current README, documentation topology, implementation, release evidence, examples, links, and public claims."
+    ],
+    "expected_outputs": [
+      "README information architecture and verification report",
+      "An audience-to-section map explaining the README hierarchy and removed duplication.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2179,7 +2704,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "prompt-github-pages-template-hub-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when turning repository files into a public template hub with copy actions, categories, examples, and low-friction navigation.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2207,6 +2732,21 @@
       "SPC-B0F9D04810",
       "SPC-E210F8DD35",
       "SPC-1F6BE8CB53"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-github-pages-template-hub"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The static-site audience, template catalogue, content sources, routes, browser capabilities, build and Pages constraints, and repository ownership.",
+      "Search, filtering, preview, copy, download, no-JavaScript, responsive, accessibility, caching, deployment, and failure requirements."
+    ],
+    "expected_outputs": [
+      "GitHub Pages template-hub implementation record",
+      "A static architecture and threat-boundary map covering content, manifest, browser, clipboard, downloads, cache, and deployment.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2240,7 +2780,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-security-trust-boundary-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a change touches actors, permissions, data, integration, exports, admin features, or sensitive operations.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2268,6 +2808,21 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "security-configuration-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "Actors, identities, assets, data classifications, entry and exit points, permissions, integrations, deployments, and sensitive operations.",
+      "Architecture and data-flow diagrams, authentication and authorization code, configuration, dependencies, logs, tests, abuse reports, and operational controls."
+    ],
+    "expected_outputs": [
+      "Security trust-boundary and abuse-case review",
+      "A trust-boundary and privilege map showing actors, assets, zones, transitions, controls, and owners.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2301,7 +2856,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-secrets-handling-review-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when environment variables, tokens, credentials, logs, CI, config, or integrations may expose secrets.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2329,6 +2884,21 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-secrets-handling-review"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The suspected credential types, locations, owners, environments, scopes, consumers, rotation mechanisms, and incident boundary.",
+      "Repository history, build artifacts, logs, configuration, secret stores, CI variables, documentation, examples, and deployment state."
+    ],
+    "expected_outputs": [
+      "Sanitized secret containment and rotation record",
+      "Sanitized location, type, scope, owner, first-known exposure, and affected-environment inventory without plaintext.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2363,7 +2933,7 @@
       "Self-Consistency"
     ],
     "id": "prompt-observability-and-logging-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when work needs useful logs, metrics, traces, alerts, or operational evidence without privacy leakage.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2391,6 +2961,21 @@
       "SPC-EEA9B39F0F",
       "SPC-C595067E22",
       "SPC-FC8CF96A37"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-observability-and-logging"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The user and operational journeys, service boundaries, failure modes, reliability objectives, support needs, and data classifications.",
+      "Existing logs, metrics, traces, audit events, correlation identifiers, dashboards, alerts, retention, access, sampling, and cost constraints."
+    ],
+    "expected_outputs": [
+      "Observability contract and operational evidence",
+      "An observability contract mapping decisions and failure modes to logs, metrics, traces, audit events, fields, and owners.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2427,7 +3012,7 @@
       "Premortem failure analysis"
     ],
     "id": "prompt-final-merge-gate-prompt",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use as the final review prompt before merge or publication when all evidence must be consolidated.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2455,6 +3040,21 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-final-merge-gate"
+    ],
+    "required_inputs": [
+      "The exact requested outcome, observable acceptance criteria, exclusions, and authorized change boundary.",
+      "Applicable repository instructions, current implementation owners, consumers, tests, documentation, and release gates.",
+      "The exact candidate commit, branch, diff, issue or requirement set, review threads, approvals, and target branch protections.",
+      "Implementation, tests, builds, browser evidence, accessibility, security, data, documentation, migration, release, and rollback records."
+    ],
+    "expected_outputs": [
+      "Final merge acceptance decision",
+      "A requirement-to-commit evidence matrix with exact files, commands, runtime observations, reviewers, and statuses.",
+      "GOV-HANDOFF-01 evidence handoff with one controlled final status."
     ]
   },
   {
@@ -2490,7 +3090,7 @@
       "Reflexion"
     ],
     "id": "skill-scoping-packet-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when converting a task request into a bounded, reviewable scoping packet.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2518,6 +3118,20 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "scope-creep-detection"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Scoping Packet Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Scoping Packet Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Scoping Packet Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2553,7 +3167,7 @@
       "Reflexion"
     ],
     "id": "skill-implementation-planning-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when the agent needs a safe implementation plan before editing.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2581,6 +3195,22 @@
       "SPC-CD53A45407",
       "SPC-5207222384",
       "SPC-2BF68A2A8A"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-evidence-first-implementation",
+      "v3-feature-implementation",
+      "v3-minimal-correct-change"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Implementation Planning Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Implementation Planning Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Implementation Planning Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2616,7 +3246,7 @@
       "Reflexion"
     ],
     "id": "skill-repository-mapping-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when the repository structure, authority files, and scripts must be understood before change.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2644,6 +3274,20 @@
       "SPC-F1F42D414B",
       "SPC-D1ABD938E7",
       "SPC-738D856382"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-repository-reconnaissance"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Repository Mapping Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Repository Mapping Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Repository Mapping Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2679,7 +3323,7 @@
       "Reflexion"
     ],
     "id": "skill-evidence-collection-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when gathering proof for implementation, review, documentation, or release claims.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2707,6 +3351,18 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Evidence Collection Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Evidence Collection Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Evidence Collection Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2742,7 +3398,7 @@
       "Reflexion"
     ],
     "id": "skill-verification-reporting-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when command results, manual checks, and skipped checks must be reported cleanly.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2770,6 +3426,20 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-uncertainty-calibration"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Verification Reporting Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Verification Reporting Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Verification Reporting Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2806,7 +3476,7 @@
       "Premortem failure analysis"
     ],
     "id": "skill-failure-disclosure-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when the answer must disclose incomplete, unverified, risky, or weaker-than-requested work.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2834,6 +3504,20 @@
       "SPC-B2399CA6E8",
       "SPC-3C8402A601",
       "SPC-C529DE3CCA"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "unsupported-success-claim"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Failure Disclosure Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Failure Disclosure Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Failure Disclosure Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2868,7 +3552,7 @@
       "Reflexion"
     ],
     "id": "skill-ui-screenshot-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when screenshots or rendered UI must be audited for defects and state mismatches.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2896,6 +3580,23 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-design-system-consistency",
+      "v3-responsive-layout-audit",
+      "v3-ui-structure-audit",
+      "v3-visual-design-quality-gate"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for UI Screenshot Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute UI Screenshot Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible UI Screenshot Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2929,7 +3630,7 @@
       "Reflexion"
     ],
     "id": "skill-accessibility-inspection-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when inspecting semantic structure, names, keyboard behaviour, and user impact.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -2957,6 +3658,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-icon-only-control-review",
+      "v3-screen-reader-risk-review"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Accessibility Inspection Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Accessibility Inspection Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Accessibility Inspection Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -2992,7 +3708,7 @@
       "Reflexion"
     ],
     "id": "skill-wcag-mapping-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when translating accessibility findings into WCAG 2.2 references and remediation evidence.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3020,6 +3736,20 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-wcag-mapping-review"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for WCAG Mapping Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute WCAG Mapping Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible WCAG Mapping Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3054,7 +3784,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "skill-keyboard-testing-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when interactive flows must be tested by keyboard.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3082,6 +3812,22 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "accessibility-remediation",
+      "v3-interaction-state-audit",
+      "v3-keyboard-journey-audit"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Keyboard Testing Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Keyboard Testing Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Keyboard Testing Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3116,7 +3862,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "skill-playwright-debugging-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when browser tests fail, flake, or need meaningful behaviour assertions.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3144,6 +3890,20 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-playwright-test-design"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Playwright Debugging Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Playwright Debugging Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Playwright Debugging Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3178,7 +3938,7 @@
       "Chain-of-Thought Prompting"
     ],
     "id": "skill-regression-test-design-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when a bug fix or feature needs tests that would catch future breakage.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3206,6 +3966,21 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "incomplete-test-coverage",
+      "small-bug-fix"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Regression Test Design Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Regression Test Design Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Regression Test Design Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3239,7 +4014,7 @@
       "Reflexion"
     ],
     "id": "skill-code-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when reviewing a diff for correctness, maintainability, and evidence.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3267,6 +4042,22 @@
       "SPC-B7DED1701F",
       "SPC-51A2F90F74",
       "SPC-48BCE38DB5"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-code-quality-deep-audit",
+      "v3-regression-risk-review",
+      "v3-state-management-audit"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Code Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Code Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Code Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3302,7 +4093,7 @@
       "Reflexion"
     ],
     "id": "skill-refactor-planning-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when structural improvement is needed but behaviour must stay stable.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3330,6 +4121,20 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-refactor-safety"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Refactor Planning Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Refactor Planning Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Refactor Planning Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3363,7 +4168,7 @@
       "Reflexion"
     ],
     "id": "skill-dead-code-detection-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when deciding whether files, exports, branches, styles, or docs are unused.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3391,6 +4196,20 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-dead-code-removal"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Dead Code Detection Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Dead Code Detection Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Dead Code Detection Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3426,7 +4245,7 @@
       "Reflexion"
     ],
     "id": "skill-architecture-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when reviewing boundaries, ownership, coupling, and long-term maintainability.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3454,6 +4273,20 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-architecture-drift-audit"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Architecture Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Architecture Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Architecture Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3489,7 +4322,7 @@
       "Reflexion"
     ],
     "id": "skill-api-contract-inspection-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when API shapes, schemas, callers, and docs must be reconciled.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3517,6 +4350,20 @@
       "SPC-CE597C98CD",
       "SPC-B96524207B",
       "SPC-71CF36EE63"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-api-contract-review"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for API Contract Inspection Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute API Contract Inspection Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible API Contract Inspection Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3551,7 +4398,7 @@
       "Reflexion"
     ],
     "id": "skill-security-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when reviewing trust boundaries, permissions, secrets, data handling, and abuse paths.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3579,6 +4426,20 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "security-configuration-review"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Security Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Security Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Security Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3613,7 +4474,7 @@
       "Reflexion"
     ],
     "id": "skill-secrets-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when tokens, env vars, logs, config, or CI may expose secrets.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3641,6 +4502,20 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-secrets-handling-review"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Secrets Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Secrets Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Secrets Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3676,7 +4551,7 @@
       "Reflexion"
     ],
     "id": "skill-data-privacy-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when personal, tenant, customer, analytics, export, or audit data may be collected or exposed.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3704,6 +4579,20 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-data-flow-trace"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Data Privacy Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Data Privacy Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Data Privacy Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3737,7 +4626,7 @@
       "Reflexion"
     ],
     "id": "skill-documentation-audit-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when docs must be checked against implementation and repository reality.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3765,6 +4654,21 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "documentation-contradiction",
+      "v3-contradiction-detection"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Documentation Audit Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Documentation Audit Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Documentation Audit Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3800,7 +4704,7 @@
       "Reflexion"
     ],
     "id": "skill-release-notes-review-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when release notes must represent verified behaviour and known limitations.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3828,6 +4732,20 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "release-evidence-review"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Release Notes Review Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Release Notes Review Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Release Notes Review Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3863,7 +4781,7 @@
       "Reflexion"
     ],
     "id": "skill-readme-structuring-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when README needs a clearer user journey, catalogue, and verification instructions.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3891,6 +4809,20 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-readme-upgrade"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for README Structuring Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute README Structuring Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible README Structuring Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3926,7 +4858,7 @@
       "Reflexion"
     ],
     "id": "skill-template-catalogue-design-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when organising many templates into categories, starter packs, and discoverable metadata.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -3954,6 +4886,18 @@
       "SPC-B0F9D04810",
       "SPC-E210F8DD35",
       "SPC-1F6BE8CB53"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Template Catalogue Design Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Template Catalogue Design Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Template Catalogue Design Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -3989,7 +4933,7 @@
       "Reflexion"
     ],
     "id": "skill-github-pages-ux-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when the public site must serve templates clearly on GitHub Pages.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4017,6 +4961,20 @@
       "SPC-B0F9D04810",
       "SPC-E210F8DD35",
       "SPC-1F6BE8CB53"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-github-pages-template-hub"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for GitHub Pages UX Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute GitHub Pages UX Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible GitHub Pages UX Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -4050,7 +5008,7 @@
       "Reflexion"
     ],
     "id": "skill-copy-ready-prompt-writing-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when prompts must be immediately usable by agents without vague placeholders.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4078,6 +5036,18 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Copy-Ready Prompt Writing Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Copy-Ready Prompt Writing Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Copy-Ready Prompt Writing Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -4114,7 +5084,7 @@
       "Premortem failure analysis"
     ],
     "id": "skill-agent-behaviour-hardening-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when prompts or workflows need stronger controls against shortcuts and overclaiming.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4142,6 +5112,20 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-master-agent-enforcement"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Agent Behaviour Hardening Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Agent Behaviour Hardening Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Agent Behaviour Hardening Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -4175,7 +5159,7 @@
       "Reflexion"
     ],
     "id": "skill-prompt-evaluation-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when assessing whether prompts produce reliable, honest, and useful agent output.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4203,6 +5187,18 @@
       "SPC-B2399CA6E8",
       "SPC-3C8402A601",
       "SPC-C529DE3CCA"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Prompt Evaluation Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Prompt Evaluation Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Prompt Evaluation Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -4236,7 +5232,7 @@
       "Reflexion"
     ],
     "id": "skill-risk-register-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when work requires a live list of risks, owners, mitigations, and verification gaps.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4264,6 +5260,22 @@
       "SPC-B7DED1701F",
       "SPC-51A2F90F74",
       "SPC-48BCE38DB5"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-assumption-exposure",
+      "v3-observability-and-logging",
+      "v3-premortem-failure-analysis"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Risk Register Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Risk Register Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Risk Register Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -4297,7 +5309,7 @@
       "Reflexion"
     ],
     "id": "skill-final-delivery-packaging-skill",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when packaging an upgraded repository, template system, or release bundle.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4325,6 +5337,20 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-final-merge-gate"
+    ],
+    "required_inputs": [
+      "A scoped trigger and authorized target for Final Delivery Packaging Skill.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "The preconditions, source artefacts, and tool access needed to execute Final Delivery Packaging Skill safely."
+    ],
+    "expected_outputs": [
+      "The reproducible Final Delivery Packaging Skill procedure result.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 procedure evidence with one controlled final status."
     ]
   },
   {
@@ -4361,7 +5387,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-completion-honesty-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use as the top-level acceptance rule against fake completion.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4389,6 +5415,20 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "unsupported-success-claim"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Completion Honesty Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Completion Honesty Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Completion Honesty Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4423,7 +5463,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-evidence-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when every claim must be traceable to inspected files, behaviour, commands, or manual evidence.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4451,6 +5491,21 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-evidence-first-implementation",
+      "v3-uncertainty-calibration"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Evidence Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Evidence Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Evidence Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4487,7 +5542,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-scope-control-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use to reject hidden scope expansion, accidental redesign, or unrelated changes.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4515,6 +5570,20 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "scope-creep-detection"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Scope Control Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Scope Control Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Scope Control Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4550,7 +5619,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-assumption-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when assumptions must be named before they influence implementation or review.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4578,6 +5647,20 @@
       "SPC-B2399CA6E8",
       "SPC-3C8402A601",
       "SPC-C529DE3CCA"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-assumption-exposure"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Assumption Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Assumption Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Assumption Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4612,7 +5695,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-verification-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when commands, manual checks, and evidence gaps define acceptance.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4640,6 +5723,18 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Verification Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Verification Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Verification Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4675,7 +5770,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-test-behaviour-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when tests must prove user or system behaviour rather than shallow implementation details.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4703,6 +5798,24 @@
       "SPC-ECDA180771",
       "SPC-C0C6AD53CF",
       "SPC-33AB51A64E"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "incomplete-test-coverage",
+      "small-bug-fix",
+      "v3-feature-implementation",
+      "v3-minimal-correct-change",
+      "v3-playwright-test-design"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Test Behaviour Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Test Behaviour Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Test Behaviour Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4736,7 +5849,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-accessibility-contract-plus",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for UI work that must preserve semantic structure, keyboard access, and WCAG-aligned reasoning.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4764,6 +5877,21 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-screen-reader-risk-review",
+      "v3-wcag-mapping-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Accessibility Contract Plus boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Accessibility Contract Plus gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Accessibility Contract Plus acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4797,7 +5925,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-keyboard-interaction-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for menus, dialogs, forms, tables, navigation, and custom controls.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4825,6 +5953,22 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "accessibility-remediation",
+      "v3-interaction-state-audit",
+      "v3-keyboard-journey-audit"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Keyboard Interaction Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Keyboard Interaction Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Keyboard Interaction Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4858,7 +6002,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-accessible-name-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for icon controls, form controls, composite widgets, and dynamic UI.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4886,6 +6030,20 @@
       "SPC-68342B1555",
       "SPC-8897CA6C8F",
       "SPC-F771CE14DC"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-icon-only-control-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Accessible Name Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Accessible Name Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Accessible Name Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4920,7 +6078,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-ui-visual-quality-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before accepting visual UI changes.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -4948,6 +6106,21 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-ui-structure-audit",
+      "v3-visual-design-quality-gate"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the UI Visual Quality Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable UI Visual Quality Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate UI Visual Quality Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -4982,7 +6155,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-design-system-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when UI must follow reusable components, tokens, and interaction patterns.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5010,6 +6183,20 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-design-system-consistency"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Design System Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Design System Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Design System Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5044,7 +6231,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-responsive-behaviour-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when layout must remain usable across viewports and content lengths.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5072,6 +6259,20 @@
       "SPC-56F3C0F154",
       "SPC-E2C0B279DE",
       "SPC-5AC175CF4D"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-responsive-layout-audit"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Responsive Behaviour Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Responsive Behaviour Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Responsive Behaviour Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5106,7 +6307,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-code-quality-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for maintainability and structural acceptance.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5134,6 +6335,20 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-code-quality-deep-audit"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Code Quality Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Code Quality Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Code Quality Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5170,7 +6385,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-architecture-boundary-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when module, layer, dependency, or ownership boundaries matter.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5198,6 +6413,21 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-architecture-drift-audit",
+      "v3-repository-reconnaissance"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Architecture Boundary Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Architecture Boundary Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Architecture Boundary Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5232,7 +6462,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-refactor-safety-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for behaviour-preserving structural change.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5260,6 +6490,21 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-refactor-safety",
+      "v3-regression-risk-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Refactor Safety Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Refactor Safety Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Refactor Safety Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5294,7 +6539,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-dead-code-removal-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when removing apparently unused files, exports, branches, or docs.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5322,6 +6567,20 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-dead-code-removal"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Dead Code Removal Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Dead Code Removal Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Dead Code Removal Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5356,7 +6615,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-documentation-truth-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when docs, examples, and guides must match real implementation.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5384,6 +6643,21 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "documentation-contradiction",
+      "v3-contradiction-detection"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Documentation Truth Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Documentation Truth Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Documentation Truth Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5420,7 +6694,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-readme-claim-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for README updates, public pages, and repository positioning.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5448,6 +6722,20 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-readme-upgrade"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the README Claim Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable README Claim Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate README Claim Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5482,7 +6770,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-release-evidence-contract-plus",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before merge, publication, release note approval, or public handoff.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5510,6 +6798,20 @@
       "SPC-88F93E1499",
       "SPC-E76E5608BB",
       "SPC-281C2DA3D8"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "release-evidence-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Release Evidence Contract Plus boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Release Evidence Contract Plus gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Release Evidence Contract Plus acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5543,7 +6845,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-security-boundary-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when permissions, identities, integrations, data, or sensitive operations change.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5571,6 +6873,20 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "security-configuration-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Security Boundary Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Security Boundary Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Security Boundary Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5604,7 +6920,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-secrets-handling-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for environment variables, credentials, CI, logs, tokens, and configuration.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5632,6 +6948,20 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-secrets-handling-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Secrets Handling Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Secrets Handling Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Secrets Handling Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5666,7 +6996,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-privacy-and-data-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use for personal, tenant, analytics, export, retention, or audit data.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5694,6 +7024,20 @@
       "SPC-CC24B506CF",
       "SPC-8410E57EDA",
       "SPC-0B89F8D640"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-data-flow-trace"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Privacy and Data Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Privacy and Data Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Privacy and Data Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5728,7 +7072,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-logging-safety-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when adding or changing logs, metrics, traces, or alerts.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5756,6 +7100,20 @@
       "SPC-EEA9B39F0F",
       "SPC-C595067E22",
       "SPC-FC8CF96A37"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-observability-and-logging"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Logging Safety Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Logging Safety Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Logging Safety Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5790,7 +7148,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-error-handling-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when adding, changing, or reviewing failures, retries, fallbacks, and messages.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5818,6 +7176,21 @@
       "SPC-CE597C98CD",
       "SPC-B96524207B",
       "SPC-71CF36EE63"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-premortem-failure-analysis",
+      "v3-state-management-audit"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Error Handling Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Error Handling Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Error Handling Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5852,7 +7225,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-performance-budget-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when claims or changes affect performance, rendering cost, API use, or bundle weight.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5880,6 +7253,18 @@
       "SPC-EEA9B39F0F",
       "SPC-C595067E22",
       "SPC-FC8CF96A37"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Performance Budget Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Performance Budget Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Performance Budget Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5914,7 +7299,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-dependency-addition-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use before adding packages, frameworks, tools, or external services.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -5942,6 +7327,18 @@
       "SPC-DC6C05703F",
       "SPC-6D43E61D6A",
       "SPC-C1851C2F70"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Dependency Addition Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Dependency Addition Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Dependency Addition Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -5976,7 +7373,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-api-stability-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when public API, schema, route, exported function, or integration behaviour may change.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -6004,6 +7401,20 @@
       "SPC-CE597C98CD",
       "SPC-B96524207B",
       "SPC-71CF36EE63"
+    ],
+    "risk_level": "elevated",
+    "evaluation_cases": [
+      "v3-api-contract-review"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the API Stability Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable API Stability Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate API Stability Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -6038,7 +7449,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-git-hygiene-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when packaging branch changes, commits, generated files, or merge handoffs.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -6066,6 +7477,20 @@
       "SPC-B7DED1701F",
       "SPC-51A2F90F74",
       "SPC-48BCE38DB5"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-final-merge-gate"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Git Hygiene Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Git Hygiene Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Git Hygiene Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -6074,7 +7499,7 @@
     "category": "Template Product",
     "profile": "site-product",
     "path": "docs/template-library/contracts/29-template-library-quality-contract.md",
-    "summary": "Use for this repository’s prompt, skill, and contract assets.",
+    "summary": "Use for this repository\u2019s prompt, skill, and contract assets.",
     "tags": [
       "template product",
       "site product",
@@ -6102,8 +7527,8 @@
       "Premortem failure analysis"
     ],
     "id": "contract-template-library-quality-contract",
-    "version": "2.1.0",
-    "purpose": "Use for this repository’s prompt, skill, and contract assets.",
+    "version": "3.0.0",
+    "purpose": "Use for this repository\u2019s prompt, skill, and contract assets.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
       "docs/template-library/GOVERNANCE-KERNEL.md",
@@ -6130,6 +7555,20 @@
       "SPC-B0F9D04810",
       "SPC-E210F8DD35",
       "SPC-1F6BE8CB53"
+    ],
+    "risk_level": "standard",
+    "evaluation_cases": [
+      "v3-github-pages-template-hub"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Template Library Quality Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Template Library Quality Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Template Library Quality Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   },
   {
@@ -6166,7 +7605,7 @@
       "Premortem failure analysis"
     ],
     "id": "contract-agent-output-format-contract",
-    "version": "2.1.0",
+    "version": "3.0.0",
     "purpose": "Use when agent handoffs must be structured, inspectable, and easy to review.",
     "intended_model_context": "Repository-aware coding agent with local file and verification-command access.",
     "dependencies": [
@@ -6194,6 +7633,20 @@
       "SPC-E15B71EC2C",
       "SPC-1D8AAB4CE5",
       "SPC-F6533D8814"
+    ],
+    "risk_level": "high",
+    "evaluation_cases": [
+      "v3-master-agent-enforcement"
+    ],
+    "required_inputs": [
+      "Reviewable implementation or artefacts within the Agent Output Format Contract boundary.",
+      "Repository-aware coding agent with local file and verification-command access.",
+      "Acceptance evidence and identified owners for every applicable Agent Output Format Contract gate."
+    ],
+    "expected_outputs": [
+      "A gate-by-gate Agent Output Format Contract acceptance decision.",
+      "Source or artefact inspection.",
+      "GOV-HANDOFF-01 contract decision with one controlled final status."
     ]
   }
 ]

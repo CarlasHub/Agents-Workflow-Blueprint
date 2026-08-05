@@ -21,7 +21,7 @@ must_run = [
   "python3 -S scripts/check_research_basis.py",
   "python3 -S scripts/check_licenses.py",
   "python3 -S scripts/build_starter.py --check",
-  "python3 -S scripts/run_evals.py --dry-run",
+  "python3 -S scripts/run_evals.py --dry-run --check",
   "npm run lint",
   "npm run test",
   "npm run test:e2e",

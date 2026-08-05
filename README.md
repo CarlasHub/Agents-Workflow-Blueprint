@@ -44,7 +44,11 @@ The complete worked example in [`examples/worked-example.md`](examples/worked-ex
 | Contract | Hard gates, advisory checks, and acceptance or rejection language. |
 | Starter pack | A curated combination for a common scenario. |
 
-The asset manifest at [`docs/template-library/assets.json`](docs/template-library/assets.json) records each asset's stable ID, version, purpose, category, governance profile, intended model context, dependencies, specialist-control references, and evidence expectations. Migration details are in [`MIGRATION-NOTES.md`](docs/template-library/MIGRATION-NOTES.md).
+The asset manifest at [`docs/template-library/assets.json`](docs/template-library/assets.json) records each asset's stable ID, v3 version, risk level, purpose, category, governance profile, intended model context, required inputs, expected outputs, dependencies, specialist-control references, evidence expectations, and evaluation-case mappings. Migration details are in [`MIGRATION-NOTES.md`](docs/template-library/MIGRATION-NOTES.md).
+
+## v3 prompt quality contract
+
+All 40 prompts now define a specific use boundary and named alternative, four or more required inputs, five to ten domain instructions, conditional decision gates, concrete evidence, failure-and-recovery pairs, rejection conditions, a domain output record, and a worked example. The validator enforces source and composed size bounds, specialist-content ratio, manifest alignment, evaluation coverage, and control resolution. These checks establish deterministic structural quality; they do not prove model effectiveness.
 
 ## Browser-local builder
 
@@ -64,7 +68,7 @@ These are repository-level results for the tested fixtures and environment. They
 
 ## What has not been verified
 
-- No model-based comparative evaluation was executed because no model runtime was supplied; the deterministic evaluation dry run validates fixtures only.
+- No model-based comparative evaluation was executed because no usable model runtime and credential path was available to this repository process; the deterministic evaluation dry run validates fixtures only.
 - No claim of WCAG conformance is made. Automated checks cannot replace manual assistive-technology, reflow, contrast, and usability review.
 - The GitHub Pages deployment is smoke-tested during release: all 100 assets must load, the single-dialog introduction, prompt-code, references, and copy flow must work, and no horizontal overflow may occur at desktop or narrow widths. This is a deployment smoke test, not exhaustive browser or assistive-technology coverage.
 - The repository does not establish production security, legal compliance, universal effectiveness, or fitness for a specific organisation.
@@ -95,7 +99,7 @@ Individual Python checks and local CI equivalents are documented in [`testing-st
 
 ## Evaluation status
 
-[`evals/`](evals) contains eight fictional cases and three conditions: minimal prompt, governance kernel only, and kernel plus specialist assets. `python3 -S scripts/run_evals.py --dry-run` validates the suite and reports prompt sizes without calling a model. Behavioural metrics remain blocked until raw outputs from a disclosed model and configuration are supplied. See [`evaluation-methodology.md`](docs/engineering/evaluation-methodology.md).
+[`evals/`](evals) contains 40 fictional cases covering every prompt and five conditions: minimal, kernel only, frozen v2.1 prompt, v3 prompt, and v3 prompt-plus-skill-plus-contract workflow. `python3 -S scripts/run_evals.py --dry-run --check` validates coverage, composition, frozen baselines, and prompt sizes without calling a model. [`scripts/score_evals.py`](scripts/score_evals.py) validates and scores externally recorded outputs only after complete disclosure and two independent reviews per case and condition. Behavioural metrics remain blocked until such a run exists. See [`evaluation-methodology.md`](docs/engineering/evaluation-methodology.md).
 
 ## Documentation
 

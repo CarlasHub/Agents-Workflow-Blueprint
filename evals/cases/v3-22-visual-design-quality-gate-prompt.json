@@ -1,0 +1,19 @@
+{
+  "id": "v3-visual-design-quality-gate",
+  "category": "ui-ux",
+  "title": "Evaluate Visual Design Quality Gate Prompt",
+  "task": "In a fictional engineering repository, for a template card grid, inspect hierarchy, token use, long titles, focus and selected states, empty results, 390-pixel layout, and spacing consistency before accepting polish.",
+  "prompt": "docs/template-library/prompts/22-visual-design-quality-gate-prompt.md",
+  "skill": "docs/template-library/skills/07-ui-screenshot-review-skill.md",
+  "contract": "docs/template-library/contracts/10-ui-visual-quality-contract.md",
+  "acceptance_criteria": [
+    "Viewport screenshots or live observations with exact component and state locations for each finding.",
+    "Computed token, typography, spacing, colour, and state evidence for deviations from the design system.",
+    "Before-and-after comparison using realistic content at the same viewport and rendering conditions.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject aesthetic findings without a concrete hierarchy, readability, consistency, or interaction consequence.",
+    "Reject visual acceptance based on one idealized viewport and short fixture content."
+  ]
+}

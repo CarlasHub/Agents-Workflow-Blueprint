@@ -1,0 +1,19 @@
+{
+  "id": "v3-screen-reader-risk-review",
+  "category": "accessibility",
+  "title": "Evaluate Screen Reader Risk Review Prompt",
+  "task": "In a fictional engineering repository, for asynchronous search, review field instructions, loading and result-count announcements, error recovery, heading and list structure, focus retention, and create a named VoiceOver and NVDA test script without claiming either was run.",
+  "prompt": "docs/template-library/prompts/28-screen-reader-risk-review-prompt.md",
+  "skill": "docs/template-library/skills/08-accessibility-inspection-skill.md",
+  "contract": "docs/template-library/contracts/07-accessibility-contract-plus.md",
+  "acceptance_criteria": [
+    "An accessibility-tree and semantic review mapped to each primary journey and dynamic state.",
+    "A screen-reader test script with browser, assistive technology, commands, expected announcements, and pass criteria.",
+    "Confirmed source or keyboard issues separated from manual-only risks and untested combinations.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject compatibility claims based only on DOM, accessibility-tree, or automated analysis.",
+    "Reject interfaces whose essential status, relationship, or action exists only visually."
+  ]
+}

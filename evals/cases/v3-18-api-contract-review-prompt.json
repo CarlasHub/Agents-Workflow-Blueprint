@@ -1,0 +1,19 @@
+{
+  "id": "v3-api-contract-review",
+  "category": "api",
+  "title": "Evaluate API Contract Review Prompt",
+  "task": "In a fictional engineering repository, for adding a required field, inspect all consumers and stored requests, reject immediate enforcement, define optional introduction and telemetry, then migrate before making it required.",
+  "prompt": "docs/template-library/prompts/18-api-contract-review-prompt.md",
+  "skill": "docs/template-library/skills/17-api-contract-inspection-skill.md",
+  "contract": "docs/template-library/contracts/27-api-stability-contract.md",
+  "acceptance_criteria": [
+    "A producer-consumer contract matrix covering schemas, defaults, errors, permissions, side effects, and versions.",
+    "Observed request and response evidence for representative success, invalid, authorization, conflict, and limit paths.",
+    "Compatibility, migration, deprecation, rollout, monitoring, and rollback evidence for changed contracts.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject API acceptance based only on schema compilation or happy-path responses.",
+    "Reject breaking changes without explicit versioning, migration, consumer, and rollback evidence."
+  ]
+}

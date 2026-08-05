@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Privacy
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when personal, tenant, customer, analytics, export, or audit data may be col
 
 ## When not to use
 
-Do not use outside this boundary: personal, tenant, customer, analytics, export, or audit data may be collected or exposed. Choose a narrower asset when one matches the task more precisely.
+Do not use Data Privacy Review Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

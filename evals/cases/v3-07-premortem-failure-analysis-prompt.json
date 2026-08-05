@@ -1,0 +1,19 @@
+{
+  "id": "v3-premortem-failure-analysis",
+  "category": "risk",
+  "title": "Evaluate Premortem Failure Analysis Prompt",
+  "task": "In a fictional engineering repository, for a database migration, include partial deployment, lock contention, incompatible readers, failed rollback, and missing backup scenarios; attach rehearsal evidence and block release if forward recovery is undefined.",
+  "prompt": "docs/template-library/prompts/07-premortem-failure-analysis-prompt.md",
+  "skill": "docs/template-library/skills/29-risk-register-skill.md",
+  "contract": "docs/template-library/contracts/24-error-handling-contract.md",
+  "acceptance_criteria": [
+    "A ranked failure register with initiating event, affected asset, detection signal, impact, and recovery difficulty.",
+    "Test, staging, backup, rollback, feature-flag, or monitoring evidence for each critical scenario.",
+    "A documented alternative design comparison focused on reversibility and blast radius.",
+    "Explicit owners and unresolved accepted risks carried into the release decision."
+  ],
+  "failure_signals": [
+    "Reject risk lists that lack detection, containment, or recovery actions.",
+    "Reject release when an unaccepted critical risk has no owner or observable signal."
+  ]
+}

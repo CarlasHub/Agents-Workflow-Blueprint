@@ -1,0 +1,19 @@
+{
+  "id": "v3-feature-implementation",
+  "category": "implementation",
+  "title": "Evaluate Feature Implementation Prompt",
+  "task": "In a fictional engineering repository, for saved dashboard filters, define empty and invalid saved states, permissions, URL and storage compatibility, recovery from deleted filters, focused tests, browser evidence, and a rollout limitation if migration was not exercised.",
+  "prompt": "docs/template-library/prompts/11-feature-implementation-prompt.md",
+  "skill": "docs/template-library/skills/02-implementation-planning-skill.md",
+  "contract": "docs/template-library/contracts/06-test-behaviour-contract.md",
+  "acceptance_criteria": [
+    "A behaviour matrix covering relevant user, API, data, permission, loading, empty, invalid, and error states.",
+    "A change map linking each requirement to implementation owners, tests, documentation, and rollout controls.",
+    "Runtime evidence for the primary journey and at least one integration or failure boundary.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject disconnected partial wiring across UI, API, storage, permissions, tests, or documentation.",
+    "Reject feature completion when edge states or existing-consumer regressions remain hidden."
+  ]
+}

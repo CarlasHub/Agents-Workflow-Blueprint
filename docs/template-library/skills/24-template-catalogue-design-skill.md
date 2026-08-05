@@ -4,7 +4,7 @@
 
 - Type: Skill
 - Category: Template Product
-- Version: 2.1.0
+- Version: 3.0.0
 - Governance profile: `GOV-PROFILE-SKILL`
 
 ## When to use
@@ -13,7 +13,7 @@ Use when organising many templates into categories, starter packs, and discovera
 
 ## When not to use
 
-Do not use outside this boundary: organising many templates into categories, starter packs, and discoverable metadata. Choose a narrower asset when one matches the task more precisely.
+Do not use Template Catalogue Design Skill as standalone authority to change or accept work. Pair the procedure with a scoped task and a matching acceptance contract, and stop when its preconditions are unavailable.
 
 ## Dependencies
 

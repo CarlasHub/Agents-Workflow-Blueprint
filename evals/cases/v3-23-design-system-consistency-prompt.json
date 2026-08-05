@@ -1,0 +1,19 @@
+{
+  "id": "v3-design-system-consistency",
+  "category": "design-system",
+  "title": "Evaluate Design System Consistency Prompt",
+  "task": "In a fictional engineering repository, for three card shadows, determine whether they represent one elevation role, inspect all states and themes, consolidate only semantic duplicates, and migrate consumers with visual regression evidence.",
+  "prompt": "docs/template-library/prompts/23-design-system-consistency-prompt.md",
+  "skill": "docs/template-library/skills/07-ui-screenshot-review-skill.md",
+  "contract": "docs/template-library/contracts/11-design-system-contract.md",
+  "acceptance_criteria": [
+    "A usage inventory mapping components and tokens to surfaces, variants, states, themes, and exceptions.",
+    "Rendered comparisons and source references for each confirmed consistency defect.",
+    "A consumer-aware migration plan with deprecation, tests, visual checks, and rollback.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject consistency changes based only on matching literal values.",
+    "Reject new components or variants that duplicate existing supported behaviour."
+  ]
+}

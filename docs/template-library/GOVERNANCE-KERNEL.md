@@ -1,6 +1,6 @@
 # Governance Kernel
 
-Version: 2.1.0
+Version: 3.0.0
 
 This is the shared control layer for every prompt, skill, and contract in the Agent Workflow Blueprint. Make this file available with any selected asset. If an asset is copied outside the repository, copy this kernel with it or provide equivalent controls explicitly.
 
@@ -72,6 +72,19 @@ Every completed use of an asset must provide:
 - accessibility, security, legal, and release notes when relevant;
 - failures, limitations, and next safe action;
 - one final status from the controlled vocabulary.
+
+Use this common handoff structure once. Place the selected prompt's domain-specific record inside **Findings or implementation result** instead of repeating this schema in every source module.
+
+```markdown
+# Agent workflow handoff
+
+## Scope and inputs
+## Findings or implementation result
+## Decisions and rejected alternative
+## Evidence and failure-path results
+## Remaining risks and required approvals
+## Final status
+```
 
 Implementation, review, specialist review, verification, and release approval remain separate decisions even when one person performs multiple roles.
 

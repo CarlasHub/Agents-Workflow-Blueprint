@@ -1,0 +1,19 @@
+{
+  "id": "v3-responsive-layout-audit",
+  "category": "responsive-ui",
+  "title": "Evaluate Responsive Layout Audit Prompt",
+  "task": "In a fictional engineering repository, for a modal containing prompt code, measure document and dialog overflow at 1440, 390, and 320 pixels, stress long links, and verify the copy control and references remain reachable.",
+  "prompt": "docs/template-library/prompts/24-responsive-layout-audit-prompt.md",
+  "skill": "docs/template-library/skills/07-ui-screenshot-review-skill.md",
+  "contract": "docs/template-library/contracts/12-responsive-behaviour-contract.md",
+  "acceptance_criteria": [
+    "Viewport and zoom matrix results with measured document and component overflow.",
+    "Screenshots or live observations for representative content, interactive states, overlays, and dense regions.",
+    "Source evidence identifying the exact sizing or layout rule responsible for each issue.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject responsive approval based on desktop and one mobile screenshot alone.",
+    "Reject fixes that hide essential content or reorder focus incorrectly."
+  ]
+}

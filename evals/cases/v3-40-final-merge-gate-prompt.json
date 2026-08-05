@@ -1,0 +1,19 @@
+{
+  "id": "v3-final-merge-gate",
+  "category": "release",
+  "title": "Evaluate Final Merge Gate Prompt",
+  "task": "In a fictional engineering repository, for a prompt-library release, bind all 100 assets, validator results, browser UI, evaluation records, docs, CI, Pages build, public smoke test, and live-model limitation to one commit before deciding merge.",
+  "prompt": "docs/template-library/prompts/40-final-merge-gate-prompt.md",
+  "skill": "docs/template-library/skills/30-final-delivery-packaging-skill.md",
+  "contract": "docs/template-library/contracts/28-git-hygiene-contract.md",
+  "acceptance_criteria": [
+    "A requirement-to-commit evidence matrix with exact files, commands, runtime observations, reviewers, and statuses.",
+    "Clean diff, repository status, generated-artifact, dependency, secret, test, browser, and specialist-review evidence.",
+    "Merge, migration, deployment, monitoring, rollback, and remaining-risk decision records for the frozen candidate.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject merge when any material requirement lacks direct evidence or required independent approval.",
+    "Reject merge-ready wording that hides failures, stale evidence, unresolved comments, or recovery gaps."
+  ]
+}

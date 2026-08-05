@@ -1,5 +1,28 @@
 # Asset architecture migration notes
 
+## Version 3.0.0
+
+All 100 stable asset IDs, paths, titles, governance profiles, and specialist-control IDs remain available. The change strengthens prompt sources and machine-readable quality metadata without removing skills, contracts, starter packs, or static-site behavior.
+
+### What changed
+
+- All 40 prompts now include explicit use and non-use boundaries, four or more required inputs, five to ten domain-specific instructions, decision gates, concrete evidence, failure-and-recovery pairs, rejection conditions, a domain output record, and a worked example.
+- The common handoff schema lives once in `GOV-HANDOFF-01`; each prompt contributes only its domain-specific record.
+- The manifest records `risk_level`, `required_inputs`, `expected_outputs`, and `evaluation_cases` for every asset.
+- Every prompt maps to at least one fictional evaluation case. The suite covers 40 cases and compares five conditions, including frozen v2.1 and v3 prompt inputs.
+- Validation enforces prompt source size, composed size, specialist-content ratio, input alignment, conditional gates, concrete evidence, recoveries, rejection conditions, output schema, example quality, evaluation coverage, and existing normalized-control rules.
+- The website still uses one keyboard-accessible dialog. It shows an introduction, complete composed Markdown in a code region, one compact copy icon, and references.
+
+### Adoption
+
+Existing v2.1 links and asset IDs continue to resolve. Recompose copied assets to receive the v3 prompt content:
+
+```bash
+python3 -S scripts/compose_assets.py --asset <asset-id>
+```
+
+Do not replace the frozen files in `evals/baselines/v2.1-composed/`; they are comparison inputs. Deterministic v3 validation does not establish behavioural improvement. Use the recorded-output process in `docs/engineering/evaluation-methodology.md` for that evidence.
+
 ## Version 2.1.0
 
 All 100 stable asset IDs, paths, and titles remain available. Source assets are now concise specialist modules rather than copies of shared policy.

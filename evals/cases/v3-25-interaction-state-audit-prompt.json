@@ -1,0 +1,19 @@
+{
+  "id": "v3-interaction-state-audit",
+  "category": "interaction",
+  "title": "Evaluate Interaction State Audit Prompt",
+  "task": "In a fictional engineering repository, for a save button, verify focus, duplicate activation, pending state, cancellation, server validation, retry, success announcement, and restored availability rather than only hover styling.",
+  "prompt": "docs/template-library/prompts/25-interaction-state-audit-prompt.md",
+  "skill": "docs/template-library/skills/10-keyboard-testing-skill.md",
+  "contract": "docs/template-library/contracts/08-keyboard-interaction-contract.md",
+  "acceptance_criteria": [
+    "A control-state matrix covering trigger, visuals, semantics, focus, announcement, result, and recovery.",
+    "Runtime evidence for primary, loading, error, retry, disabled, and rapid-activation paths.",
+    "Source and test references for the state owner and user-observable assertions.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject state coverage that checks CSS classes without user-observable behaviour.",
+    "Reject controls whose loading, error, disabled, or recovery state is ambiguous."
+  ]
+}

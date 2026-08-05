@@ -79,7 +79,8 @@ test('full asset composition is copy-ready, operational, and source-linked', () 
 
   assert.equal(parseSpecialistControls(registry).size, 2);
   assert.deepEqual(referencedSpecialistControls(source), asset.shared_controls);
-  assert.match(composed, /^# Example\n\n## Role\n\nYou are a reviewer/);
+  assert.match(composed, /^# Example\n\n## Use this when\n\nUse for a focused review/);
+  assert.match(composed, /## Role\n\nYou are a reviewer/);
   assert.ok(composed.indexOf('## Instructions') < composed.indexOf('## Shared specialist requirements'));
   assert.equal((composed.match(/First shared control/g) ?? []).length, 1);
   assert.equal((composed.match(/Second shared control/g) ?? []).length, 1);

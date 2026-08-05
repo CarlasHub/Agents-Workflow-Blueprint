@@ -1,0 +1,19 @@
+{
+  "id": "v3-data-flow-trace",
+  "category": "data-flow",
+  "title": "Evaluate Data Flow Trace Prompt",
+  "task": "In a fictional engineering repository, for an email address, trace form validation, API transport, normalization, storage, search index, audit logs, exports, retention, correction, and deletion across every owner.",
+  "prompt": "docs/template-library/prompts/19-data-flow-trace-prompt.md",
+  "skill": "docs/template-library/skills/20-data-privacy-review-skill.md",
+  "contract": "docs/template-library/contracts/22-privacy-and-data-contract.md",
+  "acceptance_criteria": [
+    "An end-to-end data-flow diagram with actors, stores, transformations, trust boundaries, and owners.",
+    "Schema, code, configuration, message, query, runtime, or log evidence for every material transition.",
+    "Lifecycle evidence for validation, authorization, retries, duplication, retention, export, correction, and deletion.",
+    "Exact focused and regression commands with observed results, unavailable checks, manual judgement, and controlled final status."
+  ],
+  "failure_signals": [
+    "Reject flow maps that stop at the first database or omit retries, exports, logs, and deletion.",
+    "Reject privacy, integrity, or ownership claims based solely on schema names."
+  ]
+}

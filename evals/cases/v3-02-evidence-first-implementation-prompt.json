@@ -1,0 +1,19 @@
+{
+  "id": "v3-evidence-first-implementation",
+  "category": "implementation",
+  "title": "Evaluate Evidence-First Implementation Prompt",
+  "task": "In a fictional engineering repository, for a filename validator, demonstrate the pre-change traversal failure, patch the owning validation function, add empty, absolute, traversal, duplicate, Unicode, and length cases, run focused and full tests, and state any untested filesystem behaviour.",
+  "prompt": "docs/template-library/prompts/02-evidence-first-implementation-prompt.md",
+  "skill": "docs/template-library/skills/02-implementation-planning-skill.md",
+  "contract": "docs/template-library/contracts/02-evidence-contract.md",
+  "acceptance_criteria": [
+    "Before-and-after evidence for the exact behaviour, including the original failing or missing path.",
+    "A file-and-function change map showing why each edit is required and which neighbouring behaviours were preserved.",
+    "Focused and regression command output with passed, failed, skipped, unavailable, and manual checks distinguished.",
+    "Updated behavioural documentation plus explicit accessibility, security, compatibility, and release limitations."
+  ],
+  "failure_signals": [
+    "Reject changes that satisfy the happy path while leaving an applicable failure path untested.",
+    "Reject broad refactors that are not necessary for the requested observable behaviour."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "v3-uncertainty-calibration",
+  "category": "reasoning-control",
+  "title": "Evaluate Uncertainty Calibration Prompt",
+  "task": "In a fictional engineering repository, after tests pass in Chromium only, report that Chromium behaviour is verified, Firefox and WebKit are untested, screen-reader use remains manual, and the overall cross-browser accessibility status is partially verified.",
+  "prompt": "docs/template-library/prompts/05-uncertainty-calibration-prompt.md",
+  "skill": "docs/template-library/skills/05-verification-reporting-skill.md",
+  "contract": "docs/template-library/contracts/02-evidence-contract.md",
+  "acceptance_criteria": [
+    "A claim-confidence table containing evidence type, scope, contradiction, limitation, and calibrated status.",
+    "The commands, runtime observations, samples, or reviewer records used to reduce uncertainty.",
+    "A list of unexecuted decisive checks and why each was unavailable or outside authority.",
+    "Revised public wording that removes unsupported certainty without obscuring useful confirmed facts."
+  ],
+  "failure_signals": [
+    "Reject confidence labels that are not tied to identifiable evidence.",
+    "Reject universal claims derived from narrow fixtures, automation, or one execution environment."
+  ]
+}
