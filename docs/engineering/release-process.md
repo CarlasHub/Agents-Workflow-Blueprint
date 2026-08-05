@@ -14,7 +14,7 @@ npm audit --audit-level=high
 bash scripts/verify-release.sh
 ```
 
-The gate runs Python verification, metadata and licence checks, all-asset deterministic composition, generated-artifact comparison, lint, unit tests, ZIP tests, local-link checks, browser tests, and automated accessibility tests. It must not modify tracked source files.
+The gate runs Python verification, metadata and licence checks, all-asset deterministic composition, generated SEO and source-manifest comparison, lint, unit tests, ZIP tests, local-link checks, browser tests, and automated accessibility tests. It must not modify tracked source files.
 
 ## Evidence
 
@@ -22,7 +22,7 @@ Copy [`release-evidence-template.md`](templates/release-evidence-template.md) an
 
 ## Publication
 
-Release verification does not authorise committing, tagging, pushing, creating a pull request, or publishing GitHub Pages. Those actions require explicit maintainer approval. After deployment, smoke-test canonical links, metadata, homepage search and modal, builder generation, and ZIP download on the deployed URL.
+Release verification does not authorise committing, tagging, pushing, creating a pull request, publishing GitHub Pages, submitting a sitemap, or changing Analytics property settings. Those actions require explicit maintainer approval. After deployment, smoke-test canonical links, metadata, homepage search and modal, static library index, sitemap, builder generation, and ZIP download on the deployed URL. Verify that rejecting Analytics makes no `gtag.js` request, accepting loads only `G-PZEC365PCE`, withdrawal persists, and expected page views appear in Realtime. Use Search Console to submit `https://carlashub.github.io/Agents-Workflow-Blueprint/sitemap.xml` and record the observed processing result; submission is a discovery hint, not indexing proof.
 
 ## Rollback
 

@@ -14,8 +14,9 @@ The test suite separates deterministic source checks, JavaScript units, browser 
 | Evaluation fixtures | `python3 -S scripts/run_evals.py --dry-run --check` | All 40 prompts have cases, five conditions compose, frozen v2.1 baselines exist, and prompt-size output matches the checked-in record. No model is executed. |
 | Recorded evaluation scoring | `python3 -S scripts/score_evals.py --input <recorded-run>` | Disclosures, raw outputs, complete criteria, two independent reviews per case-condition, aggregates, and the finite-suite release gate. Requires externally generated outputs. |
 | ZIP integrity | `npm run test:zip` | CRC-readable archives, UTF-8 content, duplicate or unsafe path rejection, and empty-set rejection. |
-| Browser behaviour | `npm run test:e2e` | Homepage and builder workflows in Chromium, Firefox, and WebKit, including keyboard modal behaviour and extracted ZIP content. |
-| Automated accessibility | `npm run test:a11y` | Axe checks across eight representative page states in Chromium, Firefox, and WebKit plus DOM assertions. |
+| Browser behaviour | `npm run test:e2e` | Homepage, analytics-consent, privacy, static-catalogue, and builder workflows in Chromium, Firefox, and WebKit, including keyboard modal behaviour and extracted ZIP content. |
+| Automated accessibility | `npm run test:a11y` | Axe checks across ten representative page states in Chromium, Firefox, and WebKit plus DOM assertions. |
+| SEO artefacts | `npm run test:seo` | The static 100-asset index, sitemap, and project crawler guidance reproduce from the manifest without drift. |
 | Local links | `npm run test:links` | Repository-relative Markdown and HTML references and local fragments. External URLs are counted but not fetched. |
 | Full local release gate | `bash scripts/verify-release.sh` | All configured deterministic and browser gates in release order. |
 
@@ -34,6 +35,6 @@ The browser server is started by Playwright on `127.0.0.1:4178`. Tests use deter
 
 ## Coverage boundaries
 
-The Chromium, Firefox, and WebKit matrix does not cover every browser version, operating system, screen reader, locale, high-contrast mode, or input device. The link checker does not make network requests. The evaluation dry run proves fixture and composition integrity only. Unit tests prove the repository implementations under test, not the quality of model output or generated downstream systems.
+The Chromium, Firefox, and WebKit matrix does not cover every browser version, operating system, screen reader, locale, high-contrast mode, or input device. Analytics tests intercept the Google script request and prove the local consent controller's request and state transitions; they do not prove deployed data arrival, property configuration, downstream processing, or legal suitability. The link checker does not make network requests. Sitemap checks prove syntax and source alignment, not search-engine discovery or indexing. The evaluation dry run proves fixture and composition integrity only. Unit tests prove the repository implementations under test, not the quality of model output or generated downstream systems.
 
 Add failure cases whenever a parser, validator, router, renderer, path boundary, or public claim changes. Do not replace behavioural assertions with file-count checks.

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-color-mode="dark" data-dark-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
+    <title>Privacy and analytics | Agent Workflow Blueprint</title>
+    <meta name="description" content="Privacy and optional Google Analytics information for Agent Workflow Blueprint.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <link rel="canonical" href="https://carlashub.github.io/Agents-Workflow-Blueprint/privacy.html">
+    <link rel="sitemap" type="application/xml" href="sitemap.xml">
+    <link rel="icon" type="image/png" href="assets/human-body-brand.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Agent Workflow Blueprint">
+    <meta property="og:title" content="Privacy and analytics | Agent Workflow Blueprint">
+    <meta property="og:description" content="How optional Google Analytics measurement works on Agent Workflow Blueprint.">
+    <meta property="og:url" content="https://carlashub.github.io/Agents-Workflow-Blueprint/privacy.html">
+    <meta property="og:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy and analytics | Agent Workflow Blueprint">
+    <meta name="twitter:description" content="How optional Google Analytics measurement works on Agent Workflow Blueprint.">
+    <meta name="twitter:image" content="https://carlashub.github.io/Agents-Workflow-Blueprint/assets/agent-workflow-blueprint-social.png">
+    <meta name="twitter:image:alt" content="Agent Workflow Blueprint: Prompts, Skills and Contracts">
+    <link rel="stylesheet" href="site.css?v=20260805-4">
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to privacy information</a>
+    <header class="site-header">
+      <div class="topbar shell">
+        <a class="brand" href="./">Agent Workflow Blueprint</a>
+        <nav class="site-nav" aria-label="Privacy navigation">
+          <a href="./">Interactive library</a>
+          <a href="library/">Static index</a>
+          <a href="docs/">Documentation</a>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="shell shell-narrow privacy-main">
+      <p class="eyebrow">Privacy</p>
+      <h1>Optional, consent-based analytics.</h1>
+      <p class="hero-lead">The project works without Analytics. Google Analytics loads only after you select “Allow analytics”.</p>
+
+      <section aria-labelledby="collection-title">
+        <h2 id="collection-title">What is measured</h2>
+        <p>When allowed on the deployed site, standard page-view measurement is sent to the GA4 Web stream identified by <code>G-PZEC365PCE</code>. Advertising storage, Google signals, and advertising personalisation are disabled in the site configuration.</p>
+        <p>Google documents that its standard implementation can process user and session counts, approximate location, and browser and device information, and can use a first-party <code>_ga</code> client-ID cookie.</p>
+      </section>
+
+      <section aria-labelledby="choice-title">
+        <h2 id="choice-title">Your choice</h2>
+        <p>Before a choice is made, Analytics storage is denied and the external Google Analytics script is not requested. Rejecting keeps the script unloaded. Allowing loads it and stores the choice in this browser under <code>agent-workflow-blueprint.analytics-consent.v1</code>.</p>
+        <p>Use the persistent <strong>Analytics settings</strong> control to change or withdraw your choice. Withdrawal disables further measurement on the page and removes accessible <code>_ga</code> cookies for this host. Reloading the page keeps Analytics unloaded.</p>
+      </section>
+
+      <section aria-labelledby="boundaries-title">
+        <h2 id="boundaries-title">Review boundaries</h2>
+        <p>The repository verifies its loading and consent behaviour locally. It does not verify Google’s property-level retention settings, downstream processing, legal suitability for a particular visitor or organisation, or deletion of information already transmitted before consent was withdrawn.</p>
+        <p>Review Google’s <a class="inline-link" href="https://support.google.com/analytics/answer/11593727">Analytics data-collection documentation</a> and <a class="inline-link" href="https://policies.google.com/privacy">privacy policy</a> for Google’s own practices.</p>
+      </section>
+
+      <section aria-labelledby="owner-title">
+        <h2 id="owner-title">Project owner</h2>
+        <p>Agent Workflow Blueprint is maintained by Carla Goncalves. Use the project’s <a class="inline-link" href="https://github.com/CarlasHub/Agents-Workflow-Blueprint">GitHub repository</a> for project questions or privacy-related issues.</p>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div><p class="footer-title">Agent Workflow Blueprint</p><p>Browser-local workflows with optional analytics.</p></div>
+        <ul class="footer-links">
+          <li><a href="./">Interactive library</a></li>
+          <li><a href="library/">Static asset index</a></li>
+          <li><a href="docs/">Documentation</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script type="module" src="analytics.js?v=20260805-1" data-analytics-consent data-privacy-href="privacy.html"></script>
+  </body>
+</html>

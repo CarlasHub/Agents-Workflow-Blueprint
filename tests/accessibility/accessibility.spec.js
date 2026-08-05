@@ -25,6 +25,18 @@ test('library controls have no serious automated accessibility violations', asyn
   await expectNoSeriousViolations(page, 'library controls');
 });
 
+test('static asset index has no serious automated accessibility violations', async ({ page }) => {
+  await page.goto('./library/');
+  await expect(page.locator('.asset-card')).toHaveCount(100);
+  await expectNoSeriousViolations(page, 'static asset index');
+});
+
+test('privacy and analytics controls have no serious automated accessibility violations', async ({ page }) => {
+  await page.goto('./privacy.html');
+  await expect(page.getByRole('region', { name: 'Help improve this project?' })).toBeVisible();
+  await expectNoSeriousViolations(page, 'privacy and analytics controls');
+});
+
 test('preview modal has no serious automated accessibility violations', async ({ page }) => {
   await page.goto('./');
   await page.locator('[data-preview-path]').first().click();

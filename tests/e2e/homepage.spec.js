@@ -24,7 +24,7 @@ async function readClipboard(page, browserName) {
 
 test('homepage loads the asset manifest', async ({ page }) => {
   await page.goto('./');
-  await expect(page).toHaveTitle('Agent Workflow Blueprint');
+  await expect(page).toHaveTitle('AI Coding Agent Prompts, Skills & Contracts | Agent Workflow Blueprint');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Control agent work');
   await expect(page.locator('#asset-status')).toHaveText('100 assets shown');
   await expect(page.locator('.asset-card')).toHaveCount(100);
@@ -238,7 +238,51 @@ test('no-JavaScript fallback link exists in the delivered HTML', async ({ reques
   const response = await request.get('./');
   const html = await response.text();
   expect(html).toContain('<noscript>');
-  expect(html).toContain('href="docs/template-library/CATALOGUE.md"');
+  expect(html).toContain('href="library/"');
+});
+
+test('homepage exposes indexable metadata and a large social image', async ({ page, request }) => {
+  await page.goto('./');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index,follow,max-image-preview:large');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://carlashub.github.io/Agents-Workflow-Blueprint/');
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /agent-workflow-blueprint-social\.png$/);
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+  const structuredData = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+  expect(structuredData['@graph'].map((entry) => entry['@type'])).toEqual(['WebSite', 'CollectionPage', 'SoftwareSourceCode', 'Person']);
+
+  const image = await request.get('./assets/agent-workflow-blueprint-social.png');
+  expect(image.ok()).toBe(true);
+  expect(image.headers()['content-type']).toContain('image/png');
+});
+
+test('static library index exposes all assets and submits search to the interactive library', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('./library/');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('100 prompts, skills and contracts');
+  await expect(page.locator('.asset-card')).toHaveCount(100);
+  await expect(page.locator('#prompts .asset-card')).toHaveCount(40);
+  await expect(page.locator('#skills .asset-card')).toHaveCount(30);
+  await expect(page.locator('#contracts .asset-card')).toHaveCount(30);
+  await page.getByRole('searchbox', { name: 'Search the interactive library' }).fill('accessibility');
+  await page.getByRole('button', { name: 'Search' }).click();
+  await expect(page).toHaveURL(/\?assetSearch=accessibility$/);
+  await expect(page.getByRole('searchbox', { name: 'Search assets' })).toHaveValue('accessibility');
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  expect(overflow).toBeLessThanOrEqual(1);
+});
+
+test('sitemap and crawler guidance expose canonical public URLs', async ({ request }) => {
+  const sitemap = await request.get('./sitemap.xml');
+  expect(sitemap.ok()).toBe(true);
+  const sitemapText = await sitemap.text();
+  expect((sitemapText.match(/<url>/g) || []).length).toBe(110);
+  expect(sitemapText).toContain('https://carlashub.github.io/Agents-Workflow-Blueprint/library/');
+  expect(sitemapText).toContain('https://carlashub.github.io/Agents-Workflow-Blueprint/privacy.html');
+  expect(sitemapText).toContain('docs/template-library/prompts/01-master-agent-enforcement-prompt.md');
+
+  const robots = await request.get('./robots.txt');
+  expect(robots.ok()).toBe(true);
+  await expect(robots.text()).resolves.toContain('Sitemap: https://carlashub.github.io/Agents-Workflow-Blueprint/sitemap.xml');
 });
 
 test('homepage has no horizontal overflow at narrow and 400%-equivalent widths', async ({ page }) => {

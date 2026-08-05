@@ -14,7 +14,7 @@ Contributions should be small, reviewable, and aligned with the browser-local st
 
 ## Code and website changes
 
-Preserve the static GitHub Pages and browser-local builder model. Do not add a backend, tracker, secret, paid API, or cloud dependency. Add focused unit, browser, accessibility, and failure-case coverage when behaviour changes.
+Preserve the static GitHub Pages and browser-local builder model. Do not add a backend, secret, paid API, cloud dependency, or analytics tracker without explicit maintainer approval and documented privacy, consent, data-minimisation, and verification boundaries. Preserve the rule that `gtag.js` does not load before explicit consent, keep advertising storage and signals disabled, and retain refusal, persistence, withdrawal, and exact-ID browser coverage. Add focused unit, browser, accessibility, and failure-case coverage when behaviour changes.
 
 ## Verification
 

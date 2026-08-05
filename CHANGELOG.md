@@ -2,6 +2,29 @@
 
 All notable changes are recorded here.
 
+## Unreleased
+
+### Added
+
+- A generated, crawlable HTML catalogue containing all 100 prompts, skills, and contracts, plus a canonical XML sitemap and project crawler guidance.
+- A 1200 × 630 social preview image based on the project mark, with Open Graph and Twitter Card metadata across the public entry pages.
+- Manifest-backed SEO generation, drift checks, Python coverage, browser assertions, and an automated accessibility check for the static catalogue.
+- Search and analytics documentation that separates repository implementation from external Search Console and Google Analytics account actions.
+- A consent-first GA4 integration for measurement ID `G-PZEC365PCE`, a user-facing privacy page, persistent rejection and preference controls, revocation handling, and browser coverage proving that the Google tag stays unloaded before opt-in.
+
+### Changed
+
+- Public entry pages now expose stronger titles and descriptions, canonical and sitemap links, index/follow directives, social metadata, and structured data where applicable.
+- The homepage, documentation, and footer now provide ordinary crawlable links to the static catalogue and sitemap.
+- CI and the consolidated release gate now reject stale generated SEO artefacts.
+- Every public HTML entry point now loads the same local consent controller while preserving the asset preview as the product's only dialog.
+
+### Limitations
+
+- A sitemap is a discovery hint, not proof of search-engine indexing; observed results require post-deployment Search Console verification.
+- Local tests do not prove deployed GA4 data arrival, property-level retention settings, or legal suitability for a visitor or organisation.
+- A project-local `robots.txt` cannot control the shared `github.io` host root; it becomes authoritative only when deployed at the origin root.
+
 ## 3.0.1 — 2026-08-05
 
 ### Added

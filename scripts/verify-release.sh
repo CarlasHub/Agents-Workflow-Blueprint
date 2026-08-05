@@ -10,6 +10,7 @@ python3 -S scripts/check_template_library.py
 python3 -S scripts/compose_assets.py --check
 python3 -S scripts/check_research_basis.py
 python3 -S scripts/check_licenses.py
+python3 -S scripts/build_seo.py --check
 python3 -S scripts/check_links.py
 python3 -S scripts/build_starter.py --check
 python3 -S scripts/run_evals.py --dry-run --check

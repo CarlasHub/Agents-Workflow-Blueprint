@@ -13,7 +13,7 @@ npm run test:a11y
 npm run test:e2e
 ```
 
-The automated suite covers the homepage, library controls, preview dialog, builder landing page, form, preview, assembly, and success states in Chromium, Firefox, and WebKit. Behavioural tests cover initial dialog focus, tab containment, Escape, trigger-focus restoration, background inertness, scoped announcements, accessible errors, and narrow viewport overflow.
+The automated suite covers the homepage, analytics-consent region, privacy page, interactive library controls, preview dialog, static catalogue, builder landing page, form, preview, assembly, and success states in Chromium, Firefox, and WebKit. Behavioural tests cover initial dialog focus, tab containment, Escape, trigger-focus restoration, background inertness, consent choice and withdrawal, scoped announcements, accessible errors, and narrow viewport overflow.
 
 ## Manual checklist
 

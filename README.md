@@ -2,7 +2,7 @@
 
 Agent Workflow Blueprint is a static, browser-local collection of governance assets for making AI-assisted engineering work easier to scope, review, and verify. It is intended for engineering teams, technical leaders, and AI-governance reviewers who need evidence-oriented workflows—not a guarantee that an agent's output is correct.
 
-The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptance contracts, a shared governance kernel, a normalized specialist-control registry, a searchable website, and a browser-local starter-project builder. It has no backend, authentication, paid API, or cloud-service dependency.
+The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptance contracts, a shared governance kernel, a normalized specialist-control registry, a searchable website, a crawlable static asset index, and a browser-local starter-project builder. It has no backend, authentication, paid API, or cloud-service dependency.
 
 ## Who it is for
 
@@ -18,6 +18,8 @@ The repository contains 40 specialist prompts, 30 repeatable skills, 30 acceptan
 3. On the website, open an asset to use one focused dialog containing its applicability guidance, agent-ready prompt/skill/contract body, and linked research and implementation references. Use the compact copy control beside the body; or compose selected IDs with `python3 -S scripts/compose_assets.py --asset <id>`.
 4. Paste the copied body into the agent with the concrete task and repository context. The clipboard contains only executable specialist instructions, shared specialist requirements, and shared operating rules. Applicability, catalogue metadata, and references remain outside the copied body.
 5. Require command output, file evidence, limitations, and one final status: `verified`, `partially verified`, `not verified`, or `blocked`.
+
+Search engines and no-JavaScript users can discover all asset titles and summaries through the generated [`library/`](library) index. [`sitemap.xml`](sitemap.xml) lists the canonical site pages and all 100 source assets.
 
 Example:
 
@@ -59,10 +61,11 @@ The builder normalises project names, validates generated relative paths, preven
 ## What has been verified
 
 - Repository structure, manifest metadata, asset dependencies, normalized controls, deterministic composition, licence files, local links, and generated-manifest reproducibility are checked by scripts.
+- SEO generation checks keep the static 100-asset index, sitemap, crawler guidance, canonical metadata, and social-image references aligned with the manifest.
 - JavaScript unit tests cover text handling, manifest validation, project generation, safe paths, and ZIP integrity.
 - Playwright tests cover homepage search, filters, modal keyboard behaviour, copy fallback, builder intake, file selection, assembly, success, and ZIP extraction.
-- Automated axe checks cover eight representative homepage and builder states in Chromium, Firefox, and WebKit.
-- The release commands and results for the current change are recorded in [`industry-readiness-report.md`](docs/engineering/industry-readiness-report.md).
+- Automated axe checks cover ten representative homepage, privacy, static-catalogue, and builder states in Chromium, Firefox, and WebKit.
+- The release commands, retained failure, and results for this change are recorded in [`2026-08-05-seo-discoverability.md`](docs/engineering/release-evidence/2026-08-05-seo-discoverability.md).
 
 These are repository-level results for the tested fixtures and environment. They do not guarantee correctness for a model, task, browser, assistive technology, or downstream project.
 
@@ -101,6 +104,12 @@ Individual Python checks and local CI equivalents are documented in [`testing-st
 
 [`evals/`](evals) contains 40 fictional cases covering every prompt and five conditions: minimal, kernel only, frozen v2.1 prompt, v3 prompt, and v3 prompt-plus-skill-plus-contract workflow. `python3 -S scripts/run_evals.py --dry-run --check` validates coverage, composition, frozen baselines, and prompt sizes without calling a model. [`scripts/score_evals.py`](scripts/score_evals.py) validates and scores externally recorded outputs only after complete disclosure and two independent reviews per case and condition. Behavioural metrics remain blocked until such a run exists. See [`evaluation-methodology.md`](docs/engineering/evaluation-methodology.md).
 
+## Search and analytics
+
+The homepage, documentation, builder, and static library index expose canonical URLs, index/follow metadata, Open Graph data, a 1200 × 630 social image, and a project sitemap. The static index keeps all 100 asset titles, summaries, types, categories, and source links in delivered HTML instead of relying on crawler-side JavaScript rendering.
+
+This worktree configures GA4 measurement ID `G-PZEC365PCE` through [`analytics.js`](analytics.js). The external Google tag does not load before explicit opt-in. Rejection persists locally, advertising storage and signals remain disabled, and the persistent Analytics settings control supports later withdrawal. See [`privacy.html`](privacy.html) for the user-facing notice. These repository checks do not establish legal suitability or prove that the deployed Analytics property receives data. Search Console ownership and sitemap submission remain external account actions.
+
 ## Documentation
 
 - [Rendered documentation index](docs/index.html)
@@ -108,11 +117,15 @@ Individual Python checks and local CI equivalents are documented in [`testing-st
 - [Testing strategy](docs/engineering/testing-strategy.md)
 - [Accessibility testing](docs/engineering/accessibility-testing.md)
 - [Release process](docs/engineering/release-process.md)
+- [SEO and analytics](docs/engineering/seo-and-analytics.md)
+- [User-facing privacy and analytics notice](privacy.html)
 - [Research basis](docs/template-library/RESEARCH-BASIS.md)
 
 ## Limitations
 
 The assets are prompts and review controls, not policy enforcement. Model behaviour varies. A small local evaluation cannot support broad effectiveness claims. Generated projects require independent engineering, security, accessibility, legal, privacy, and operational review appropriate to their context.
+
+A sitemap is a discovery hint, not proof that Google or another search engine indexed a URL. The project is hosted below a shared `github.io` origin, so the project-local `robots.txt` is not a substitute for host-root crawler policy. Use Search Console URL Inspection and sitemap reporting after publication to verify observed indexing.
 
 ## Licensing
 

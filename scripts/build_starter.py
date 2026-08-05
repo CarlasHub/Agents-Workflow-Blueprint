@@ -18,9 +18,10 @@ ROOT_FILES = {
     "DELIVERY-NOTES.md", "LICENSE", "LICENSE-CODE", "LICENSE-CONTENT", "NOTICE",
     "README.md", "SECURITY.md", "THIRD-PARTY-NOTICES.md",
     "eslint.config.js", "index.html", "package-lock.json", "package.json",
-    "playwright.config.js", "requirements.toml", "site-utils.js", "site.css", "site.js",
+    "analytics.js", "playwright.config.js", "privacy.html", "requirements.toml", "robots.txt", "site-utils.js",
+    "site.css", "site.js", "sitemap.xml",
 }
-SOURCE_DIRS = (".github", "PROMPTS", "assets", "build-project", "docs", "evals", "examples", "scripts", "tests")
+SOURCE_DIRS = (".github", "PROMPTS", "assets", "build-project", "docs", "evals", "examples", "library", "scripts", "tests")
 EXCLUDED_PARTS = {"__pycache__", "node_modules", "playwright-report", "test-results"}
 EXCLUDED_SUFFIXES = {".pyc", ".DS_Store"}
 

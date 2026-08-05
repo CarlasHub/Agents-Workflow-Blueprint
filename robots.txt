@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /Agents-Workflow-Blueprint/
+
+Sitemap: https://carlashub.github.io/Agents-Workflow-Blueprint/sitemap.xml
